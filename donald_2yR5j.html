@@ -3,72 +3,173 @@
 <head>
     <title>Donald's Page</title>
     <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <style>
-        body { font-family: sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #fff; }
-        .back-btn { background: #eee; padding: 5px 10px; text-decoration: none; color: #333; border-radius: 4px; border: 1px solid #ccc; font-size: 0.9em; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #f8f9fa; color: #333; }
         
-        /* MSUB Theme Colors */
-        .commit-banner { background-color: #ffc72c; color: #002f5d; padding: 20px; border-radius: 8px; margin-top: 20px; text-align: center; border: 2px solid #002f5d; }
-        .commit-banner h2 { margin: 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
-        .commit-banner p { margin: 5px 0 0 0; font-weight: bold; }
+        /* Navigation */
+        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
+        .back-btn:hover { background: #eee; }
 
-        h1 { border-bottom: 2px solid #28a745; padding-bottom: 10px; margin-top: 20px; }
-        h3 { margin-top: 30px; color: #333; border-left: 4px solid #007bff; padding-left: 10px; }
+        /* Banner Section */
+        .header-section { text-align: center; margin-bottom: 30px; }
+        h1 { margin: 10px 0 5px 0; color: #002f5d; }
+        .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
+
+        /* The Main Photo Card */
+        .photo-card { 
+            background: white; 
+            padding: 10px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            max-width: 500px; 
+            margin: 0 auto 30px auto; 
+            transition: transform 0.2s;
+        }
+        .photo-card:hover { transform: translateY(-3px); cursor: pointer; }
+        .photo-card img { width: 100%; border-radius: 8px; display: block; }
+        .photo-caption { text-align: center; font-size: 0.9em; color: #007bff; padding-top: 10px; font-weight: bold; }
+
+        /* Grid Layout for Content */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         
-        ul { margin-top: 10px; }
+        /* Content Cards */
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #002f5d; }
+        .card h3 { margin-top: 0; color: #002f5d; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
+        .card-icon { margin-right: 10px; font-size: 1.2em; }
+
+        /* Lists and Links */
+        ul { padding-left: 20px; margin-top: 10px; }
         li { margin-bottom: 8px; }
-        a { color: #007bff; text-decoration: none; font-weight: 500; }
-        a:hover { text-decoration: underline; }
+        a { color: #0056b3; text-decoration: none; font-weight: 500; }
+        a:hover { text-decoration: underline; color: #002f5d; }
 
-        /* Photo Grid Styles */
-        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .photo-card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .photo-card img { width: 100%; height: auto; display: block; }
-        .caption { padding: 10px; font-size: 0.85em; background: #f9f9f9; text-align: center; color: #555; }
+        /* Timeline Styles */
+        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 15px; border-left: 2px solid #ffc72c; }
+        .timeline-date { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
+        .timeline-title { font-weight: bold; color: #333; }
+        .timeline-desc { font-size: 0.95em; color: #555; }
+
+        /* PR Grid */
+        .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .pr-item { background: #fdfdfd; padding: 10px; border: 1px solid #eee; border-radius: 5px; text-align: center; }
+        .pr-event { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+        .pr-time { font-weight: bold; font-size: 1.1em; color: #002f5d; }
+
+        /* Buttons for Links */
+        .link-btn { display: block; background: #f8f9fa; padding: 10px; margin-bottom: 8px; text-align: center; border-radius: 5px; border: 1px solid #eee; transition: background 0.2s; }
+        .link-btn:hover { background: #e9ecef; text-decoration: none; }
+        .msub-btn { background: #ffc72c; color: #002f5d; border-color: #e0ac1b; font-weight: bold; }
+        .msub-btn:hover { background: #e0ac1b; }
+
     </style>
 </head>
 <body>
+
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
-    <div class="commit-banner">
-        <h2>Signed: MSU Billings</h2>
-        <p>Cross Country & Track Field | Class of 2030</p>
-        <p>Go Yellowjackets! 🐝</p>
-    </div>
-    
-    <h1>👟 Donald Voetberg</h1>
-    <p><strong>SPASH Class of 2026</strong> | Distance Running</p>
-    
-    <h3>📸 Signing Day & Highlights</h3>
-    <div class="photo-grid">
-        <div class="photo-card">
-            <img src="donald_signing.jpg" alt="Signing Day">
-            <div class="caption">Official Signing: Nov 12, 2025</div>
-        </div>
-        <div class="photo-card">
-            <img src="donald_run.jpg" alt="Running Action">
-            <div class="caption">Senior Year Campaign</div>
-        </div>
-        <div class="photo-card">
-            <img src="donald_insta.jpg" alt="Announcement">
-            <div class="caption">Welcome to the Family</div>
-        </div>
+    <div class="header-section">
+        <h1>Donald Voetberg</h1>
+        <div class="subtitle">SPASH Class of 2026 | MSUB Commit</div>
     </div>
 
-    <h3>📰 Media Coverage: The Historic "4-Peat"</h3>
-    <ul>
-        <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank"><strong>WAOW:</strong> "Four Straight and Forever" - SPASH Seniors Historic Win</a></li>
-        <li><a href="https://www.waupacanow.com/stories/spash-continues-cross-country-dynasty-area-runners-compete-at-state,302181" target="_blank"><strong>Waupaca Now:</strong> SPASH Continues Cross Country Dynasty</a></li>
-        <li><a href="https://www.wausaudailyherald.com/story/sports/high-school/2025/11/04/central-wisconsin-hs-runners-dominate-state-other-top-performances/87007088007" target="_blank"><strong>Wausau Daily Herald:</strong> Central WI Runners Dominate State</a></li>
-        <li><a href="https://www.instagram.com/p/DRAMQc_DmlS/" target="_blank"><strong>Instagram:</strong> Official Signing Post</a></li>
-    </ul>
+    <a href="https://www.instagram.com/p/DRAMQc_DmlS/" target="_blank" title="View on Instagram">
+        <div class="photo-card">
+            <img src="donald_signing.jpg" alt="Donald Signing Day">
+            <div class="photo-caption">📸 View Official Announcement on Instagram</div>
+        </div>
+    </a>
 
-    <h3>📂 Documents & Info</h3>
-    <ul>
-        <li><strong>NLI Status:</strong> Signed (Nov 2025)</li>
-        <li><strong>Passport:</strong> Renewed Dec 2025</li>
-        <li><a href="https://www.spashtrack.com/" target="_blank">SPASH Boys Track & Field Official Site</a></li>
-    </ul>
+    <div class="grid-container">
+        
+        <div class="col-left">
+            <div class="card">
+                <h3><span class="card-icon">📅</span>What's Happening</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 12, 2025</div>
+                    <div class="timeline-title">Official Signing Day</div>
+                    <div class="timeline-desc">Signed NLI to compete for MSU Billings (NCAA D2).</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2025</div>
+                    <div class="timeline-title">State Champions (4-Peat!)</div>
+                    <div class="timeline-desc">Lead SPASH to a historic 4th consecutive State Title.</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2024</div>
+                    <div class="timeline-title">State Champions (Junior Year)</div>
+                    <div class="timeline-desc">Team State Title #3.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">May 18, 2026</div>
+                    <div class="timeline-title">Upcoming: Conference Meet</div>
+                    <div class="timeline-desc">Varsity Spring Track @ Wausau East.</div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">📰</span>Media Coverage</h3>
+                <ul>
+                    <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank">WAOW: "Four Straight and Forever"</a></li>
+                    <li><a href="https://www.waupacanow.com/stories/spash-continues-cross-country-dynasty-area-runners-compete-at-state,302181" target="_blank">Waupaca Now: Dynasty Continues</a></li>
+                    <li><a href="https://www.wausaudailyherald.com/story/sports/high-school/2025/11/04/central-wisconsin-hs-runners-dominate-state-other-top-performances/87007088007" target="_blank">Wausau Daily Herald Feature</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-right">
+            
+            <div class="card">
+                <h3><span class="card-icon">🏆</span>Accolades</h3>
+                <ul>
+                    <li><strong>4x State Team Champion</strong> (XC)</li>
+                    <li><strong>1st Team All-Conference</strong> (2025)</li>
+                    <li><strong>2nd Team All-Conference</strong> (2024)</li>
+                    <li>Varsity Letter Winner (4 Years)</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">⏱️</span>Personal Records</h3>
+                <div class="pr-grid">
+                    <div class="pr-item">
+                        <div class="pr-event">5k (XC)</div>
+                        <div class="pr-time">15:42</div> </div>
+                    <div class="pr-item">
+                        <div class="pr-event">3200m</div>
+                        <div class="pr-time">9:45</div> </div>
+                    <div class="pr-item">
+                        <div class="pr-event">1600m</div>
+                        <div class="pr-time">4:28</div> </div>
+                    <div class="pr-item">
+                        <div class="pr-event">800m</div>
+                        <div class="pr-time">2:01</div> </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🔗</span>Profiles & Teams</h3>
+                
+                <a href="https://msubsports.com/sports/mens-cross-country" target="_blank" class="link-btn msub-btn">
+                    🐝 MSUB Men's XC Home
+                </a>
+                
+                <a href="https://www.athletic.net/" target="_blank" class="link-btn">
+                    📊 Athletic.net Profile
+                </a>
+                
+                <a href="https://wi.milesplit.com/" target="_blank" class="link-btn">
+                    🏃‍♂️ MileSplit Profile
+                </a>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>
