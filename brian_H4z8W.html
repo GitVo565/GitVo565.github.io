@@ -3,21 +3,205 @@
 <head>
     <title>Brian's Page</title>
     <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <style>
-        body { font-family: sans-serif; padding: 40px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #fff; }
-        .back-btn { background: #eee; padding: 5px 10px; text-decoration: none; color: #333; border-radius: 4px; border: 1px solid #ccc; }
-        h1 { border-bottom: 2px solid #17a2b8; padding-bottom: 10px; } /* Butler Blue-ish */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #f8f9fa; color: #333; }
+        
+        /* Navigation */
+        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
+        .back-btn:hover { background: #eee; }
+
+        /* Banner & Headers */
+        .header-section { text-align: center; margin-bottom: 30px; }
+        h1 { margin: 10px 0 5px 0; color: #10315c; } /* Butler Navy */
+        .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
+
+        /* Photo Card */
+        .photo-card { 
+            background: white; 
+            padding: 10px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            max-width: 500px; 
+            margin: 0 auto 30px auto; 
+            transition: transform 0.2s;
+        }
+        .photo-card:hover { transform: translateY(-3px); cursor: pointer; }
+        .photo-card img { width: 100%; border-radius: 8px; display: block; }
+        .photo-caption { text-align: center; font-size: 0.9em; color: #10315c; padding-top: 10px; font-weight: bold; }
+
+        /* Highlight Banner */
+        .highlight-banner { background-color: #10315c; color: white; padding: 15px; border-radius: 8px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 10px rgba(16, 49, 92, 0.3); }
+        .highlight-banner h2 { margin: 0; font-size: 1.4em; }
+        .highlight-banner p { margin: 5px 0 0 0; opacity: 0.9; }
+
+        /* Grid Layout */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        /* Cards */
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #10315c; }
+        .card h3 { margin-top: 0; color: #10315c; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
+        .card-icon { margin-right: 10px; font-size: 1.2em; }
+
+        /* Timeline */
+        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 15px; border-left: 2px solid #17a2b8; }
+        .timeline-date { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
+        .timeline-title { font-weight: bold; color: #333; }
+        .timeline-desc { font-size: 0.95em; color: #555; }
+        .timeline-link { font-size: 0.9em; color: #007bff; text-decoration: none; }
+        .timeline-link:hover { text-decoration: underline; }
+
+        /* Unified Link Buttons */
+        .link-btn { 
+            display: flex; align-items: center; justify-content: center;
+            background: #fff; padding: 15px; margin-bottom: 10px; 
+            border-radius: 6px; border: 1px solid #eee; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.2s ease; color: #333; font-weight: 600; text-decoration: none;
+        }
+        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); color: #000; }
+        
+        /* Brand Colors for Buttons */
+        .btn-grad { border-left: 6px solid #d9534f; }
+        .btn-linkedin { border-left: 6px solid #0077b5; }
+        .btn-insta { border-left: 6px solid #E1306C; }
+        .btn-sports { border-left: 6px solid #28a745; }
+
+        /* Tags for Interests */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #e3f2fd; color: #10315c; padding: 5px 10px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
+
+        /* Footer */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #eee; text-align: right; font-size: 0.75em; color: #aaa; }
+        ul { padding-left: 20px; margin-top: 5px; }
+        li { margin-bottom: 5px; }
     </style>
 </head>
 <body>
+
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
-    <h1>🎓 Brian Voetberg</h1>
-    <p><strong>Butler University</strong> | Finance & Risk Management</p>
-    
-    <h3>School Updates</h3>
-    <p>Current Standing: Class of 2027 (approx)</p>
-    <p>Currently managing own tax filings as of 2025.</p>
+    <div class="header-section">
+        <h1>Brian Voetberg</h1>
+        <div class="subtitle">Butler University | Class of 2027</div>
+    </div>
+
+    <a href="https://www.linkedin.com/in/brian-voetberg" target="_blank" title="View LinkedIn">
+        <div class="photo-card">
+            <img src="brian.jpg" alt="Brian at Butler">
+            <div class="photo-caption">🎓 Finance & Risk Management Major</div>
+        </div>
+    </a>
+
+    <div class="highlight-banner">
+        <h2>🐶 Meet Your RA (D2)</h2>
+        <p>Lounge by Room D216 | "Blue Wants You!"</p>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="col-left">
+            <div class="card">
+                <h3><span class="card-icon">💼</span>Experience & Leadership</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Summer 2025</div>
+                    <div class="timeline-title">Captive Consulting Intern</div>
+                    <div class="timeline-desc">Hylant Insurance (Top 2 in Intern Competition).</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - 2026</div>
+                    <div class="timeline-title">President: FMA</div>
+                    <div class="timeline-desc">Leading the Butler Financial Management Association.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Present</div>
+                    <div class="timeline-title">Senior Residential Assistant</div>
+                    <div class="timeline-desc">Managing budgets and building community in ResLife.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Spring 2024</div>
+                    <div class="timeline-title">CFO: Dawg Water</div>
+                    <div class="timeline-desc">Co-founded a bottled water company for RBE class (20% profit).</div>
+                </div>
+
+                <div class="timeline-item" style="border-left-color: #d9534f;">
+                    <div class="timeline-date">May 2023</div>
+                    <div class="timeline-title">HS Valedictorian</div>
+                    <div class="timeline-desc">
+                        Appleton West High School.<br>
+                        <a href="https://www.youtube.com/watch?v=wx79eeQySV4" target="_blank" class="timeline-link">🎥 Watch Graduation Speech</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">📚</span>Academics</h3>
+                <ul>
+                    <li><strong>Major:</strong> Finance & Risk Management</li>
+                    <li><strong>Minor:</strong> Spanish</li>
+                    <li><strong>GPA:</strong> 3.98 / 4.0</li>
+                    <li><strong>Honors:</strong> Dean's List (2023, 2024)</li>
+                    <li><strong>Research:</strong> CFA Challenge (Simon Property Group)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-right">
+            
+            <div class="card">
+                <h3><span class="card-icon">😎</span>Personal & Hobbies</h3>
+                <p><strong>Loves:</strong> Spreadsheets, Reading, Running, The Packers.</p>
+                <p><strong>Music:</strong> Unapologetically listening to Nickelback.</p>
+                <p><strong>Fun Fact:</strong> Founder of the Butler Wrestling Club.</p>
+                
+                <div class="tag-container" style="margin-top: 15px;">
+                    <span class="tag">Memes</span>
+                    <span class="tag">Spreadsheets</span>
+                    <span class="tag">Flag Football</span>
+                    <span class="tag">Wallace 🐶</span>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🔗</span>Connect & Follow</h3>
+                
+                <a href="https://www.linkedin.com/in/brian-voetberg" target="_blank" class="link-btn btn-linkedin">
+                    👔 LinkedIn Profile
+                </a>
+
+                <a href="https://www.instagram.com/brianvoetberg/?hl=en" target="_blank" class="link-btn btn-insta">
+                    📸 Brian's Instagram
+                </a>
+
+                <a href="https://www.instagram.com/butler_fma/" target="_blank" class="link-btn btn-insta">
+                    📈 Butler FMA Instagram
+                </a>
+
+                <a href="https://www.fvasports.net/page/show/6741967-brian-voetberg-appleton-west" target="_blank" class="link-btn btn-sports">
+                    🏃‍♂️ HS Sports Archive
+                </a>
+                
+                <p style="text-align: center; margin-top: 10px; font-size: 0.9em; color: #888;">
+                    Email: bvoetberg@butler.edu
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated"></span>
+    </div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
 
 </body>
 </html>
