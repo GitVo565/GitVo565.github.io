@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voetberg Photo Albums</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background: #222; color: #fff; text-align: center; }
+        
+        /* Navigation */
+        .back-btn { display: inline-block; background: #333; padding: 8px 15px; text-decoration: none; color: #fff; border-radius: 20px; border: 1px solid #555; margin-bottom: 20px; transition: 0.2s; }
+        .back-btn:hover { background: #444; }
 
+        h1 { margin: 10px 0; letter-spacing: 1px; }
+        p { color: #aaa; margin-bottom: 30px; }
+
+        /* Masonry Grid Layout */
+        .gallery { column-count: 1; column-gap: 15px; max-width: 1000px; margin: 0 auto; }
+        @media (min-width: 600px) { .gallery { column-count: 2; } }
+        @media (min-width: 900px) { .gallery { column-count: 3; } }
+
+        /* Album Cards */
+        .album-card { 
+            background: #fff; 
+            color: #333;
+            margin-bottom: 15px; 
+            break-inside: avoid; 
+            border-radius: 8px; 
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: block;
+            position: relative;
+        }
+        .album-card:hover { transform: scale(1.02); cursor: pointer; }
+        
+        /* Image Handling */
+        .album-card img { width: 100%; display: block; opacity: 0.95; transition: opacity 0.2s; }
+        .album-card:hover img { opacity: 1; }
+
+        .caption { padding: 15px; text-align: left; }
+        .caption h3 { margin: 0 0 5px 0; color: #000; font-size: 1.1em; display: flex; align-items: center; justify-content: space-between; }
+        .caption p { margin: 0; font-size: 0.9em; color: #555; }
+        .date { font-size: 0.75em; color: #888; text-transform: uppercase; margin-bottom: 5px; display: block; }
+        
+        .icon { font-size: 0.8em; color: #007bff; }
+
+        /* Categories */
+        .tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.7em; font-weight: bold; color: white; margin-top: 8px; }
+        .tag-family { background: #007bff; }
+        .tag-pets { background: #28a745; }
+        .tag-school { background: #6f42c1; }
+        .tag-sports { background: #fd7e14; }
+
+    </style>
+</head>
+<body>
+
+    <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
+    
+    <h1>📸 Photo Albums</h1>
+    <p>Click a card to view the full album on Google Photos.</p>
+
+    <div class="gallery">
+
+        <a href="https://photos.app.goo.gl/JiEHgMDBsvhZvmHG6" target="_blank" class="album-card">
+            <img src="ice_fishing.jpg" alt="Ice Fishing Cover">
+            <div class="caption">
+                <span class="date">Winter 2025</span>
+                <h3>Ice Fishing Adventure <span class="icon">↗</span></h3>
+                <p>Catching sunsets and fish on the hard water.</p>
+                <span class="tag tag-family">Family</span>
+            </div>
+        </a>
+        
+        <a href="https://photos.app.goo.gl/h8XbJS3dgzHdfAdR6" target="_blank" class="album-card">
+            <img src="donald_signing.jpg" alt="Signing Day Cover">
+            <div class="caption">
+                <span class="date">Nov 2025</span>
+                <h3>Donald Signing Day <span class="icon">↗</span></h3>
+                <p>Full album of the MSUB signing ceremony and family photos.</p>
+                <span class="tag tag-sports">Sports</span>
+            </div>
+        </a>
+
+        <a href="INSERT_GOOGLE_LINK_HERE" target="_blank" class="album-card">
+            <img src="tacie_run.jpg" alt="Tacie Running Cover">
+            <div class="caption">
+                <span class="date">2024 - 2025</span>
+                <h3>Tacie's Season Highlights <span class="icon">↗</span></h3>
+                <p>NXR, Gene LaRose, and Conference meets.</p>
+                <span class="tag tag-sports">Sports</span>
+            </div>
+        </a>
+
+        <a href="INSERT_GOOGLE_LINK_HERE" target="_blank" class="album-card">
+            <img src="family.jpg" alt="Family Vacation Cover">
+            <div class="caption">
+                <span class="date">Summer 2025</span>
+                <h3>Family Adventures <span class="icon">↗</span></h3>
+                <p>Trip photos and summer fun.</p>
+                <span class="tag tag-family">Family</span>
+            </div>
+        </a>
+
+        <a href="INSERT_GOOGLE_LINK_HERE" target="_blank" class="album-card">
+            <img src="brian.jpg" alt="Brian Cover">
+            <div class="caption">
+                <span class="date">2025</span>
+                <h3>Brian @ Butler <span class="icon">↗</span></h3>
+                <p>Move-in day and campus visits.</p>
+                <span class="tag tag-school">School</span>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
