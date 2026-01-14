@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sir Wallace's Page</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #fdfdfd; color: #333; }
+        
+        /* Navigation */
+        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
+        .back-btn:hover { background: #eee; }
+
+        /* Banner & Headers */
+        .header-section { text-align: center; margin-bottom: 30px; }
+        h1 { margin: 10px 0 5px 0; color: #d35400; } /* Corgi Red/Orange */
+        .subtitle { color: #666; font-weight: 500; font-size: 1.1em; font-style: italic; }
+
+        /* Photo Card */
+        .photo-card { 
+            background: white; 
+            padding: 15px; 
+            border-radius: 50%; /* Circular Portrait */
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border: 5px solid #d35400;
+            overflow: hidden;
+        }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Grid Layout */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        /* Cards */
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 5px solid #28a745; /* Green for his harness */ }
+        .card h3 { margin-top: 0; color: #28a745; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
+        .card-icon { margin-right: 10px; font-size: 1.2em; }
+        
+        /* Special Style for Royal Lineage */
+        .royal-card { border-left-color: #d35400; }
+        .royal-card h3 { color: #d35400; }
+
+        /* Lists */
+        ul { padding-left: 20px; margin-top: 10px; }
+        li { margin-bottom: 8px; }
+
+        /* Growth Table */
+        .growth-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .growth-table td { padding: 8px; border-bottom: 1px solid #eee; }
+        .growth-table tr:last-child td { border-bottom: none; font-weight: bold; color: #d35400; }
+
+        /* Link Buttons */
+        .link-btn { 
+            display: flex; align-items: center; justify-content: center;
+            background: #fff; padding: 15px; margin-top: 15px;
+            border-radius: 6px; border: 1px solid #eee; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.2s ease; color: #333; font-weight: 600; text-decoration: none;
+            border-left: 5px solid #d35400; /* Orange Accent */
+        }
+        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); color: #d35400; }
+
+        /* Footer */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #eee; text-align: right; font-size: 0.75em; color: #aaa; }
+    </style>
+</head>
+<body>
+
+    <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
+    
+    <div class="header-section">
+        <div class="photo-card">
+            <img src="wallace.jpg" alt="Sir Wallace">
+        </div>
+
+        <h1>🐾 Sir Wallace of Unionshire</h1>
+        <div class="subtitle">"The Guardian of the Wooded Lot"</div>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="col-left">
+            
+            <div class="card">
+                <h3><span class="card-icon">🐕</span>Vital Statistics</h3>
+                <ul>
+                    <li><strong>Breed:</strong> Pembroke Welsh Corgi</li>
+                    <li><strong>Color:</strong> Red & White</li>
+                    <li><strong>Birthday:</strong> March 1, 2023</li>
+                    <li><strong>Hometown:</strong> Stevens Point, WI</li>
+                    <li><strong>Known Alias:</strong> "Wallace" (Formerly "Zeke")</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🎾</span>Personality Profile</h3>
+                <p><strong>Motivation:</strong> Highly play-motivated. While treats are good, <em>The Ball</em> is life.</p>
+                <p><strong>Signature Look:</strong> Often spotted sporting a green harness and matching leash.</p>
+                <p><strong>Enemies:</strong> German Shepherds. (He has his reasons).</p>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🧚</span>Corgi Folklore</h3>
+                <p><strong>The Fairy Saddle:</strong> Wallace possesses the faint line of rougher fur on his haunches. Legend says this is where Welsh fairies saddled Corgis to ride them into battle!</p>
+                <p><strong>The Sploot:</strong> Like all true Corgis, Wallace is a master of the "Sploot"—laying flat with hind legs stretched straight back.</p>
+            </div>
+
+        </div>
+
+        <div class="col-right">
+            
+            <div class="card" style="border-left-color: #007bff;">
+                <h3><span class="card-icon">📸</span>Media & Gallery</h3>
+                <p>See Wallace in action, from puppy days to patrol duty.</p>
+                <a href="https://photos.app.goo.gl/qttibN4R39jZm41M7" target="_blank" class="link-btn">
+                    View Google Photo Album ↗
+                </a>
+            </div>
+
+            <div class="card royal-card" style="margin-top: 20px;">
+                <h3><span class="card-icon">👑</span>Royal Lineage</h3>
+                <p><strong>Registered Name:</strong> Sir Wallace of Unionshire</p>
+                <p><strong>Breeder:</strong> Wind Dial Farm LLC</p>
+                <ul>
+                    <li><strong>Sire (Father):</strong> CH Wind Dials Charlemagne</li>
+                    <li><strong>Dam (Mother):</strong> Silence Before Storm Valhalos Sargas</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🌲</span>The Estate</h3>
+                <p>Wallace patrols a beautiful wooded lot in Stevens Point. It features classic Wisconsin landscapes—woods and prairies perfect for exploration (and squirrels).</p>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">📈</span>Growth Journey</h3>
+                <table class="growth-table">
+                    <tr>
+                        <td>June 2023 (Puppy)</td>
+                        <td>12.2 lbs</td>
+                    </tr>
+                    <tr>
+                        <td>January 2026 (Adult)</td>
+                        <td>33.5 lbs</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated"></span>
+    </div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
+
+</body>
+</html>
