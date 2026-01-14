@@ -8,16 +8,13 @@
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #f8f9fa; color: #333; }
         
-        /* Navigation */
         .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
         .back-btn:hover { background: #eee; }
 
-        /* Banner Section */
         .header-section { text-align: center; margin-bottom: 30px; }
         h1 { margin: 10px 0 5px 0; color: #002f5d; }
         .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
 
-        /* The Main Photo Card */
         .photo-card { 
             background: white; 
             padding: 10px; 
@@ -31,37 +28,33 @@
         .photo-card img { width: 100%; border-radius: 8px; display: block; }
         .photo-caption { text-align: center; font-size: 0.9em; color: #007bff; padding-top: 10px; font-weight: bold; }
 
-        /* Grid Layout for Content */
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         
-        /* Content Cards */
         .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #002f5d; }
         .card h3 { margin-top: 0; color: #002f5d; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
         .card-icon { margin-right: 10px; font-size: 1.2em; }
 
-        /* Lists and Links */
         ul { padding-left: 20px; margin-top: 10px; }
         li { margin-bottom: 8px; }
         a { color: #0056b3; text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; color: #002f5d; }
 
-        /* Timeline Styles */
         .timeline-item { position: relative; padding-left: 20px; margin-bottom: 15px; border-left: 2px solid #ffc72c; }
         .timeline-date { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
         .timeline-title { font-weight: bold; color: #333; }
         .timeline-desc { font-size: 0.95em; color: #555; }
 
-        /* PR Grid */
         .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .pr-item { background: #fdfdfd; padding: 10px; border: 1px solid #eee; border-radius: 5px; text-align: center; }
         .pr-event { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px; }
         .pr-time { font-weight: bold; font-size: 1.1em; color: #002f5d; }
+        .pr-meet { font-size: 0.75em; color: #888; margin-top: 2px; }
 
-        /* Buttons for Links */
         .link-btn { display: block; background: #f8f9fa; padding: 10px; margin-bottom: 8px; text-align: center; border-radius: 5px; border: 1px solid #eee; transition: background 0.2s; }
         .link-btn:hover { background: #e9ecef; text-decoration: none; }
         .msub-btn { background: #ffc72c; color: #002f5d; border-color: #e0ac1b; font-weight: bold; }
         .msub-btn:hover { background: #e0ac1b; }
+        .insta-btn { border-left: 5px solid #E1306C; }
 
     </style>
 </head>
@@ -96,13 +89,19 @@
                 <div class="timeline-item">
                     <div class="timeline-date">Nov 2025</div>
                     <div class="timeline-title">State Champions (4-Peat!)</div>
-                    <div class="timeline-desc">Lead SPASH to a historic 4th consecutive State Title.</div>
+                    <div class="timeline-desc">Varsity runner on the historic 4th consecutive State Title team.</div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-date">Oct 2024</div>
                     <div class="timeline-title">State Champions (Junior Year)</div>
-                    <div class="timeline-desc">Team State Title #3.</div>
+                    <div class="timeline-desc">Varsity runner for Team State Title #3.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2023</div>
+                    <div class="timeline-title">State Champions (Sophomore)</div>
+                    <div class="timeline-desc">Team Alternate for State Title #2.</div>
                 </div>
 
                 <div class="timeline-item">
@@ -115,7 +114,9 @@
             <div class="card" style="margin-top: 20px;">
                 <h3><span class="card-icon">📰</span>Media Coverage</h3>
                 <ul>
-                    <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank">WAOW: "Four Straight and Forever"</a></li>
+                    <li><a href="https://www.waow.com/news/top-stories/area-athletes-make-college-dreams-official-on-ncaa-early-signing-day/article_32beccca-1fd5-41c9-9e26-ea3c2acf929d.html" target="_blank">WAOW: Area Athletes Make College Dreams Official</a></li>
+                    <li><a href="https://www.stevenspointjournal.com/picture-gallery/sports/high-school/2025/11/12/see-best-photos-of-spash-athletes-at-early-signing-day/87234625007/" target="_blank">Stevens Point Journal: Best Photos of Signing Day</a></li>
+                    <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank">WAOW: "Four Straight and Forever" (4-Peat)</a></li>
                     <li><a href="https://www.waupacanow.com/stories/spash-continues-cross-country-dynasty-area-runners-compete-at-state,302181" target="_blank">Waupaca Now: Dynasty Continues</a></li>
                     <li><a href="https://www.wausaudailyherald.com/story/sports/high-school/2025/11/04/central-wisconsin-hs-runners-dominate-state-other-top-performances/87007088007" target="_blank">Wausau Daily Herald Feature</a></li>
                 </ul>
@@ -128,9 +129,12 @@
                 <h3><span class="card-icon">🏆</span>Accolades</h3>
                 <ul>
                     <li><strong>4x State Team Champion</strong> (XC)</li>
-                    <li><strong>1st Team All-Conference</strong> (2025)</li>
-                    <li><strong>2nd Team All-Conference</strong> (2024)</li>
-                    <li>Varsity Letter Winner (4 Years)</li>
+                    <li><strong>Roy Griak Invitational Champion</strong> (Team)</li>
+                    <li><strong>2x First Team All-Conference</strong> (XC - Jr. & Fr.)</li>
+                    <li><strong>State Qualifier</strong> (XC)</li>
+                    <li><strong>Sectional Qualifier</strong> (Track - 3200m)</li>
+                    <li><strong>8x Varsity Letter Winner</strong> (4 XC, 4 Track)</li>
+                    <li><strong>Scholar Athlete</strong> (Honor Roll & Academic Excellence Awards)</li>
                 </ul>
             </div>
 
@@ -138,17 +142,25 @@
                 <h3><span class="card-icon">⏱️</span>Personal Records</h3>
                 <div class="pr-grid">
                     <div class="pr-item">
-                        <div class="pr-event">5k (XC)</div>
-                        <div class="pr-time">15:42</div> </div>
-                    <div class="pr-item">
-                        <div class="pr-event">3200m</div>
-                        <div class="pr-time">9:45</div> </div>
+                        <div class="pr-event">800m</div>
+                        <div class="pr-time">1:59.67</div>
+                        <div class="pr-meet">Spartan Invite (5/9/25)</div>
+                    </div>
                     <div class="pr-item">
                         <div class="pr-event">1600m</div>
-                        <div class="pr-time">4:28</div> </div>
+                        <div class="pr-time">4:27.23</div>
+                        <div class="pr-meet">WVC Conference (5/22/25)</div>
+                    </div>
                     <div class="pr-item">
-                        <div class="pr-event">800m</div>
-                        <div class="pr-time">2:01</div> </div>
+                        <div class="pr-event">3200m</div>
+                        <div class="pr-time">9:56.97</div>
+                        <div class="pr-meet">Ripon Showcase (3/29/25)</div>
+                    </div>
+                    <div class="pr-item">
+                        <div class="pr-event">5k (XC)</div>
+                        <div class="pr-time">16:27</div>
+                        <div class="pr-meet">WVC Conf (10/19/24)</div>
+                    </div>
                 </div>
             </div>
 
@@ -159,11 +171,15 @@
                     🐝 MSUB Men's XC Home
                 </a>
                 
-                <a href="https://www.athletic.net/" target="_blank" class="link-btn">
+                <a href="https://www.instagram.com/donald_voetberg/" target="_blank" class="link-btn insta-btn">
+                    📸 Follow Donald on Instagram
+                </a>
+                
+                <a href="https://www.athletic.net/athlete/23587912/track-and-field/" target="_blank" class="link-btn">
                     📊 Athletic.net Profile
                 </a>
                 
-                <a href="https://wi.milesplit.com/" target="_blank" class="link-btn">
+                <a href="https://wi.milesplit.com/athletes/13646503-donald-voetberg" target="_blank" class="link-btn">
                     🏃‍♂️ MileSplit Profile
                 </a>
             </div>
