@@ -4,76 +4,69 @@
     <title>Headquarters Orders</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+   
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #2c3e50; color: #ecf0f1; }
-        
+       
         /* Navigation */
         .back-btn { display: inline-block; background: #34495e; padding: 8px 15px; text-decoration: none; color: #ecf0f1; border-radius: 20px; border: 1px solid #465c71; font-size: 0.9em; margin-bottom: 20px; transition: 0.2s; }
         .back-btn:hover { background: #465c71; }
-
         /* Header */
         .hq-header { text-align: center; border-bottom: 2px solid #e74c3c; padding-bottom: 20px; margin-bottom: 30px; }
         h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #ecf0f1; }
         .subtitle { color: #bdc3c7; font-size: 0.9em; text-transform: uppercase; margin-top: 5px; }
-
         /* Cards */
         .card { background: #ecf0f1; color: #333; padding: 20px; border-radius: 4px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border-left: 6px solid #e74c3c; }
         .card h3 { margin-top: 0; color: #2c3e50; border-bottom: 1px solid #bdc3c7; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
-        
+       
         /* Task List */
         .task-list { list-style: none; padding: 0; margin: 0; }
         .task-item { padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: flex-start; }
         .assignee { font-weight: bold; background: #34495e; color: #fff; padding: 2px 6px; border-radius: 3px; font-size: 0.75em; margin-right: 10px; min-width: 65px; text-align: center; }
         .task-desc { flex-grow: 1; }
         .priority { color: #c0392b; font-weight: bold; font-size: 0.8em; margin-left: 10px; }
-
         /* NEW: Task Dividers */
         .task-divider { border: 0; height: 3px; background: #bdc3c7; margin: 0; }
-
         /* Training Section */
         .training-card { border-left-color: #f39c12; }
         .workout-day { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         .workout-day:last-child { border-bottom: none; }
-        
+       
         .day-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
         .day-label { font-weight: bold; color: #d35400; text-transform: uppercase; font-size: 0.9em; }
-        
+       
         /* Lift Status Indicators */
         .lift-status { font-weight: bold; font-size: 0.8em; padding: 2px 8px; border-radius: 4px; }
         .lift-yes { background: #27ae60; color: white; }
         .lift-no { background: #bdc3c7; color: #555; }
-
         .workout-detail { background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95em; }
         .workout-note { font-style: italic; color: #7f8c8d; font-size: 0.9em; margin-top: 5px; display: block; }
         .special-focus { color: #c0392b; font-weight: bold; }
-
         /* NEW: Instruction Box (Replaces Button) */
         .instruction-box { display: block; width: 100%; text-align: center; background: #3498db; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-top: 20px; box-sizing: border-box; }
-
+        /* NEW: Violin Section */
+        .violin-card { border-left-color: #9b59b6; } /* Purple for music theme */
+        .violin-card ul { list-style-type: disc; padding-left: 20px; }
+        .violin-card li { margin-bottom: 10px; }
     </style>
 </head>
 <body>
-
     <a href="Pointers99.html" class="back-btn">← Return to Hub</a>
-    
+   
     <div class="hq-header">
         <h1>Command Center</h1>
         <div class="subtitle">Official Orders & Directives</div>
     </div>
-
     <div class="card">
         <h3>📋 Active Directives <span style="font-size:0.7em; color:#7f8c8d;">Status: PENDING</span></h3>
         <ul class="task-list">
-            
+           
             <li class="task-item">
                 <span class="assignee">Brian</span>
                 <span class="task-desc">Prepare Taxes & Coordinate with Dad.</span>
                 <span class="priority">HIGH</span>
             </li>
-
             <hr class="task-divider">
-
             <li class="task-item">
                 <span class="assignee">Donald</span>
                 <span class="task-desc">Housing Signup & Deposit.</span>
@@ -96,9 +89,7 @@
                 <span class="assignee">Donald</span>
                 <span class="task-desc">Update NCAA Eligibility Portal.</span>
             </li>
-
             <hr class="task-divider">
-
             <li class="task-item">
                 <span class="assignee">Tonya</span>
                 <span class="task-desc">Insurance Verification: Food Challenge Coverage.</span>
@@ -112,9 +103,7 @@
                 <span class="assignee">Tonya</span>
                 <span class="task-desc">Order/Check Fridge Filters.</span>
             </li>
-
             <hr class="task-divider">
-
             <li class="task-item">
                 <span class="assignee">Tacie</span>
                 <span class="task-desc">Plan Courses (coordinate w/ Parents & Advisors).</span>
@@ -132,15 +121,13 @@
                 <span class="assignee">Tacie</span>
                 <span class="task-desc">Wipe down bathroom.</span>
             </li>
-
         </ul>
-        
+       
         <div class="instruction-box">📱 Text Family with questions when complete.</div>
     </div>
-
     <div class="card training-card">
         <h3>🏃‍♀️ Training Orders: Tacie <span style="font-size:0.7em; color:#7f8c8d;">Jan 14 - Jan 20</span></h3>
-        
+       
         <div class="workout-day">
             <div class="day-header">
                 <span class="day-label">Wednesday, Jan 14</span>
@@ -152,7 +139,6 @@
                 <span class="workout-note">Note: If energy is low, skip run and sleep. Focus on recovery.</span>
             </div>
         </div>
-
         <div class="workout-day">
             <div class="day-header">
                 <span class="day-label">Thursday, Jan 15</span>
@@ -170,7 +156,6 @@
                 <strong>Wrestling:</strong> Hard Practice.
             </div>
         </div>
-
         <div class="workout-day">
             <div class="day-header">
                 <span class="day-label">Friday, Jan 16</span>
@@ -181,7 +166,6 @@
                 <strong>Task:</strong> Pack cooler & gear. Hydrate.
             </div>
         </div>
-
         <div class="workout-day">
             <div class="day-header">
                 <span class="day-label">Saturday, Jan 17</span>
@@ -193,7 +177,6 @@
                 <strong>Run:</strong> OFF.
             </div>
         </div>
-
         <div class="workout-day">
             <div class="day-header">
                 <span class="day-label">Sunday, Jan 18</span>
@@ -203,7 +186,6 @@
                 <strong>Directives:</strong> Full Rest. Eat, Sleep, Recover.
             </div>
         </div>
-
         <div class="workout-day">
             <div class="day-header">
                 <span class="day-label">Monday, Jan 19</span>
@@ -215,7 +197,6 @@
                 <strong>Run:</strong> OFF. (Save energy for the mat).
             </div>
         </div>
-
         <div class="workout-day">
             <div class="day-header">
                 <span class="day-label">Tuesday, Jan 20</span>
@@ -232,8 +213,45 @@
                 <strong>Wrestling:</strong> Practice.
             </div>
         </div>
-
     </div>
-
+    <div class="card violin-card">
+        <h3>🎻 Tacie's Violin Discussion Points <span style="font-size:0.7em; color:#7f8c8d;">For Lessons & Family Chats</span></h3>
+        <p>Hey Tacie! This guide is for you to use when talking about your violin lessons and the upcoming recital. You can share it with Ashley (tonight), your new teacher (starting Jan 22), and your family. Feel free to add your own thoughts or questions. Let's make violin fun and help you shine!</p>
+        
+        <h4>1. Talking with Ashley (Your Last Lesson Tonight, Jan 14)</h4>
+        <p>Bring this up during your lesson. Ashley can help answer and give advice.</p>
+        <ul>
+            <li><strong>Recital Basics:</strong> Ask how the two times (2:00 PM and 4:00 PM on Feb 7) work. Do students perform in one or both? How does picking a time slot happen—can a preference be chosen, or does the studio decide?</li>
+            <li><strong>Should You Participate in the Recital?</strong> Ask if readiness seems good based on current skills. Share if you're excited or nervous and why. Ask what time slot might be best.</li>
+            <li><strong>Picking a Piece:</strong> Ask what song could work for the recital—something familiar or that can be learned quickly in 3-4 weeks. Suggest practicing a bit tonight if possible.</li>
+            <li><strong>Music Portfolio:</strong> Explain your goal of keeping a list of songs you've learned to play for family and friends sometimes. Ask what 2-3 songs you've done well. Ask for ideas on how to track them (like recordings or notes).</li>
+            <li><strong>Switching Teachers:</strong> Ask what info would be helpful for the new teacher, like strengths and areas to work on.</li>
+            <li><strong>Other Questions:</strong> Ask what improvements have been made. Ask for any fun tips for practice.</li>
+        </ul>
+        <p>After talking, share what was discussed so the studio can be emailed if needed.</p>
+        
+        <h4>2. Talking with Your New Teacher (First Lesson Jan 22, and Later Ones)</h4>
+        <p>Share this at the start to get to know each other and set goals.</p>
+        <ul>
+            <li><strong>Hi and Goals:</strong> Say hi and mention the switch from previous lessons. Share what you like lessons to be (fun, challenging, etc.). Explain your big goal of building a portfolio of songs to show family and friends.</li>
+            <li><strong>Recital Stuff:</strong> If deciding to do it, ask about which time (2:00 or 4:00 PM). Ask to pick or refine the song and plan practice. If not sure, ask for thoughts on it.</li>
+            <li><strong>Song for Recital:</strong> Ask for help choosing something good for your age (12) and skill level. Ask how to get it ready in time.</li>
+            <li><strong>Portfolio Help:</strong> Ask how to add to your song list. Suggest ideas like recording pieces or noting when they're mastered. Ask for homework ideas for family shows.</li>
+            <li><strong>Lesson Style:</strong> Share what kinds of exercises or activities have worked well before (like games or specific drills). Ask how teaching is done and how to ask questions between lessons.</li>
+            <li><strong>Check-Ins:</strong> Ask if progress can be discussed each time. Suggest setting small goals, like a new song every few weeks.</li>
+        </ul>
+        
+        <h4>3. Talking with Family (Anytime, Like at Home)</h4>
+        <p>You can discuss this together to make decisions and get support.</p>
+        <ul>
+            <li><strong>Recital Decision:</strong> Talk about if you want to do it. Pros: Fun to perform, builds confidence. Cons: Short time to prepare. Which time works for the schedule?</li>
+            <li><strong>Song Ideas:</strong> What piece sounds cool? Something easy or a challenge?</li>
+            <li><strong>Portfolio Fun:</strong> Let's start a folder/book/app with your songs, videos, and notes. How often do you want to play for family (like once a week)?</li>
+            <li><strong>Practice Help:</strong> What can be done at home to make practice better? Any rewards or family jam sessions?</li>
+            <li><strong>Feelings:</strong> How do you feel about the new teacher? Excited about violin this year?</li>
+            <li><strong>Questions for Studio:</strong> If there are any, like about the recital, email office@becomenoteworthy.com together.</li>
+        </ul>
+        <p>You're doing great, Tacie! Pick a time to chat about this soon. Love, [Your Family]</p>
+    </div>
 </body>
 </html>
