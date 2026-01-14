@@ -8,8 +8,8 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #2c3e50; /* Dark blue-gray background */
+            color: #ecf0f1; /* Light text for contrast */
             margin: 0;
             padding: 20px;
             display: flex;
@@ -22,7 +22,7 @@
         }
         .header h1 {
             font-size: 2.5em;
-            color: #333;
+            color: #ecf0f1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -32,7 +32,7 @@
             margin-right: 10px;
         }
         .focus-item {
-            width: 80%;
+            width: 90%;
             max-width: 600px;
             margin-bottom: 40px;
         }
@@ -41,7 +41,7 @@
             padding: 20px;
             font-size: 1.5em;
             font-weight: bold;
-            background-color: #007bff;
+            background-color: #3498db; /* Professional blue */
             color: white;
             border: none;
             border-radius: 10px;
@@ -50,9 +50,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         .focus-button:hover {
-            background-color: #0056b3;
+            background-color: #2980b9;
         }
         .focus-button::before {
             content: '📅';
@@ -60,13 +61,13 @@
             font-size: 1.2em;
         }
         .family-group {
-            width: 80%;
+            width: 90%;
             max-width: 900px;
             margin-bottom: 40px;
         }
         .family-group h2 {
             text-align: center;
-            color: #555;
+            color: #bdc3c7;
             margin-bottom: 20px;
         }
         .family-grid {
@@ -87,25 +88,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         .family-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
-        .dan { background-color: #28a745; }
+        .dan { background-color: #27ae60; } /* Green */
         .dan::before { content: '🏃‍♂️'; margin-right: 10px; }
-        .tonya { background-color: #6f42c1; }
+        .tonya { background-color: #8e44ad; } /* Purple */
         .tonya::before { content: '💼'; margin-right: 10px; }
-        .brian { background-color: #17a2b8; }
+        .brian { background-color: #16a085; } /* Teal */
         .brian::before { content: '🎓'; margin-right: 10px; }
-        .donald { background-color: #ffc107; color: #333; }
+        .donald { background-color: #f39c12; color: #2c3e50; } /* Yellow */
         .donald::before { content: '👟'; margin-right: 10px; }
-        .tacie { background-color: #fd7e14; }
+        .tacie { background-color: #e67e22; } /* Orange */
         .tacie::before { content: '🎻'; margin-right: 10px; }
-        .wallace { background-color: #6c757d; }
+        .wallace { background-color: #7f8c8d; } /* Gray */
         .wallace::before { content: '🐾'; margin-right: 10px; }
         .other-sections {
-            width: 80%;
+            width: 90%;
             max-width: 600px;
             margin-bottom: 40px;
         }
@@ -123,42 +125,37 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         .other-button:hover {
             opacity: 0.9;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
-        .recent-fun { background-color: #e83e8c; }
+        .recent-fun { background-color: #e74c3c; } /* Reddish-pink */
         .recent-fun::before { content: '🎉'; margin-right: 10px; }
-        .orders-hq { background-color: #c0392b; }
+        .orders-hq { background-color: #c0392b; } /* Dark red */
         .orders-hq::before { content: '📢'; margin-right: 10px; }
         .logout {
             padding: 10px 20px;
             font-size: 1em;
-            background-color: #f4f4f4;
-            color: #888;
-            border: 1px solid #ccc;
+            background-color: #34495e; /* Darker button */
+            color: #ecf0f1;
+            border: 1px solid #2c3e50;
             border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s;
             text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         .logout:hover {
-            background-color: #e2e6ea;
+            background-color: #2c3e50;
         }
         @media (max-width: 600px) {
             .family-grid {
                 grid-template-columns: 1fr;
             }
-            .family-button {
+            .family-button, .focus-button, .other-button {
                 font-size: 1.4em;
-                padding: 20px;
-            }
-            .focus-button {
-                font-size: 1.4em;
-                padding: 18px;
-            }
-            .other-button {
-                font-size: 1.2em;
                 padding: 18px;
             }
             .header h1 {
@@ -174,11 +171,11 @@
     <div class="header">
         <h1>Voetberg Family Hub</h1>
     </div>
-   
+    
     <div class="focus-item">
         <a href="events_7x9B2.html"><button class="focus-button">Family Events</button></a>
     </div>
-   
+    
     <div class="family-group">
         <h2>Family Members</h2>
         <div class="family-grid">
@@ -190,12 +187,12 @@
             <a href="wallace_8xL4p.html"><button class="family-button wallace">Wallace</button></a>
         </div>
     </div>
-   
+    
     <div class="other-sections">
         <a href="fun_4aW8x.html"><button class="other-button recent-fun">Recent Fun & Highlights</button></a>
         <a href="orders_9sL2k.html"><button class="other-button orders-hq">Orders from HQ</button></a>
     </div>
-   
+    
     <a href="index.html" class="logout">Logout</a>
 </body>
 </html>
