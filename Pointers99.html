@@ -17,6 +17,7 @@
             flex-direction: column;
             align-items: center;
             position: relative;
+            min-height: 100vh; /* Ensure full height coverage */
         }
         body::before {
             content: '';
@@ -25,12 +26,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* Dark overlay (adjust opacity 0-1) */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Smoother gradient overlay for darkening */
             z-index: -1;
-        }
-        /* Optional: Darken the image further with filter */
-        body {
-            filter: brightness(0.7); /* Adjust 0.5-1 for darkness */
         }
         .header {
             text-align: center;
