@@ -59,6 +59,11 @@
         .pr-time { font-weight: bold; font-size: 1.1em; color: #fd7e14; }
         .pr-meet { font-size: 0.75em; color: #888; margin-top: 2px; }
 
+        /* Tags for Interests */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #fff3cd; color: #856404; padding: 5px 10px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
+        .tag-fav { background: #e2e3e5; color: #383d41; }
+
         /* Unified Link Buttons */
         .link-btn { 
             display: flex; align-items: center; justify-content: center;
@@ -160,22 +165,43 @@
                     <div class="timeline-desc">Diagnosed with Osgood-Schlatter. Spent summer cross-training (biking) to recover.</div>
                 </div>
             </div>
-            
+
             <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">🏆</span>Accolades & Info</h3>
-                <ul>
-                    <li><strong>Gene LaRose Champion</strong> (2025)</li>
-                    <li><strong>Varsity Point Scorer</strong> (SPJH XC)</li>
-                    <li><strong>Violinist</strong> (Orchestra)</li>
-                    <li><strong>Top 20 State Ranked</strong> (Middle School)</li>
-                    <li>Owner of <strong>Wallace</strong> (The Corgi)</li>
-                </ul>
+                <h3><span class="card-icon">❤️</span>Interests</h3>
+                <div class="tag-container">
+                    <span class="tag">Coding 💻</span>
+                    <span class="tag">Violin 🎻</span>
+                    <span class="tag">Drawing 🎨</span>
+                    <span class="tag">Running 🏃‍♀️</span>
+                    <span class="tag">Lifting 🏋️‍♀️</span>
+                    <span class="tag">Wrestling 🤼‍♀️</span>
+                    <span class="tag">Soccer ⚽</span>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">✨</span>Favorite Things</h3>
+                <div class="tag-container">
+                    <span class="tag tag-fav">Dragons 🐉</span>
+                    <span class="tag tag-fav">Fantasy Books 📚</span>
+                </div>
             </div>
         </div>
 
         <div class="col-right">
             
             <div class="card">
+                <h3><span class="card-icon">🏆</span>Accolades & Info</h3>
+                <ul>
+                    <li><strong>Gene LaRose Champion</strong> (2025)</li>
+                    <li><strong>Varsity Point Scorer</strong> (SPJH XC)</li>
+                    <li><strong>Violinist</strong> (Orchestra)</li>
+                    <li><strong>Top 20 State Ranked</strong> (Middle School)</li>
+                    <li>Loves <strong>Wallace</strong> (The Family Dog 🐶)</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
                 <h3><span class="card-icon">⏱️</span>Personal Records</h3>
                 <div class="pr-grid">
                     <div class="pr-item">
@@ -217,19 +243,11 @@
                     📸 Follow Tacie on Instagram
                 </a>
 
-                <a href="https://results.wayzatatiming.com/meets/41706/athletes/31260417" target="_blank" class="link-btn btn-raceresult">
-                    ⏱️ NXR Results (Wayzata)
-                </a>
-
-                <a href="https://wi.milesplit.com/meets/690400-gene-larose-2025/results" target="_blank" class="link-btn btn-milesplit">
-                    🏃‍♀️ Gene LaRose Results
+                <a href="https://wi.milesplit.com/athletes/17048007-tacie-voetberg" target="_blank" class="link-btn btn-milesplit">
+                    🏃‍♀️ MileSplit Profile
                 </a>
                 
-                <a href="https://results.tracksidetiming.com/meets/56060" target="_blank" class="link-btn btn-athletic">
-                    📊 Neenah Invite Results
-                </a>
-                
-                <a href="https://www.athletic.net/" target="_blank" class="link-btn btn-athletic">
+                <a href="https://www.athletic.net/athlete/29775821/cross-country/" target="_blank" class="link-btn btn-athletic">
                     🔎 Athletic.net Profile
                 </a>
             </div>
