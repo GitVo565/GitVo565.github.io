@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voetberg Family Hub</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
+        h1 { margin-bottom: 30px; color: #333; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .btn { 
+            display: block; 
+            padding: 20px; 
+            background: white; 
+            color: #333; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.2s;
+        }
+        .btn:hover { 
+            background: #007bff; 
+            color: white; 
+            transform: translateY(-5px);
+        }
+        .events { background: #d4edda; border: 2px solid #c3e6cb; } /* Green tint for events */
+    </style>
+</head>
+<body>
+
+    <h1>Welcome Home, Voetbergs</h1>
+
+    <div class="grid-container">
+        <a href="events.html" class="btn events">📅 Family Events</a>
+        
+        <a href="dan.html" class="btn">🏃‍♂️ Dan</a>
+        <a href="tonya.html" class="btn">👩 Tonya</a>
+        <a href="brian.html" class="btn">🎓 Brian</a>
+        <a href="donald.html" class="btn">👟 Donald</a>
+        <a href="tacie.html" class="btn">🐾 Tacie</a>
+    </div>
+
+</body>
+</html>
