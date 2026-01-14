@@ -4,37 +4,70 @@
     <title>Donald's Page</title>
     <meta name="robots" content="noindex, nofollow">
     <style>
-        body { font-family: sans-serif; padding: 40px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #fff; }
-        .back-btn { background: #eee; padding: 5px 10px; text-decoration: none; color: #333; border-radius: 4px; border: 1px solid #ccc; }
-        h1 { border-bottom: 2px solid #28a745; padding-bottom: 10px; } 
-        h3 { margin-top: 30px; color: #333; }
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #fff; }
+        .back-btn { background: #eee; padding: 5px 10px; text-decoration: none; color: #333; border-radius: 4px; border: 1px solid #ccc; font-size: 0.9em; }
+        
+        /* MSUB Theme Colors */
+        .commit-banner { background-color: #ffc72c; color: #002f5d; padding: 20px; border-radius: 8px; margin-top: 20px; text-align: center; border: 2px solid #002f5d; }
+        .commit-banner h2 { margin: 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
+        .commit-banner p { margin: 5px 0 0 0; font-weight: bold; }
+
+        h1 { border-bottom: 2px solid #28a745; padding-bottom: 10px; margin-top: 20px; }
+        h3 { margin-top: 30px; color: #333; border-left: 4px solid #007bff; padding-left: 10px; }
+        
         ul { margin-top: 10px; }
         li { margin-bottom: 8px; }
-        a { color: #007bff; text-decoration: none; }
+        a { color: #007bff; text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
+
+        /* Photo Grid Styles */
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .photo-card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .photo-card img { width: 100%; height: auto; display: block; }
+        .caption { padding: 10px; font-size: 0.85em; background: #f9f9f9; text-align: center; color: #555; }
     </style>
 </head>
 <body>
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
-    <h1>👟 Donald Voetberg</h1>
-    <p><strong>Class of 2026</strong> | Distance Running</p>
+    <div class="commit-banner">
+        <h2>Signed: MSU Billings</h2>
+        <p>Cross Country & Track Field | Class of 2030</p>
+        <p>Go Yellowjackets! 🐝</p>
+    </div>
     
-    <h3>Running Stats</h3>
+    <h1>👟 Donald Voetberg</h1>
+    <p><strong>SPASH Class of 2026</strong> | Distance Running</p>
+    
+    <h3>📸 Signing Day & Highlights</h3>
+    <div class="photo-grid">
+        <div class="photo-card">
+            <img src="donald_signing.jpg" alt="Signing Day">
+            <div class="caption">Official Signing: Nov 12, 2025</div>
+        </div>
+        <div class="photo-card">
+            <img src="donald_run.jpg" alt="Running Action">
+            <div class="caption">Senior Year Campaign</div>
+        </div>
+        <div class="photo-card">
+            <img src="donald_insta.jpg" alt="Announcement">
+            <div class="caption">Welcome to the Family</div>
+        </div>
+    </div>
+
+    <h3>📰 Media Coverage: The Historic "4-Peat"</h3>
     <ul>
-        <li>Cross Country & Track</li>
-        <li>Recruitment Profile</li>
+        <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank"><strong>WAOW:</strong> "Four Straight and Forever" - SPASH Seniors Historic Win</a></li>
+        <li><a href="https://www.waupacanow.com/stories/spash-continues-cross-country-dynasty-area-runners-compete-at-state,302181" target="_blank"><strong>Waupaca Now:</strong> SPASH Continues Cross Country Dynasty</a></li>
+        <li><a href="https://www.wausaudailyherald.com/story/sports/high-school/2025/11/04/central-wisconsin-hs-runners-dominate-state-other-top-performances/87007088007" target="_blank"><strong>Wausau Daily Herald:</strong> Central WI Runners Dominate State</a></li>
+        <li><a href="https://www.instagram.com/p/DRAMQc_DmlS/" target="_blank"><strong>Instagram:</strong> Official Signing Post</a></li>
     </ul>
 
-    <h3>Documents</h3>
-    <p>Passport: Renewed Dec 2025.</p>
-
-    <h3>Links & Media Coverage</h3>
+    <h3>📂 Documents & Info</h3>
     <ul>
-        <li><a href="https://www.spashtrack.com/" target="_blank"><strong>SPASH Boys Track & Field Official Site</strong></a></li>
-        <li><a href="#">Stevens Point Journal Coverage (Placeholder)</a></li>
-        <li><a href="#">MileSplit Profile (Placeholder)</a></li>
-        <li><a href="#">Wausau Daily Herald Feature (Placeholder)</a></li>
+        <li><strong>NLI Status:</strong> Signed (Nov 2025)</li>
+        <li><strong>Passport:</strong> Renewed Dec 2025</li>
+        <li><a href="https://www.spashtrack.com/" target="_blank">SPASH Boys Track & Field Official Site</a></li>
     </ul>
 
 </body>
