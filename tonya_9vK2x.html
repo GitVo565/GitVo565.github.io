@@ -3,23 +3,177 @@
 <head>
     <title>Tonya's Page</title>
     <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <style>
-        body { font-family: sans-serif; padding: 40px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #fff; }
-        .back-btn { background: #eee; padding: 5px 10px; text-decoration: none; color: #333; border-radius: 4px; border: 1px solid #ccc; }
-        h1 { border-bottom: 2px solid #e83e8c; padding-bottom: 10px; } /* Pink accent */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #f8f9fa; color: #333; }
+        
+        /* Navigation */
+        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
+        .back-btn:hover { background: #eee; }
+
+        /* Banner & Headers */
+        .header-section { text-align: center; margin-bottom: 30px; }
+        h1 { margin: 10px 0 5px 0; color: #6f42c1; } /* Tonya Purple */
+        .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
+
+        /* Photo Card */
+        .photo-card { 
+            background: white; 
+            padding: 10px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            max-width: 500px; 
+            margin: 0 auto 30px auto; 
+            transition: transform 0.2s;
+        }
+        .photo-card:hover { transform: translateY(-3px); cursor: pointer; }
+        .photo-card img { width: 100%; border-radius: 8px; display: block; }
+        .photo-caption { text-align: center; font-size: 0.9em; color: #6f42c1; padding-top: 10px; font-weight: bold; }
+
+        /* Highlight Banner */
+        .highlight-banner { background-color: #6f42c1; color: white; padding: 15px; border-radius: 8px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 10px rgba(111, 66, 193, 0.3); }
+        .highlight-banner h2 { margin: 0; font-size: 1.4em; }
+        .highlight-banner p { margin: 5px 0 0 0; opacity: 0.9; }
+
+        /* Grid Layout */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        /* Cards */
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #6f42c1; }
+        .card h3 { margin-top: 0; color: #6f42c1; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
+        .card-icon { margin-right: 10px; font-size: 1.2em; }
+
+        /* Lists */
+        ul { padding-left: 20px; margin-top: 5px; }
+        li { margin-bottom: 8px; }
+
+        /* Timeline */
+        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 15px; border-left: 2px solid #fd7e14; }
+        .timeline-date { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
+        .timeline-title { font-weight: bold; color: #333; }
+        .timeline-desc { font-size: 0.95em; color: #555; }
+
+        /* Tags for Interests */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #f3e5f5; color: #4a148c; padding: 5px 10px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
+        .tag-fav { background: #e1bee7; color: #4a148c; }
+
+        /* Unified Link Buttons */
+        .link-btn { 
+            display: flex; align-items: center; justify-content: center;
+            background: #fff; padding: 15px; margin-bottom: 10px; 
+            border-radius: 6px; border: 1px solid #eee; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.2s ease; color: #333; font-weight: 600; text-decoration: none;
+        }
+        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); color: #000; }
+        
+        .btn-linkedin { border-left: 6px solid #0077b5; }
+
+        /* Footer */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #eee; text-align: right; font-size: 0.75em; color: #aaa; }
     </style>
 </head>
 <body>
+
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
-    <h1>👩 Tonya Voetberg</h1>
-    
-    <h3>Notes & Updates</h3>
-    <p>Placeholder for Tonya's personal content.</p>
-    <ul>
-        <li>Family Insurance/Medical Management</li>
-        <li>General Updates</li>
-    </ul>
+    <div class="header-section">
+        <h1>Tonya Voetberg</h1>
+        <div class="subtitle">Master of Logistics | The Heart of the Home</div>
+    </div>
+
+    <div class="photo-card">
+        <img src="tonya_kitchen.jpg" alt="Tonya in the Kitchen">
+        <div class="photo-caption">👩‍🍳 Master Chef & Logistics Expert</div>
+    </div>
+
+    <div class="highlight-banner">
+        <h2>🎉 25 Years at Kimberly-Clark</h2>
+        [cite_start]<p>Continuous Improvement Consultant & Change Leader [cite: 58, 71, 113]</p>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="col-left">
+            <div class="card">
+                <h3><span class="card-icon">💼</span>Professional Excellence</h3>
+                <p>Driving change and continuous improvement for over two decades.</p>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2001 - Present</div>
+                    <div class="timeline-title">Kimberly-Clark Corporation</div>
+                    <div class="timeline-desc">25 years of service. [cite_start]Specialized in Sales Planning, Trade Promotion, and Strategy Deployment. [cite: 51, 65, 71]</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Certifications</div>
+                    <div class="timeline-title">Lean Six-Sigma</div>
+                    <div class="timeline-desc">Green Belt Certified. [cite_start]Continuous Improvement Professional. [cite: 81, 126]</div>
+                </div>
+
+                <div class="timeline-item" style="border-left-color: #0056b3;">
+                    <div class="timeline-date">Education</div>
+                    <div class="timeline-title">MBA (U-Maine)</div>
+                    <div class="timeline-desc">B.S. [cite_start]Business Admin (UW-Stevens Point). [cite: 104, 105]</div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🥘</span>Tonya's Kitchen</h3>
+                <p>The undisputed master of the family meal.</p>
+                <ul>
+                    <li><strong>Signature Dish:</strong> The World's Best Lasagna.</li>
+                    <li><strong>Specialty:</strong> Hosting Family Reunions & Get-Togethers.</li>
+                    <li><strong>Role:</strong> Keeping the Voetberg army fed and happy.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-right">
+            
+            <div class="card">
+                <h3><span class="card-icon">❤️</span>Supermom Stats</h3>
+                <p><strong>Caregiver:</strong> An amazing provider who balances a high-level career with running a household.</p>
+                <p><strong>Cheerleader:</strong> Known for being the <em>loudest</em> supporter at track meets and wrestling matches.</p>
+                <p><strong>Logistics:</strong> Master of the family schedule, transport, and event planning.</p>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">✨</span>Favorite Things</h3>
+                
+                <div class="tag-container">
+                    <span class="tag tag-fav">A Discovery of Witches 🧙‍♀️</span>
+                    <span class="tag">Binged 3 Times!</span>
+                    <span class="tag">Cooking</span>
+                    <span class="tag">Hosting Parties</span>
+                    <span class="tag">Supporting Kids</span>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                    [cite_start]"Driving continuous improvement is Tonya's passion... she treats change as an opportunity." [cite: 53]
+                </p>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🔗</span>Connect</h3>
+                <a href="https://www.linkedin.com/in/tvoetberg" target="_blank" class="link-btn btn-linkedin">
+                    👔 LinkedIn Profile
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated"></span>
+    </div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
 
 </body>
 </html>
