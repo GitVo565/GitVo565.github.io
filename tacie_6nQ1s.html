@@ -17,6 +17,20 @@
         h1 { margin: 10px 0 5px 0; color: #fd7e14; } /* Tacie Orange */
         .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
 
+        /* Photo Card (NEW) */
+        .photo-card { 
+            background: white; 
+            padding: 10px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            max-width: 500px; 
+            margin: 0 auto 30px auto; 
+            transition: transform 0.2s;
+        }
+        .photo-card:hover { transform: translateY(-3px); cursor: pointer; }
+        .photo-card img { width: 100%; border-radius: 8px; display: block; }
+        .photo-caption { text-align: center; font-size: 0.9em; color: #fd7e14; padding-top: 10px; font-weight: bold; }
+
         /* Highlight Banner */
         .highlight-banner { background-color: #fd7e14; color: white; padding: 15px; border-radius: 8px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 10px rgba(253, 126, 20, 0.2); }
         .highlight-banner h2 { margin: 0; font-size: 1.4em; }
@@ -75,6 +89,13 @@
         <h1>Tacie Voetberg</h1>
         <div class="subtitle">Stevens Point Junior High | Class of 2031</div>
     </div>
+
+    <a href="https://www.youtube.com/@tacierunning" target="_blank" title="Go to Channel">
+        <div class="photo-card">
+            <img src="tacie_run.jpg" alt="Tacie Running">
+            <div class="photo-caption">🏃‍♀️ Visit Tacie's Running Channel</div>
+        </div>
+    </a>
 
     <div class="highlight-banner">
         <h2>🔥 Undefeated Team Season</h2>
