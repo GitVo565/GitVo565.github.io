@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voetberg Highlights</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background: #222; color: #fff; text-align: center; }
+        
+        /* Navigation */
+        .back-btn { display: inline-block; background: #333; padding: 8px 15px; text-decoration: none; color: #fff; border-radius: 20px; border: 1px solid #555; margin-bottom: 20px; transition: 0.2s; }
+        .back-btn:hover { background: #444; }
+
+        h1 { margin: 10px 0; letter-spacing: 1px; }
+        p { color: #aaa; margin-bottom: 30px; }
+
+        /* Masonry Grid Layout */
+        .gallery { column-count: 1; column-gap: 15px; max-width: 1000px; margin: 0 auto; }
+        @media (min-width: 600px) { .gallery { column-count: 2; } }
+        @media (min-width: 900px) { .gallery { column-count: 3; } }
+
+        /* Photo Cards */
+        .photo-card { 
+            background: #fff; 
+            color: #333;
+            margin-bottom: 15px; 
+            break-inside: avoid; 
+            border-radius: 8px; 
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .photo-card:hover { transform: scale(1.02); }
+        
+        .photo-card img { width: 100%; display: block; }
+        .caption { padding: 15px; text-align: left; }
+        .caption h3 { margin: 0 0 5px 0; color: #000; font-size: 1.1em; }
+        .caption p { margin: 0; font-size: 0.9em; color: #555; }
+        .date { font-size: 0.75em; color: #888; text-transform: uppercase; margin-bottom: 5px; display: block; }
+
+        /* Categories */
+        .tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.7em; font-weight: bold; color: white; margin-top: 8px; }
+        .tag-family { background: #007bff; }
+        .tag-pets { background: #28a745; }
+        .tag-school { background: #6f42c1; }
+        .tag-sports { background: #fd7e14; }
+
+    </style>
+</head>
+<body>
+
+    <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
+    
+    <h1>📸 Recent Fun & Highlights</h1>
+    <p>Adventures, milestones, and life in Stevens Point.</p>
+
+    <div class="gallery">
+        
+        <div class="photo-card">
+            <img src="donald_signing.jpg" alt="Signing Day">
+            <div class="caption">
+                <span class="date">Nov 2025</span>
+                <h3>Donald Signs with MSUB</h3>
+                <p>The big day! Officially a Yellowjacket.</p>
+                <span class="tag tag-sports">Sports</span>
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="wallace.jpg" alt="Wallace the Corgi">
+            <div class="caption">
+                <span class="date">Current Mood</span>
+                <h3>Wallace being Wallace</h3>
+                <p>Living his best life. Still working on "living inside."</p>
+                <span class="tag tag-pets">Pets</span>
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="tacie_run.jpg" alt="Tacie Running">
+            <div class="caption">
+                <span class="date">May 2025</span>
+                <h3>Tacie Wins Gene LaRose</h3>
+                <p>A huge mile victory (6:25)!</p>
+                <span class="tag tag-sports">Sports</span>
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="brian.jpg" alt="Brian at Butler">
+            <div class="caption">
+                <span class="date">Fall 2025</span>
+                <h3>Brian at Butler</h3>
+                <p>Settled in at Indianapolis. Doing laundry (mostly) by himself!</p>
+                <span class="tag tag-school">School</span>
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="family.jpg" alt="Family Vacation">
+            <div class="caption">
+                <span class="date">Summer 2025</span>
+                <h3>Family Adventures</h3>
+                <p>Highlights from our latest trip.</p>
+                <span class="tag tag-family">Family</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
