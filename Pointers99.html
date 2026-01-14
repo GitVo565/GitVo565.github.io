@@ -1,51 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Voetberg Family Hub</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px 20px; background: #f4f4f4; }
-        h1 { color: #333; margin-bottom: 30px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 600px; margin: 0 auto; }
-        
-        /* Button Styles */
-        .btn { display: block; padding: 20px; font-size: 18px; text-decoration: none; color: white; border-radius: 8px; transition: transform 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn:hover { transform: translateY(-3px); }
-        
-        .events { background: #007bff; }  /* Blue */
-        .dan { background: #28a745; }     /* Green */
-        .tonya { background: #6f42c1; }   /* Purple */
-        .brian { background: #17a2b8; }   /* Teal */
-        .donald { background: #ffc107; color: #333; } /* Yellow */
-        .tacie { background: #fd7e14; }   /* Orange */
-        .fun { background: #e83e8c; }     /* Pink */
-        .wallace { background: #6c757d; } /* Grey */
-        .orders { background: #c0392b; border-bottom: 5px solid #962d22; } /* Red (HQ) */
-        .stocks { background: #1e222d; border: 1px solid #333; } /* Dark Blue/Black */
-        
-        .logout { margin-top: 40px; display: inline-block; color: #888; text-decoration: none; font-size: 0.9em; border: 1px solid #ccc; padding: 5px 15px; border-radius: 20px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header h1::before {
+            content: '🏠';
+            margin-right: 10px;
+        }
+        .focus-item {
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        .focus-button {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .focus-button:hover {
+            background-color: #0056b3;
+        }
+        .focus-button::before {
+            content: '📅';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        .family-group {
+            width: 80%;
+            max-width: 900px;
+            margin-bottom: 40px;
+        }
+        .family-group h2 {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .family-button {
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .family-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .dan { background-color: #28a745; }
+        .dan::before { content: '🏃‍♂️'; margin-right: 10px; }
+        .tonya { background-color: #6f42c1; }
+        .tonya::before { content: '💼'; margin-right: 10px; }
+        .brian { background-color: #17a2b8; }
+        .brian::before { content: '🎓'; margin-right: 10px; }
+        .donald { background-color: #ffc107; color: #333; }
+        .donald::before { content: '👟'; margin-right: 10px; }
+        .tacie { background-color: #fd7e14; }
+        .tacie::before { content: '🎻'; margin-right: 10px; }
+        .wallace { background-color: #6c757d; }
+        .wallace::before { content: '🐾'; margin-right: 10px; }
+        .other-sections {
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        .other-button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .other-button:hover {
+            opacity: 0.9;
+        }
+        .recent-fun { background-color: #e83e8c; }
+        .recent-fun::before { content: '🎉'; margin-right: 10px; }
+        .orders-hq { background-color: #c0392b; }
+        .orders-hq::before { content: '📢'; margin-right: 10px; }
+        .logout {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #f4f4f4;
+            color: #888;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .logout:hover {
+            background-color: #e2e6ea;
+        }
     </style>
 </head>
 <body>
-
-    <h1>🏠 Voetberg Family Hub</h1>
-    
-    <div class="grid">
-        <a href="events_7x9B2.html" class="btn events">📅 Family Events</a>
-        <a href="orders_9sL2k.html" class="btn orders">📢 Orders from HQ</a>
-        <a href="stocks_2nB8q.html" class="btn stocks">📈 Market Watch</a>
-        <a href="fun_4aW8x.html" class="btn fun">🎉 Recent Fun & Highlights</a>
-        
-        <a href="dan_3mP9L.html" class="btn dan">🏃‍♂️ Dan</a>
-        <a href="tonya_9vK2x.html" class="btn tonya">💼 Tonya</a>
-        <a href="brian_H4z8W.html" class="btn brian">🎓 Brian</a>
-        <a href="donald_2yR5j.html" class="btn donald">👟 Donald</a>
-        <a href="tacie_6nQ1s.html" class="btn tacie">🎻 Tacie</a>
-        <a href="wallace_8xL4p.html" class="btn wallace">🐾 Wallace</a>
+    <div class="header">
+        <h1>Voetberg Family Hub</h1>
     </div>
-
+    
+    <div class="focus-item">
+        <a href="events_7x9B2.html"><button class="focus-button">Family Events</button></a>
+    </div>
+    
+    <div class="family-group">
+        <h2>Family Members</h2>
+        <div class="family-grid">
+            <a href="dan_3mP9L.html"><button class="family-button dan">Dan</button></a>
+            <a href="tonya_9vK2x.html"><button class="family-button tonya">Tonya</button></a>
+            <a href="brian_H4z8W.html"><button class="family-button brian">Brian</button></a>
+            <a href="donald_2yR5j.html"><button class="family-button donald">Donald</button></a>
+            <a href="tacie_6nQ1s.html"><button class="family-button tacie">Tacie</button></a>
+            <a href="wallace_8xL4p.html"><button class="family-button wallace">Wallace</button></a>
+        </div>
+    </div>
+    
+    <div class="other-sections">
+        <a href="fun_4aW8x.html"><button class="other-button recent-fun">Recent Fun & Highlights</button></a>
+        <a href="orders_9sL2k.html"><button class="other-button orders-hq">Orders from HQ</button></a>
+    </div>
+    
     <a href="index.html" class="logout">Logout</a>
-
 </body>
 </html>
