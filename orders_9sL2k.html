@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Headquarters Orders</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #2c3e50; color: #ecf0f1; }
+        
+        /* Navigation */
+        .back-btn { display: inline-block; background: #34495e; padding: 8px 15px; text-decoration: none; color: #ecf0f1; border-radius: 20px; border: 1px solid #465c71; font-size: 0.9em; margin-bottom: 20px; transition: 0.2s; }
+        .back-btn:hover { background: #465c71; }
+
+        /* Header */
+        .hq-header { text-align: center; border-bottom: 2px solid #e74c3c; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #ecf0f1; }
+        .subtitle { color: #bdc3c7; font-size: 0.9em; text-transform: uppercase; margin-top: 5px; }
+
+        /* Cards */
+        .card { background: #ecf0f1; color: #333; padding: 20px; border-radius: 4px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border-left: 6px solid #e74c3c; }
+        .card h3 { margin-top: 0; color: #2c3e50; border-bottom: 1px solid #bdc3c7; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Task List */
+        .task-list { list-style: none; padding: 0; }
+        .task-item { padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: flex-start; }
+        .task-item:last-child { border-bottom: none; }
+        .assignee { font-weight: bold; background: #34495e; color: #fff; padding: 2px 6px; border-radius: 3px; font-size: 0.75em; margin-right: 10px; min-width: 60px; text-align: center; }
+        .task-desc { flex-grow: 1; }
+        .priority { color: #c0392b; font-weight: bold; font-size: 0.8em; margin-left: 10px; }
+
+        /* Training Section */
+        .training-card { border-left-color: #f39c12; }
+        .workout-day { margin-bottom: 15px; }
+        .day-label { font-weight: bold; color: #d35400; display: block; text-transform: uppercase; font-size: 0.85em; }
+        .workout-detail { background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 4px; margin-top: 5px; }
+
+        /* Action Button */
+        .report-btn { display: block; width: 100%; text-align: center; background: #27ae60; color: white; padding: 12px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px; transition: 0.2s; }
+        .report-btn:hover { background: #219150; }
+
+    </style>
+</head>
+<body>
+
+    <a href="Pointers99.html" class="back-btn">← Return to Hub</a>
+    
+    <div class="hq-header">
+        <h1>Command Center</h1>
+        <div class="subtitle">Official Orders & Directives</div>
+    </div>
+
+    <div class="card">
+        <h3>📋 Active Directives <span style="font-size:0.7em; color:#7f8c8d;">Status: PENDING</span></h3>
+        <ul class="task-list">
+            
+            <li class="task-item">
+                <span class="assignee">Brian</span>
+                <span class="task-desc">Confirm Thanksgiving flight dates so we can book transport.</span>
+                <span class="priority">HIGH</span>
+            </li>
+            
+            <li class="task-item">
+                <span class="assignee">Donald</span>
+                <span class="task-desc">Submit updated shoe mileage log to Dad.</span>
+            </li>
+
+            <li class="task-item">
+                <span class="assignee">Tacie</span>
+                <span class="task-desc">Organize sheet music folder before next lesson.</span>
+            </li>
+
+            <li class="task-item">
+                <span class="assignee">ALL</span>
+                <span class="task-desc">Review the "Ice Fishing" photo album and pick favorites for the print.</span>
+            </li>
+
+        </ul>
+        
+        <a href="mailto:dvoetberg@outlook.com?subject=Reporting In - Task Update" class="report-btn">📧 Report Completion to HQ</a>
+    </div>
+
+    <div class="card training-card">
+        <h3>🏃‍♀️ Training Orders: Tacie <span style="font-size:0.7em; color:#7f8c8d;">Week of Feb 10</span></h3>
+        
+        <div class="workout-day">
+            <span class="day-label">Monday</span>
+            <div class="workout-detail">
+                30 min Easy Run + 4x Strides. Core Routine A.
+            </div>
+        </div>
+
+        <div class="workout-day">
+            <span class="day-label">Tuesday</span>
+            <div class="workout-detail">
+                Workout: 10 min warm up. 3 x 800m @ 3:15 pace (2 min rest). 10 min cool down.
+            </div>
+        </div>
+
+        <div class="workout-day">
+            <span class="day-label">Wednesday</span>
+            <div class="workout-detail">
+                Cross Train (Bike or Swim) - 40 mins. focus on recovery.
+            </div>
+        </div>
+
+        <div class="workout-day">
+            <span class="day-label">Thursday</span>
+            <div class="workout-detail">
+                30 min Easy Run. Lift (Legs/Hips focus).
+            </div>
+        </div>
+
+        <div class="workout-day">
+            <span class="day-label">Friday</span>
+            <div class="workout-detail">
+                Rest Day. Stretch & Foam Roll.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
