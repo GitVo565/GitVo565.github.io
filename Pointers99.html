@@ -73,6 +73,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
+            justify-content: center;
         }
         .family-button {
             padding: 15px;
@@ -144,17 +145,40 @@
         .logout:hover {
             background-color: #e2e6ea;
         }
+        @media (max-width: 600px) {
+            .family-grid {
+                grid-template-columns: 1fr;
+            }
+            .family-button {
+                font-size: 1.4em;
+                padding: 20px;
+            }
+            .focus-button {
+                font-size: 1.4em;
+                padding: 18px;
+            }
+            .other-button {
+                font-size: 1.2em;
+                padding: 18px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .family-group h2 {
+                font-size: 1.4em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Voetberg Family Hub</h1>
     </div>
-    
+   
     <div class="focus-item">
         <a href="events_7x9B2.html"><button class="focus-button">Family Events</button></a>
     </div>
-    
+   
     <div class="family-group">
         <h2>Family Members</h2>
         <div class="family-grid">
@@ -166,12 +190,12 @@
             <a href="wallace_8xL4p.html"><button class="family-button wallace">Wallace</button></a>
         </div>
     </div>
-    
+   
     <div class="other-sections">
         <a href="fun_4aW8x.html"><button class="other-button recent-fun">Recent Fun & Highlights</button></a>
         <a href="orders_9sL2k.html"><button class="other-button orders-hq">Orders from HQ</button></a>
     </div>
-    
+   
     <a href="index.html" class="logout">Logout</a>
 </body>
 </html>
