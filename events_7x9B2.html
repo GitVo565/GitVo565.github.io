@@ -3,59 +3,106 @@
 <head>
     <title>Voetberg Family Events</title>
     <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #e9ecef; }
-        .back-btn { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #333; background: #fff; padding: 10px 15px; border-radius: 5px; border: 1px solid #ccc; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #fdfdfd; color: #333; }
         
-        .card { background: white; padding: 25px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 5px solid #007bff; }
+        /* Navigation */
+        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
+        .back-btn:hover { background: #eee; }
+
+        /* Banner */
+        .header-section { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #007bff; padding-bottom: 20px; }
+        h1 { margin: 10px 0 5px 0; color: #007bff; }
+        .subtitle { color: #666; font-style: italic; }
+
+        /* Event Cards */
+        .event-card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+            margin-bottom: 25px; 
+            border-left: 6px solid #ccc; /* Default Grey */
+            position: relative;
+        }
+
+        /* Importance/Type Colors */
+        .type-party { border-left-color: #ffc107; } /* Gold/Yellow */
+        .type-sports { border-left-color: #fd7e14; } /* Orange */
+        .type-school { border-left-color: #6f42c1; } /* Purple */
+        .type-holiday { border-left-color: #28a745; } /* Green */
+
+        .date-badge { 
+            position: absolute; top: 20px; right: 20px; 
+            text-align: center; background: #f8f9fa; 
+            padding: 5px 10px; border-radius: 8px; border: 1px solid #eee; 
+            font-weight: bold; color: #555;
+        }
+        .date-badge .month { display: block; font-size: 0.8em; text-transform: uppercase; color: #007bff; }
+        .date-badge .day { font-size: 1.4em; }
+
+        h2 { margin-top: 0; color: #333; font-size: 1.4em; }
+        .time-loc { color: #777; font-size: 0.9em; margin-bottom: 15px; display: block; }
         
-        /* Highlight styles */
-        .highlight { border-left: 5px solid #ffc107; background: #fffbf2; }
+        /* Links */
+        .rsvp-btn { 
+            display: inline-block; background: #007bff; color: white; 
+            padding: 8px 15px; border-radius: 4px; text-decoration: none; 
+            font-size: 0.9em; font-weight: bold; margin-top: 10px; 
+        }
+        .rsvp-btn:hover { background: #0056b3; }
         
-        .date { color: #d9534f; font-weight: bold; font-size: 0.9em; text-transform: uppercase; margin-bottom: 5px; }
-        h3 { margin: 0 0 10px 0; color: #333; }
-        p { margin: 0 0 10px 0; color: #555; line-height: 1.5; }
-        
-        .details-box { background: rgba(0,0,0,0.05); padding: 15px; border-radius: 5px; margin-top: 10px; font-size: 0.9em; }
-        .address-link { color: #007bff; text-decoration: none; }
+        .fb-icon { background: #1877F2; } /* Facebook Blue */
+        .fb-icon:hover { background: #145dbf; }
+
     </style>
 </head>
 <body>
 
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
-    <h1>📅 Upcoming Events</h1>
+    <div class="header-section">
+        <h1>📅 Upcoming Events</h1>
+        <div class="subtitle">Mark your calendars for the Voetberg festivities.</div>
+    </div>
 
-    <div class="card highlight">
-        <div class="date">Saturday, Jan 17, 2026</div>
-        <h3>🤼‍♀️ Tacie's Wrestling Debut: Battle by the River</h3>
-        <p><strong>Stevens Point Girls Junior High vs. The Field</strong></p>
-        
-        <div class="details-box">
-            <p><strong>📍 Location:</strong> Former East Junior High<br>
-            <a href="https://maps.google.com/?q=311+Lincoln+St,+Wisconsin+Rapids,+WI+54494" target="_blank" class="address-link">311 Lincoln St., Wisconsin Rapids, WI 54494</a></p>
-            
-            <p><strong>⏰ Schedule:</strong><br>
-            • 8:45 AM: Spectator Arrival<br>
-            • 9:00-9:30 AM: Wrestling Begins</p>
-            
-            <p><strong>ℹ️ Info:</strong> Cash entry (~$5), Bleacher seating.</p>
+    <div class="event-card type-party">
+        <div class="date-badge">
+            <span class="month">Jun</span>
+            <span class="day">27</span>
         </div>
+        <h2>🎓 Donald's Graduation Party</h2>
+        <span class="time-loc">📍 The Voetberg Home (2220 Albert St) | 🕛 12:00 PM - Late</span>
+        <p>
+            We are hosting a get-together to celebrate Donald's graduation! We will try to get paper invitations out, but we want you to have an early opportunity to block your calendar.
+        </p>
+        <p>Come for food, fun, and to celebrate the Class of 2026!</p>
+        
+        <a href="https://fb.me/e/8o2oN3wj9" target="_blank" class="rsvp-btn fb-icon">
+            Facebook Event / RSVP ↗
+        </a>
     </div>
 
-    <div class="card">
-        <div class="date">Tuesday, Feb 3, 2026 @ 4:15 PM</div>
-        <h3>🤼‍♀️ Wrestling: Home Meet (PJ's)</h3>
-        <p>The only home meet of the season.</p>
+    <div class="event-card type-sports">
+        <div class="date-badge">
+            <span class="month">Jan</span>
+            <span class="day">19</span>
+        </div>
+        <h2>🤼 Dual Meet vs Auburndale</h2>
+        <span class="time-loc">📍 Auburndale High School | 🕕 6:00 PM</span>
+        <p>Cheer on Tacie as she hits the mats. Go Pointers!</p>
     </div>
 
-    <div class="card">
-        <div class="date">Monday, May 18, 2026 @ 3:30 PM</div>
-        <h3>👟 Donald: Track & Field Conference Meet</h3>
-        <p><strong>Varsity Spring 2026 Conference Meet</strong></p>
-        <p>Location: Wausau East High School<br>
-        Details: Away vs. Multiple Schools</p>
+    <div class="event-card type-holiday">
+        <div class="date-badge">
+            <span class="month">Mar</span>
+            <span class="day">22</span>
+        </div>
+        <h2>🎂 Tacie's Birthday</h2>
+        <span class="time-loc">📍 Family HQ</span>
+        <p>Tacie turns 13! Prepare for cake.</p>
     </div>
 
 </body>
