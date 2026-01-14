@@ -3,26 +3,213 @@
 <head>
     <title>Tacie's Page</title>
     <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <style>
-        body { font-family: sans-serif; padding: 40px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #fff; }
-        .back-btn { background: #eee; padding: 5px 10px; text-decoration: none; color: #333; border-radius: 4px; border: 1px solid #ccc; }
-        h1 { border-bottom: 2px solid #fd7e14; padding-bottom: 10px; } /* Orange accent */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #f8f9fa; color: #333; }
+        
+        /* Navigation */
+        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
+        .back-btn:hover { background: #eee; }
+
+        /* Banner & Headers */
+        .header-section { text-align: center; margin-bottom: 30px; }
+        h1 { margin: 10px 0 5px 0; color: #fd7e14; } /* Tacie Orange */
+        .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
+
+        /* Highlight Banner */
+        .highlight-banner { background-color: #fd7e14; color: white; padding: 15px; border-radius: 8px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 10px rgba(253, 126, 20, 0.2); }
+        .highlight-banner h2 { margin: 0; font-size: 1.4em; }
+        .highlight-banner p { margin: 5px 0 0 0; opacity: 0.9; }
+
+        /* Grid Layout */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        /* Cards */
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #fd7e14; }
+        .card h3 { margin-top: 0; color: #fd7e14; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
+        .card-icon { margin-right: 10px; font-size: 1.2em; }
+
+        /* Timeline */
+        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 15px; border-left: 2px solid #ffc107; }
+        .timeline-date { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
+        .timeline-title { font-weight: bold; color: #333; }
+        .timeline-desc { font-size: 0.95em; color: #555; }
+        .timeline-link { font-size: 0.9em; color: #007bff; text-decoration: none; }
+        .timeline-link:hover { text-decoration: underline; }
+
+        /* PR Grid */
+        .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .pr-item { background: #fdfdfd; padding: 10px; border: 1px solid #eee; border-radius: 5px; text-align: center; }
+        .pr-event { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+        .pr-time { font-weight: bold; font-size: 1.1em; color: #fd7e14; }
+        .pr-meet { font-size: 0.75em; color: #888; margin-top: 2px; }
+
+        /* Unified Link Buttons */
+        .link-btn { 
+            display: flex; align-items: center; justify-content: center;
+            background: #fff; padding: 15px; margin-bottom: 10px; 
+            border-radius: 6px; border: 1px solid #eee; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.2s ease; color: #333; font-weight: 600; text-decoration: none;
+        }
+        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); color: #000; }
+        
+        /* Brand Colors for Buttons */
+        .btn-milesplit { border-left: 6px solid #d9534f; }
+        .btn-athletic { border-left: 6px solid #005f9e; }
+        .btn-raceresult { border-left: 6px solid #28a745; }
+        .btn-youtube { border-left: 6px solid #FF0000; }
+
+        /* Footer */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #eee; text-align: right; font-size: 0.75em; color: #aaa; }
+        ul { padding-left: 20px; margin-top: 5px; }
+        li { margin-bottom: 5px; }
     </style>
 </head>
 <body>
+
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
-    <h1>🐾 Tacie Voetberg</h1>
-    <p>Born: March 22, 2013</p>
-    
-    <h3>Interests</h3>
-    <ul>
-        <li>Competitive Running</li>
-        <li><strong>Wallace</strong> (The Corgi)</li>
-    </ul>
+    <div class="header-section">
+        <h1>Tacie Voetberg</h1>
+        <div class="subtitle">Stevens Point Junior High | Class of 2031</div>
+    </div>
 
-    <h3>Upcoming</h3>
-    <p>Turning 13 in March 2026 (Passport eligibility).</p>
+    <div class="highlight-banner">
+        <h2>🔥 Undefeated Team Season</h2>
+        <p>Varsity Point Scorer for Stevens Point Junior High</p>
+    </div>
+
+    <div class="grid-container">
+        
+        <div class="col-left">
+            <div class="card">
+                <h3><span class="card-icon">📅</span>Timeline & Highlights</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2, 2025</div>
+                    <div class="timeline-title">Rosholt Invitational</div>
+                    <div class="timeline-desc">4th Overall finish in high heat conditions.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Sept 27, 2025</div>
+                    <div class="timeline-title">Oshkosh Lourdes Invite</div>
+                    <div class="timeline-desc">Ran in the Middle School Girls 1.5 mile division.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Sept 5, 2025</div>
+                    <div class="timeline-title">Neenah Invite (PR)</div>
+                    <div class="timeline-desc"><strong>3rd on Team.</strong> Helping SPJH secure 5 of the top 6 spots. Set 2400m PR (9:17).</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2025</div>
+                    <div class="timeline-title">Gene LaRose Champion</div>
+                    <div class="timeline-desc">
+                        1st Place Finish (1600m) - 6:25.<br>
+                        <a href="https://www.youtube.com/watch?v=IIbQas4CX0U" target="_blank" class="timeline-link">🎥 Watch Race Video</a>
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="border-left-color: #6f42c1;">
+                    <div class="timeline-date">Dec 2024</div>
+                    <div class="timeline-title">Community Leadership</div>
+                    <div class="timeline-desc">
+                        Nominated Mr. King for the Mandana Bliss Award at the School Board Meeting.<br>
+                        <a href="https://www.instagram.com/p/DE0hunoJjSB/" target="_blank" class="timeline-link">📸 View Nomination</a>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2024</div>
+                    <div class="timeline-title">The "Stellar" 3200m</div>
+                    <div class="timeline-desc">Breakthrough track time trial (13:12).</div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🏆</span>Accolades & Info</h3>
+                <ul>
+                    <li><strong>Gene LaRose Champion</strong> (2025)</li>
+                    <li><strong>Varsity Point Scorer</strong> (SPJH XC)</li>
+                    <li><strong>Top 20 State Ranked</strong> (Middle School)</li>
+                    <li>AAU District Competitor</li>
+                    <li>Owner of <strong>Wallace</strong> (The Corgi)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-right">
+            
+            <div class="card">
+                <h3><span class="card-icon">⏱️</span>Personal Records</h3>
+                <div class="pr-grid">
+                    <div class="pr-item">
+                        <div class="pr-event">400m</div>
+                        <div class="pr-time">1:15.00</div>
+                        <div class="pr-meet">Gene LaRose (2025)</div>
+                    </div>
+                    <div class="pr-item">
+                        <div class="pr-event">1600m</div>
+                        <div class="pr-time">6:06.2</div>
+                        <div class="pr-meet">KARC (5/17/25)</div>
+                    </div>
+                    <div class="pr-item">
+                        <div class="pr-event">2400m (XC)</div>
+                        <div class="pr-time">9:17.8</div>
+                        <div class="pr-meet">Neenah Invite (9/5/25)</div>
+                    </div>
+                    <div class="pr-item">
+                        <div class="pr-event">3200m</div>
+                        <div class="pr-time">13:12</div>
+                        <div class="pr-meet">Time Trial (10/22/24)</div>
+                    </div>
+                    <div class="pr-item">
+                        <div class="pr-event">5k (XC)</div>
+                        <div class="pr-time">21:15</div>
+                        <div class="pr-meet">NXR Snow (2025)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🔗</span>Channels & Results</h3>
+                
+                <a href="https://www.youtube.com/@tacierunning" target="_blank" class="link-btn btn-youtube">
+                    🎥 Tacie's YouTube Channel
+                </a>
+
+                <a href="https://results.wayzatatiming.com/meets/41706/athletes/31260417" target="_blank" class="link-btn btn-raceresult">
+                    ⏱️ NXR Results (Wayzata)
+                </a>
+
+                <a href="https://wi.milesplit.com/meets/690400-gene-larose-2025/results" target="_blank" class="link-btn btn-milesplit">
+                    🏃‍♀️ Gene LaRose Results
+                </a>
+                
+                <a href="https://results.tracksidetiming.com/meets/56060" target="_blank" class="link-btn btn-athletic">
+                    📊 Neenah Invite Results
+                </a>
+                
+                <a href="https://www.athletic.net/" target="_blank" class="link-btn btn-athletic">
+                    🔎 Athletic.net Profile
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated"></span>
+    </div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
 
 </body>
 </html>
