@@ -3,36 +3,147 @@
 <head>
     <title>Dan's Page</title>
     <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <style>
-        body { font-family: sans-serif; padding: 40px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #fff; }
-        .back-btn { background: #eee; padding: 5px 10px; text-decoration: none; color: #333; border-radius: 4px; border: 1px solid #ccc; }
-        h1 { border-bottom: 2px solid #007bff; padding-bottom: 10px; }
-        .section { margin-bottom: 30px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #f8f9fa; color: #333; }
+        
+        /* Navigation */
+        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
+        .back-btn:hover { background: #eee; }
+
+        /* Banner & Headers */
+        .header-section { text-align: center; margin-bottom: 30px; }
+        h1 { margin: 10px 0 5px 0; color: #28a745; } /* Dan Green */
+        .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
+
+        /* Photo Card */
+        .photo-card { 
+            background: white; 
+            padding: 10px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            max-width: 600px; /* Slightly wider for the group shot */
+            margin: 0 auto 30px auto; 
+            transition: transform 0.2s;
+        }
+        .photo-card:hover { transform: translateY(-3px); cursor: pointer; }
+        .photo-card img { width: 100%; border-radius: 8px; display: block; }
+        .photo-caption { text-align: center; font-size: 0.9em; color: #28a745; padding-top: 10px; font-weight: bold; }
+
+        /* Highlight Banner */
+        .highlight-banner { background-color: #28a745; color: white; padding: 15px; border-radius: 8px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); }
+        .highlight-banner h2 { margin: 0; font-size: 1.4em; }
+        .highlight-banner p { margin: 5px 0 0 0; opacity: 0.9; }
+
+        /* Grid Layout */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        /* Cards */
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #28a745; }
+        .card h3 { margin-top: 0; color: #28a745; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
+        .card-icon { margin-right: 10px; font-size: 1.2em; }
+
+        /* Tags for Interests */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #e8f5e9; color: #1b5e20; padding: 5px 10px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
+
+        /* Unified Link Buttons */
+        .link-btn { 
+            display: flex; align-items: center; justify-content: center;
+            background: #fff; padding: 15px; margin-bottom: 10px; 
+            border-radius: 6px; border: 1px solid #eee; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.2s ease; color: #333; font-weight: 600; text-decoration: none;
+        }
+        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); color: #000; }
+        .btn-code { border-left: 6px solid #333; }
+        .btn-orders { border-left: 6px solid #c0392b; }
+
+        /* Footer */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #eee; text-align: right; font-size: 0.75em; color: #aaa; }
+        ul { padding-left: 20px; margin-top: 5px; }
+        li { margin-bottom: 5px; }
     </style>
 </head>
 <body>
+
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
-    <h1>🏃‍♂️ Dan Voetberg</h1>
-    
-    <div class="section">
-        <h3>Running & Training</h3>
-        <p>Tracking 5k race times, hill sprints, and heart rate metrics (800m repeats).</p>
+    <div class="header-section">
+        <h1>Dan Voetberg</h1>
+        <div class="subtitle">Chief Architect | Retired at 40</div>
     </div>
 
-    <div class="section">
-        <h3>Tech Projects</h3>
-        <ul>
-            <li><strong>Home Automation:</strong> Hubitat & Google Home integration.</li>
-            <li><strong>Coding:</strong> Python & VBA scripts for financial simulation.</li>
-            <li><strong>Home Theater:</strong> Setup and calibration (Denon/Polk/Klipsch).</li>
-        </ul>
+    <div class="photo-card">
+        <img src="dan.jpg" alt="Dan and Family Biking">
+        <div class="photo-caption">🚴‍♂️ Hitting the Trails with the Family</div>
     </div>
 
-    <div class="section">
-        <h3>Finance</h3>
-        <p>Portfolio management, retirement planning, and tax strategy.</p>
+    <div class="highlight-banner">
+        <h2>🚀 Retired at 40</h2>
+        <p>18 Years at Kimberly-Clark → Full Time Passion Pursuit</p>
     </div>
+
+    <div class="grid-container">
+        
+        <div class="col-left">
+            <div class="card">
+                <h3><span class="card-icon">💻</span>Tech & Finance</h3>
+                <p><strong>AI Vibe Coding:</strong> Leveraging AI to build custom tools (like this Family Hub!).</p>
+                <p><strong>Stock Investing:</strong> Managing the portfolio and tracking the markets.</p>
+                <p><strong>Development:</strong> Always building "anything on the computer."</p>
+                <div class="tag-container" style="margin-top: 15px;">
+                    <span class="tag">AI Coding</span>
+                    <span class="tag">Investing</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">Automation</span>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">🎮</span>The Digital Cave</h3>
+                <ul>
+                    <li><strong>Home Theater:</strong> Calibrating the perfect setup for movie nights.</li>
+                    <li><strong>Gaming:</strong> PS5 enthusiast (when I'm not coding).</li>
+                    <li><strong>Tech:</strong> If it has a processor, I'm probably tinkering with it.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-right">
+            
+            <div class="card">
+                <h3><span class="card-icon">🎣</span>Family & Outdoors</h3>
+                <p><strong>Family Logistics:</strong> Organizing the chaos and keeping the Voetberg army moving.</p>
+                <p><strong>Ice Fishing:</strong> Chasing sunsets and fish on the hard water <em>with the family</em>.</p>
+                <p><strong>Cheerleader:</strong> The loudest voice on the sidelines for track meets and wrestling matches.</p>
+                <p><strong>Cycling:</strong> 26+ mile trail rides around Stevens Point.</p>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h3><span class="card-icon">📋</span>Headquarters Command</h3>
+                <p>Strategic planning for Tacie's athletic development and Donald's collegiate transition.</p>
+                <a href="orders_9sL2k.html" class="link-btn btn-orders">
+                    📢 Manage Orders from HQ
+                </a>
+
+                <a href="https://github.com/GitVo565/GitVo565.github.io" target="_blank" class="link-btn btn-code">
+                    💻 Edit Website Code
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated"></span>
+    </div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
 
 </body>
 </html>
