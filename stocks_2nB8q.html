@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voetberg Market Watch</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background: #131722; color: #fff; margin: 0; }
+        
+        /* Navigation */
+        .nav-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 10px; }
+        .back-btn { background: #2a2e39; padding: 8px 15px; text-decoration: none; color: #fff; border-radius: 4px; border: 1px solid #434651; font-size: 0.9em; transition: 0.2s; }
+        .back-btn:hover { background: #363a45; }
+        h1 { margin: 0; font-size: 1.2em; color: #d1d4dc; }
+
+        /* Grid Layout */
+        .stock-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; }
+        @media (min-width: 900px) { .stock-grid { grid-template-columns: 2fr 1fr; } }
+
+        /* Widget Containers */
+        .widget-box { background: #1e222d; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); height: 600px; }
+        .widget-box-small { background: #1e222d; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); height: 600px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="nav-bar">
+        <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
+        <h1>📈 Market Command</h1>
+    </div>
+
+    <div class="tradingview-widget-container" style="margin-bottom: 20px;">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+            { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+            { "proName": "FOREXCOM:NSXUSD", "title": "US 100" },
+            { "description": "Kimberly-Clark", "proName": "NYSE:KMB" },
+            { "description": "Nvidia", "proName": "NASDAQ:NVDA" },
+            { "description": "Apple", "proName": "NASDAQ:AAPL" },
+            { "description": "Microsoft", "proName": "NASDAQ:MSFT" },
+            { "description": "Bitcoin", "proName": "BITSTAMP:BTCUSD" }
+        ],
+        "showSymbolLogo": true,
+        "colorTheme": "dark",
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "locale": "en"
+        }
+        </script>
+    </div>
+
+    <div class="stock-grid">
+        
+        <div class="widget-box">
+            <div class="tradingview-widget-container" style="height:100%;width:100%">
+                <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                {
+                "autosize": true,
+                "symbol": "SP:SPX",
+                "interval": "D",
+                "timezone": "America/Chicago",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "enable_publishing": false,
+                "allow_symbol_change": true,
+                "calendar": false,
+                "support_host": "https://www.tradingview.com"
+                }
+                </script>
+            </div>
+        </div>
+
+        <div class="widget-box-small">
+            <div class="tradingview-widget-container" style="height:100%;width:100%">
+                <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                {
+                "colorTheme": "dark",
+                "dateRange": "12M",
+                "showChart": true,
+                "locale": "en",
+                "largeChartUrl": "",
+                "isTransparent": false,
+                "showSymbolLogo": true,
+                "showFloatingTooltip": false,
+                "width": "100%",
+                "height": "100%",
+                "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                "gridLineColor": "rgba(240, 243, 250, 0)",
+                "scaleFontColor": "rgba(106, 109, 120, 1)",
+                "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+                "tabs": [
+                    {
+                    "title": "Voetberg Watch",
+                    "symbols": [
+                        { "s": "SP:SPX", "d": "S&P 500" },
+                        { "s": "NYSE:KMB", "d": "Kimberly-Clark" },
+                        { "s": "NASDAQ:NVDA", "d": "Nvidia" },
+                        { "s": "NASDAQ:MSFT", "d": "Microsoft" },
+                        { "s": "NASDAQ:AMZN", "d": "Amazon" },
+                        { "s": "NASDAQ:GOOGL", "d": "Google" },
+                        { "s": "NYSE:BRK.B", "d": "Berkshire" }
+                    ],
+                    "originalTitle": "Indices"
+                    }
+                ]
+                }
+                </script>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
