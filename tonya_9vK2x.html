@@ -23,88 +23,89 @@
             --light-purple: #f3e5f5;
             --text-dark: #2c3e50;
             --text-grey: #666;
-            --card-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            padding: 15px; 
-            line-height: 1.5; 
+            padding: 10px; 
+            line-height: 1.4; /* Tighter line height */
             max-width: 1000px; 
             margin: 0 auto; 
             background: linear-gradient(135deg, #f8f9fa 0%, #f3e5f5 100%); 
             color: var(--text-dark); 
             min-height: 100vh;
+            font-size: 15px; /* Slightly smaller base font for density */
         }
         
         /* Navigation */
         .back-btn { 
             display: inline-block; 
             background: white; 
-            padding: 6px 15px; 
+            padding: 5px 12px; 
             text-decoration: none; 
             color: var(--text-dark); 
-            border-radius: 20px; 
+            border-radius: 15px; 
             border: 1px solid #ddd; 
-            font-size: 0.85em; 
-            margin-bottom: 15px; 
+            font-size: 0.8em; 
+            margin-bottom: 10px; 
             transition: all 0.2s; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
-        .back-btn:hover { background: #eee; transform: translateX(-3px); }
+        .back-btn:hover { background: #eee; transform: translateX(-2px); }
 
-        /* HERO SECTION - Tighter Spacing */
+        /* HERO SECTION - COMPACT */
         .profile-hero {
             background: white;
-            border-radius: 12px;
-            padding: 20px; /* Reduced padding */
+            border-radius: 10px;
+            padding: 15px; /* Reduced padding */
             display: flex;
             align-items: center;
-            gap: 20px; /* Reduced gap */
+            gap: 15px; 
             box-shadow: var(--card-shadow);
-            margin-bottom: 20px; /* Reduced margin */
-            border-left: 6px solid var(--primary-purple);
+            margin-bottom: 15px; 
+            border-left: 5px solid var(--primary-purple);
         }
 
-        .profile-img-container { flex: 0 0 160px; text-align: center; }
+        .profile-img-container { flex: 0 0 130px; text-align: center; }
 
         .profile-img {
-            width: 160px; height: 160px;
+            width: 130px; height: 130px; /* Smaller Image */
             object-fit: cover;
             border-radius: 50%;
             border: 3px solid var(--light-purple);
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
-        .profile-info h1 { margin: 0; color: var(--primary-purple); font-size: 2em; line-height: 1.1; }
-        .profile-tagline { font-size: 1em; color: #444; font-weight: 600; margin: 4px 0 8px 0; }
-        .profile-loc { font-size: 0.9em; color: #777; display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+        .profile-info h1 { margin: 0; color: var(--primary-purple); font-size: 1.8em; line-height: 1.1; }
+        .profile-tagline { font-size: 0.95em; color: #444; font-weight: 600; margin: 3px 0 6px 0; }
+        .profile-loc { font-size: 0.85em; color: #777; display: flex; align-items: center; gap: 4px; margin-bottom: 8px; }
         
-        .hero-badges { display: flex; gap: 6px; flex-wrap: wrap; }
-        .hero-badge { background: var(--light-purple); color: var(--dark-purple); padding: 3px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
+        .hero-badges { display: flex; gap: 5px; flex-wrap: wrap; }
+        .hero-badge { background: var(--light-purple); color: var(--dark-purple); padding: 2px 8px; border-radius: 10px; font-size: 0.75em; font-weight: bold; }
 
         /* Highlight Quote Banner */
         .highlight-banner { 
             background: linear-gradient(90deg, #6f42c1, #8e44ad); 
             color: white; 
-            padding: 15px; /* Reduced padding */
+            padding: 10px; 
             border-radius: 8px; 
-            margin-bottom: 20px; 
+            margin-bottom: 15px; 
             text-align: center; 
-            box-shadow: 0 3px 10px rgba(111, 66, 193, 0.3); 
+            box-shadow: 0 2px 8px rgba(111, 66, 193, 0.3); 
         }
-        .highlight-banner h2 { margin: 0 0 3px 0; font-size: 1.1em; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
-        .highlight-banner p { margin: 0; font-size: 1.1em; font-style: italic; font-weight: 600; }
+        .highlight-banner h2 { margin: 0; font-size: 0.9em; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
+        .highlight-banner p { margin: 0; font-size: 1em; font-style: italic; font-weight: 600; }
 
-        /* Grid Layout - Tighter Gaps */
+        /* Grid Layout */
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 15px; }
         
-        /* Cards - Less Whitespace */
+        /* Cards */
         .card { 
             background: white; 
-            padding: 20px; /* Reduced padding */
-            border-radius: 10px; 
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+            padding: 15px; /* Tighter padding */
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
             border-top: 3px solid var(--primary-purple); 
             height: 100%; 
         }
@@ -113,51 +114,59 @@
             margin-top: 0; 
             color: var(--primary-purple); 
             border-bottom: 1px solid #eee; 
-            padding-bottom: 8px; 
-            margin-bottom: 15px;
-            display: flex; align-items: center; font-size: 1.25em;
+            padding-bottom: 6px; 
+            margin-bottom: 10px;
+            display: flex; align-items: center; font-size: 1.1em;
         }
-        .card-icon { margin-right: 8px; }
+        .card-icon { margin-right: 6px; }
 
-        /* Timeline Styles - More Compact */
-        .timeline-item { position: relative; padding-left: 15px; margin-bottom: 15px; border-left: 2px solid #ddd; }
-        .timeline-item:last-child { margin-bottom: 0; } /* Remove margin from last item */
+        /* Timeline Styles - Very Compact */
+        .timeline-item { position: relative; padding-left: 12px; margin-bottom: 10px; border-left: 2px solid #ddd; }
+        .timeline-item:last-child { margin-bottom: 0; }
         .timeline-item.active { border-left-color: #28a745; }
         
-        .timeline-date { font-size: 0.75em; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 2px; }
-        .timeline-title { font-weight: bold; color: #333; font-size: 1em; margin: 0 0 2px 0; }
-        .timeline-desc { font-size: 0.9em; color: #555; line-height: 1.4; }
+        .timeline-date { font-size: 0.7em; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 0; line-height: 1.2; }
+        .timeline-title { font-weight: bold; color: #333; font-size: 0.95em; margin: 0; }
+        .timeline-desc { font-size: 0.85em; color: #555; line-height: 1.35; margin-top: 2px; }
         
         /* Tag Cloud */
-        .tag-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+        .tag-container { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
         .tag { 
             background: #f8f9fa; color: #555; 
-            padding: 4px 10px; border-radius: 6px; 
-            font-size: 0.8em; font-weight: 600; border: 1px solid #eee;
+            padding: 2px 8px; border-radius: 4px; 
+            font-size: 0.75em; font-weight: 600; border: 1px solid #eee;
         }
         .tag.tech { background: #e3f2fd; color: #0d47a1; border-color: #bbdefb; } 
         .tag.cert { background: #e8f5e9; color: #1b5e20; border-color: #c8e6c9; }
 
         /* Lists */
-        ul { padding-left: 20px; color: #555; margin: 0; }
-        li { margin-bottom: 5px; font-size: 0.95em; }
+        ul { padding-left: 18px; color: #555; margin: 0; }
+        li { margin-bottom: 3px; font-size: 0.9em; }
 
         /* Connect Section */
-        .connect-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+        .connect-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
         .link-btn { 
             flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-            background: #fff; padding: 10px; 
+            background: #fff; padding: 8px; 
             border-radius: 6px; border: 1px solid #ddd; 
-            color: #333; font-weight: 600; text-decoration: none; font-size: 0.9em;
+            color: #333; font-weight: 600; text-decoration: none; font-size: 0.85em;
             transition: all 0.2s;
         }
         .link-btn:hover { background: #f8f9fa; border-color: var(--primary-purple); color: var(--primary-purple); }
 
         /* Footer */
-        .footer-info { margin-top: 30px; padding-top: 10px; border-top: 1px solid #ddd; text-align: right; font-size: 0.7em; color: #999; }
+        .footer-info { 
+            margin-top: 20px; 
+            padding-top: 10px; 
+            border-top: 1px solid #ccc; 
+            text-align: right; 
+            font-size: 0.75em; 
+            color: #555; 
+            font-weight: 600;
+        }
 
         @media (max-width: 768px) {
-            .profile-hero { flex-direction: column; text-align: center; }
+            .profile-hero { flex-direction: column; text-align: center; gap: 10px; }
             .hero-badges { justify-content: center; }
             .grid-container { grid-template-columns: 1fr; }
             .profile-loc { justify-content: center; }
@@ -174,7 +183,7 @@
         </div>
         <div class="profile-info">
             <h1>Tonya Voetberg</h1>
-            <div class="profile-tagline">Transformation Leader | Master of Logistics | The Heart of the Home</div>
+            <div class="profile-tagline">Transformation Leader | Master of Logistics | Heart of the Home</div>
             <div class="profile-loc">📍 Stevens Point & Neenah, WI</div>
             
             <div class="hero-badges">
@@ -195,7 +204,7 @@
         <div class="col-left">
             <div class="card">
                 <h3><span class="card-icon">🚀</span>Professional Journey</h3>
-                <p style="color:#666; font-size:0.9em; margin-bottom:15px; line-height: 1.4;">
+                <p style="color:#666; font-size:0.85em; margin-bottom:12px; line-height: 1.3;">
                     Transformation Leader acting as a "right hand" to mission leaders, connecting corporate strategy to execution. 
                     <br><strong>Tenure:</strong> 25+ Years at Kimberly-Clark.
                 </p>
@@ -212,7 +221,7 @@
                     <div class="timeline-date">Key Wins</div>
                     <div class="timeline-title">Strategic Impact</div>
                     <div class="timeline-desc">
-                        • Helping relaunch innovation frameworks projected to deliver <strong>$3 Billion</strong> in Net Incremental Sales Value by 2030.<br>
+                        • Relaunching innovation frameworks projected to deliver <strong>$3 Billion</strong> in Net Incremental Sales Value.<br>
                         • Automating enterprise dashboards to gain <strong>95% time efficiency</strong>.
                     </div>
                 </div>
@@ -226,7 +235,7 @@
                         <span class="tag tech">MS 365 Copilot</span>
                         <span class="tag tech">Power BI</span>
                         <span class="tag tech">Azure DevOps</span>
-                        <span class="tag tech">Gen AI (Synthesia)</span>
+                        <span class="tag tech">Gen AI</span>
                     </div>
                     <div class="timeline-desc">
                         Utilizes "Agile" thinking to simplify complexity. Prides herself on the ability to "influence without authority."
@@ -248,7 +257,7 @@
             
             <div class="card">
                 <h3><span class="card-icon">🏡</span>Meet Tonya</h3>
-                <p style="font-size: 0.95em; margin-bottom: 15px;"><strong>Family Roots:</strong> Married to Dan since 2000 (Met at UWSP!). Supermom to 3 kids and manager of the "Voetberg Army." Also mother to Wallace the Corgi.</p>
+                <p style="font-size: 0.9em; margin-bottom: 10px;"><strong>Family Roots:</strong> Married to Dan since 2000 (Met at UWSP!). Supermom to 3 kids and manager of the "Voetberg Army." Also mother to Wallace the Corgi.</p>
                 
                 <div class="timeline-item" style="border-left-color: #fd7e14;">
                     <div class="timeline-date">Origins & Education</div>
@@ -260,36 +269,36 @@
                     </div>
                 </div>
 
-                <p style="font-size: 0.95em;"><strong>Global Traveler:</strong> Explored Costa Rica, Brazil, Canada, Argentina, and England.</p>
+                <p style="font-size: 0.9em; margin: 0;"><strong>Global Traveler:</strong> Explored Costa Rica, Brazil, Canada, Argentina, and England.</p>
             </div>
 
             <div class="card" style="margin-top:15px;">
                 <h3><span class="card-icon">✨</span>The Fun Stuff</h3>
                 
-                <div style="margin-bottom: 12px; font-size: 0.95em;">
+                <div style="margin-bottom: 8px; font-size: 0.9em;">
                     <strong>In the Kitchen:</strong><br>
-                    <span style="color:#666;">Considered a "Master Chef."</span><br>
+                    <span style="color:#666;">Considered a "Master Chef."</span>
                     <em>Signature Dish: The World's Best Lasagna.</em>
                 </div>
 
-                <div style="margin-bottom: 12px;">
-                    <strong style="font-size: 0.95em;">Entertainment Favorites:</strong><br>
-                    <div class="tag-container" style="margin-top:4px;">
+                <div style="margin-bottom: 8px;">
+                    <strong style="font-size: 0.9em;">Favorites:</strong><br>
+                    <div class="tag-container" style="margin-top:2px;">
                         <span class="tag">A Discovery of Witches 🧙‍♀️</span>
                         <span class="tag">The Piano Guys 🎹</span>
                         <span class="tag">Corgi Videos 🐶</span>
                     </div>
                 </div>
 
-                <div style="font-size: 0.95em;">
-                    <strong>Socializing:</strong><br>
-                    Specialty is hosting family reunions, parties, and get-togethers.
+                <div style="font-size: 0.9em;">
+                    <strong>Socializing:</strong>
+                    Hosting family reunions, parties, and get-togethers.
                 </div>
             </div>
 
             <div class="card" style="margin-top:15px;">
                 <h3><span class="card-icon">🔗</span>Connect</h3>
-                <p style="font-size:0.85em; margin-bottom:12px; color: #666;">
+                <p style="font-size:0.8em; margin-bottom:10px; color: #666;">
                     <em>Can be found being the "loudest supporter" at wrestling matches and track meets.</em>
                 </p>
                 
