@@ -10,12 +10,12 @@
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             padding: 20px; 
-            max-width: 1000px; 
+            max-width: 1200px; 
             margin: 0 auto; 
             background: #2c3e50; 
             color: #333; 
             background-image: radial-gradient(#34495e 1px, transparent 1px);
-            background-size: 20px 20px; /* Subtle texture */
+            background-size: 20px 20px; 
         }
         
         /* Navigation */
@@ -23,96 +23,105 @@
         .back-btn:hover { transform: translateY(-2px); }
 
         /* Header */
-        .header-section { text-align: center; margin-bottom: 50px; }
-        h1 { margin: 0; color: #ecf0f1; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .subtitle { color: #bdc3c7; font-style: italic; margin-top: 5px; }
+        .header-section { text-align: center; margin-bottom: 60px; }
+        h1 { margin: 0; color: #ecf0f1; font-size: 3em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 800; letter-spacing: 1px; }
+        .subtitle { color: #bdc3c7; font-style: italic; margin-top: 5px; font-size: 1.2em; }
 
         /* SCRAPBOOK GRID */
         .scrapbook-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 40px;
+            gap: 50px; /* Space between polaroids */
+            padding-bottom: 50px;
         }
 
         /* POLAROID CARD STYLE */
         .polaroid {
             background: white;
-            padding: 15px 15px 25px 15px;
+            padding: 15px 15px 50px 15px; /* Extra bottom padding for caption */
             box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            width: 300px; /* Fixed width for tile look */
-            transition: transform 0.3s ease;
+            width: 280px; 
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
             position: relative;
             text-decoration: none;
             color: #333;
+            transform-origin: center;
         }
         
-        /* Hover Effect: Straighten & Lift */
+        /* Hover Effect: Straighten, Lift & Scale */
         .polaroid:hover { 
-            transform: scale(1.05) rotate(0deg) !important; 
-            z-index: 10; 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            transform: scale(1.1) rotate(0deg) !important; 
+            z-index: 100; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
         /* The Image */
         .polaroid img {
             width: 100%;
-            height: 250px; /* Uniform height for tidiness */
+            height: 280px; /* Square-ish look */
             object-fit: cover;
-            border: 1px solid #ddd;
-            background: #eee;
+            border: 1px solid #eee;
+            background: #f0f0f0;
         }
 
         /* Handwriting Caption */
         .caption-box {
             text-align: center;
             margin-top: 15px;
+            position: absolute;
+            bottom: 10px;
+            width: calc(100% - 30px);
         }
         .caption-title {
-            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* Handwriting font */
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; 
             font-weight: bold;
             font-size: 1.1em;
             color: #2c3e50;
             display: block;
         }
         .caption-date {
-            font-size: 0.8em;
-            color: #777;
+            font-size: 0.85em;
+            color: #7f8c8d;
             display: block;
-            margin-top: 2px;
         }
-        .view-link {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        
+        /* View Album Link (appears on hover) */
+        .view-hint {
+            font-size: 0.75em;
             color: #3498db;
+            text-transform: uppercase;
             font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.2s;
+            margin-top: 5px;
+            display: block;
         }
+        .polaroid:hover .view-hint { opacity: 1; }
 
-        /* THE TAPE EFFECT (Pure CSS) */
+        /* THE TAPE EFFECT */
         .tape {
             position: absolute;
-            top: -15px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 90px;
             height: 30px;
-            background-color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.5);
             border-left: 2px dotted rgba(0,0,0,0.1);
             border-right: 2px dotted rgba(0,0,0,0.1);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
-        /* RANDOM ROTATIONS (Scrapbook Feel) */
-        .tilt-left { transform: rotate(-3deg); }
-        .tilt-right { transform: rotate(2deg); }
-        .tilt-hard-left { transform: rotate(-5deg); }
+        /* RANDOM ROTATIONS */
+        .tilt-left { transform: rotate(-4deg); }
+        .tilt-right { transform: rotate(3deg); }
+        .tilt-hard-left { transform: rotate(-7deg); }
+        .tilt-hard-right { transform: rotate(6deg); }
 
         /* Footer */
-        .footer-info { margin-top: 60px; padding-top: 20px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #7f8c8d; clear: both; }
+        .footer-info { margin-top: 40px; padding-top: 20px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #7f8c8d; }
 
     </style>
 </head>
@@ -128,22 +137,54 @@
     <div class="scrapbook-container">
 
         <a href="https://photos.app.goo.gl/RqaUJar8JAs5a5d76" target="_blank" class="polaroid tilt-left">
-            <div class="tape"></div> <img src="images/4_peat_bros.jpg" alt="4-Peat Champs">
+            <div class="tape"></div>
+            <img src="images/4_peat_bros.jpg" alt="4-Peat Champs">
             <div class="caption-box">
-                <span class="caption-title">🏆 The 4-Peat!</span>
+                <span class="caption-title">🏆 State Champs (4x)</span>
                 <span class="caption-date">Nov 2025</span>
-                <span class="view-link">View Album ↗</span>
+                <span class="view-hint">Click to View Album</span>
             </div>
         </a>
 
-        <div class="polaroid tilt-right">
+        <a href="https://photos.app.goo.gl/h8XbJS3dgzHdfAdR6" target="_blank" class="polaroid tilt-right">
+            <div class="tape"></div>
+            <img src="images/donald_signs.jpg" alt="Donald Signing">
+            <div class="caption-box">
+                <span class="caption-title">🖊️ Signed to MSUB!</span>
+                <span class="caption-date">Nov 12, 2025</span>
+                <span class="view-hint">Click to View Album</span>
+            </div>
+        </a>
+
+        <a href="https://photos.app.goo.gl/d4qb1c4sBMWA6Lqy8" target="_blank" class="polaroid tilt-hard-left">
             <div class="tape"></div>
             <img src="images/Donald_Montana_Stream.jpg" alt="Montana">
             <div class="caption-box">
                 <span class="caption-title">🏔️ Montana Scouting</span>
                 <span class="caption-date">Summer 2025</span>
+                <span class="view-hint">Click to View Album</span>
             </div>
-        </div>
+        </a>
+
+        <a href="https://photos.app.goo.gl/JiEHgMDBsvhZvmHG6" target="_blank" class="polaroid tilt-right">
+            <div class="tape"></div>
+            <img src="images/ice_fishing.jpg" alt="Ice Fishing">
+            <div class="caption-box">
+                <span class="caption-title">🎣 Hard Water Fishing</span>
+                <span class="caption-date">Winter 2025</span>
+                <span class="view-hint">Click to View Album</span>
+            </div>
+        </a>
+
+        <a href="https://photos.app.goo.gl/qttibN4R39jZm41M7" target="_blank" class="polaroid tilt-hard-right">
+            <div class="tape"></div>
+            <img src="images/wallace.jpg" alt="Wallace">
+            <div class="caption-box">
+                <span class="caption-title">🐶 Sir Wallace</span>
+                <span class="caption-date">The Goodest Boy</span>
+                <span class="view-hint">Click to View Album</span>
+            </div>
+        </a>
 
     </div>
 
