@@ -44,7 +44,7 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 15px;
-            margin-bottom: 10px;
+            margin-bottom: 5px; /* Reduced bottom margin since address is next */
         }
 
         .header-left { flex: 1; }
@@ -59,6 +59,16 @@
         }
 
         h2 { margin: 0; color: #2c3e50; font-size: 1.3em; line-height: 1.2; }
+
+        /* ADDRESS / TIME (Full Width Now) */
+        .time-loc { 
+            color: #555; 
+            font-size: 0.95em; 
+            margin-bottom: 15px; 
+            display: block; 
+            font-weight: 500;
+            padding-top: 5px; /* Breathing room from title */
+        }
 
         /* CLICKABLE MAP LINKS */
         .map-link {
@@ -107,11 +117,21 @@
         .btn-tacie { background-color: #e67e22; color: white; border: 1px solid #d35400; }
         .btn-donald { background-color: #f39c12; color: #2c3e50; border: 1px solid #e67e22; }
 
-        .time-loc { color: #555; font-size: 0.9em; margin-bottom: 15px; display: block; font-weight: 500; }
         .logistics-box { background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #34495e; font-size: 0.9em; margin-bottom: 15px; }
 
+        /* CALENDAR SECTION */
+        .cal-cta {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin-top: 20px; /* Space above buttons */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         /* Action Buttons */
-        .btn-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .btn-container { display: flex; flex-wrap: wrap; gap: 8px; }
         .action-btn { display: inline-block; padding: 8px 12px; border-radius: 4px; text-decoration: none; font-size: 0.85em; font-weight: bold; color: white; transition: background 0.2s; }
         .btn-rsvp { background: #3b5998; }
         .btn-google { background: #db4437; }
@@ -140,20 +160,22 @@
                     <h2>🤼‍♀️ Battle by the River – Tacie's Debut!</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Former+East+Junior+High+Wisconsin+Rapids" target="_blank" class="map-link">📍 Former East Junior High, WI Rapids</a> 
-                    | 🕛 9:30 AM Start
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Sat</div>
                 <div class="date-badge"><span class="month">Jan</span><span class="day">17</span></div>
             </div>
         </div>
+        
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544944" target="_blank" class="map-link">📍 Former East Junior High, WI Rapids</a> 
+            | 🕛 9:30 AM Start
+        </span>
 
         <p>Excited for Tacie's first middle school wrestling meet! This WIAA-aligned invitational tournament is believed to feature brackets and scrambles with 10-14 schools from the Wisconsin Valley Conference and beyond. Let's go, Point!</p>
         <div class="logistics-box"><strong>Athlete Logistics:</strong> Bus departs PJ Jacobs at 6:45 AM – arrive ready to rumble!</div>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+Wrestling+-+Battle+by+the+River&dates=20260117T093000/20260117T170000&details=Tacie's+Debut!+Bus+at+6:45am&location=Wisconsin+Rapids" target="_blank" class="action-btn btn-google">Google</a>
             <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-17T09:30:00&enddt=2026-01-17T17:00:00&subject=Tacie+Wrestling+-+Battle+by+the+River&location=Wisconsin+Rapids" target="_blank" class="action-btn btn-outlook">Outlook</a>
@@ -168,10 +190,6 @@
                     <h2>🤼 Dual vs Auburndale</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Auburndale+High+School+WI" target="_blank" class="map-link">📍 Auburndale High School</a> 
-                    | 🕟 4:15 PM
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Mon</div>
@@ -179,8 +197,14 @@
             </div>
         </div>
 
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544945" target="_blank" class="map-link">📍 Auburndale High School</a> 
+            | 🕟 4:15 PM
+        </span>
+
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:30 | PJ Release 2:45 | Bus 3:00</div>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Dual+Meet+vs+Auburndale&dates=20260119T161500/20260119T180000&location=Auburndale+High+School" target="_blank" class="action-btn btn-google">Google</a>
             <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-19T16:15:00&enddt=2026-01-19T18:00:00&subject=Dual+Meet+vs+Auburndale&location=Auburndale+High+School" target="_blank" class="action-btn btn-outlook">Outlook</a>
@@ -195,10 +219,6 @@
                     <h2>🤼 D.C. Everest Invite - JH/MS</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=6400+Alderson+St,+Weston,+WI+54476" target="_blank" class="map-link">📍 Greenheck Field House, Weston</a> 
-                    | 🕟 4:15 PM
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Fri</div>
@@ -206,8 +226,14 @@
             </div>
         </div>
 
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544946" target="_blank" class="map-link">📍 Greenheck Field House, Weston</a> 
+            | 🕟 4:15 PM
+        </span>
+
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:15 | PJ Release 2:30 | Bus 2:45</div>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=D.C.+Everest+Invite+-+JH/MS&dates=20260123T161500/20260123T190000&location=6400+Alderson+St,+Weston,+WI+54476" target="_blank" class="action-btn btn-google">Google</a>
             <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-23T16:15:00&enddt=2026-01-23T19:00:00&subject=D.C.+Everest+Invite+-+JH/MS&location=6400+Alderson+St,+Weston,+WI+54476" target="_blank" class="action-btn btn-outlook">Outlook</a>
@@ -222,10 +248,6 @@
                     <h2>🤼 Dual vs Marathon</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Marathon+High+School+WI" target="_blank" class="map-link">📍 Marathon High School</a> 
-                    | 🕟 4:15 PM
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Mon</div>
@@ -233,8 +255,14 @@
             </div>
         </div>
 
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544947" target="_blank" class="map-link">📍 Marathon High School</a> 
+            | 🕟 4:15 PM
+        </span>
+
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Dual+Meet+vs+Marathon&dates=20260126T161500/20260126T180000&location=Marathon" target="_blank" class="action-btn btn-google">Google</a>
             <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-26T16:15:00&enddt=2026-01-26T18:00:00&subject=Dual+Meet+vs+Marathon&location=Marathon" target="_blank" class="action-btn btn-outlook">Outlook</a>
@@ -249,10 +277,6 @@
                     <h2>🤼 Merrill Invitational</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Merrill+High+School+WI" target="_blank" class="map-link">📍 Merrill High School</a> 
-                    | 🕟 4:15 PM
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Fri</div>
@@ -260,8 +284,14 @@
             </div>
         </div>
 
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544948" target="_blank" class="map-link">📍 Merrill High School</a> 
+            | 🕟 4:15 PM
+        </span>
+
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 1:30 | PJ Release 1:45 | Bus 2:00</div>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Merrill+Invitational&dates=20260130T161500/20260130T190000&location=Merrill" target="_blank" class="action-btn btn-google">Google</a>
             <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-30T16:15:00&enddt=2026-01-30T19:00:00&subject=Merrill+Invitational&location=Merrill" target="_blank" class="action-btn btn-outlook">Outlook</a>
@@ -276,10 +306,6 @@
                     <h2>🤼 PJ's Home Meet</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=PJ+Jacobs+Junior+High+Stevens+Point" target="_blank" class="map-link">📍 PJ's (Home)</a> 
-                    | 🕟 4:15 PM
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Tue</div>
@@ -287,8 +313,14 @@
             </div>
         </div>
 
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544949" target="_blank" class="map-link">📍 PJ's (Home)</a> 
+            | 🕟 4:15 PM
+        </span>
+
         <div class="logistics-box"><strong>Note:</strong> Home Meet! Come cheer loud! (No early departure)</div>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=PJ's+Home+Meet&dates=20260203T161500/20260203T180000&location=PJs" target="_blank" class="action-btn btn-google">Google</a>
             <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-03T16:15:00&enddt=2026-02-03T18:00:00&subject=PJs+Home+Meet&location=PJs" target="_blank" class="action-btn btn-outlook">Outlook</a>
@@ -303,10 +335,6 @@
                     <h2>🤼 Dual vs Edgar</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Edgar+High+School+WI" target="_blank" class="map-link">📍 Edgar High School</a> 
-                    | 🕟 4:15 PM
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Mon</div>
@@ -314,8 +342,14 @@
             </div>
         </div>
 
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544120" target="_blank" class="map-link">📍 Edgar High School</a> 
+            | 🕟 4:15 PM
+        </span>
+
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Dual+Meet+vs+Edgar&dates=20260209T161500/20260209T180000&location=Edgar" target="_blank" class="action-btn btn-google">Google</a>
             <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-09T16:15:00&enddt=2026-02-09T18:00:00&subject=Dual+Meet+vs+Edgar&location=Edgar" target="_blank" class="action-btn btn-outlook">Outlook</a>
@@ -330,10 +364,6 @@
                     <h2>🤼 Dual vs Marshfield</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Marshfield+High+School+WI" target="_blank" class="map-link">📍 Marshfield High School</a> 
-                    | 🕟 4:15 PM
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Tue</div>
@@ -341,8 +371,14 @@
             </div>
         </div>
 
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544121" target="_blank" class="map-link">📍 Marshfield High School</a> 
+            | 🕟 4:15 PM
+        </span>
+
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Dual+Meet+vs+Marshfield&dates=20260217T161500/20260217T180000&location=Marshfield" target="_blank" class="action-btn btn-google">Google</a>
             <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-17T16:15:00&enddt=2026-02-17T18:00:00&subject=Dual+Meet+vs+Marshfield&location=Marshfield" target="_blank" class="action-btn btn-outlook">Outlook</a>
@@ -357,10 +393,6 @@
                     <h2>🤼 Dual vs Marshfield (II)</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Marshfield+High+School+WI" target="_blank" class="map-link">📍 Marshfield High School</a> 
-                    | 🕟 4:15 PM
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Mon</div>
@@ -368,8 +400,14 @@
             </div>
         </div>
 
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544121" target="_blank" class="map-link">📍 Marshfield High School</a> 
+            | 🕟 4:15 PM
+        </span>
+
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Dual+Meet+vs+Marshfield&dates=20260223T161500/20260223T180000&location=Marshfield" target="_blank" class="action-btn btn-google">Google</a>
             <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-23T16:15:00&enddt=2026-02-23T18:00:00&subject=Dual+Meet+vs+Marshfield&location=Marshfield" target="_blank" class="action-btn btn-outlook">Outlook</a>
@@ -384,10 +422,6 @@
                     <h2>🎓 Donald's Grad Party</h2>
                     <a href="donald_2yR5j.html" class="member-btn btn-donald" target="_blank">🎓 Donald</a>
                 </div>
-                <span class="time-loc">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Our+Home" target="_blank" class="map-link">📍 Our Home</a> 
-                    | 🕛 12:00 PM - 10:00 PM
-                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Sat</div>
@@ -395,8 +429,14 @@
             </div>
         </div>
 
+        <span class="time-loc">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544123" target="_blank" class="map-link">📍 Our Home</a> 
+            | 🕛 12:00 PM - 10:00 PM
+        </span>
+
         <p>Celebrate Donald's Graduation (Class of 2026)!</p>
         
+        <div class="cal-cta">📅 Add to your calendar:</div>
         <div class="btn-container">
             <a href="https://fb.me/e/8o2oN3wj9" target="_blank" class="action-btn btn-rsvp">Facebook RSVP</a>
             <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Donald+Grad+Party&dates=20260627T120000/20260627T220000&location=Our+Home" target="_blank" class="action-btn btn-google">Google</a>
