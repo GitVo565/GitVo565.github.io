@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #f8f9fa; color: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: url('images/Donald_Montana_Stream.jpg') no-repeat center center fixed; background-size: cover; color: #ecf0f1; position: relative; }
+        body::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: -1; } /* Darkened overlay */
       
         /* Navigation & Header */
         .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
         .back-btn:hover { background: #eee; }
         .header-section { text-align: center; margin-bottom: 30px; }
-        h1 { margin: 10px 0 5px 0; color: #002f5d; }
-        .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
+        h1 { margin: 10px 0 5px 0; color: #ecf0f1; } /* Adjusted for dark bg */
+        .subtitle { color: #bdc3c7; font-weight: 500; font-size: 1.1em; }
         /* Photo Card */
         .photo-card {
             background: white;
@@ -30,17 +31,17 @@
         /* Grid Layout */
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
       
-        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #002f5d; }
+        .card { background: rgba(255, 255, 255, 0.9); padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #002f5d; } /* Semi-transparent for bg visibility */
         .card h3 { margin-top: 0; color: #002f5d; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
         .card-icon { margin-right: 10px; font-size: 1.2em; }
         /* Standard Lists */
         ul { padding-left: 20px; margin-top: 10px; }
         li { margin-bottom: 8px; }
-        a { color: #0056b3; text-decoration: none; font-weight: 500; }
-        a:hover { text-decoration: underline; color: #002f5d; }
+        a { color: #3498db; text-decoration: none; font-weight: 500; } /* Lighter blue for dark bg */
+        a:hover { text-decoration: underline; color: #2980b9; }
         /* Timeline */
         .timeline-item { position: relative; padding-left: 20px; margin-bottom: 15px; border-left: 2px solid #ffc72c; }
-        .timeline-date { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
+        .timeline-date { font-size: 0.85em; color: #bdc3c7; font-weight: bold; text-transform: uppercase; } /* Adjusted for visibility */
         .timeline-title { font-weight: bold; color: #333; }
         .timeline-desc { font-size: 0.95em; color: #555; }
         /* PR Grid */
@@ -99,6 +100,11 @@
                 <h3><span class="card-icon">📅</span>What's Happening</h3>
               
                 <div class="timeline-item">
+                    <div class="timeline-date">March - June 2026</div>
+                    <div class="timeline-title">Senior Season of Track and Field for SPASH</div>
+                    <div class="timeline-desc">Final high school season before transitioning to MSUB.</div>
+                </div>
+                <div class="timeline-item">
                     <div class="timeline-date">Nov 12, 2025</div>
                     <div class="timeline-title">Official Signing Day</div>
                     <div class="timeline-desc">Signed NLI to compete for MSU Billings (NCAA D2).</div>
@@ -108,7 +114,6 @@
                     <div class="timeline-title">State Champions (4-Peat!)</div>
                     <div class="timeline-desc">Varsity runner on the historic 4th consecutive State Title team.</div>
                 </div>
-              
                 <div class="timeline-item">
                     <div class="timeline-date">Oct 2024</div>
                     <div class="timeline-title">State Champions (Junior Year)</div>
@@ -118,11 +123,6 @@
                     <div class="timeline-date">Oct 2023</div>
                     <div class="timeline-title">State Champions (Sophomore)</div>
                     <div class="timeline-desc">Team Alternate for State Title #2.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">May 18, 2026</div>
-                    <div class="timeline-title">Upcoming: Conference Meet</div>
-                    <div class="timeline-desc">Varsity Spring Track @ Wausau East.</div>
                 </div>
             </div>
           
@@ -217,19 +217,19 @@
             </div>
             <div class="card" style="margin-top: 20px;">
                 <h3><span class="card-icon">🔗</span>Profiles & Teams</h3>
-              
+             
                 <a href="https://msubsports.com/sports/mens-cross-country" target="_blank" class="link-btn btn-msub">
                     🐝 MSUB Men's XC Home
                 </a>
-              
+             
                 <a href="https://www.instagram.com/donald_voetberg/" target="_blank" class="link-btn btn-insta">
                     📸 Follow Donald on Instagram
                 </a>
-              
+             
                 <a href="https://www.athletic.net/athlete/23587912/track-and-field/" target="_blank" class="link-btn btn-athletic">
                     📊 Athletic.net Profile
                 </a>
-              
+             
                 <a href="https://wi.milesplit.com/athletes/13646503-donald-voetberg" target="_blank" class="link-btn btn-milesplit">
                     🏃‍♂️ MileSplit Profile
                 </a>
