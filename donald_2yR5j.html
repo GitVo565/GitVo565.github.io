@@ -55,20 +55,22 @@
 
         .hero-image-box {
             width: 100%;
-            height: 400px;
+            height: 400px; /* Fixed height for the hero section */
             overflow: hidden;
             position: relative;
+            background-color: #f0f0f0; /* Placeholder color */
         }
         
         /* IMAGE FIX:
            We use 'object-fit: cover' to ensure the photo fills the box 
-           without stretching, even if the dimensions aren't perfect.
+           without stretching or distorting, even if the dimensions aren't perfect.
+           It crops excess from the edges to fit the container.
         */
         .hero-image-box img {
             width: 100%;
             height: 100%;
             object-fit: cover; 
-            object-position: center top; /* Focuses on the top/faces */
+            object-position: center center; /* Centers the image focus */
         }
 
         .hero-content { padding: 30px; }
@@ -134,7 +136,7 @@
         
         <div class="hero-card">
             <div class="hero-image-box">
-                <img src="donald_signing.jpg" alt="Donald Signing Day">
+                <img src="images/donald_signs.jpg" alt="Donald Signing Day">
             </div>
             <div class="hero-content">
                 <h1>Donald Voetberg</h1>
