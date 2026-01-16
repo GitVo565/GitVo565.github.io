@@ -27,76 +27,87 @@
         .event-card { 
             background: white; 
             color: #333; 
-            padding: 25px; 
+            padding: 20px; 
             border-radius: 8px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
             margin-bottom: 25px; 
             border-left: 8px solid #ccc; 
-            position: relative;
         }
 
         /* Border Colors */
         .type-party { border-left-color: #f1c40f; } 
         .type-sports { border-left-color: #e67e22; }
 
-        /* HEADER LAYOUT - The "Tab" Fix */
-        .card-header-row {
+        /* --- NEW FLEX HEADER LAYOUT (Fixes Mobile Overlap) --- */
+        .card-top-flex {
             display: flex;
-            align-items: center; /* Vertically center badge with text */
+            justify-content: space-between; /* Pushes content to edges */
+            align-items: flex-start; /* Aligns to top */
+            gap: 15px; /* Minimum space between title and date */
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            flex: 1; /* Takes up all available space */
+        }
+
+        .header-right {
+            flex: 0 0 auto; /* Does not shrink */
+            display: flex;
+            gap: 8px; /* Space between Day and Date */
+            align-items: flex-start;
+        }
+
+        /* Title & Badge Row */
+        .title-badge-row {
+            display: flex;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 15px; /* This is the "Tab" space */
-            margin-bottom: 8px;
-            padding-right: 60px; /* Keep text away from the Date Badge */
+            gap: 10px;
+            margin-bottom: 5px;
         }
 
         h2 { 
             margin: 0; 
             color: #2c3e50; 
-            font-size: 1.4em; 
+            font-size: 1.3em; 
             line-height: 1.2; 
         }
 
-        /* MEMBER BUTTONS (Pill Style) */
-        .member-btn {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px; /* Pill shape */
-            font-size: 0.8em;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            white-space: nowrap; /* Keeps it on one line */
-        }
-        .member-btn:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        /* Specific Colors */
-        .btn-tacie { background-color: #e67e22; color: white; border: 1px solid #d35400; }
-        .btn-donald { background-color: #f39c12; color: #2c3e50; border: 1px solid #e67e22; }
-
-        /* Date Badges (Top Right) */
+        /* Date Badges - Now Static Blocks (Not Absolute) */
         .date-badge { 
-            position: absolute; top: 20px; right: 20px; 
             text-align: center; background: #f0f2f5; 
             padding: 5px 10px; border-radius: 8px; border: 1px solid #ddd; 
             font-weight: bold; color: #333;
-            min-width: 50px;
+            min-width: 45px;
         }
-        .date-badge .month { display: block; font-size: 0.8em; text-transform: uppercase; color: #e74c3c; }
-        .date-badge .day { font-size: 1.4em; line-height: 1.1; }
+        .date-badge .month { display: block; font-size: 0.75em; text-transform: uppercase; color: #e74c3c; line-height: 1; margin-bottom: 2px; }
+        .date-badge .day { font-size: 1.3em; line-height: 1; }
         
         .day-badge {
-            position: absolute; top: 20px; right: 100px; 
             text-align: center; background: #34495e;
-            padding: 5px 12px; border-radius: 20px;
-            font-weight: bold; color: #fff; font-size: 0.85em; text-transform: uppercase;
+            padding: 6px 10px; border-radius: 20px;
+            font-weight: bold; color: #fff; font-size: 0.8em; text-transform: uppercase;
+            height: fit-content;
+            margin-top: 5px; /* Slight offset to align nicely */
         }
 
-        .time-loc { color: #555; font-size: 0.95em; margin-bottom: 15px; display: block; font-weight: 500; }
+        /* Member Buttons */
+        .member-btn {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+        .btn-tacie { background-color: #e67e22; color: white; border: 1px solid #d35400; }
+        .btn-donald { background-color: #f39c12; color: #2c3e50; border: 1px solid #e67e22; }
+
+        .time-loc { color: #555; font-size: 0.9em; margin-bottom: 15px; display: block; font-weight: 500; }
         .logistics-box { background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #34495e; font-size: 0.9em; margin-bottom: 15px; }
 
         /* Action Buttons */
@@ -115,11 +126,6 @@
         /* Footer */
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
 
-        @media (max-width: 600px) {
-            .day-badge { right: 80px; }
-            .card-header-row { padding-right: 0; }
-        }
-
     </style>
 </head>
 <body>
@@ -132,15 +138,20 @@
     </div>
 
     <div class="event-card type-sports">
-        <div class="date-badge"><span class="month">Jan</span><span class="day">17</span></div>
-        <div class="day-badge">Sat</div>
-        
-        <div class="card-header-row">
-            <h2>🤼‍♀️ Battle by the River – Tacie's Debut!</h2>
-            <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🤼‍♀️ Battle by the River – Tacie's Debut!</h2>
+                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+                </div>
+                <span class="time-loc">📍 Former East Junior High, WI Rapids | 🕛 9:30 AM Start</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Sat</div>
+                <div class="date-badge"><span class="month">Jan</span><span class="day">17</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 Former East Junior High, WI Rapids | 🕛 9:30 AM Start</span>
         <p>Excited for Tacie's first middle school wrestling meet! This WIAA-aligned invitational tournament is believed to feature brackets and scrambles with 10-14 schools from the Wisconsin Valley Conference and beyond. Let's go, Point!</p>
         <div class="logistics-box"><strong>Athlete Logistics:</strong> Bus departs PJ Jacobs at 6:45 AM – arrive ready to rumble!</div>
         
@@ -152,15 +163,20 @@
     </div>
 
     <div class="event-card type-sports">
-        <div class="date-badge"><span class="month">Jan</span><span class="day">19</span></div>
-        <div class="day-badge">Mon</div>
-        
-        <div class="card-header-row">
-            <h2>🤼 Dual vs Auburndale</h2>
-            <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🤼 Dual vs Auburndale</h2>
+                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+                </div>
+                <span class="time-loc">📍 Auburndale High School | 🕟 4:15 PM</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Mon</div>
+                <div class="date-badge"><span class="month">Jan</span><span class="day">19</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 Auburndale High School | 🕟 4:15 PM</span>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:30 | PJ Release 2:45 | Bus 3:00</div>
         
         <div class="btn-container">
@@ -171,15 +187,20 @@
     </div>
 
     <div class="event-card type-sports">
-        <div class="date-badge"><span class="month">Jan</span><span class="day">23</span></div>
-        <div class="day-badge">Fri</div>
-        
-        <div class="card-header-row">
-            <h2>🤼 D.C. Everest Invite - JH/MS</h2>
-            <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🤼 D.C. Everest Invite - JH/MS</h2>
+                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+                </div>
+                <span class="time-loc">📍 Greenheck Field House, 6400 Alderson St, Weston, WI | 🕟 4:15 PM</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Fri</div>
+                <div class="date-badge"><span class="month">Jan</span><span class="day">23</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 Greenheck Field House, 6400 Alderson St, Weston, WI | 🕟 4:15 PM</span>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:15 | PJ Release 2:30 | Bus 2:45</div>
         
         <div class="btn-container">
@@ -190,15 +211,20 @@
     </div>
 
     <div class="event-card type-sports">
-        <div class="date-badge"><span class="month">Jan</span><span class="day">26</span></div>
-        <div class="day-badge">Mon</div>
-        
-        <div class="card-header-row">
-            <h2>🤼 Dual vs Marathon</h2>
-            <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🤼 Dual vs Marathon</h2>
+                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+                </div>
+                <span class="time-loc">📍 Marathon High School | 🕟 4:15 PM</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Mon</div>
+                <div class="date-badge"><span class="month">Jan</span><span class="day">26</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 Marathon High School | 🕟 4:15 PM</span>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
         <div class="btn-container">
@@ -209,15 +235,20 @@
     </div>
 
     <div class="event-card type-sports">
-        <div class="date-badge"><span class="month">Jan</span><span class="day">30</span></div>
-        <div class="day-badge">Fri</div>
-        
-        <div class="card-header-row">
-            <h2>🤼 Merrill Invitational</h2>
-            <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🤼 Merrill Invitational</h2>
+                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+                </div>
+                <span class="time-loc">📍 Merrill High School | 🕟 4:15 PM</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Fri</div>
+                <div class="date-badge"><span class="month">Jan</span><span class="day">30</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 Merrill High School | 🕟 4:15 PM</span>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 1:30 | PJ Release 1:45 | Bus 2:00</div>
         
         <div class="btn-container">
@@ -228,15 +259,20 @@
     </div>
 
     <div class="event-card type-sports">
-        <div class="date-badge"><span class="month">Feb</span><span class="day">03</span></div>
-        <div class="day-badge">Tue</div>
-        
-        <div class="card-header-row">
-            <h2>🤼 PJ's Home Meet</h2>
-            <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🤼 PJ's Home Meet</h2>
+                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+                </div>
+                <span class="time-loc">📍 PJ's (Home) | 🕟 4:15 PM</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Tue</div>
+                <div class="date-badge"><span class="month">Feb</span><span class="day">03</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 PJ's (Home) | 🕟 4:15 PM</span>
         <div class="logistics-box"><strong>Note:</strong> Home Meet! Come cheer loud! (No early departure)</div>
         
         <div class="btn-container">
@@ -247,15 +283,20 @@
     </div>
 
     <div class="event-card type-sports">
-        <div class="date-badge"><span class="month">Feb</span><span class="day">09</span></div>
-        <div class="day-badge">Mon</div>
-        
-        <div class="card-header-row">
-            <h2>🤼 Dual vs Edgar</h2>
-            <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🤼 Dual vs Edgar</h2>
+                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+                </div>
+                <span class="time-loc">📍 Edgar | 🕟 4:15 PM</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Mon</div>
+                <div class="date-badge"><span class="month">Feb</span><span class="day">09</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 Edgar | 🕟 4:15 PM</span>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
         <div class="btn-container">
@@ -266,15 +307,20 @@
     </div>
 
     <div class="event-card type-sports">
-        <div class="date-badge"><span class="month">Feb</span><span class="day">17</span></div>
-        <div class="day-badge">Tue</div>
-        
-        <div class="card-header-row">
-            <h2>🤼 Dual vs Marshfield</h2>
-            <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🤼 Dual vs Marshfield</h2>
+                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+                </div>
+                <span class="time-loc">📍 Marshfield | 🕟 4:15 PM</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Tue</div>
+                <div class="date-badge"><span class="month">Feb</span><span class="day">17</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 Marshfield | 🕟 4:15 PM</span>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
         <div class="btn-container">
@@ -285,15 +331,20 @@
     </div>
     
     <div class="event-card type-sports">
-        <div class="date-badge"><span class="month">Feb</span><span class="day">23</span></div>
-        <div class="day-badge">Mon</div>
-        
-        <div class="card-header-row">
-            <h2>🤼 Dual vs Marshfield (II)</h2>
-            <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🤼 Dual vs Marshfield (II)</h2>
+                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
+                </div>
+                <span class="time-loc">📍 Marshfield | 🕟 4:15 PM</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Mon</div>
+                <div class="date-badge"><span class="month">Feb</span><span class="day">23</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 Marshfield | 🕟 4:15 PM</span>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
         <div class="btn-container">
@@ -304,15 +355,20 @@
     </div>
 
     <div class="event-card type-party">
-        <div class="date-badge"><span class="month">Jun</span><span class="day">27</span></div>
-        <div class="day-badge">Sat</div>
-        
-        <div class="card-header-row">
-            <h2>🎓 Donald's Grad Party</h2>
-            <a href="donald_2yR5j.html" class="member-btn btn-donald">🎓 Donald</a>
+        <div class="card-top-flex">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2>🎓 Donald's Grad Party</h2>
+                    <a href="donald_2yR5j.html" class="member-btn btn-donald">🎓 Donald</a>
+                </div>
+                <span class="time-loc">📍 Our Home | 🕛 12:00 PM - 10:00 PM</span>
+            </div>
+            <div class="header-right">
+                <div class="day-badge">Sat</div>
+                <div class="date-badge"><span class="month">Jun</span><span class="day">27</span></div>
+            </div>
         </div>
 
-        <span class="time-loc">📍 Our Home | 🕛 12:00 PM - 10:00 PM</span>
         <p>Celebrate Donald's Graduation (Class of 2026)!</p>
         
         <div class="btn-container">
