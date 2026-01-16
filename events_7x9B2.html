@@ -38,27 +38,18 @@
         .type-party { border-left-color: #f1c40f; } 
         .type-sports { border-left-color: #e67e22; }
 
-        /* --- NEW FLEX HEADER LAYOUT (Fixes Mobile Overlap) --- */
+        /* FLEX HEADER LAYOUT */
         .card-top-flex {
             display: flex;
-            justify-content: space-between; /* Pushes content to edges */
-            align-items: flex-start; /* Aligns to top */
-            gap: 15px; /* Minimum space between title and date */
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
             margin-bottom: 10px;
         }
 
-        .header-left {
-            flex: 1; /* Takes up all available space */
-        }
+        .header-left { flex: 1; }
+        .header-right { flex: 0 0 auto; display: flex; gap: 8px; align-items: flex-start; }
 
-        .header-right {
-            flex: 0 0 auto; /* Does not shrink */
-            display: flex;
-            gap: 8px; /* Space between Day and Date */
-            align-items: flex-start;
-        }
-
-        /* Title & Badge Row */
         .title-badge-row {
             display: flex;
             align-items: center;
@@ -67,14 +58,22 @@
             margin-bottom: 5px;
         }
 
-        h2 { 
-            margin: 0; 
-            color: #2c3e50; 
-            font-size: 1.3em; 
-            line-height: 1.2; 
+        h2 { margin: 0; color: #2c3e50; font-size: 1.3em; line-height: 1.2; }
+
+        /* CLICKABLE MAP LINKS */
+        .map-link {
+            color: #2c3e50;
+            text-decoration: none;
+            border-bottom: 1px dotted #999;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+        .map-link:hover {
+            color: #d35400; /* Orange highlight on hover */
+            border-bottom: 1px solid #d35400;
         }
 
-        /* Date Badges - Now Static Blocks (Not Absolute) */
+        /* Date Badges */
         .date-badge { 
             text-align: center; background: #f0f2f5; 
             padding: 5px 10px; border-radius: 8px; border: 1px solid #ddd; 
@@ -89,7 +88,7 @@
             padding: 6px 10px; border-radius: 20px;
             font-weight: bold; color: #fff; font-size: 0.8em; text-transform: uppercase;
             height: fit-content;
-            margin-top: 5px; /* Slight offset to align nicely */
+            margin-top: 5px;
         }
 
         /* Member Buttons */
@@ -112,11 +111,7 @@
 
         /* Action Buttons */
         .btn-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-        
-        .action-btn { 
-            display: inline-block; padding: 8px 12px; border-radius: 4px; text-decoration: none; 
-            font-size: 0.85em; font-weight: bold; color: white; transition: background 0.2s;
-        }
+        .action-btn { display: inline-block; padding: 8px 12px; border-radius: 4px; text-decoration: none; font-size: 0.85em; font-weight: bold; color: white; transition: background 0.2s; }
         .btn-rsvp { background: #3b5998; }
         .btn-google { background: #db4437; }
         .btn-outlook { background: #0078d4; }
@@ -144,7 +139,10 @@
                     <h2>🤼‍♀️ Battle by the River – Tacie's Debut!</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
                 </div>
-                <span class="time-loc">📍 Former East Junior High, WI Rapids | 🕛 9:30 AM Start</span>
+                <span class="time-loc">
+                    <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+54494" target="_blank" class="map-link">📍 Former East Junior High, WI Rapids</a> 
+                    | 🕛 9:30 AM Start
+                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Sat</div>
@@ -169,7 +167,10 @@
                     <h2>🤼 Dual vs Auburndale</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
                 </div>
-                <span class="time-loc">📍 Auburndale High School | 🕟 4:15 PM</span>
+                <span class="time-loc">
+                    <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+54412" target="_blank" class="map-link">📍 Auburndale High School</a> 
+                    | 🕟 4:15 PM
+                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Mon</div>
@@ -193,7 +194,10 @@
                     <h2>🤼 D.C. Everest Invite - JH/MS</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
                 </div>
-                <span class="time-loc">📍 Greenheck Field House, 6400 Alderson St, Weston, WI | 🕟 4:15 PM</span>
+                <span class="time-loc">
+                    <a href="https://www.google.com/maps/search/?api=1&query=6400+Alderson+St+Weston+WI+54476" target="_blank" class="map-link">📍 Greenheck Field House, Weston</a> 
+                    | 🕟 4:15 PM
+                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Fri</div>
@@ -217,7 +221,10 @@
                     <h2>🤼 Dual vs Marathon</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
                 </div>
-                <span class="time-loc">📍 Marathon High School | 🕟 4:15 PM</span>
+                <span class="time-loc">
+                    <a href="https://www.google.com/maps/search/?api=1&query=204+East+St+Marathon+WI+54448" target="_blank" class="map-link">📍 Marathon High School</a> 
+                    | 🕟 4:15 PM
+                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Mon</div>
@@ -241,7 +248,10 @@
                     <h2>🤼 Merrill Invitational</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
                 </div>
-                <span class="time-loc">📍 Merrill High School | 🕟 4:15 PM</span>
+                <span class="time-loc">
+                    <a href="https://www.google.com/maps/search/?api=1&query=1201+N+Sales+St+Merrill+WI+54452" target="_blank" class="map-link">📍 Merrill High School</a> 
+                    | 🕟 4:15 PM
+                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Fri</div>
@@ -265,7 +275,10 @@
                     <h2>🤼 PJ's Home Meet</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
                 </div>
-                <span class="time-loc">📍 PJ's (Home) | 🕟 4:15 PM</span>
+                <span class="time-loc">
+                    <a href="https://www.google.com/maps/search/?api=1&query=2400+Main+St+Stevens+Point+WI+54481" target="_blank" class="map-link">📍 PJ's (Home)</a> 
+                    | 🕟 4:15 PM
+                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Tue</div>
@@ -289,7 +302,10 @@
                     <h2>🤼 Dual vs Edgar</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
                 </div>
-                <span class="time-loc">📍 Edgar | 🕟 4:15 PM</span>
+                <span class="time-loc">
+                    <a href="https://www.google.com/maps/search/?api=1&query=203+E+Birch+St+Edgar+WI+54426" target="_blank" class="map-link">📍 Edgar High School</a> 
+                    | 🕟 4:15 PM
+                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Mon</div>
@@ -313,7 +329,10 @@
                     <h2>🤼 Dual vs Marshfield</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
                 </div>
-                <span class="time-loc">📍 Marshfield | 🕟 4:15 PM</span>
+                <span class="time-loc">
+                    <a href="https://www.google.com/maps/search/?api=1&query=1401+E+Becker+Rd+Marshfield+WI+54449" target="_blank" class="map-link">📍 Marshfield High School</a> 
+                    | 🕟 4:15 PM
+                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Tue</div>
@@ -337,7 +356,10 @@
                     <h2>🤼 Dual vs Marshfield (II)</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie">👤 Tacie</a>
                 </div>
-                <span class="time-loc">📍 Marshfield | 🕟 4:15 PM</span>
+                <span class="time-loc">
+                    <a href="https://www.google.com/maps/search/?api=1&query=1401+E+Becker+Rd+Marshfield+WI+54449" target="_blank" class="map-link">📍 Marshfield High School</a> 
+                    | 🕟 4:15 PM
+                </span>
             </div>
             <div class="header-right">
                 <div class="day-badge">Mon</div>
