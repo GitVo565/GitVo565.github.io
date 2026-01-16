@@ -38,13 +38,13 @@
         .type-party { border-left-color: #f1c40f; } 
         .type-sports { border-left-color: #e67e22; }
 
-        /* FLEX HEADER LAYOUT */
+        /* HEADER LAYOUT */
         .card-top-flex {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 15px;
-            margin-bottom: 5px; /* Reduced bottom margin since address is next */
+            margin-bottom: 5px;
         }
 
         .header-left { flex: 1; }
@@ -60,17 +60,20 @@
 
         h2 { margin: 0; color: #2c3e50; font-size: 1.3em; line-height: 1.2; }
 
-        /* ADDRESS / TIME (Full Width Now) */
-        .time-loc { 
-            color: #555; 
-            font-size: 0.95em; 
-            margin-bottom: 15px; 
-            display: block; 
+        /* --- SMART ADDRESS & TIME LAYOUT --- */
+        .time-loc-wrapper {
+            display: flex;
+            flex-wrap: wrap; /* Allows stacking on mobile */
+            align-items: center;
+            gap: 8px; /* Space between items */
+            margin-bottom: 15px;
+            padding-top: 5px;
+            font-size: 0.95em;
+            color: #555;
             font-weight: 500;
-            padding-top: 5px; /* Breathing room from title */
         }
 
-        /* CLICKABLE MAP LINKS */
+        /* The Map Link */
         .map-link {
             color: #2c3e50;
             text-decoration: none;
@@ -78,9 +81,22 @@
             transition: all 0.2s;
             font-weight: 600;
         }
-        .map-link:hover {
-            color: #d35400; /* Orange highlight on hover */
-            border-bottom: 1px solid #d35400;
+        .map-link:hover { color: #d35400; border-bottom: 1px solid #d35400; }
+
+        /* The Time - UNBREAKABLE */
+        .time-nowrap {
+            white-space: nowrap; /* Prevents "4:15" and "PM" from splitting */
+        }
+
+        /* The Separator Pipe (|) */
+        .separator {
+            color: #ccc;
+            display: none; /* Hidden by default (Mobile) */
+        }
+        
+        /* Show separator only on larger screens where they sit side-by-side */
+        @media (min-width: 600px) {
+            .separator { display: inline; }
         }
 
         /* Date Badges */
@@ -167,10 +183,11 @@
             </div>
         </div>
         
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544944" target="_blank" class="map-link">📍 Former East Junior High, WI Rapids</a> 
-            | 🕛 9:30 AM Start
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544123" target="_blank" class="map-link">📍 Former East Junior High, WI Rapids</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕛 9:30 AM Start</span>
+        </div>
 
         <p>Excited for Tacie's first middle school wrestling meet! This WIAA-aligned invitational tournament is believed to feature brackets and scrambles with 10-14 schools from the Wisconsin Valley Conference and beyond. Let's go, Point!</p>
         <div class="logistics-box"><strong>Athlete Logistics:</strong> Bus departs PJ Jacobs at 6:45 AM – arrive ready to rumble!</div>
@@ -197,10 +214,11 @@
             </div>
         </div>
 
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544945" target="_blank" class="map-link">📍 Auburndale High School</a> 
-            | 🕟 4:15 PM
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544124" target="_blank" class="map-link">📍 Auburndale High School</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕟 4:15 PM</span>
+        </div>
 
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:30 | PJ Release 2:45 | Bus 3:00</div>
         
@@ -226,10 +244,11 @@
             </div>
         </div>
 
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544946" target="_blank" class="map-link">📍 Greenheck Field House, Weston</a> 
-            | 🕟 4:15 PM
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544125" target="_blank" class="map-link">📍 Greenheck Field House, Weston</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕟 4:15 PM</span>
+        </div>
 
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:15 | PJ Release 2:30 | Bus 2:45</div>
         
@@ -255,10 +274,11 @@
             </div>
         </div>
 
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544947" target="_blank" class="map-link">📍 Marathon High School</a> 
-            | 🕟 4:15 PM
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544126" target="_blank" class="map-link">📍 Marathon High School</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕟 4:15 PM</span>
+        </div>
 
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
@@ -284,10 +304,11 @@
             </div>
         </div>
 
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544948" target="_blank" class="map-link">📍 Merrill High School</a> 
-            | 🕟 4:15 PM
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544127" target="_blank" class="map-link">📍 Merrill High School</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕟 4:15 PM</span>
+        </div>
 
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 1:30 | PJ Release 1:45 | Bus 2:00</div>
         
@@ -313,10 +334,11 @@
             </div>
         </div>
 
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=311+Lincoln+St+Wisconsin+Rapids+WI+544949" target="_blank" class="map-link">📍 PJ's (Home)</a> 
-            | 🕟 4:15 PM
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544128" target="_blank" class="map-link">📍 PJ's (Home)</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕟 4:15 PM</span>
+        </div>
 
         <div class="logistics-box"><strong>Note:</strong> Home Meet! Come cheer loud! (No early departure)</div>
         
@@ -342,10 +364,11 @@
             </div>
         </div>
 
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544120" target="_blank" class="map-link">📍 Edgar High School</a> 
-            | 🕟 4:15 PM
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544129" target="_blank" class="map-link">📍 Edgar High School</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕟 4:15 PM</span>
+        </div>
 
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
@@ -371,10 +394,11 @@
             </div>
         </div>
 
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544121" target="_blank" class="map-link">📍 Marshfield High School</a> 
-            | 🕟 4:15 PM
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=6400+Alderson+St+Weston+WI+544760" target="_blank" class="map-link">📍 Marshfield High School</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕟 4:15 PM</span>
+        </div>
 
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
@@ -400,10 +424,11 @@
             </div>
         </div>
 
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544121" target="_blank" class="map-link">📍 Marshfield High School</a> 
-            | 🕟 4:15 PM
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=6400+Alderson+St+Weston+WI+544760" target="_blank" class="map-link">📍 Marshfield High School</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕟 4:15 PM</span>
+        </div>
 
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
@@ -429,10 +454,11 @@
             </div>
         </div>
 
-        <span class="time-loc">
-            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd+Auburndale+WI+544123" target="_blank" class="map-link">📍 Our Home</a> 
-            | 🕛 12:00 PM - 10:00 PM
-        </span>
+        <div class="time-loc-wrapper">
+            <a href="https://www.google.com/maps/search/?api=1&query=6400+Alderson+St+Weston+WI+544761" target="_blank" class="map-link">📍 Our Home</a>
+            <span class="separator">|</span>
+            <span class="time-nowrap">🕛 12:00 PM - 10:00 PM</span>
+        </div>
 
         <p>Celebrate Donald's Graduation (Class of 2026)!</p>
         
