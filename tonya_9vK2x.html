@@ -28,7 +28,7 @@
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            padding: 10px; 
+            padding: 15px; 
             line-height: 1.4; 
             max-width: 1000px; 
             margin: 0 auto; 
@@ -102,7 +102,7 @@
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
             gap: 15px; 
-            align-items: start; /* Prevents columns from forcibly stretching */
+            align-items: start; 
         }
         
         /* Cards */
@@ -112,7 +112,6 @@
             border-radius: 8px; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
             border-top: 3px solid var(--primary-purple); 
-            /* REMOVED height: 100% to fix whitespace issue */
         }
 
         .card h3 { 
@@ -159,15 +158,16 @@
         }
         .link-btn:hover { background: #f8f9fa; border-color: var(--primary-purple); color: var(--primary-purple); }
 
-        /* Footer */
+        /* Footer - HIGH VISIBILITY */
         .footer-info { 
-            margin-top: 20px; 
-            padding-top: 10px; 
-            border-top: 1px solid #ccc; 
+            margin-top: 40px; 
+            margin-bottom: 20px;
+            padding-top: 15px; 
+            border-top: 2px solid #ccc; 
             text-align: right; 
-            font-size: 0.75em; 
-            color: #555; 
-            font-weight: 600;
+            font-size: 0.85em; 
+            color: #000; /* Solid Black Text */
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -282,7 +282,7 @@
                 
                 <div style="margin-bottom: 8px; font-size: 0.9em;">
                     <strong>In the Kitchen:</strong><br>
-                    <span style="color:#666;">Considered a "Master Chef."</span><br>
+                    <span style="color:#666;">Considered a "Master Chef."</span>
                     <em>Signature Dish: The World's Best Lasagna.</em>
                 </div>
 
@@ -308,8 +308,8 @@
                 </p>
                 
                 <div class="connect-row">
-                    <a href="mailto:tvoetber@kcc.com" class="link-btn">📧 Email Work</a>
                     <a href="https://www.linkedin.com/in/tvoetberg" target="_blank" class="link-btn">👔 LinkedIn</a>
+                    <a href="https://www.instagram.com/tvoetberg2127/" target="_blank" class="link-btn">📸 Instagram</a>
                 </div>
             </div>
 
