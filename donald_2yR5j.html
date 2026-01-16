@@ -1,162 +1,182 @@
-```html
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Donald's Page</title>
+    <title>Donald's Athlete Profile</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+    
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: url('images/Donald_Montana_Stream.jpg') no-repeat center center fixed; background-size: cover; color: #ecf0f1; position: relative; }
-        body::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: -1; } /* Darkened overlay */
-     
-        /* Navigation & Header */
-        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
-        .back-btn:hover { background: #eee; }
-        .header-section { text-align: center; margin-bottom: 30px; }
-        h1 { margin: 10px 0 5px 0; color: #ecf0f1; } /* Adjusted for dark bg */
-        .subtitle { color: #bdc3c7; font-weight: 500; font-size: 1.1em; }
-        /* Photo Card */
-        .photo-card {
-            background: white;
-            padding: 10px;
+        /* BACKGROUND IMAGE HANDLING
+           We use the Montana Stream photo from your 'images' folder.
+           The 'fixed' property makes it stay still while you scroll.
+        */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+            background: url('images/Donald_Montana_Stream.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            background-color: #333; /* Fallback color */
+        }
+        
+        /* Navigation */
+        .nav-bar { padding: 20px; text-align: left; }
+        .back-btn { 
+            display: inline-block; 
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 8px 15px; 
+            text-decoration: none; 
+            color: #333; 
+            border-radius: 20px; 
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .back-btn:hover { background: #fff; transform: translateY(-2px); }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* PROFILE HERO CARD
+           This contains the "Signing" photo and main info.
+        */
+        .hero-card {
+            background: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 0 auto 30px auto;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .hero-image-box {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* IMAGE FIX:
+           We use 'object-fit: cover' to ensure the photo fills the box 
+           without stretching, even if the dimensions aren't perfect.
+        */
+        .hero-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center top; /* Focuses on the top/faces */
+        }
+
+        .hero-content { padding: 30px; }
+        .hero-content h1 { margin: 0; font-size: 2.5em; color: #111; }
+        .hero-content p { color: #666; font-size: 1.1em; margin-top: 5px; }
+        
+        /* Action Buttons */
+        .btn-insta {
+            display: inline-block;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             transition: transform 0.2s;
         }
-        .photo-card:hover { transform: translateY(-3px); cursor: pointer; }
-        .photo-card img { width: 100%; border-radius: 8px; display: block; }
-        .photo-caption { text-align: center; font-size: 0.9em; color: #007bff; padding-top: 10px; font-weight: bold; }
-        /* Grid Layout */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-     
-        .card { background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #002f5d; } /* Solid white for visibility */
-        .card h3 { margin-top: 0; color: #002f5d; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
-        .card-icon { margin-right: 10px; font-size: 1.2em; }
-        /* Standard Lists */
-        ul { padding-left: 20px; margin-top: 10px; }
-        li { margin-bottom: 8px; }
-        a { color: #0056b3; text-decoration: none; font-weight: 500; }
-        a:hover { text-decoration: underline; color: #002f5d; }
-        /* Timeline */
-        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 15px; border-left: 2px solid #ffc72c; }
-        .timeline-date { font-size: 0.85em; color: #666; font-weight: bold; text-transform: uppercase; } /* Darker for contrast */
-        .timeline-title { font-weight: bold; color: #333; }
-        .timeline-desc { font-size: 0.95em; color: #555; }
-        /* PR Grid */
-        .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .pr-item { background: #fdfdfd; padding: 10px; border: 1px solid #eee; border-radius: 5px; text-align: center; }
-        .pr-event { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px; }
-        .pr-time { font-weight: bold; font-size: 1.1em; color: #002f5d; }
-        .pr-meet { font-size: 0.75em; color: #888; margin-top: 2px; }
-        /* Video Embed */
-        .video-embed { margin-bottom: 20px; }
-        .video-embed iframe { width: 100%; height: 315px; border: 0; }
-        .video-caption { text-align: center; font-size: 0.9em; color: #666; margin-top: 5px; } /* Darker caption */
-        /* NEW UNIFIED BUTTON STYLES */
-        .link-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: all 0.2s ease;
-            color: #333;
-            font-weight: 600;
+        .btn-insta:hover { transform: scale(1.05); }
+
+        /* Grid Layout for Info Cards */
+        .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+        /* INFO CARDS
+           White background with DARK text to fix readability.
+        */
+        .card {
+            background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: #333; /* FORCE DARK TEXT */
         }
-        .link-btn:hover {
-            text-decoration: none;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            color: #000;
+
+        .card h3 { 
+            margin-top: 0; 
+            border-bottom: 2px solid #ffc107; /* Gold accent */
+            padding-bottom: 10px;
+            display: flex; align-items: center;
         }
-        /* Specific Brand Colors (Left Borders) */
-        .btn-msub { border-left: 6px solid #ffc72c; } /* Yellow */
-        .btn-insta { border-left: 6px solid #E1306C; } /* Pink */
-        .btn-athletic { border-left: 6px solid #005f9e; } /* Blue */
-        .btn-milesplit { border-left: 6px solid #d9534f; } /* Red/Orange */
-        /* Footer */
-        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #eee; text-align: right; font-size: 0.75em; color: #aaa; }
+        .icon { margin-right: 10px; font-size: 1.2em; }
+
+        /* List Styles */
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 10px; color: #444; } /* Dark grey text */
+        
+        /* Special formatting for the timeline */
+        .timeline-date { font-weight: bold; color: #000; font-size: 0.9em; text-transform: uppercase; }
+        .timeline-event { margin-bottom: 15px; border-left: 3px solid #ddd; padding-left: 10px; }
+        .timeline-title { font-weight: bold; color: #222; }
+
     </style>
 </head>
 <body>
-    <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
- 
-    <div class="header-section">
-        <h1>Donald Voetberg</h1>
-        <div class="subtitle">SPASH Class of 2026 | MSUB Commit</div>
+
+    <div class="nav-bar">
+        <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     </div>
-    <a href="https://www.instagram.com/p/DRAMQc_DmlS/" target="_blank" title="View on Instagram">
-        <div class="photo-card">
-            <img src="images/donald_signing.jpg" alt="Donald Signing Day">
-            <div class="photo-caption">📸 View Official Announcement on Instagram</div>
+
+    <div class="container">
+        
+        <div class="hero-card">
+            <div class="hero-image-box">
+                <img src="donald_signing.jpg" alt="Donald Signing Day">
+            </div>
+            <div class="hero-content">
+                <h1>Donald Voetberg</h1>
+                <p>MSU Billings Commit | Class of 2026</p>
+                <a href="https://www.instagram.com/donald_voetberg" target="_blank" class="btn-insta">
+                    📸 View Official Announcement on Instagram
+                </a>
+            </div>
         </div>
-    </a>
-    <div class="grid-container">
-     
-        <div class="col-left">
+
+        <div class="grid">
+            
             <div class="card">
-                <h3><span class="card-icon">📅</span>What's Happening</h3>
-             
-                <div class="timeline-item">
+                <h3><span class="icon">📅</span>What's Happening</h3>
+                
+                <div class="timeline-event">
                     <div class="timeline-date">March - June 2026</div>
-                    <div class="timeline-title">Senior Season of Track and Field for SPASH</div>
-                    <div class="timeline-desc">Final high school season before transitioning to MSUB.</div>
+                    <div class="timeline-title">Senior Season: Track & Field</div>
+                    <div>Final high school season before transitioning to MSUB.</div>
                 </div>
-                <div class="timeline-item">
+
+                <div class="timeline-event" style="border-left-color: #ffc107;">
                     <div class="timeline-date">Nov 12, 2025</div>
                     <div class="timeline-title">Official Signing Day</div>
-                    <div class="timeline-desc">Signed NLI to compete for MSU Billings (NCAA D2).</div>
+                    <div>Signed NLI to compete for MSU Billings (NCAA D2).</div>
                 </div>
-                <div class="timeline-item">
+
+                <div class="timeline-event">
                     <div class="timeline-date">Nov 2025</div>
                     <div class="timeline-title">State Champions (4-Peat!)</div>
-                    <div class="timeline-desc">Varsity runner on the historic 4th consecutive State Title team.</div>
+                    <div>Varsity runner on the historic 4th consecutive State Title team.</div>
                 </div>
-                <div class="timeline-item">
+                
+                <div class="timeline-event">
                     <div class="timeline-date">Oct 2024</div>
                     <div class="timeline-title">State Champions (Junior Year)</div>
-                    <div class="timeline-desc">Varsity runner for Team State Title #3.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Oct 2023</div>
-                    <div class="timeline-title">State Champions (Sophomore)</div>
-                    <div class="timeline-desc">Team Alternate for State Title #2.</div>
+                    <div>Varsity runner for Team State Title #3.</div>
                 </div>
             </div>
-         
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">📰</span>Media Coverage</h3>
-                <ul>
-                    <li><a href="https://www.waow.com/news/top-stories/area-athletes-make-college-dreams-official-on-ncaa-early-signing-day/article_32beccca-1fd5-41c9-9e26-ea3c2acf929d.html" target="_blank">WAOW: Area Athletes Make College Dreams Official</a></li>
-                    <li><a href="https://www.stevenspointjournal.com/picture-gallery/sports/high-school/2025/11/12/see-best-photos-of-spash-athletes-at-early-signing-day/87234625007/" target="_blank">Stevens Point Journal: Best Photos of Signing Day</a></li>
-                    <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank">WAOW: "Four Straight and Forever" (4-Peat)</a></li>
-                    <li><a href="https://www.waupacanow.com/stories/spash-continues-cross-country-dynasty-area-runners-compete-at-state,302181" target="_blank">Waupaca Now: Dynasty Continues</a></li>
-                    <li><a href="https://www.wausaudailyherald.com/story/sports/high-school/2025/11/04/central-wisconsin-hs-runners-dominate-state-other-top-performances/87007088007" target="_blank">Wausau Daily Herald Feature</a></li>
-                </ul>
-            </div>
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">🌟</span>Interests & Notes</h3>
-                <ul>
-                    <li>Fishing</li>
-                    <li>Photography</li>
-                    <li>All things Montana</li>
-                    <li>Driving his Nissan Frontier</li>
-                    <li>Watching Landman with Dad</li>
-                    <li><strong>Note:</strong> SPASH Class of '26</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-right">
-         
+
             <div class="card">
-                <h3><span class="card-icon">🏆</span>Accolades</h3>
+                <h3><span class="icon">🏆</span>Accolades</h3>
                 <ul>
                     <li><strong>WIAA State Champion:</strong> Key member of SPASH team that took 1st Place at the 2024 WIAA State Cross Country Championships.</li>
                     <li><strong>3x State Team Champion</strong> (XC)</li>
@@ -169,96 +189,17 @@
                     <li><strong>Scholarship Milestone:</strong> One of only two out-of-state students to receive a high-value MSUB athletic scholarship for his recruiting class.</li>
                 </ul>
             </div>
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">🎓</span>Academic Excellence</h3>
+
+            <div class="card" style="grid-column: 1 / -1;">
+                <h3><span class="icon">🎓</span>Academic Excellence</h3>
                 <ul>
-                    <li><strong>Top Tier Performance:</strong> Earned a place in the top 10% of his graduating class with a 3.922 unweighted GPA (3.957 weighted).</li>
-                    <li><strong>Academic All-State:</strong> Awarded the Individual Academic All-State Award by the Wisconsin Cross Country Coaches Association for the 2025 season.</li>
-                    <li><strong>Spanish Proficiency:</strong> Raised semi-bilingual, scored a 73 on the CLEP Spanish with Writing exam, equivalent to Level 2 proficiency.</li>
+                    <li><strong>Top Tier Performance:</strong> Earned a place in the top 10% of his graduation class with a 3.9+ weighted GPA.</li>
+                    <li><strong>College Credit:</strong> Completed multiple AP and Dual Credit courses, entering college with nearly a full year of credits.</li>
                 </ul>
             </div>
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">🤝</span>Character & Community Leadership</h3>
-                <ul>
-                    <li><strong>The Neighborhood "Snow Boss":</strong> Frequently leads the charge in clearing snow for five different households on his street during Wisconsin winters.</li>
-                    <li><strong>Homeless Outreach:</strong> In August 2025, volunteered to serve and provide meals to the homeless in the Stevens Point community.</li>
-                    <li><strong>Trusted Character:</strong> Local parish priest notes that Donald is "trusted completely" and often handles cash donations for community meal programs.</li>
-                </ul>
-            </div>
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">⭐</span>Personal Interests & Cool Facts</h3>
-                <ul>
-                    <li><strong>The Montana Outdoorsman:</strong> Avid fisherman eager to take up fly fishing in Montana's world-class "blue-ribbon" trout waters.</li>
-                    <li><strong>Altitude Ambition:</strong> Primary driver for moving to Montana is the opportunity to develop altitude training to enhance running performance.</li>
-                    <li><strong>Future Entrepreneur:</strong> Majoring in Business Administration with the ultimate goal of becoming an entrepreneur.</li>
-                    <li><strong>Road Trip Explorer:</strong> During 2025 road trip, scouted Montana training sites like Zimmerman Park and Phipps Park, and took senior photos in the Bighorn Mountains.</li>
-                    <li><strong>Family Trailblazer:</strong> First child in the family to attend Montana State University Billings.</li>
-                </ul>
-            </div>
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">⏱️</span>Personal Records</h3>
-                <div class="pr-grid">
-                    <div class="pr-item">
-                        <div class="pr-event">800m (Outdoor)</div>
-                        <div class="pr-time">1:59.67</div>
-                        <div class="pr-meet">Spartan Invite (5/9/25)</div>
-                    </div>
-                    <div class="pr-item">
-                        <div class="pr-event">1600m (Outdoor)</div>
-                        <div class="pr-time">4:27.23</div>
-                        <div class="pr-meet">WVC Conference (5/22/25)</div>
-                    </div>
-                    <div class="pr-item">
-                        <div class="pr-event">3200m (Indoor)</div>
-                        <div class="pr-time">9:56.97</div>
-                        <div class="pr-meet">Ripon Showcase (3/29/25)</div>
-                    </div>
-                    <div class="pr-item">
-                        <div class="pr-event">5K (XC)</div>
-                        <div class="pr-time">16:27.10</div>
-                        <div class="pr-meet">WVC Conf (10/19/24)</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">🎥</span>Race Videos</h3>
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/aBxdpRhD6iA" allowfullscreen></iframe>
-                    <div class="video-caption">Race Video 1</div>
-                </div>
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/Y_F6DtiX6_0" allowfullscreen></iframe>
-                    <div class="video-caption">Race Video 2</div>
-                </div>
-            </div>
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">🔗</span>Profiles & Teams</h3>
-             
-                <a href="https://msubsports.com/sports/mens-cross-country" target="_blank" class="link-btn btn-msub">
-                    🐝 MSUB Men's XC Home
-                </a>
-             
-                <a href="https://www.instagram.com/donald_voetberg/" target="_blank" class="link-btn btn-insta">
-                    📸 Follow Donald on Instagram
-                </a>
-             
-                <a href="https://www.athletic.net/athlete/23587912/track-and-field/" target="_blank" class="link-btn btn-athletic">
-                    📊 Athletic.net Profile
-                </a>
-             
-                <a href="https://wi.milesplit.com/athletes/13646503-donald-voetberg" target="_blank" class="link-btn btn-milesplit">
-                    🏃‍♂️ MileSplit Profile
-                </a>
-            </div>
+
         </div>
     </div>
-    <div class="footer-info">
-        <span id="lastUpdated"></span>
-    </div>
-    <script>
-        var date = new Date(document.lastModified);
-        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    </script>
+
 </body>
 </html>
-```
