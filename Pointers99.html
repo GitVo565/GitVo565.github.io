@@ -8,16 +8,16 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('voetberg_family.jpg') no-repeat center center fixed; /* Replace with your image path */
+            background: url('voetberg_family.jpg') no-repeat center center fixed; /* Ensure this image exists */
             background-size: cover;
-            color: #ecf0f1; /* Light text for contrast */
+            color: #ecf0f1;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
-            min-height: 100vh; /* Ensure full height coverage */
+            min-height: 100vh;
         }
         body::before {
             content: '';
@@ -26,63 +26,41 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Smoother gradient overlay for darkening */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); /* Darkened for better contrast */
             z-index: -1;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .header h1 {
-            font-size: 2.5em;
-            color: #ecf0f1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .header h1::before {
-            content: '🏠';
-            margin-right: 10px;
-        }
-        .focus-item {
-            width: 90%;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
+        
+        /* HEADER */
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { font-size: 2.5em; color: #ecf0f1; display: flex; align-items: center; justify-content: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .header h1::before { content: '🏠'; margin-right: 10px; }
+
+        /* BUTTON BASE STYLES */
+        button { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        /* FOCUS SECTION (Events) */
+        .focus-item { width: 90%; max-width: 600px; margin-bottom: 40px; }
         .focus-button {
             width: 100%;
             padding: 20px;
             font-size: 1.5em;
             font-weight: bold;
-            background-color: #3498db; /* Professional blue */
+            background-color: #3498db; /* Professional Blue */
             color: white;
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
-        .focus-button:hover {
-            background-color: #2980b9;
-        }
-        .focus-button::before {
-            content: '📅';
-            margin-right: 10px;
-            font-size: 1.2em;
-        }
-        .family-group {
-            width: 90%;
-            max-width: 900px;
-            margin-bottom: 40px;
-        }
-        .family-group h2 {
-            text-align: center;
-            color: #bdc3c7;
-            margin-bottom: 20px;
-        }
+        .focus-button:hover { background-color: #2980b9; transform: translateY(-2px); }
+        .focus-button::before { content: '📅'; margin-right: 15px; font-size: 1.2em; }
+
+        /* FAMILY GRID SECTION */
+        .family-group { width: 90%; max-width: 900px; margin-bottom: 40px; }
+        .family-group h2 { text-align: center; color: #bdc3c7; margin-bottom: 20px; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
+        
         .family-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -98,89 +76,81 @@
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-        .family-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
+        .family-button:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); }
+
+        /* Family Colors */
         .dan { background-color: #27ae60; } /* Green */
         .dan::before { content: '🏃‍♂️'; margin-right: 10px; }
+        
         .tonya { background-color: #8e44ad; } /* Purple */
         .tonya::before { content: '💼'; margin-right: 10px; }
+        
         .brian { background-color: #16a085; } /* Teal */
         .brian::before { content: '🎓'; margin-right: 10px; }
+        
         .donald { background-color: #f39c12; color: #2c3e50; } /* Yellow */
         .donald::before { content: '👟'; margin-right: 10px; }
+        
         .tacie { background-color: #e67e22; } /* Orange */
         .tacie::before { content: '🎻'; margin-right: 10px; }
+        
         .wallace { background-color: #7f8c8d; } /* Gray */
         .wallace::before { content: '🐾'; margin-right: 10px; }
-        .other-sections {
-            width: 90%;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-        .other-button {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-bottom: 15px;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        /* FUN SECTION */
+        .fun-section { width: 90%; max-width: 600px; margin-bottom: 30px; }
+        .recent-fun { 
+            width: 100%; padding: 15px; font-size: 1.3em; font-weight: bold; color: white;
+            border: none; border-radius: 8px; cursor: pointer;
+            background-color: #e74c3c; /* Reddish-pink */
+            display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
         }
-        .other-button:hover {
-            opacity: 0.9;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
-        .recent-fun { background-color: #e74c3c; } /* Reddish-pink */
+        .recent-fun:hover { transform: translateY(-2px); background-color: #c0392b; }
         .recent-fun::before { content: '🎉'; margin-right: 10px; }
-        .orders-hq { background-color: #c0392b; } /* Dark red */
-        .orders-hq::before { content: '📢'; margin-right: 10px; }
-        .logout {
-            padding: 10px 20px;
-            font-size: 1em;
-            background-color: #34495e; /* Darker button */
-            color: #ecf0f1;
-            border: 1px solid #2c3e50;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-decoration: none;
+
+        /* ADMIN / BUSINESS SECTION */
+        .admin-group { 
+            width: 90%; max-width: 600px; margin-bottom: 40px; 
+            border-top: 1px solid #555; padding-top: 20px; /* Visual Separation */
+        }
+        .admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        .admin-button {
+            width: 100%; padding: 15px; font-size: 1.1em; font-weight: bold; color: white;
+            border: 1px solid #444; border-radius: 8px; cursor: pointer;
+            background-color: #2c3e50; /* OFFICIAL NAVY - Distinct from Fun */
+            display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s;
         }
-        .logout:hover {
-            background-color: #2c3e50;
+        .admin-button:hover { background-color: #34495e; border-color: #7f8c8d; }
+        
+        .orders-hq::before { content: '📢'; margin-right: 10px; }
+        .stocks-btn::before { content: '📈'; margin-right: 10px; }
+
+        /* LOGOUT */
+        .logout {
+            padding: 10px 20px; font-size: 0.9em;
+            background-color: transparent; color: #7f8c8d;
+            border: 1px solid #7f8c8d; border-radius: 20px;
+            cursor: pointer; text-decoration: none;
+            transition: all 0.3s;
         }
+        .logout:hover { color: #fff; border-color: #fff; }
+
         @media (max-width: 600px) {
-            .family-grid {
-                grid-template-columns: 1fr;
-            }
-            .family-button, .focus-button, .other-button {
-                font-size: 1.4em;
-                padding: 18px;
-            }
-            .header h1 {
-                font-size: 2em;
-            }
-            .family-group h2 {
-                font-size: 1.4em;
-            }
+            .family-grid, .admin-grid { grid-template-columns: 1fr; }
+            .family-button, .focus-button, .recent-fun, .admin-button { font-size: 1.4em; padding: 18px; }
         }
     </style>
 </head>
 <body>
+
     <div class="header">
         <h1>Voetberg Family Hub</h1>
     </div>
@@ -201,11 +171,18 @@
         </div>
     </div>
     
-    <div class="other-sections">
-        <a href="fun_4aW8x.html"><button class="other-button recent-fun">Recent Fun & Highlights</button></a>
-        <a href="orders_9sL2k.html"><button class="other-button orders-hq">Orders from HQ</button></a>
+    <div class="fun-section">
+        <a href="fun_4aW8x.html"><button class="recent-fun">Recent Fun & Highlights</button></a>
+    </div>
+
+    <div class="admin-group">
+        <div class="admin-grid">
+            <a href="orders_9sL2k.html"><button class="admin-button orders-hq">Orders from HQ</button></a>
+            <a href="stocks_2nB8q.html"><button class="admin-button stocks-btn">Market Watch</button></a>
+        </div>
     </div>
     
     <a href="index.html" class="logout">Logout</a>
+
 </body>
 </html>
