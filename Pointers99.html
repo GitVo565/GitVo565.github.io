@@ -64,11 +64,11 @@
         /* ADMIN SECTION (Orders) */
         .admin-container { 
             width: 90%; max-width: 600px; margin-bottom: 40px; 
-            border-top: 1px solid #555; padding-top: 25px; /* Visual Divider */
+            border-top: 1px solid #555; padding-top: 25px; 
         }
         
-        /* Updated to 1 column since Stock Market moved to Dan's page */
-        .admin-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        /* Centered Admin Button */
+        .admin-grid { display: flex; justify-content: center; }
         
         .admin-button { 
             width: 100%; padding: 15px; font-size: 1.1em; font-weight: bold; 
@@ -77,9 +77,20 @@
         }
         .orders-hq::before { content: '📢'; margin-right: 10px; }
 
-        /* LOGOUT */
-        .logout { margin-top: 20px; padding: 10px 20px; color: #7f8c8d; border: 1px solid #7f8c8d; border-radius: 20px; text-decoration: none; transition: 0.3s; }
-        .logout:hover { color: #fff; border-color: #fff; }
+        /* LOGOUT - Fixed to be a small button */
+        .logout-container { margin-top: auto; padding-bottom: 20px; }
+        .logout { 
+            display: inline-block;
+            padding: 8px 25px; 
+            font-size: 0.9em; 
+            color: #bdc3c7; 
+            border: 1px solid #7f8c8d; 
+            border-radius: 20px; 
+            text-decoration: none; 
+            transition: 0.3s;
+            width: auto; /* Prevents stretching */
+        }
+        .logout:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.1); }
 
         @media (max-width: 600px) {
             .family-grid { grid-template-columns: 1fr; }
@@ -118,7 +129,9 @@
         </div>
     </div>
     
-    <a href="index.html" class="logout">Logout</a>
+    <div class="logout-container">
+        <a href="index.html" class="logout">Logout</a>
+    </div>
 
 </body>
 </html>
