@@ -63,17 +63,17 @@
         /* --- SMART ADDRESS & TIME LAYOUT --- */
         .time-loc-wrapper {
             display: flex;
-            flex-wrap: wrap; /* Allows stacking on mobile */
+            flex-wrap: wrap; 
             align-items: center;
-            gap: 8px; /* Space between items */
-            margin-bottom: 15px;
+            gap: 8px; 
+            margin-bottom: 10px; /* Reduced to pull description closer */
             padding-top: 5px;
             font-size: 0.95em;
             color: #555;
             font-weight: 500;
         }
 
-        /* The Map Link */
+        /* Map Link */
         .map-link {
             color: #2c3e50;
             text-decoration: none;
@@ -83,21 +83,12 @@
         }
         .map-link:hover { color: #d35400; border-bottom: 1px solid #d35400; }
 
-        /* The Time - UNBREAKABLE */
-        .time-nowrap {
-            white-space: nowrap; /* Prevents "4:15" and "PM" from splitting */
-        }
+        /* Unbreakable Time */
+        .time-nowrap { white-space: nowrap; }
 
-        /* The Separator Pipe (|) */
-        .separator {
-            color: #ccc;
-            display: none; /* Hidden by default (Mobile) */
-        }
-        
-        /* Show separator only on larger screens where they sit side-by-side */
-        @media (min-width: 600px) {
-            .separator { display: inline; }
-        }
+        /* Separator Pipe (|) */
+        .separator { color: #ccc; display: none; }
+        @media (min-width: 600px) { .separator { display: inline; } }
 
         /* Date Badges */
         .date-badge { 
@@ -141,7 +132,7 @@
             color: #7f8c8d;
             font-weight: bold;
             margin-bottom: 5px;
-            margin-top: 20px; /* Space above buttons */
+            margin-top: 20px; 
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -220,6 +211,7 @@
             <span class="time-nowrap">🕟 4:15 PM</span>
         </div>
 
+        <p><em>Check back closer to the event for more details.</em></p>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:30 | PJ Release 2:45 | Bus 3:00</div>
         
         <div class="cal-cta">📅 Add to your calendar:</div>
@@ -250,6 +242,7 @@
             <span class="time-nowrap">🕟 4:15 PM</span>
         </div>
 
+        <p><em>Check back closer to the event for more details.</em></p>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:15 | PJ Release 2:30 | Bus 2:45</div>
         
         <div class="cal-cta">📅 Add to your calendar:</div>
@@ -280,6 +273,7 @@
             <span class="time-nowrap">🕟 4:15 PM</span>
         </div>
 
+        <p><em>Check back closer to the event for more details.</em></p>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
         <div class="cal-cta">📅 Add to your calendar:</div>
@@ -310,6 +304,7 @@
             <span class="time-nowrap">🕟 4:15 PM</span>
         </div>
 
+        <p><em>Check back closer to the event for more details.</em></p>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 1:30 | PJ Release 1:45 | Bus 2:00</div>
         
         <div class="cal-cta">📅 Add to your calendar:</div>
@@ -340,6 +335,7 @@
             <span class="time-nowrap">🕟 4:15 PM</span>
         </div>
 
+        <p><em>Check back closer to the event for more details.</em></p>
         <div class="logistics-box"><strong>Note:</strong> Home Meet! Come cheer loud! (No early departure)</div>
         
         <div class="cal-cta">📅 Add to your calendar:</div>
@@ -370,6 +366,7 @@
             <span class="time-nowrap">🕟 4:15 PM</span>
         </div>
 
+        <p><em>Check back closer to the event for more details.</em></p>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
         <div class="cal-cta">📅 Add to your calendar:</div>
@@ -400,6 +397,7 @@
             <span class="time-nowrap">🕟 4:15 PM</span>
         </div>
 
+        <p><em>Check back closer to the event for more details.</em></p>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
         <div class="cal-cta">📅 Add to your calendar:</div>
@@ -430,6 +428,7 @@
             <span class="time-nowrap">🕟 4:15 PM</span>
         </div>
 
+        <p><em>Check back closer to the event for more details.</em></p>
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
         
         <div class="cal-cta">📅 Add to your calendar:</div>
