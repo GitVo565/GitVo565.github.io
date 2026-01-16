@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
-        /* Dark Background */
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* Fun font for whole page */
             padding: 20px; 
             max-width: 1200px; 
             margin: 0 auto; 
@@ -18,116 +17,65 @@
             background-size: 20px 20px; 
         }
         
-        /* Navigation */
-        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 30px; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .back-btn:hover { transform: translateY(-2px); }
+        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; font-family: sans-serif; margin-bottom: 30px; }
 
-        /* Header */
         .header-section { text-align: center; margin-bottom: 60px; }
-        h1 { margin: 0; color: #ecf0f1; font-size: 3em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 800; letter-spacing: 1px; }
-        .subtitle { color: #bdc3c7; font-style: italic; margin-top: 5px; font-size: 1.2em; }
+        h1 { margin: 0; color: #ecf0f1; font-size: 3em; font-family: 'Segoe UI', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .subtitle { color: #bdc3c7; font-family: 'Segoe UI', sans-serif; font-style: italic; margin-top: 5px; font-size: 1.2em; }
 
-        /* SCRAPBOOK GRID */
         .scrapbook-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 50px; 
-            padding-bottom: 50px;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; padding-bottom: 50px;
         }
 
-        /* POLAROID CARD STYLE */
+        /* POLAROID STYLE */
         .polaroid {
             background: white;
-            padding: 15px 15px 15px 15px; /* Even padding */
+            padding: 15px 15px 15px 15px; /* Even padding all around */
             box-shadow: 0 10px 20px rgba(0,0,0,0.4);
             width: 280px; 
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s;
             position: relative;
             text-decoration: none;
             color: #333;
-            transform-origin: center;
             display: flex;
-            flex-direction: column; /* Stacks image then text */
+            flex-direction: column; /* Stacks Image then Text */
         }
         
-        /* Hover Effect */
-        .polaroid:hover { 
-            transform: scale(1.1) rotate(0deg) !important; 
-            z-index: 100; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-        }
+        .polaroid:hover { transform: scale(1.1) rotate(0deg) !important; z-index: 100; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
 
-        /* The Image */
         .polaroid img {
             width: 100%;
             height: 280px; 
             object-fit: cover;
             border: 1px solid #eee;
             background: #f0f0f0;
-            display: block; /* Removes bottom spacing issues */
+            display: block;
         }
 
-        /* Caption Area (Now below the image) */
+        /* CAPTION - Sits in the white space below image */
         .caption-box {
             text-align: center;
             padding-top: 15px;
             padding-bottom: 5px;
         }
         
-        .caption-title {
-            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; 
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #2c3e50; /* Dark Blue - High Contrast */
-            display: block;
-        }
+        .caption-title { font-weight: bold; font-size: 1.2em; color: #2c3e50; display: block; }
+        .caption-date { font-size: 0.85em; color: #7f8c8d; display: block; margin-top: 4px; font-family: sans-serif; }
         
-        .caption-date {
-            font-size: 0.85em;
-            color: #7f8c8d; /* Dark Grey */
-            display: block;
-            margin-top: 4px;
-        }
-        
-        /* View Album Link */
-        .view-hint {
-            font-size: 0.75em;
-            color: #3498db;
-            text-transform: uppercase;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.2s;
-            margin-top: 8px;
-            display: block;
-        }
-        .polaroid:hover .view-hint { opacity: 1; }
-
-        /* THE TAPE EFFECT */
         .tape {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90px;
-            height: 30px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-left: 2px dotted rgba(0,0,0,0.1);
-            border-right: 2px dotted rgba(0,0,0,0.1);
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            width: 90px; height: 30px; background-color: rgba(255, 255, 255, 0.5);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            opacity: 0.8;
             z-index: 2;
         }
 
-        /* RANDOM ROTATIONS */
+        /* ROTATIONS */
         .tilt-left { transform: rotate(-4deg); }
         .tilt-right { transform: rotate(3deg); }
         .tilt-hard-left { transform: rotate(-7deg); }
         .tilt-hard-right { transform: rotate(6deg); }
 
-        /* Footer */
-        .footer-info { margin-top: 40px; padding-top: 20px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #7f8c8d; }
-
+        .footer-info { margin-top: 40px; padding-top: 20px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #7f8c8d; font-family: sans-serif; }
     </style>
 </head>
 <body>
@@ -147,7 +95,6 @@
             <div class="caption-box">
                 <span class="caption-title">🏆 State Champs (4x)</span>
                 <span class="caption-date">Nov 2025</span>
-                <span class="view-hint">Click to View Album</span>
             </div>
         </a>
 
@@ -157,7 +104,6 @@
             <div class="caption-box">
                 <span class="caption-title">🖊️ Signed to MSUB!</span>
                 <span class="caption-date">Nov 12, 2025</span>
-                <span class="view-hint">Click to View Album</span>
             </div>
         </a>
 
@@ -167,7 +113,6 @@
             <div class="caption-box">
                 <span class="caption-title">🏔️ Montana Scouting</span>
                 <span class="caption-date">Summer 2025</span>
-                <span class="view-hint">Click to View Album</span>
             </div>
         </a>
 
@@ -177,7 +122,6 @@
             <div class="caption-box">
                 <span class="caption-title">🎣 Ice Fishing</span>
                 <span class="caption-date">Winter 2025</span>
-                <span class="view-hint">Click to View Album</span>
             </div>
         </a>
 
@@ -187,7 +131,6 @@
             <div class="caption-box">
                 <span class="caption-title">🐶 Sir Wallace</span>
                 <span class="caption-date">The Goodest Boy</span>
-                <span class="view-hint">Click to View Album</span>
             </div>
         </a>
 
