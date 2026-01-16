@@ -1,29 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SECURITY ALERT</title>
-    <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="refresh" content="3;url=https://www.fbi.gov/investigate/cyber" />
+    <title>Page Not Found</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow">
+    <meta name="gptbot" content="noindex, nofollow">
+    <meta name="CCBot" content="noindex, nofollow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <style>
+        /* Consistent Family Theme (Dark Blue/Grey) */
         body { 
-            background-color: black; 
-            color: #ff0000;
-            font-family: "Courier New", Courier, monospace; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #2c3e50; 
+            color: #ecf0f1; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
             text-align: center; 
-            padding-top: 100px; 
         }
-        h1 { font-size: 3em; letter-spacing: 2px; border: 3px solid red; display: inline-block; padding: 10px; }
-        p { font-size: 1.2em; }
-        .blink { animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+
+        .container {
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0 0 20px 0;
+            color: #bdc3c7;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.5;
+            color: #ecf0f1;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #3498db;
+            border: 1px solid #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .home-link:hover {
+            background: #3498db;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <h1>⚠️ UNAUTHORIZED ACCESS DETECTED ⚠️</h1>
-    <br><br>
-    <p>INVALID SECURITY CREDENTIALS.</p>
-    <p>YOUR IP ADDRESS HAS BEEN LOGGED.</p>
-    <br>
-    <p class="blink">CONTACTING FEDERAL AUTHORITIES...</p>
+
+    <div class="container">
+        <h1>404</h1>
+        <p>The site you are looking for isn't available.</p>
+        
+        <a href="index.html" class="home-link">Return to Login</a>
+    </div>
+
 </body>
 </html>
