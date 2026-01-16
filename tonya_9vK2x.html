@@ -29,13 +29,13 @@
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             padding: 10px; 
-            line-height: 1.4; /* Tighter line height */
+            line-height: 1.4; 
             max-width: 1000px; 
             margin: 0 auto; 
             background: linear-gradient(135deg, #f8f9fa 0%, #f3e5f5 100%); 
             color: var(--text-dark); 
             min-height: 100vh;
-            font-size: 15px; /* Slightly smaller base font for density */
+            font-size: 15px; 
         }
         
         /* Navigation */
@@ -54,11 +54,11 @@
         }
         .back-btn:hover { background: #eee; transform: translateX(-2px); }
 
-        /* HERO SECTION - COMPACT */
+        /* HERO SECTION */
         .profile-hero {
             background: white;
             border-radius: 10px;
-            padding: 15px; /* Reduced padding */
+            padding: 15px; 
             display: flex;
             align-items: center;
             gap: 15px; 
@@ -70,7 +70,7 @@
         .profile-img-container { flex: 0 0 130px; text-align: center; }
 
         .profile-img {
-            width: 130px; height: 130px; /* Smaller Image */
+            width: 130px; height: 130px;
             object-fit: cover;
             border-radius: 50%;
             border: 3px solid var(--light-purple);
@@ -98,16 +98,21 @@
         .highlight-banner p { margin: 0; font-size: 1em; font-style: italic; font-weight: 600; }
 
         /* Grid Layout */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 15px; }
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+            gap: 15px; 
+            align-items: start; /* Prevents columns from forcibly stretching */
+        }
         
         /* Cards */
         .card { 
             background: white; 
-            padding: 15px; /* Tighter padding */
+            padding: 15px; 
             border-radius: 8px; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
             border-top: 3px solid var(--primary-purple); 
-            height: 100%; 
+            /* REMOVED height: 100% to fix whitespace issue */
         }
 
         .card h3 { 
@@ -120,7 +125,7 @@
         }
         .card-icon { margin-right: 6px; }
 
-        /* Timeline Styles - Very Compact */
+        /* Timeline Styles */
         .timeline-item { position: relative; padding-left: 12px; margin-bottom: 10px; border-left: 2px solid #ddd; }
         .timeline-item:last-child { margin-bottom: 0; }
         .timeline-item.active { border-left-color: #28a745; }
@@ -277,7 +282,7 @@
                 
                 <div style="margin-bottom: 8px; font-size: 0.9em;">
                     <strong>In the Kitchen:</strong><br>
-                    <span style="color:#666;">Considered a "Master Chef."</span>
+                    <span style="color:#666;">Considered a "Master Chef."</span><br>
                     <em>Signature Dish: The World's Best Lasagna.</em>
                 </div>
 
