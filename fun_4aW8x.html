@@ -6,63 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
-        /* Shared Theme: Dark Background */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #2c3e50; color: #ecf0f1; }
+        /* Dark Background (The Table) */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            background: #2c3e50; 
+            color: #333; 
+            background-image: radial-gradient(#34495e 1px, transparent 1px);
+            background-size: 20px 20px; /* Subtle texture */
+        }
         
         /* Navigation */
-        .back-btn { display: inline-block; background: #34495e; padding: 8px 15px; text-decoration: none; color: #ecf0f1; border-radius: 20px; border: 1px solid #465c71; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
-        .back-btn:hover { background: #465c71; }
+        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 30px; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .back-btn:hover { transform: translateY(-2px); }
 
-        /* Banner */
-        .header-section { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #f1c40f; padding-bottom: 20px; }
-        h1 { margin: 10px 0 5px 0; color: #ecf0f1; }
-        .subtitle { color: #bdc3c7; font-style: italic; }
+        /* Header */
+        .header-section { text-align: center; margin-bottom: 50px; }
+        h1 { margin: 0; color: #ecf0f1; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .subtitle { color: #bdc3c7; font-style: italic; margin-top: 5px; }
 
-        /* Photo Cards */
-        .album-card { 
-            background: white; 
-            color: #333; 
-            padding: 20px; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
-            margin-bottom: 30px; 
-            border-top: 6px solid #3498db; 
+        /* SCRAPBOOK GRID */
+        .scrapbook-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
         }
 
-        .album-card h2 { margin-top: 0; color: #2c3e50; font-size: 1.5em; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
+        /* POLAROID CARD STYLE */
+        .polaroid {
+            background: white;
+            padding: 15px 15px 25px 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            width: 300px; /* Fixed width for tile look */
+            transition: transform 0.3s ease;
+            position: relative;
+            text-decoration: none;
+            color: #333;
+        }
         
-        /* Image Handling */
-        .featured-img { 
-            width: 100%; 
-            height: auto; 
-            border-radius: 4px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-            cursor: pointer;
+        /* Hover Effect: Straighten & Lift */
+        .polaroid:hover { 
+            transform: scale(1.05) rotate(0deg) !important; 
+            z-index: 10; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
-        .featured-img:hover { transform: scale(1.01); }
 
-        .caption { color: #555; margin: 15px 0; font-size: 1em; }
-
-        /* Buttons */
-        .view-btn { 
-            display: inline-block; 
-            background: #3498db; /* Blue */
-            color: white; 
-            padding: 10px 20px; 
-            border-radius: 4px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            transition: background 0.2s;
+        /* The Image */
+        .polaroid img {
+            width: 100%;
+            height: 250px; /* Uniform height for tidiness */
+            object-fit: cover;
+            border: 1px solid #ddd;
+            background: #eee;
         }
-        .view-btn:hover { background: #2980b9; }
 
-        /* Color Variants for Cards */
-        .card-gold { border-top-color: #f1c40f; }
-        .card-green { border-top-color: #27ae60; }
+        /* Handwriting Caption */
+        .caption-box {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .caption-title {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* Handwriting font */
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+            display: block;
+        }
+        .caption-date {
+            font-size: 0.8em;
+            color: #777;
+            display: block;
+            margin-top: 2px;
+        }
+        .view-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        /* THE TAPE EFFECT (Pure CSS) */
+        .tape {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-left: 2px dotted rgba(0,0,0,0.1);
+            border-right: 2px dotted rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            opacity: 0.7;
+        }
+
+        /* RANDOM ROTATIONS (Scrapbook Feel) */
+        .tilt-left { transform: rotate(-3deg); }
+        .tilt-right { transform: rotate(2deg); }
+        .tilt-hard-left { transform: rotate(-5deg); }
 
         /* Footer */
-        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
+        .footer-info { margin-top: 60px; padding-top: 20px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #7f8c8d; clear: both; }
 
     </style>
 </head>
@@ -71,34 +121,30 @@
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
     <div class="header-section">
-        <h1>🎉 Recent Highlights</h1>
-        <div class="subtitle">The Best of the Voetbergs</div>
+        <h1>📸 The Scrapbook</h1>
+        <div class="subtitle">Recent Highlights & Memories</div>
     </div>
 
-    <div class="album-card card-gold">
-        <h2>🏆 The 4-Peat State Champs Season!</h2>
-        
-        <a href="https://photos.app.goo.gl/RqaUJar8JAs5a5d76" target="_blank">
-            <img src="images/4_peat_bros.jpg" alt="4-Peat Bros" class="featured-img">
-        </a>
-        
-        <p class="caption">
-            A historic season for SPASH Cross Country! Celebrating the 4th consecutive State Title. Check out the full gallery of the boys celebrating the dynasty.
-        </p>
-        
-        <a href="https://photos.app.goo.gl/RqaUJar8JAs5a5d76" target="_blank" class="view-btn">
-            📸 View Google Album
-        </a>
-    </div>
+    <div class="scrapbook-container">
 
-    <div class="album-card card-green">
-        <h2>🏔️ Montana Scouting Trip</h2>
-        
-        <img src="images/Donald_Montana_Stream.jpg" alt="Montana Trip" class="featured-img">
-        
-        <p class="caption">
-            Exploring Billings, the Bighorn Mountains, and the future home of Donald at MSUB.
-        </p>
+        <a href="https://photos.app.goo.gl/RqaUJar8JAs5a5d76" target="_blank" class="polaroid tilt-left">
+            <div class="tape"></div> <img src="images/4_peat_bros.jpg" alt="4-Peat Champs">
+            <div class="caption-box">
+                <span class="caption-title">🏆 The 4-Peat!</span>
+                <span class="caption-date">Nov 2025</span>
+                <span class="view-link">View Album ↗</span>
+            </div>
+        </a>
+
+        <div class="polaroid tilt-right">
+            <div class="tape"></div>
+            <img src="images/Donald_Montana_Stream.jpg" alt="Montana">
+            <div class="caption-box">
+                <span class="caption-title">🏔️ Montana Scouting</span>
+                <span class="caption-date">Summer 2025</span>
+            </div>
+        </div>
+
     </div>
 
     <div class="footer-info">
