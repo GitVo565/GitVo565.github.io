@@ -23,33 +23,32 @@
             --light-purple: #f3e5f5;
             --text-dark: #2c3e50;
             --text-grey: #666;
-            --card-bg: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+            --card-bg: rgba(255, 255, 255, 0.96); /* Slightly more opaque for readability */
             --card-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             padding: 15px; 
-            line-height: 1.4; 
+            line-height: 1.5; /* Increased for readability */
             max-width: 1000px; 
             margin: 0 auto; 
-            /* FULL PAGE BACKGROUND IMAGE */
-            background-image: url('images/tonya_kitchen.jpg');
+            /* BACKGROUND IMAGE UPDATE */
+            background-image: url('images/tonya_cook.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Keeps image still while scrolling */
+            background-attachment: fixed;
             color: var(--text-dark); 
             min-height: 100vh;
-            font-size: 15px; 
+            font-size: 16px; /* BUMPED UP FONT SIZE */
         }
 
-        /* Content Overlay Wrapper - Optional, but helps readability */
-        /* Using a pseudo-element on the body for a general overlay */
+        /* Darken background slightly to make text pop */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.3); /* Darkens background slightly */
+            background: rgba(0, 0, 0, 0.25); 
             z-index: -1;
         }
         
@@ -57,133 +56,145 @@
         .back-btn { 
             display: inline-block; 
             background: var(--card-bg); 
-            padding: 5px 12px; 
+            padding: 6px 15px; 
             text-decoration: none; 
             color: var(--text-dark); 
-            border-radius: 15px; 
+            border-radius: 20px; 
             border: 1px solid #ddd; 
-            font-size: 0.8em; 
-            margin-bottom: 10px; 
+            font-size: 0.85em; 
+            margin-bottom: 15px; 
             transition: all 0.2s; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
         .back-btn:hover { background: white; transform: translateX(-2px); }
 
         /* HERO SECTION */
         .profile-hero {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 15px; 
+            border-radius: 12px;
+            padding: 20px; 
             display: flex;
             align-items: center;
-            gap: 15px; 
+            gap: 20px; 
             box-shadow: var(--card-shadow);
-            margin-bottom: 15px; 
-            border-left: 5px solid var(--primary-purple);
+            margin-bottom: 20px; 
+            border-left: 6px solid var(--primary-purple);
         }
 
-        .profile-img-container { flex: 0 0 130px; text-align: center; }
+        .profile-img-container { flex: 0 0 140px; text-align: center; }
 
         .profile-img {
-            width: 130px; height: 130px;
+            width: 140px; height: 140px;
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid var(--light-purple);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border: 4px solid var(--light-purple);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
 
-        .profile-info h1 { margin: 0; color: var(--primary-purple); font-size: 1.8em; line-height: 1.1; }
-        .profile-tagline { font-size: 0.95em; color: #444; font-weight: 600; margin: 3px 0 6px 0; }
-        .profile-loc { font-size: 0.85em; color: #777; display: flex; align-items: center; gap: 4px; margin-bottom: 8px; }
+        .profile-info h1 { margin: 0; color: var(--primary-purple); font-size: 2.1em; line-height: 1.1; }
+        .profile-tagline { font-size: 1.05em; color: #444; font-weight: 600; margin: 5px 0 8px 0; }
+        .profile-loc { font-size: 0.95em; color: #555; display: flex; align-items: center; gap: 5px; margin-bottom: 12px; }
         
-        .hero-badges { display: flex; gap: 5px; flex-wrap: wrap; }
-        .hero-badge { background: var(--light-purple); color: var(--dark-purple); padding: 2px 8px; border-radius: 10px; font-size: 0.75em; font-weight: bold; }
+        .hero-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+        .hero-badge { background: var(--light-purple); color: var(--dark-purple); padding: 4px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
 
         /* Highlight Quote Banner */
         .highlight-banner { 
             background: linear-gradient(90deg, #6f42c1, #8e44ad); 
             color: white; 
-            padding: 10px; 
-            border-radius: 8px; 
-            margin-bottom: 15px; 
+            padding: 15px; 
+            border-radius: 10px; 
+            margin-bottom: 20px; 
             text-align: center; 
-            box-shadow: 0 4px 10px rgba(111, 66, 193, 0.5); 
+            box-shadow: 0 4px 12px rgba(111, 66, 193, 0.5); 
         }
-        .highlight-banner h2 { margin: 0; font-size: 0.9em; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
-        .highlight-banner p { margin: 0; font-size: 1em; font-style: italic; font-weight: 600; }
+        .highlight-banner h2 { margin: 0; font-size: 1em; opacity: 0.95; text-transform: uppercase; letter-spacing: 1px; }
+        .highlight-banner p { margin: 5px 0 0 0; font-size: 1.1em; font-style: italic; font-weight: 600; }
 
         /* Grid Layout */
         .grid-container { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
-            gap: 15px; 
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+            gap: 20px; 
             align-items: start; 
         }
         
         /* Cards */
         .card { 
             background: var(--card-bg); 
-            padding: 15px; 
-            border-radius: 8px; 
+            padding: 20px; 
+            border-radius: 10px; 
             box-shadow: var(--card-shadow); 
-            border-top: 3px solid var(--primary-purple); 
+            border-top: 4px solid var(--primary-purple); 
         }
 
         .card h3 { 
             margin-top: 0; 
             color: var(--primary-purple); 
-            border-bottom: 1px solid #eee; 
-            padding-bottom: 6px; 
-            margin-bottom: 10px;
-            display: flex; align-items: center; font-size: 1.1em;
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 8px; 
+            margin-bottom: 15px;
+            display: flex; align-items: center; font-size: 1.3em;
         }
-        .card-icon { margin-right: 6px; }
+        .card-icon { margin-right: 10px; }
+
+        /* "Plain English" Box */
+        .plain-english-box {
+            background: #f3e5f5; /* Light purple tint */
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-purple);
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            color: #444;
+        }
 
         /* Timeline Styles */
-        .timeline-item { position: relative; padding-left: 12px; margin-bottom: 10px; border-left: 2px solid #ddd; }
+        .timeline-item { position: relative; padding-left: 15px; margin-bottom: 15px; border-left: 3px solid #ddd; }
         .timeline-item:last-child { margin-bottom: 0; }
         .timeline-item.active { border-left-color: #28a745; }
         
-        .timeline-date { font-size: 0.7em; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 0; line-height: 1.2; }
-        .timeline-title { font-weight: bold; color: #333; font-size: 0.95em; margin: 0; }
-        .timeline-desc { font-size: 0.85em; color: #555; line-height: 1.35; margin-top: 2px; }
+        .timeline-date { font-size: 0.75em; color: #777; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 2px; line-height: 1.2; }
+        .timeline-title { font-weight: bold; color: #333; font-size: 1.05em; margin: 0; }
+        .timeline-desc { font-size: 0.95em; color: #444; line-height: 1.45; margin-top: 4px; }
         
         /* Tag Cloud */
-        .tag-container { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+        .tag-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
         .tag { 
-            background: #f8f9fa; color: #555; 
-            padding: 2px 8px; border-radius: 4px; 
-            font-size: 0.75em; font-weight: 600; border: 1px solid #eee;
+            background: #f8f9fa; color: #444; 
+            padding: 4px 10px; border-radius: 6px; 
+            font-size: 0.85em; font-weight: 600; border: 1px solid #ccc;
         }
-        .tag.tech { background: #e3f2fd; color: #0d47a1; border-color: #bbdefb; } 
-        .tag.cert { background: #e8f5e9; color: #1b5e20; border-color: #c8e6c9; }
+        .tag.tech { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; } 
+        .tag.cert { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
 
         /* Lists */
-        ul { padding-left: 18px; color: #555; margin: 0; }
-        li { margin-bottom: 3px; font-size: 0.9em; }
+        ul { padding-left: 20px; color: #444; margin: 0; }
+        li { margin-bottom: 5px; font-size: 0.95em; }
 
         /* Connect Section */
-        .connect-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+        .connect-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
         .link-btn { 
-            flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-            background: var(--card-bg); padding: 8px; 
-            border-radius: 6px; border: 1px solid #ddd; 
-            color: #333; font-weight: 600; text-decoration: none; font-size: 0.85em;
+            flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+            background: var(--card-bg); padding: 10px; 
+            border-radius: 8px; border: 1px solid #bbb; 
+            color: #333; font-weight: 600; text-decoration: none; font-size: 0.9em;
             transition: all 0.2s;
         }
-        .link-btn:hover { background: white; border-color: var(--primary-purple); color: var(--primary-purple); }
+        .link-btn:hover { background: white; border-color: var(--primary-purple); color: var(--primary-purple); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-        /* Footer - HIGH VISIBILITY */
+        /* Footer */
         .footer-info { 
             margin-top: 40px; 
             margin-bottom: 20px;
             padding-top: 15px; 
-            border-top: 2px solid rgba(255, 255, 255, 0.5); 
+            border-top: 2px solid rgba(255, 255, 255, 0.6); 
             text-align: right; 
             font-size: 0.85em; 
-            color: white; /* White text for background */
+            color: #fff; 
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Strong shadow for readability */
         }
 
         @media (max-width: 768px) {
@@ -225,10 +236,15 @@
         <div class="col-left">
             <div class="card">
                 <h3><span class="card-icon">🚀</span>Professional Journey</h3>
-                <p style="color:#666; font-size:0.85em; margin-bottom:12px; line-height: 1.3;">
-                    Transformation Leader acting as a "right hand" to mission leaders, connecting corporate strategy to execution. 
-                    <br><strong>Tenure:</strong> 25+ Years at Kimberly-Clark.
+                
+                <p style="color:#555; font-size:0.9em; margin-bottom:15px; line-height: 1.4;">
+                    Transformation Leader acting as a "right hand" to mission leaders, connecting corporate strategy to execution.
                 </p>
+
+                <div class="plain-english-box">
+                    <strong style="color: var(--primary-purple); display:block; margin-bottom:4px;">In Plain English:</strong>
+                    Tonya helps leaders figure out <em>how</em> to get things done. She takes complex corporate goals and builds the actual plans, teams, and processes to make them happen efficiently.
+                </div>
 
                 <div class="timeline-item active">
                     <div class="timeline-date">2026 Focus</div>
@@ -264,7 +280,7 @@
                 </div>
             </div>
 
-            <div class="card" style="margin-top:15px;">
+            <div class="card" style="margin-top:20px;">
                 <h3><span class="card-icon">🤝</span>Community & Philanthropy</h3>
                 <ul>
                     <li><strong>CI Squared:</strong> Board Member (Continuous Improvement).</li>
@@ -278,7 +294,7 @@
             
             <div class="card">
                 <h3><span class="card-icon">🏡</span>Meet Tonya</h3>
-                <p style="font-size: 0.9em; margin-bottom: 10px;"><strong>Family Roots:</strong> Married to Dan since 2000 (Met at UWSP!). Supermom to 3 kids and manager of the "Voetberg Army." Also mother to Wallace the Corgi.</p>
+                <p style="font-size: 0.95em; margin-bottom: 15px;"><strong>Family Roots:</strong> Married to Dan since 2000 (Met at UWSP!). Supermom to 3 kids and manager of the "Voetberg Army." Also mother to Wallace the Corgi.</p>
                 
                 <div class="timeline-item" style="border-left-color: #fd7e14;">
                     <div class="timeline-date">Origins & Education</div>
@@ -290,37 +306,37 @@
                     </div>
                 </div>
 
-                <p style="font-size: 0.9em; margin: 0;"><strong>Global Traveler:</strong> Explored Costa Rica, Brazil, Canada, Argentina, and England.</p>
+                <p style="font-size: 0.95em; margin: 0;"><strong>Global Traveler:</strong> Explored Costa Rica, Brazil, Canada, Argentina, and England.</p>
             </div>
 
-            <div class="card" style="margin-top:15px;">
+            <div class="card" style="margin-top:20px;">
                 <h3><span class="card-icon">✨</span>The Fun Stuff</h3>
                 
-                <div style="margin-bottom: 10px; font-size: 0.9em;">
-                    <strong>In the Kitchen:</strong><br>
-                    <span style="color:#666;">The Family's One & Only Skilled Cook.</span>
-                    <em style="display:block; margin-top:4px;">(And we are deeply grateful for it!)</em>
-                    <em>Signature Dish: The World's Best Lasagna.</em>
+                <div style="margin-bottom: 12px; font-size: 0.95em;">
+                    <strong style="color: var(--primary-purple);">In the Kitchen:</strong><br>
+                    <span style="font-weight:bold;">The Family's One & Only Skilled Cook.</span><br>
+                    <em style="color:#555; font-size:0.9em;">(And we are deeply grateful for it!)</em><br>
+                    Signature Dish: The World's Best Lasagna.
                 </div>
 
-                <div style="margin-bottom: 8px;">
-                    <strong style="font-size: 0.9em;">Favorites:</strong><br>
-                    <div class="tag-container" style="margin-top:2px;">
+                <div style="margin-bottom: 12px;">
+                    <strong style="font-size: 0.95em;">Favorites:</strong><br>
+                    <div class="tag-container" style="margin-top:4px;">
                         <span class="tag">A Discovery of Witches 🧙‍♀️</span>
                         <span class="tag">The Piano Guys 🎹</span>
                         <span class="tag">Corgi Videos 🐶</span>
                     </div>
                 </div>
 
-                <div style="font-size: 0.9em;">
+                <div style="font-size: 0.95em;">
                     <strong>Socializing:</strong>
                     Hosting family reunions, parties, and get-togethers.
                 </div>
             </div>
 
-            <div class="card" style="margin-top:15px;">
+            <div class="card" style="margin-top:20px;">
                 <h3><span class="card-icon">🔗</span>Connect</h3>
-                <p style="font-size:0.8em; margin-bottom:10px; color: #666;">
+                <p style="font-size:0.9em; margin-bottom:12px; color: #555;">
                     <em>Can be found being the "loudest supporter" at wrestling matches and track meets.</em>
                 </p>
                 
