@@ -2,83 +2,145 @@
 <html>
 <head>
     <title>Voetberg Family Scrapbook</title>
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow">
+    <meta name="gptbot" content="noindex, nofollow">
+    <meta name="CCBot" content="noindex, nofollow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
+        /* Theme: Dark Tabletop */
         body { 
-            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* Fun font for whole page */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             padding: 20px; 
+            line-height: 1.6; 
             max-width: 1200px; 
             margin: 0 auto; 
             background: #2c3e50; 
-            color: #333; 
-            background-image: radial-gradient(#34495e 1px, transparent 1px);
-            background-size: 20px 20px; 
+            color: #ecf0f1; 
         }
         
-        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; font-family: sans-serif; margin-bottom: 30px; }
+        /* Navigation */
+        .back-btn { 
+            display: inline-block; 
+            background: #34495e; 
+            padding: 8px 15px; 
+            text-decoration: none; 
+            color: #ecf0f1; 
+            border-radius: 20px; 
+            border: 1px solid #465c71; 
+            font-size: 0.9em; 
+            margin-bottom: 20px; 
+            transition: all 0.2s; 
+        }
+        .back-btn:hover { background: #465c71; }
 
-        .header-section { text-align: center; margin-bottom: 60px; }
-        h1 { margin: 0; color: #ecf0f1; font-size: 3em; font-family: 'Segoe UI', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .subtitle { color: #bdc3c7; font-family: 'Segoe UI', sans-serif; font-style: italic; margin-top: 5px; font-size: 1.2em; }
+        /* Header */
+        .header-section { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #e74c3c; padding-bottom: 20px; }
+        h1 { margin: 10px 0 5px 0; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .subtitle { color: #bdc3c7; font-style: italic; }
 
-        .scrapbook-container {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; padding-bottom: 50px;
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px; /* Space between photos */
+            padding: 20px;
         }
 
-        /* POLAROID STYLE */
+        /* Polaroid Card */
         .polaroid {
             background: white;
-            padding: 15px 15px 15px 15px; /* Even padding all around */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            width: 280px; 
-            transition: transform 0.3s;
-            position: relative;
+            padding: 15px 15px 50px 15px; /* Extra bottom padding for caption */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transform: rotate(0deg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
             color: #333;
-            display: flex;
-            flex-direction: column; /* Stacks Image then Text */
+            display: block;
+            position: relative;
         }
-        
-        .polaroid:hover { transform: scale(1.1) rotate(0deg) !important; z-index: 100; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
 
+        /* Hover Effect: Lift and Straighten */
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        /* Slight random rotations for "scattered" look */
+        .polaroid:nth-child(3n+1) { transform: rotate(-2deg); }
+        .polaroid:nth-child(3n+2) { transform: rotate(3deg); }
+        .polaroid:nth-child(3n+3) { transform: rotate(1deg); }
+
+        /* Image Styling */
         .polaroid img {
             width: 100%;
-            height: 280px; 
+            height: 280px; /* Fixed height for uniformity */
             object-fit: cover;
-            border: 1px solid #eee;
-            background: #f0f0f0;
+            border: 1px solid #ddd;
             display: block;
+            background: #eee;
         }
 
-        /* CAPTION - Sits in the white space below image */
+        /* Caption Styling */
         .caption-box {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
             text-align: center;
-            padding-top: 15px;
-            padding-bottom: 5px;
+        }
+
+        .caption-title {
+            display: block;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #2c3e50;
         }
         
-        .caption-title { font-weight: bold; font-size: 1.2em; color: #2c3e50; display: block; }
-        .caption-date { font-size: 0.85em; color: #7f8c8d; display: block; margin-top: 4px; font-family: sans-serif; }
-        
+        .caption-date {
+            display: block;
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+
+        /* Tape Effect */
         .tape {
-            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            width: 90px; height: 30px; background-color: rgba(255, 255, 255, 0.5);
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            width: 100px; height: 35px; background-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 2;
+            backdrop-filter: blur(2px);
         }
 
-        /* ROTATIONS */
-        .tilt-left { transform: rotate(-4deg); }
-        .tilt-right { transform: rotate(3deg); }
-        .tilt-hard-left { transform: rotate(-7deg); }
-        .tilt-hard-right { transform: rotate(6deg); }
+        /* New Label Badge */
+        .new-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #e74c3c;
+            color: white;
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transform: rotate(15deg);
+            z-index: 5;
+        }
 
-        .footer-info { margin-top: 40px; padding-top: 20px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #7f8c8d; font-family: sans-serif; }
+        /* Footer */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
+
     </style>
 </head>
 <body>
@@ -86,13 +148,23 @@
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
     <div class="header-section">
-        <h1>📸 Family Scrapbook</h1>
-        <div class="subtitle">Recent Highlights & Memories</div>
+        <h1>📸 Voetberg Scrapbook</h1>
+        <div class="subtitle">Highlights & Adventures</div>
     </div>
 
-    <div class="scrapbook-container">
+    <div class="gallery-grid">
+        
+        <a href="https://photos.app.goo.gl/9aSPnAgBefgWtzDS9" target="_blank" class="polaroid">
+            <div class="new-badge">NEW!</div>
+            <div class="tape"></div>
+            <img src="images/wrestling_background.jpg" alt="Tacie Wrestling">
+            <div class="caption-box">
+                <span class="caption-title">🤼‍♀️ Wrestling Season</span>
+                <span class="caption-date">2026</span>
+            </div>
+        </a>
 
-        <a href="https://photos.app.goo.gl/RqaUJar8JAs5a5d76" target="_blank" class="polaroid tilt-left">
+        <a href="https://photos.app.goo.gl/RqaUJar8JAs5a5d76" target="_blank" class="polaroid">
             <div class="tape"></div>
             <img src="images/4_peat_bros.jpg" alt="4-Peat Champs">
             <div class="caption-box">
@@ -101,7 +173,7 @@
             </div>
         </a>
 
-        <a href="https://photos.app.goo.gl/h8XbJS3dgzHdfAdR6" target="_blank" class="polaroid tilt-right">
+        <a href="https://photos.app.goo.gl/h8XbJS3dgzHdfAdR6" target="_blank" class="polaroid">
             <div class="tape"></div>
             <img src="images/donald_signs.jpg" alt="Donald Signing">
             <div class="caption-box">
@@ -110,7 +182,7 @@
             </div>
         </a>
 
-        <a href="https://photos.app.goo.gl/d4qb1c4sBMWA6Lqy8" target="_blank" class="polaroid tilt-hard-left">
+        <a href="https://photos.app.goo.gl/d4qb1c4sBMWA6Lqy8" target="_blank" class="polaroid">
             <div class="tape"></div>
             <img src="images/Donald_Montana_Stream.jpg" alt="Montana">
             <div class="caption-box">
@@ -119,18 +191,18 @@
             </div>
         </a>
 
-        <a href="https://photos.app.goo.gl/JiEHgMDBsvhZvmHG6" target="_blank" class="polaroid tilt-right">
+        <a href="https://photos.app.goo.gl/JiEHgMDBsvhZvmHG6" target="_blank" class="polaroid">
             <div class="tape"></div>
-            <img src="ice_fishing.jpg" alt="Ice Fishing">
+            <img src="images/ice_fishing.jpg" alt="Ice Fishing">
             <div class="caption-box">
                 <span class="caption-title">🎣 Ice Fishing</span>
                 <span class="caption-date">Winter 2025</span>
             </div>
         </a>
 
-        <a href="https://photos.app.goo.gl/qttibN4R39jZm41M7" target="_blank" class="polaroid tilt-hard-right">
+        <a href="https://photos.app.goo.gl/qttibN4R39jZm41M7" target="_blank" class="polaroid">
             <div class="tape"></div>
-            <img src="wallace.jpg" alt="Wallace">
+            <img src="images/wallace.jpg" alt="Wallace">
             <div class="caption-box">
                 <span class="caption-title">🐶 Sir Wallace</span>
                 <span class="caption-date">The Goodest Boy</span>
