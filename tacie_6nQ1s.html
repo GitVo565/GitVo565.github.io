@@ -1,123 +1,222 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tacie's Page</title>
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tacie Voetberg | Class of 2031</title>
+    
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow">
+    <meta name="gptbot" content="noindex, nofollow">
+    <meta name="CCBot" content="noindex, nofollow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #f8f9fa; color: #333; }
+        /* Theme Variables */
+        :root {
+            --primary-orange: #fd7e14;
+            --dark-orange: #d35400;
+            --light-orange: #fff3cd;
+            --text-dark: #2c3e50;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 15px; 
+            line-height: 1.5; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff3cd 100%); 
+            color: var(--text-dark); 
+            min-height: 100vh;
+            font-size: 16px;
+        }
         
         /* Navigation */
-        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
-        .back-btn:hover { background: #eee; }
-
-        /* Banner & Headers */
-        .header-section { text-align: center; margin-bottom: 30px; }
-        h1 { margin: 10px 0 5px 0; color: #fd7e14; } /* Tacie Orange */
-        .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
-
-        /* Photo Card */
-        .photo-card { 
+        .back-btn { 
+            display: inline-block; 
             background: white; 
-            padding: 10px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            max-width: 500px; 
-            margin: 0 auto 30px auto; 
-            transition: transform 0.2s;
+            padding: 6px 15px; 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            border-radius: 20px; 
+            border: 1px solid #ddd; 
+            font-size: 0.85em; 
+            margin-bottom: 15px; 
+            transition: all 0.2s; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        .photo-card:hover { transform: translateY(-3px); cursor: pointer; }
-        .photo-card img { width: 100%; border-radius: 8px; display: block; }
-        .photo-caption { text-align: center; font-size: 0.9em; color: #fd7e14; padding-top: 10px; font-weight: bold; }
+        .back-btn:hover { background: #eee; transform: translateX(-3px); }
+
+        /* HERO SECTION */
+        .profile-hero {
+            background: white;
+            border-radius: 12px;
+            padding: 20px; 
+            display: flex;
+            align-items: center;
+            gap: 20px; 
+            box-shadow: var(--card-shadow);
+            margin-bottom: 20px; 
+            border-left: 6px solid var(--primary-orange);
+        }
+
+        .profile-img-container { flex: 0 0 140px; text-align: center; }
+
+        .profile-img {
+            width: 140px; height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--light-orange);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .profile-info h1 { margin: 0; color: var(--primary-orange); font-size: 2em; line-height: 1.1; }
+        .profile-tagline { font-size: 1em; color: #444; font-weight: 600; margin: 4px 0 8px 0; }
+        .profile-loc { font-size: 0.9em; color: #777; display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+        
+        .hero-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+        .hero-badge { background: var(--light-orange); color: #856404; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
 
         /* Highlight Banner */
-        .highlight-banner { background-color: #fd7e14; color: white; padding: 15px; border-radius: 8px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 10px rgba(253, 126, 20, 0.2); }
-        .highlight-banner h2 { margin: 0; font-size: 1.4em; }
-        .highlight-banner p { margin: 5px 0 0 0; opacity: 0.9; }
+        .highlight-banner { 
+            background: linear-gradient(90deg, #fd7e14, #f39c12); 
+            color: white; 
+            padding: 15px; 
+            border-radius: 10px; 
+            margin-bottom: 20px; 
+            text-align: center; 
+            box-shadow: 0 3px 10px rgba(253, 126, 20, 0.3); 
+        }
+        .highlight-banner h2 { margin: 0 0 3px 0; font-size: 1.2em; opacity: 0.95; }
+        .highlight-banner p { margin: 0; font-size: 1.1em; font-weight: bold; }
 
         /* Grid Layout */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; align-items: start; }
         
         /* Cards */
-        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #fd7e14; }
-        .card h3 { margin-top: 0; color: #fd7e14; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
-        .card-icon { margin-right: 10px; font-size: 1.2em; }
+        .card { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+            border-top: 4px solid var(--primary-orange); 
+            margin-bottom: 20px;
+        }
 
-        /* Timeline */
-        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 15px; border-left: 2px solid #ffc107; }
-        .timeline-date { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
-        .timeline-title { font-weight: bold; color: #333; }
-        .timeline-desc { font-size: 0.95em; color: #555; }
-        .timeline-link { font-size: 0.9em; color: #007bff; text-decoration: none; }
-        .timeline-link:hover { text-decoration: underline; }
+        .card h3 { 
+            margin-top: 0; 
+            color: var(--primary-orange); 
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 8px; 
+            margin-bottom: 15px;
+            display: flex; align-items: center; font-size: 1.25em;
+        }
+        .card-icon { margin-right: 8px; }
 
         /* PR Grid */
         .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .pr-item { background: #fdfdfd; padding: 10px; border: 1px solid #eee; border-radius: 5px; text-align: center; }
-        .pr-event { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px; }
-        .pr-time { font-weight: bold; font-size: 1.1em; color: #fd7e14; }
-        .pr-meet { font-size: 0.75em; color: #888; margin-top: 2px; }
+        .pr-item { background: #fdfdfd; padding: 10px; border: 1px solid #eee; border-radius: 6px; text-align: center; }
+        .pr-event { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight:bold; }
+        .pr-time { font-weight: bold; font-size: 1.2em; color: var(--primary-orange); margin: 2px 0; }
+        .pr-meet { font-size: 0.75em; color: #888; }
 
-        /* Tags for Interests */
-        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag { background: #fff3cd; color: #856404; padding: 5px 10px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
-        .tag-fav { background: #e2e3e5; color: #383d41; }
-
-        /* Unified Link Buttons */
-        .link-btn { 
-            display: flex; align-items: center; justify-content: center;
-            background: #fff; padding: 15px; margin-bottom: 10px; 
-            border-radius: 6px; border: 1px solid #eee; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: all 0.2s ease; color: #333; font-weight: 600; text-decoration: none;
-        }
-        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); color: #000; }
+        /* Timeline Styles */
+        .timeline-item { position: relative; padding-left: 15px; margin-bottom: 15px; border-left: 3px solid #ffc107; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item.active { border-left-color: #28a745; }
         
-        /* Brand Colors for Buttons */
-        .btn-milesplit { border-left: 6px solid #d9534f; }
-        .btn-athletic { border-left: 6px solid #005f9e; }
-        .btn-raceresult { border-left: 6px solid #28a745; }
-        .btn-youtube { border-left: 6px solid #FF0000; }
-        .btn-insta { border-left: 6px solid #E1306C; }
+        .timeline-date { font-size: 0.75em; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; display: block; }
+        .timeline-title { font-weight: bold; color: #333; font-size: 1em; margin: 2px 0; }
+        .timeline-desc { font-size: 0.9em; color: #555; line-height: 1.4; }
+        .timeline-link { color: #007bff; text-decoration: none; font-size: 0.9em; }
+        .timeline-link:hover { text-decoration: underline; }
+        
+        /* Tag Cloud */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag { 
+            background: #fff3cd; color: #856404; 
+            padding: 4px 10px; border-radius: 12px; 
+            font-size: 0.85em; font-weight: 600; border: 1px solid #ffeeba;
+        }
+        .tag-fav { background: #e2e3e5; color: #383d41; border-color: #d6d8db; }
+
+        /* Buttons */
+        .link-btn { 
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            background: #fff; padding: 12px; margin-bottom: 8px;
+            border-radius: 8px; border: 1px solid #ddd; 
+            color: #333; font-weight: 600; text-decoration: none; font-size: 0.9em;
+            transition: all 0.2s;
+        }
+        .link-btn:hover { background: #f8f9fa; border-color: var(--primary-orange); color: var(--primary-orange); box-shadow: 0 2px 8px rgba(0,0,0,0.05); transform: translateY(-2px); }
+
+        /* Brand Colors */
+        .btn-wrestling { border-left: 5px solid #002f5d; background: #e6f4ff; }
+        .btn-milesplit { border-left: 5px solid #d9534f; }
+        .btn-athletic { border-left: 5px solid #005f9e; }
+        .btn-youtube { border-left: 5px solid #FF0000; }
+        .btn-insta { border-left: 5px solid #E1306C; }
 
         /* Footer */
-        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #eee; text-align: right; font-size: 0.75em; color: #aaa; }
-        ul { padding-left: 20px; margin-top: 5px; }
-        li { margin-bottom: 5px; }
+        .footer-info { margin-top: 30px; padding-top: 10px; border-top: 1px solid #ddd; text-align: right; font-size: 0.75em; color: #999; }
+
+        @media (max-width: 768px) {
+            .profile-hero { flex-direction: column; text-align: center; }
+            .hero-badges { justify-content: center; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
-    <div class="header-section">
-        <h1>Tacie Voetberg</h1>
-        <div class="subtitle">Ben Franklin Junior High | Class of 2031</div>
+    <div class="profile-hero">
+        <div class="profile-img-container">
+            <img src="tacie_run.jpg" alt="Tacie Voetberg" class="profile-img">
+        </div>
+        <div class="profile-info">
+            <h1>Tacie Voetberg</h1>
+            <div class="profile-tagline">Runner | Wrestler | Violinist | Coder</div>
+            <div class="profile-loc">📍 Ben Franklin Junior High | Class of 2031</div>
+            
+            <div class="hero-badges">
+                <span class="hero-badge">⚡ XC State Ranked</span>
+                <span class="hero-badge">🎻 Orchestra</span>
+                <span class="hero-badge">🎨 Artist</span>
+            </div>
+        </div>
     </div>
 
-    <a href="https://www.youtube.com/@tacierunning" target="_blank" title="Go to Channel">
-        <div class="photo-card">
-            <img src="tacie_run.jpg" alt="Tacie Running">
-            <div class="photo-caption">🏃‍♀️ Visit Tacie's Running Channel</div>
-        </div>
-    </a>
-
     <div class="highlight-banner">
-        <h2>🔥 21:15.4 (5K)</h2>
-        <p>New PR @ NXR Heartland (7th Grade)</p>
+        <h2>🔥 21:15.4 (5K PR)</h2>
+        <p>Set @ NXR Heartland (7th Grade) in snow!</p>
     </div>
 
     <div class="grid-container">
         
         <div class="col-left">
+            
+            <div class="card" style="border-top-color: #002f5d;">
+                <h3><span class="card-icon">🤼‍♀️</span>Current Season: Wrestling</h3>
+                <p style="font-size:0.9em; margin-bottom:15px; color:#555;">
+                    Follow match results, videos, and schedule for the 2026 Season.
+                </p>
+                <a href="tacie_wrestling_5fH3pK.html" class="link-btn btn-wrestling">
+                    <strong>👉 Go to Wrestling Hub</strong>
+                </a>
+            </div>
+
             <div class="card">
                 <h3><span class="card-icon">📅</span>Timeline & Highlights</h3>
                 
-                <div class="timeline-item" style="border-left-color: #28a745;">
+                <div class="timeline-item active">
                     <div class="timeline-date">Dec 31, 2025</div>
                     <div class="timeline-title">Mayo Clinic: All Clear</div>
                     <div class="timeline-desc">Officially cleared to resume full athletics after Osgood-Schlatter recovery.</div>
@@ -151,36 +250,9 @@
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-date">Nov 10, 2024</div>
-                    <div class="timeline-title">NXR Heartland (6th Gr)</div>
-                    <div class="timeline-desc">Ran a 21:34 5K as a 6th Grader.</div>
-                </div>
-
-                <div class="timeline-item">
                     <div class="timeline-date">July 2023</div>
                     <div class="timeline-title">Overcoming Adversity</div>
                     <div class="timeline-desc">Diagnosed with Osgood-Schlatter. Spent summer cross-training (biking) to recover.</div>
-                </div>
-            </div>
-
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">❤️</span>Interests</h3>
-                <div class="tag-container">
-                    <span class="tag">Coding 💻</span>
-                    <span class="tag">Violin 🎻</span>
-                    <span class="tag">Drawing 🎨</span>
-                    <span class="tag">Running 🏃‍♀️</span>
-                    <span class="tag">Lifting 🏋️‍♀️</span>
-                    <span class="tag">Wrestling 🤼‍♀️</span>
-                    <span class="tag">Soccer ⚽</span>
-                </div>
-            </div>
-
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">✨</span>Favorite Things</h3>
-                <div class="tag-container">
-                    <span class="tag tag-fav">Dragons 🐉</span>
-                    <span class="tag tag-fav">Fantasy Books 📚</span>
                 </div>
             </div>
         </div>
@@ -188,49 +260,50 @@
         <div class="col-right">
             
             <div class="card">
-                <h3><span class="card-icon">🏆</span>Accolades & Info</h3>
-                <ul>
-                    <li><strong>Gene LaRose Champion</strong> (2025)</li>
-                    <li><strong>Varsity Point Scorer</strong> (SPJH XC)</li>
-                    <li><strong>Wrestling</strong> (Stevens Point JH)</li>
-                    <li><strong>Violinist</strong></li>
-                    <li><strong>Top 20 State Ranked</strong> (Middle School)</li>
-                    <li>Attends <strong>Ben Franklin Junior High</strong></li>
-                </ul>
-            </div>
-
-            <div class="card" style="margin-top: 20px;">
                 <h3><span class="card-icon">⏱️</span>Personal Records</h3>
                 <div class="pr-grid">
                     <div class="pr-item">
                         <div class="pr-event">400m</div>
                         <div class="pr-time">1:15.00</div>
-                        <div class="pr-meet">Gene LaRose (2025)</div>
+                        <div class="pr-meet">Gene LaRose '25</div>
                     </div>
                     <div class="pr-item">
                         <div class="pr-event">1600m</div>
                         <div class="pr-time">6:06.2</div>
-                        <div class="pr-meet">KARC (5/17/25)</div>
+                        <div class="pr-meet">KARC '25</div>
                     </div>
                     <div class="pr-item">
-                        <div class="pr-event">2400m (XC)</div>
+                        <div class="pr-event">2400m XC</div>
                         <div class="pr-time">9:17.8</div>
-                        <div class="pr-meet">Neenah Invite (9/5/25)</div>
+                        <div class="pr-meet">Neenah Inv '25</div>
                     </div>
                     <div class="pr-item">
-                        <div class="pr-event">3200m</div>
-                        <div class="pr-time">13:12</div>
-                        <div class="pr-meet">Time Trial (10/22/24)</div>
-                    </div>
-                    <div class="pr-item">
-                        <div class="pr-event">5k (XC)</div>
+                        <div class="pr-event">5k XC</div>
                         <div class="pr-time">21:15.4</div>
-                        <div class="pr-meet">NXR (11/9/25)</div>
+                        <div class="pr-meet">NXR '25</div>
                     </div>
                 </div>
             </div>
 
-            <div class="card" style="margin-top: 20px;">
+            <div class="card">
+                <h3><span class="card-icon">❤️</span>Interests & Favorites</h3>
+                <div class="tag-container" style="margin-bottom:15px;">
+                    <span class="tag">Coding 💻</span>
+                    <span class="tag">Violin 🎻</span>
+                    <span class="tag">Drawing 🎨</span>
+                    <span class="tag">Running 🏃‍♀️</span>
+                    <span class="tag">Lifting 🏋️‍♀️</span>
+                    <span class="tag">Soccer ⚽</span>
+                </div>
+                
+                <div style="font-size:0.9em; font-weight:bold; color:#666; margin-bottom:5px;">Favorites:</div>
+                <div class="tag-container">
+                    <span class="tag tag-fav">Dragons 🐉</span>
+                    <span class="tag tag-fav">Fantasy Books 📚</span>
+                </div>
+            </div>
+
+            <div class="card">
                 <h3><span class="card-icon">🔗</span>Channels & Results</h3>
                 
                 <a href="https://www.youtube.com/@tacierunning" target="_blank" class="link-btn btn-youtube">
@@ -238,7 +311,7 @@
                 </a>
 
                 <a href="https://www.instagram.com/tacierunning/" target="_blank" class="link-btn btn-insta">
-                    📸 Follow Tacie on Instagram
+                    📸 Follow Tacie on Insta
                 </a>
 
                 <a href="https://wi.milesplit.com/athletes/17048007-tacie-voetberg" target="_blank" class="link-btn btn-milesplit">
