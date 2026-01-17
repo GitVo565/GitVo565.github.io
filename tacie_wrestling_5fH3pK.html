@@ -50,8 +50,11 @@
         .results-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         .results-table th, .results-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         .results-table th { background: #f4f4f4; font-weight: bold; }
+        .event-header { background: #e6f4ff; font-weight: bold; text-align: center; }
         /* Video Links */
         .video-link { display: block; margin-bottom: 10px; color: #0056b3; }
+        /* Full Width Card */
+        .full-width { grid-column: 1 / -1; }
         /* Footer */
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #eee; text-align: right; font-size: 0.75em; color: #aaa; }
     </style>
@@ -77,13 +80,13 @@
                
                 <div class="timeline-item">
                     <div class="timeline-date">Jan 17, 2026</div>
-                    <div class="timeline-title">Battle by the River - Scramble Girls 109-114</div>
-                    <div class="timeline-desc">Venue: Wisconsin Rapids. Opponent: S Patridge (NEEN). Result: Loss (Tech Fall). Score: 0-18 (3:00).</div>
+                    <div class="timeline-title">Battle by the River - Scramble Girls 114-120</div>
+                    <div class="timeline-desc">Venue: Wisconsin Rapids. Opponent: Taylor Gurney (Antigo). Result: Win (Decision). Score: 7-0.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Jan 17, 2026</div>
-                    <div class="timeline-title">Battle by the River - Scramble Girls 114-120</div>
-                    <div class="timeline-desc">Venue: Wisconsin Rapids. Opponent: Taylor Gurney (Antigo). Result: Win (Decision). Score: 7-0.</div>
+                    <div class="timeline-title">Battle by the River - Scramble Girls 109-114</div>
+                    <div class="timeline-desc">Venue: Wisconsin Rapids. Opponent: Serina Pattridge (Neenah). Result: Loss (Tech Fall). Score: 0-18 (3:00).</div>
                 </div>
                 <!-- Add future matches as they occur, newest first -->
             </div>
@@ -99,8 +102,8 @@
             <div class="card" style="margin-top: 20px;">
                 <h3><span class="card-icon">🎥</span>Match Videos</h3>
                 <ul>
-                    <li><a href="[VIDEO_LINK_1]" class="video-link" target="_blank">Match 1 - Battle by the River vs S Patridge (Jan 17, 2026)</a></li>
-                    <li><a href="[VIDEO_LINK_2]" class="video-link" target="_blank">Match 2 - Battle by the River vs Taylor Gurney (Jan 17, 2026)</a></li>
+                    <li><a href="[VIDEO_LINK_1]" class="video-link" target="_blank">Match 1 - Battle by the River vs Taylor Gurney (Jan 17, 2026)</a></li>
+                    <li><a href="[VIDEO_LINK_2]" class="video-link" target="_blank">Match 2 - Battle by the River vs Serina Pattridge (Jan 17, 2026)</a></li>
                     <!-- Replace with actual video links and add more as available -->
                 </ul>
             </div>
@@ -110,43 +113,6 @@
             <div class="card">
                 <h3><span class="card-icon">🗓️</span>Upcoming Meets</h3>
                 <p>See the full schedule and details on the <a href="events_7x9B2.html">Family Events page</a>.</p>
-            </div>
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">📊</span>Match Results</h3>
-                <table class="results-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Event</th>
-                            <th>Weight Class</th>
-                            <th>Opponent</th>
-                            <th>Result</th>
-                            <th>Score</th>
-                            <th>Placement</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Jan 17, 2026</td>
-                            <td>Battle by the River</td>
-                            <td>109-114</td>
-                            <td>S Patridge (NEEN)</td>
-                            <td>Loss (Tech Fall)</td>
-                            <td>0-18 (3:00)</td>
-                            <td>7th</td>
-                        </tr>
-                        <tr>
-                            <td>Jan 17, 2026</td>
-                            <td>Battle by the River</td>
-                            <td>114-120</td>
-                            <td>Taylor Gurney (Antigo)</td>
-                            <td>Win (Decision)</td>
-                            <td>7-0</td>
-                            <td>1st (Champion)</td>
-                        </tr>
-                        <!-- Add more rows as new matches occur -->
-                    </tbody>
-                </table>
             </div>
             <div class="card" style="margin-top: 20px;">
                 <h3><span class="card-icon">🌟</span>Interests & Notes</h3>
@@ -161,13 +127,47 @@
             <div class="card" style="margin-top: 20px;">
                 <h3><span class="card-icon">🔗</span>Profiles & Links</h3>
                
-                <a href="https://usabracketing.com/events/3549a965-f0c8-4d89-ae0e-f1d0f1584dbb" target="_blank" class="link-btn btn-athletic">
-                    🤼 USA Bracketing Results
+                <a href="https://www.usabracketing.com/athletes/d88a4b77-3960-4e86-8fda-9b3221b6f1a2" target="_blank" class="link-btn btn-athletic">
+                    🤼 Tacie's USA Bracketing Profile
                 </a>
                
                 <!-- Add more wrestling-related links, e.g., team site or coach contacts -->
             </div>
         </div>
+    </div>
+    <div class="card full-width" style="margin-top: 20px;">
+        <h3><span class="card-icon">📊</span>Match Results</h3>
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <th>Opponent</th>
+                    <th>Result</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="5" class="event-header">Battle by the River - Wisconsin Rapids</td>
+                </tr>
+                <tr>
+                    <td>Jan 17, 2026</td>
+                    <td>114</td>
+                    <td>Taylor Gurney (Antigo)</td>
+                    <td>Win (Decision)</td>
+                    <td>7-0</td>
+                </tr>
+                <tr>
+                    <td>Jan 17, 2026</td>
+                    <td>114</td>
+                    <td>Serina Pattridge (Neenah)</td>
+                    <td>Loss (Tech Fall)</td>
+                    <td>0-18 (3:00)</td>
+                </tr>
+                <!-- Add more rows as new matches occur -->
+            </tbody>
+        </table>
     </div>
     <div class="footer-info">
         <span id="lastUpdated"></span>
