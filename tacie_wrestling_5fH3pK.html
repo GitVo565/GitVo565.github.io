@@ -2,169 +2,217 @@
 <html>
 <head>
     <title>Tacie's Wrestling Season</title>
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-   
+
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow">
+    <meta name="gptbot" content="noindex, nofollow">
+    <meta name="CCBot" content="noindex, nofollow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: url('images/wrestling_background.jpg') no-repeat center center fixed; background-size: cover; color: #ecf0f1; position: relative; }
-        body::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: -1; } /* Darkened overlay */
-       
-        /* Navigation & Header */
-        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
-        .back-btn:hover { background: #eee; }
-        .header-section { text-align: center; margin-bottom: 30px; }
-        h1 { margin: 10px 0 5px 0; color: #ecf0f1; }
-        .subtitle { color: #bdc3c7; font-weight: 500; font-size: 1.1em; }
-        /* Photo Card */
-        .photo-card {
-            background: white;
-            padding: 10px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 0 auto 30px auto;
-            transition: transform 0.2s;
+        /* Theme Variables */
+        :root {
+            --primary-blue: #002f5d;
+            --accent-gold: #f39c12;
+            --win-green: #28a745;
+            --loss-red: #dc3545;
+            --text-dark: #2c3e50;
         }
-        .photo-card:hover { transform: translateY(-3px); cursor: pointer; }
-        .photo-card img { width: 100%; border-radius: 8px; display: block; }
-        .photo-caption { text-align: center; font-size: 0.9em; color: #007bff; padding-top: 10px; font-weight: bold; }
-        /* Grid Layout */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-       
-        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-top: 4px solid #002f5d; }
-        .card h3 { margin-top: 0; color: #002f5d; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
-        .card-icon { margin-right: 10px; font-size: 1.2em; }
-        /* Standard Lists */
-        ul { padding-left: 20px; margin-top: 10px; }
-        li { margin-bottom: 8px; }
-        a { color: #0056b3; text-decoration: none; font-weight: 500; }
-        a:hover { text-decoration: underline; color: #002f5d; }
-        /* Timeline for Matches */
-        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 15px; border-left: 2px solid #e67e22; } /* Orange for wrestling theme */
-        .timeline-date { font-size: 0.85em; color: #888; font-weight: bold; text-transform: uppercase; }
-        .timeline-title { font-weight: bold; color: #333; }
-        .timeline-desc { font-size: 0.95em; color: #555; }
-        /* Results Table */
-        .results-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .results-table th, .results-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        .results-table th { background: #f4f4f4; font-weight: bold; }
-        .event-header { background: #e6f4ff; font-weight: bold; text-align: center; }
-        /* Video Embed */
-        .video-embed { margin-bottom: 20px; }
-        .video-embed iframe { width: 100%; height: 315px; border: 0; }
-        .video-caption { text-align: center; font-size: 0.9em; color: #666; margin-top: 5px; }
-        /* Full Width Card */
-        .full-width { grid-column: 1 / -1; }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            /* Background Configuration */
+            background: url('images/wrestling_background.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+            color: #ecf0f1; 
+            position: relative; 
+            min-height: 100vh;
+        }
+
+        /* Dark Overlay for Readability */
+        body::before { 
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0, 0, 0, 0.7); z-index: -1; 
+        }
+        
+        /* Navigation */
+        .back-btn { 
+            display: inline-block; background: #fff; padding: 8px 15px; 
+            text-decoration: none; color: #333; border-radius: 20px; 
+            font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; 
+        }
+        .back-btn:hover { background: #eee; transform: translateX(-2px); }
+
+        /* Header */
+        .header-section { text-align: center; margin-bottom: 30px; }
+        h1 { margin: 10px 0 5px 0; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .subtitle { color: #bdc3c7; font-weight: 500; font-size: 1.1em; }
+        .school-badge { 
+            background: var(--primary-blue); color: white; 
+            padding: 4px 12px; border-radius: 4px; font-size: 0.8em; 
+            text-transform: uppercase; font-weight: bold; letter-spacing: 1px;
+            border: 1px solid #4a6fa5;
+        }
+
+        /* Profile/Links Card */
+        .profile-bar {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .link-btn {
+            background: #f8f9fa; color: var(--text-dark);
+            padding: 8px 16px; border-radius: 6px;
+            text-decoration: none; font-weight: 600; font-size: 0.9em;
+            border: 1px solid #ddd; transition: all 0.2s;
+        }
+        .link-btn:hover { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
+
+        /* Match Table Container */
+        .card { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            color: var(--text-dark);
+            border-top: 5px solid var(--accent-gold);
+        }
+
+        .card h2 { margin-top: 0; color: var(--primary-blue); border-bottom: 2px solid #eee; padding-bottom: 10px; }
+
+        /* Responsive Table */
+        .table-wrapper { overflow-x: auto; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 600px; }
+        
+        th { 
+            background: var(--primary-blue); color: white; 
+            text-align: left; padding: 12px; font-size: 0.9em; text-transform: uppercase; 
+        }
+        
+        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 0.95em; vertical-align: middle; }
+        
+        /* Row Styling */
+        tr:hover { background-color: #f9f9f9; }
+        
+        /* Event Header Row */
+        .event-row { background-color: #e9ecef; font-weight: bold; color: #495057; font-size: 0.9em; }
+        .event-row td { padding: 8px 12px; border-top: 2px solid #dee2e6; }
+
+        /* Result Styles */
+        .res-win { color: var(--win-green); font-weight: bold; }
+        .res-loss { color: var(--loss-red); font-weight: bold; }
+        
+        /* Border indicators on rows */
+        .row-win { border-left: 4px solid var(--win-green); }
+        .row-loss { border-left: 4px solid var(--loss-red); }
+
+        /* Video Link */
+        .vid-link {
+            display: inline-block;
+            background: #ff0000; color: white;
+            padding: 4px 10px; border-radius: 4px;
+            text-decoration: none; font-size: 0.8em; font-weight: bold;
+            transition: background 0.2s;
+        }
+        .vid-link:hover { background: #cc0000; color: white; }
+        .no-vid { color: #ccc; font-size: 0.8em; font-style: italic; }
+
         /* Footer */
-        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #eee; text-align: right; font-size: 0.75em; color: #aaa; }
+        .footer-info { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px; text-align: right; font-size: 0.8em; color: #ccc; }
     </style>
 </head>
 <body>
+
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
-   
+    
     <div class="header-section">
-        <h1>Tacie Voetberg - Wrestling Season</h1>
-        <div class="subtitle">SPASH Class of 2029 | Junior High Wrestler</div>
-    </div>
-    <a href="https://usabracketing.com/events/3549a965-f0c8-4d89-ae0e-f1d0f1584dbb" target="_blank" title="View Bracket Results">
-        <div class="photo-card">
-            <img src="images/tacie_wrestling_bracket.jpg" alt="Tacie's Bracket Results">
-            <div class="photo-caption">🤼 View Bracket Results</div>
-        </div>
-    </a>
-    <div class="grid-container">
-       
-        <div class="col-left">
-            <div class="card">
-                <h3><span class="card-icon">📅</span>Match History</h3>
-               
-                <div class="timeline-item">
-                    <div class="timeline-date">Jan 17, 2026</div>
-                    <div class="timeline-title">Battle by the River - Scramble Girls 114-120</div>
-                    <div class="timeline-desc">Venue: Wisconsin Rapids. Opponent: Taylor Gurney (Antigo). Result: Win (Decision). Score: 7-0.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Jan 17, 2026</div>
-                    <div class="timeline-title">Battle by the River - Scramble Girls 109-114</div>
-                    <div class="timeline-desc">Venue: Wisconsin Rapids. Opponent: Serina Pattridge (Neenah). Result: Loss (Tech Fall). Score: 0-18 (3:00).</div>
-                </div>
-                <!-- Add future matches as they occur, newest first -->
-            </div>
-           
-            <div class="card" style="margin-top: 20px;">
-                <h3><span class="card-icon">🎥</span>Match Videos</h3>
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/q4lP3baxRkY" allowfullscreen></iframe>
-                    <div class="video-caption">Match 001 - Tacie Voetberg (Point) vs Taylor Gurney (Antigo) - W 7-0 Decision - 2026-01-17</div>
-                </div>
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/NZSCD3sX3Ls" allowfullscreen></iframe>
-                    <div class="video-caption">Match 002 - Tacie Voetberg (Point) vs Serina Pattridge (Neenah) - L 0-18 Tech Fall - 2026-01-17</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-right">
-           
-            <div class="card">
-                <h3><span class="card-icon">🔗</span>Profiles & Links</h3>
-               
-                <a href="https://www.usabracketing.com/athletes/d88a4b77-3960-4e86-8fda-9b3221b6f1a2" target="_blank" class="link-btn btn-athletic">
-                    🤼 Tacie's USA Bracketing Profile
-                </a>
-               
-                <a href="tacie_6nQ1s.html" class="link-btn">
-                    👧 Tacie's Main Page
-                </a>
-               
-                <a href="events_7x9B2.html" class="link-btn">
-                    📅 Voetberg Events
-                </a>
-            </div>
+        <h1>Tacie Voetberg</h1>
+        <div class="subtitle">
+            <span class="school-badge">Ben Franklin MS</span> 
+            &nbsp; Wrestling Season 2026 &nbsp; | &nbsp; Class of 2031
         </div>
     </div>
-    <div class="card full-width" style="margin-top: 20px;">
-        <h3><span class="card-icon">📊</span>Match Results</h3>
-        <table class="results-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Weight</th>
-                    <th>Opponent</th>
-                    <th>Result</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="5" class="event-header">Battle by the River - Wisconsin Rapids</td>
-                </tr>
-                <tr>
-                    <td>Jan 17, 2026</td>
-                    <td>114</td>
-                    <td>Taylor Gurney (Antigo)</td>
-                    <td>Win (Decision)</td>
-                    <td>7-0</td>
-                </tr>
-                <tr>
-                    <td>Jan 17, 2026</td>
-                    <td>114</td>
-                    <td>Serina Pattridge (Neenah)</td>
-                    <td>Loss (Tech Fall)</td>
-                    <td>0-18 (3:00)</td>
-                </tr>
-                <!-- Add more rows as new matches occur -->
-            </tbody>
-        </table>
+
+    <div class="profile-bar">
+        <a href="tacie_6nQ1s.html" class="link-btn">👧 Tacie's Main Profile</a>
+        <a href="https://www.usabracketing.com/athletes/d88a4b77-3960-4e86-8fda-9b3221b6f1a2" target="_blank" class="link-btn">📊 USA Bracketing Profile</a>
+        <a href="events_7x9B2.html" class="link-btn">📅 Family Calendar</a>
     </div>
+
+    <div class="card">
+        <h2>🤼 Season Match Log</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="10%">Date</th>
+                        <th width="8%">Wt</th>
+                        <th width="30%">Opponent / School</th>
+                        <th width="15%">Result</th>
+                        <th width="15%">Score</th>
+                        <th width="15%">Video</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr class="event-row">
+                        <td colspan="6">📍 Battle by the River (Wisconsin Rapids)</td>
+                    </tr>
+
+                    <tr class="row-win">
+                        <td>Jan 17</td>
+                        <td>114</td>
+                        <td><strong>Taylor Gurney</strong><br><span style="font-size:0.85em; color:#666;">Antigo</span></td>
+                        <td class="res-win">WIN</td>
+                        <td>Dec 7-0</td>
+                        <td><a href="https://youtu.be/q4lP3baxRkY" target="_blank" class="vid-link">🎥 Watch</a></td>
+                    </tr>
+
+                    <tr class="row-loss">
+                        <td>Jan 17</td>
+                        <td>114</td>
+                        <td><strong>Serina Pattridge</strong><br><span style="font-size:0.85em; color:#666;">Neenah</span></td>
+                        <td class="res-loss">LOSS</td>
+                        <td>TF 0-18</td>
+                        <td><a href="https://youtu.be/NZSCD3sX3Ls" target="_blank" class="vid-link">🎥 Watch</a></td>
+                    </tr>
+
+                    <tr class="event-row">
+                        <td colspan="6">📍 Upcoming: Dual vs Auburndale (Jan 19)</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <div class="footer-info">
         <span id="lastUpdated"></span>
     </div>
+
     <script>
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     </script>
+
 </body>
 </html>
