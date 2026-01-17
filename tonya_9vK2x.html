@@ -23,7 +23,8 @@
             --light-purple: #f3e5f5;
             --text-dark: #2c3e50;
             --text-grey: #666;
-            --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --card-bg: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+            --card-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         body { 
@@ -32,16 +33,30 @@
             line-height: 1.4; 
             max-width: 1000px; 
             margin: 0 auto; 
-            background: linear-gradient(135deg, #f8f9fa 0%, #f3e5f5 100%); 
+            /* FULL PAGE BACKGROUND IMAGE */
+            background-image: url('images/tonya_kitchen.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Keeps image still while scrolling */
             color: var(--text-dark); 
             min-height: 100vh;
             font-size: 15px; 
+        }
+
+        /* Content Overlay Wrapper - Optional, but helps readability */
+        /* Using a pseudo-element on the body for a general overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Darkens background slightly */
+            z-index: -1;
         }
         
         /* Navigation */
         .back-btn { 
             display: inline-block; 
-            background: white; 
+            background: var(--card-bg); 
             padding: 5px 12px; 
             text-decoration: none; 
             color: var(--text-dark); 
@@ -50,13 +65,13 @@
             font-size: 0.8em; 
             margin-bottom: 10px; 
             transition: all 0.2s; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        .back-btn:hover { background: #eee; transform: translateX(-2px); }
+        .back-btn:hover { background: white; transform: translateX(-2px); }
 
         /* HERO SECTION */
         .profile-hero {
-            background: white;
+            background: var(--card-bg);
             border-radius: 10px;
             padding: 15px; 
             display: flex;
@@ -92,7 +107,7 @@
             border-radius: 8px; 
             margin-bottom: 15px; 
             text-align: center; 
-            box-shadow: 0 2px 8px rgba(111, 66, 193, 0.3); 
+            box-shadow: 0 4px 10px rgba(111, 66, 193, 0.5); 
         }
         .highlight-banner h2 { margin: 0; font-size: 0.9em; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
         .highlight-banner p { margin: 0; font-size: 1em; font-style: italic; font-weight: 600; }
@@ -107,10 +122,10 @@
         
         /* Cards */
         .card { 
-            background: white; 
+            background: var(--card-bg); 
             padding: 15px; 
             border-radius: 8px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+            box-shadow: var(--card-shadow); 
             border-top: 3px solid var(--primary-purple); 
         }
 
@@ -151,23 +166,24 @@
         .connect-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
         .link-btn { 
             flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-            background: #fff; padding: 8px; 
+            background: var(--card-bg); padding: 8px; 
             border-radius: 6px; border: 1px solid #ddd; 
             color: #333; font-weight: 600; text-decoration: none; font-size: 0.85em;
             transition: all 0.2s;
         }
-        .link-btn:hover { background: #f8f9fa; border-color: var(--primary-purple); color: var(--primary-purple); }
+        .link-btn:hover { background: white; border-color: var(--primary-purple); color: var(--primary-purple); }
 
         /* Footer - HIGH VISIBILITY */
         .footer-info { 
             margin-top: 40px; 
             margin-bottom: 20px;
             padding-top: 15px; 
-            border-top: 2px solid #ccc; 
+            border-top: 2px solid rgba(255, 255, 255, 0.5); 
             text-align: right; 
             font-size: 0.85em; 
-            color: #000; /* Solid Black Text */
+            color: white; /* White text for background */
             font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         @media (max-width: 768px) {
@@ -280,9 +296,10 @@
             <div class="card" style="margin-top:15px;">
                 <h3><span class="card-icon">✨</span>The Fun Stuff</h3>
                 
-                <div style="margin-bottom: 8px; font-size: 0.9em;">
+                <div style="margin-bottom: 10px; font-size: 0.9em;">
                     <strong>In the Kitchen:</strong><br>
-                    <span style="color:#666;">Considered a "Master Chef."</span>
+                    <span style="color:#666;">The Family's One & Only Skilled Cook.</span>
+                    <em style="display:block; margin-top:4px;">(And we are deeply grateful for it!)</em>
                     <em>Signature Dish: The World's Best Lasagna.</em>
                 </div>
 
