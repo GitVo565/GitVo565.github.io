@@ -23,6 +23,7 @@
             --text-light: #ecf0f1;
             --accent-gold: #f39c12;
             --accent-blue: #3498db;
+            --accent-green: #27ae60;
             --divider: #444;
         }
 
@@ -81,9 +82,9 @@
             background: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            border: 1px solid #333;
+            border: 2px solid #333;
             transition: transform 0.2s;
-            scroll-margin-top: 30px; /* Space for scrolling */
+            scroll-margin-top: 30px;
         }
         .vid-card:hover { transform: translateY(-3px); border-color: #666; }
 
@@ -127,11 +128,9 @@
         }
         .coach-note strong { color: var(--accent-gold); }
 
-        /* Placeholders */
-        .empty-state {
-            padding: 30px; text-align: center; background: #222; 
-            border-radius: 8px; border: 1px dashed #444; color: #666; font-style: italic;
-        }
+        /* SPECIALS SECTION STYLE */
+        #specials .pos-title { color: var(--accent-gold); text-shadow: 0 0 10px rgba(243, 156, 18, 0.3); }
+        #specials .vid-card { border-color: var(--accent-gold); }
 
         /* Footer */
         .footer-info { margin-top: 60px; padding-top: 20px; border-top: 1px solid #333; text-align: right; font-size: 0.8em; color: #666; }
@@ -141,14 +140,155 @@
 
     <div class="nav-bar">
         <a href="tacie_wrestling_5fH3pK.html" class="nav-btn back-link">← Back to Hub</a>
-        <a href="#top-position" class="nav-btn active">Top / Offense</a>
-        <a href="#bottom-position" class="nav-btn">Bottom / Defense</a>
+        <a href="#specials" class="nav-btn active" style="color:var(--accent-gold); border-color:var(--accent-gold);">★ Buck 15 Specials</a>
+        <a href="#bottom-position" class="nav-btn">Defense / Bottom</a>
         <a href="#neutral-position" class="nav-btn">Neutral</a>
+        <a href="#top-position" class="nav-btn">Top / Offense</a>
     </div>
     
     <div class="header-section">
         <h1>Technique Library</h1>
         <div class="subtitle">Drills & Tutorials for the 2026 Season</div>
+    </div>
+
+    <div id="specials" class="position-section">
+        <div class="position-header">
+            <span class="pos-icon">🌟</span>
+            <h2 class="pos-title">Buck 15 Specials!</h2>
+        </div>
+
+        <div class="topic-group">
+            <div class="topic-title">Signature Moves</div>
+            <div class="video-grid">
+                
+                <div class="vid-card" id="vid-bearhug">
+                    <a href="https://www.youtube.com/watch?v=Hu3JIFu5Jwc" target="_blank" class="vid-thumb">
+                        <span class="play-btn">▶</span>
+                        <img src="https://img.youtube.com/vi/Hu3JIFu5Jwc/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                    </a>
+                    <div class="vid-content">
+                        <a href="https://www.youtube.com/watch?v=Hu3JIFu5Jwc" target="_blank" class="vid-title">Body Lock Mat Return (Bear Hug)</a>
+                        <div class="coach-note">
+                            <strong>Why:</strong> The "Buck 15" special. When you get those hands locked around the waist, lift and return them to the mat safely but firmly.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vid-card" id="vid-ballchain">
+                    <a href="https://www.youtube.com/watch?v=7X3zT_PghM4" target="_blank" class="vid-thumb">
+                        <span class="play-btn">▶</span>
+                        <img src="https://img.youtube.com/vi/7X3zT_PghM4/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                    </a>
+                    <div class="vid-content">
+                        <a href="https://www.youtube.com/watch?v=7X3zT_PghM4" target="_blank" class="vid-title">The Ball and Chain (Pinning Combo)</a>
+                        <div class="coach-note">
+                            <strong>Why:</strong> A dominant pinning combination. Use this when you have broken them down flat.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="bottom-position" class="position-section">
+        <div class="position-header">
+            <span class="pos-icon">🛡️</span>
+            <h2 class="pos-title">Defense / Bottom</h2>
+        </div>
+
+        <div class="topic-group">
+            <div class="topic-title">1. The Quad Pod (Wide Base)</div>
+            <div class="video-grid">
+                
+                <div class="vid-card" id="vid-quadpod">
+                    <a href="https://www.youtube.com/watch?v=f6qcwBU0_Xc" target="_blank" class="vid-thumb">
+                        <span class="play-btn">▶</span>
+                        <img src="https://img.youtube.com/vi/f6qcwBU0_Xc/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                    </a>
+                    <div class="vid-content">
+                        <a href="https://www.youtube.com/watch?v=f6qcwBU0_Xc" target="_blank" class="vid-title">2 Ways to Quad Pod (Askren)</a>
+                        <div class="coach-note">
+                            <strong>Why:</strong> Details building a wide base from chops. Toe pressure helps you explode out.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vid-card" id="vid-chop-pop">
+                    <a href="https://www.youtube.com/watch?v=fr-e8yjsl5s" target="_blank" class="vid-thumb">
+                        <span class="play-btn">▶</span>
+                        <img src="https://img.youtube.com/vi/fr-e8yjsl5s/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                    </a>
+                    <div class="vid-content">
+                        <a href="https://www.youtube.com/watch?v=fr-e8yjsl5s" target="_blank" class="vid-title">Attacking the Chop Hand</a>
+                        <div class="coach-note">
+                            <strong>Why:</strong> The "Chop & Pop." Attack their chop hand first, then pop hips for fast escapes.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="topic-group">
+            <div class="topic-title">2. Shot Defense</div>
+            <div class="video-grid">
+                
+                <div class="vid-card" id="vid-whizzer">
+                    <a href="https://www.youtube.com/watch?v=_nQATJzOePM" target="_blank" class="vid-thumb">
+                        <span class="play-btn">▶</span>
+                        <img src="https://img.youtube.com/vi/_nQATJzOePM/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                    </a>
+                    <div class="vid-content">
+                        <a href="https://www.youtube.com/watch?v=_nQATJzOePM" target="_blank" class="vid-title">Whizzer & Hip Heist (Askren)</a>
+                        <div class="coach-note">
+                            <strong>Why:</strong> Dig the whizzer deep on shots, then heist hips to spin behind.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="neutral-position" class="position-section">
+        <div class="position-header">
+            <span class="pos-icon">⚔️</span>
+            <h2 class="pos-title">Neutral Position (Takedowns)</h2>
+        </div>
+
+        <div class="topic-group">
+            <div class="topic-title">1. Setups & Chains</div>
+            <div class="video-grid">
+                
+                <div class="vid-card" id="vid-snap-down">
+                    <a href="https://www.youtube.com/watch?v=ilnAbmiW5hw" target="_blank" class="vid-thumb">
+                        <span class="play-btn">▶</span>
+                        <img src="https://img.youtube.com/vi/ilnAbmiW5hw/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                    </a>
+                    <div class="vid-content">
+                        <a href="https://www.youtube.com/watch?v=ilnAbmiW5hw" target="_blank" class="vid-title">Snap Down to Go Behind</a>
+                        <div class="coach-note">
+                            <strong>Why:</strong> Heavy hands! Break their posture, then chain to the go-behind.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vid-card" id="vid-chain-wrestling">
+                    <a href="https://www.youtube.com/watch?v=F60XQdZn298" target="_blank" class="vid-thumb">
+                        <span class="play-btn">▶</span>
+                        <img src="https://img.youtube.com/vi/F60XQdZn298/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                    </a>
+                    <div class="vid-content">
+                        <a href="https://www.youtube.com/watch?v=F60XQdZn298" target="_blank" class="vid-title">Chaining to the Double Leg</a>
+                        <div class="coach-note">
+                            <strong>Why:</strong> High-crotch to double-leg. Never stop moving.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <div id="top-position" class="position-section">
@@ -158,31 +298,31 @@
         </div>
 
         <div class="topic-group">
-            <div class="topic-title">1. Breakdowns & Control</div>
+            <div class="topic-title">1. Pressure & Breakdowns</div>
             <div class="video-grid">
                 
+                <div class="vid-card" id="vid-toe-pressure">
+                    <a href="https://www.youtube.com/watch?v=TdWic6rxhmI" target="_blank" class="vid-thumb">
+                        <span class="play-btn">▶</span>
+                        <img src="https://img.youtube.com/vi/TdWic6rxhmI/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                    </a>
+                    <div class="vid-content">
+                        <a href="https://www.youtube.com/watch?v=TdWic6rxhmI" target="_blank" class="vid-title">Ben Askren: Riding on Toes</a>
+                        <div class="coach-note">
+                            <strong>Why:</strong> Stay on toes for max pressure and forward drive to break 'em down. Don't ride on knees!
+                        </div>
+                    </div>
+                </div>
+
                 <div class="vid-card" id="vid-tight-waist">
                     <a href="https://www.youtube.com/watch?v=g9wbyDs-tig" target="_blank" class="vid-thumb">
                         <span class="play-btn">▶</span>
                         <img src="https://img.youtube.com/vi/g9wbyDs-tig/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
                     </a>
                     <div class="vid-content">
-                        <a href="https://www.youtube.com/watch?v=g9wbyDs-tig" target="_blank" class="vid-title">Tight Waist Ankle Stance & Motion</a>
+                        <a href="https://www.youtube.com/watch?v=g9wbyDs-tig" target="_blank" class="vid-title">Tight Waist Ankle Breakdown</a>
                         <div class="coach-note">
-                            <strong>Coach's Note:</strong> Matches the missed breakdown opportunities at <strong>1:35</strong> and <strong>3:07</strong> in your match.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vid-card" id="vid-askren-breakdown">
-                    <a href="https://www.youtube.com/watch?v=YcVmav88uR0" target="_blank" class="vid-thumb">
-                        <span class="play-btn">▶</span>
-                        <img src="https://img.youtube.com/vi/YcVmav88uR0/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                    </a>
-                    <div class="vid-content">
-                        <a href="https://www.youtube.com/watch?v=YcVmav88uR0" target="_blank" class="vid-title">Ben Askren: Tight Waist Ankle</a>
-                        <div class="coach-note">
-                            <strong>Coach's Note:</strong> Explains how to keep constant pressure without gassing out. Focus on the hip drive.
+                            <strong>Why:</strong> Simple and effective. Flatten them out before working the turn.
                         </div>
                     </div>
                 </div>
@@ -191,7 +331,7 @@
         </div>
 
         <div class="topic-group">
-            <div class="topic-title">2. The Half Nelson Series</div>
+            <div class="topic-title">2. Turns & Finishes (Half Nelson/Cradle)</div>
             <div class="video-grid">
                 
                 <div class="vid-card" id="vid-half-nelson">
@@ -200,42 +340,9 @@
                         <img src="https://img.youtube.com/vi/53P1aPxRHqc/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
                     </a>
                     <div class="vid-content">
-                        <a href="https://www.youtube.com/watch?v=53P1aPxRHqc" target="_blank" class="vid-title">My Half Nelson Tutorial (Fundamentals)</a>
+                        <a href="https://www.youtube.com/watch?v=53P1aPxRHqc" target="_blank" class="vid-title">Half Nelson Fundamentals</a>
                         <div class="coach-note">
-                            <strong>Coach's Note:</strong> Breaks down power halfs and pinning setups. Great for "chaining" moves.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vid-card" id="vid-usa-half">
-                    <a href="https://www.youtube.com/watch?v=5DFJOOs-eVQ" target="_blank" class="vid-thumb">
-                        <span class="play-btn">▶</span>
-                        <img src="https://img.youtube.com/vi/5DFJOOs-eVQ/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                    </a>
-                    <div class="vid-content">
-                        <a href="https://www.youtube.com/watch?v=5DFJOOs-eVQ" target="_blank" class="vid-title">USA Wrestling: Half Nelson Level 1</a>
-                        <div class="coach-note">
-                            <strong>Coach's Note:</strong> Ideal for avoiding rookie mistakes. Focus on simple positioning and drive.
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="topic-group">
-            <div class="topic-title">3. Wrist Control & Cradles (Snowplow)</div>
-            <div class="video-grid">
-                
-                <div class="vid-card" id="vid-wrist-half">
-                    <a href="https://www.youtube.com/watch?v=QoZ1VbHPecg" target="_blank" class="vid-thumb">
-                        <span class="play-btn">▶</span>
-                        <img src="https://img.youtube.com/vi/QoZ1VbHPecg/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                    </a>
-                    <div class="vid-content">
-                        <a href="https://www.youtube.com/watch?v=QoZ1VbHPecg" target="_blank" class="vid-title">Wrist & Half Nelson Finish (Vallimont)</a>
-                        <div class="coach-note">
-                            <strong>Coach's Note:</strong> Focuses on wrist control. Exactly what you needed for that Snowplow transition at <strong>2:32</strong>.
+                            <strong>Why:</strong> Breaks down pinning setups and power halfs.
                         </div>
                     </div>
                 </div>
@@ -246,9 +353,9 @@
                         <img src="https://img.youtube.com/vi/P1YtvaRU-us/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
                     </a>
                     <div class="vid-content">
-                        <a href="https://www.youtube.com/watch?v=P1YtvaRU-us" target="_blank" class="vid-title">Half Nelson to Cradle Demo</a>
+                        <a href="https://www.youtube.com/watch?v=P1YtvaRU-us" target="_blank" class="vid-title">Half Nelson to Cradle (Snowplow)</a>
                         <div class="coach-note">
-                            <strong>Coach's Note:</strong> Easy visual on "sucking up the leg" and driving into the cradle.
+                            <strong>Why:</strong> The killer transition. Suck up the leg and drive.
                         </div>
                     </div>
                 </div>
@@ -272,10 +379,7 @@
                 const element = document.getElementById(targetId);
                 
                 if(element) {
-                    // Smooth scroll to the specific card
                     element.scrollIntoView({ behavior: "smooth", block: "center" });
-                    
-                    // Apply the "Target Lock" animation class
                     element.classList.add('target-lock');
                 }
             }
