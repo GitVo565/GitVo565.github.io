@@ -31,7 +31,6 @@
             line-height: 1.6; 
             max-width: 1000px; 
             margin: 0 auto; 
-            /* Background Configuration */
             background: url('images/wrestling_background.jpg') no-repeat center center fixed; 
             background-size: cover; 
             color: #ecf0f1; 
@@ -101,7 +100,7 @@
         /* Responsive Table */
         .table-wrapper { overflow-x: auto; }
         
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 600px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 700px; }
         
         th { 
             background: var(--primary-blue); color: white; 
@@ -134,7 +133,16 @@
             transition: background 0.2s;
         }
         .vid-link:hover { background: #cc0000; color: white; }
-        .no-vid { color: #ccc; font-size: 0.8em; font-style: italic; }
+
+        /* Notes Link */
+        .notes-link {
+            display: inline-block;
+            background: #f1c40f; color: #333;
+            padding: 4px 10px; border-radius: 4px;
+            text-decoration: none; font-size: 0.8em; font-weight: bold;
+            transition: background 0.2s; border: 1px solid #d4ac0d;
+        }
+        .notes-link:hover { background: #d4ac0d; color: white; }
 
         /* Footer */
         .footer-info { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px; text-align: right; font-size: 0.8em; color: #ccc; }
@@ -154,6 +162,7 @@
 
     <div class="profile-bar">
         <a href="tacie_6nQ1s.html" class="link-btn">👧 Tacie's Profile</a>
+        <a href="wrestling_notes_3jX9s.html" class="link-btn" style="border-left: 4px solid #f1c40f;">📝 Notebook</a>
         <a href="https://www.sportsyou.com/teams/te-0828fa5c-5413-49c2-a12a-4594bbce94bd" target="_blank" class="link-btn">🏅 Team SportsYou</a>
         <a href="https://photos.app.goo.gl/9aSPnAgBefgWtzDS9" target="_blank" class="link-btn">📸 Season Photos</a>
         <a href="https://www.usabracketing.com/athletes/d88a4b77-3960-4e86-8fda-9b3221b6f1a2" target="_blank" class="link-btn">📊 Bracket Profile</a>
@@ -169,16 +178,17 @@
                     <tr>
                         <th width="10%">Date</th>
                         <th width="8%">Wt</th>
-                        <th width="30%">Opponent / School</th>
-                        <th width="15%">Result</th>
+                        <th width="25%">Opponent / School</th>
+                        <th width="12%">Result</th>
                         <th width="15%">Score</th>
                         <th width="15%">Video</th>
+                        <th width="15%">Notes</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                     <tr class="event-row">
-                        <td colspan="6">📍 Battle by the River (Wisconsin Rapids)</td>
+                        <td colspan="7">📍 Battle by the River (Wisconsin Rapids)</td>
                     </tr>
 
                     <tr class="row-win">
@@ -188,6 +198,7 @@
                         <td class="res-win">WIN</td>
                         <td>Dec 7-0</td>
                         <td><a href="https://youtu.be/q4lP3baxRkY" target="_blank" class="vid-link">🎥 Watch</a></td>
+                        <td><a href="wrestling_notes_3jX9s.html#jan17-match1" class="notes-link">📝 View</a></td>
                     </tr>
 
                     <tr class="row-loss">
@@ -197,10 +208,11 @@
                         <td class="res-loss">LOSS</td>
                         <td>TF 0-18</td>
                         <td><a href="https://youtu.be/NZSCD3sX3Ls" target="_blank" class="vid-link">🎥 Watch</a></td>
+                        <td><a href="wrestling_notes_3jX9s.html#jan17-match2" class="notes-link">📝 View</a></td>
                     </tr>
 
                     <tr class="event-row">
-                        <td colspan="6">📍 Upcoming: Multi-Team Meet @ Auburndale (Jan 19)</td>
+                        <td colspan="7">📍 Upcoming: Multi-Team Meet @ Auburndale (Jan 19)</td>
                     </tr>
                     
                 </tbody>
