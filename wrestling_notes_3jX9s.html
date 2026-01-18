@@ -114,7 +114,23 @@
         .timestamp-list { list-style: none; padding: 0; margin-top: 10px; background: rgba(0,0,0,0.2); border-radius: 6px; padding: 10px; }
         .timestamp-list li { margin-bottom: 8px; font-size: 0.9em; color: #bbb; border-bottom: 1px solid #333; padding-bottom: 4px; }
         .timestamp-list li:last-child { border-bottom: none; }
-        .ts { color: var(--accent-gold); font-weight: bold; margin-right: 5px; font-family: monospace; }
+        
+        /* Updated Timestamp Link Style */
+        .ts { 
+            display: inline-block;
+            color: var(--accent-gold); 
+            font-weight: bold; 
+            margin-right: 8px; 
+            font-family: monospace; 
+            text-decoration: none;
+            border: 1px solid var(--accent-gold);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            transition: all 0.2s;
+        }
+        .ts:hover { background: var(--accent-gold); color: #000; cursor: pointer; }
+        .ts-label { font-weight: bold; color: #fff; margin-right: 5px; } /* For non-clickable labels */
 
         /* Back to Top (Mobile) */
         .mobile-jump { display: none; text-align: center; margin-top: 10px; }
@@ -140,30 +156,40 @@
         
         <aside class="cheat-sheet">
             <h2>⚡ Tacie's Keys</h2>
-            
+            <div style="font-size:0.85em; color:#888; margin-bottom:15px; border-bottom:1px solid #444; padding-bottom:10px;">
+                <em>"Turn good habits into dominant ones."</em>
+            </div>
+
             <div class="concept-group">
                 <span class="concept-title">🧠 Mindset</span>
                 <ul class="concept-list">
-                    <li><strong>Aggressive Early:</strong> Don't wait for them to shoot.</li>
-                    <li><strong>Control the Ties:</strong> Hands on them immediately.</li>
-                    <li><strong>Short Memory:</strong> If you get taken down, stand up immediately.</li>
+                    <li><strong>Aggressive Early:</strong> Visualize your first move. Own the center of the mat.</li>
+                    <li><strong>Control the Ties:</strong> Don't just hold—push & pull to off-balance.</li>
+                    <li><strong>Short Memory:</strong> "Next Play." Shake off takedowns instantly.</li>
                 </ul>
             </div>
 
             <div class="concept-group">
                 <span class="concept-title">🛡️ Defense / Bottom</span>
                 <ul class="concept-list">
-                    <li><strong>Base Wide:</strong> Don't get cradled. Hips down.</li>
-                    <li><strong>Hand Control:</strong> Peel the hands before standing up.</li>
-                    <li><strong>Whizzer:</strong> If they shoot, dig the whizzer hard.</li>
+                    <li><strong>Base Wide, Elbows Tight:</strong> Explode up on the whistle.</li>
+                    <li><strong>Chop & Pop:</strong> Chop the wrist while popping hips for quicker stands.</li>
+                    <li><strong>Whizzer:</strong> Dig deep on shots. Pair with a <em>Hip Heist</em> to spin behind.</li>
                 </ul>
             </div>
 
             <div class="concept-group">
                 <span class="concept-title">⚔️ Offense / Neutral</span>
                 <ul class="concept-list">
-                    <li><strong>Snap Downs:</strong> Heavy hands on the head.</li>
-                    <li><strong>Chain Wrestling:</strong> If the shot fails, switch to the next move.</li>
+                    <li><strong>Snap Downs:</strong> Heavy hands. Follow with Front Headlock or Go-Behind.</li>
+                    <li><strong>Chain Wrestling:</strong> High-Crotch -> Double Leg. Snap -> Ankle Pick. Never stop moving.</li>
+                </ul>
+            </div>
+
+            <div class="concept-group">
+                <span class="concept-title">🔝 Top Game</span>
+                <ul class="concept-list">
+                    <li><strong>Toe Pressure:</strong> Ride on your toes, not your knees. Drive forward.</li>
                 </ul>
             </div>
         </aside>
@@ -190,17 +216,20 @@
                 </div>
 
                 <div class="note-section">
-                    <span class="note-label">⏱️ Video Breakdown:</span>
+                    <span class="note-label">⏱️ Video Breakdown (Click time to watch):</span>
                     <ul class="timestamp-list">
-                        <li><span class="ts">0:00</span> Match start: Strong aggression right off the whistle.</li>
-                        <li><span class="ts">0:18</span> Early headlock: Good disruption. Use this to chain into a leg ride or single-leg.</li>
-                        <li><span class="ts">1:35</span> Top Position: Stop hugging upper body! Grab an ankle/wrist and drive, or sink a crossface.</li>
-                        <li><span class="ts">2:02</span> Breakdown Opportunity: Perfect for ankle-wrist combo into snowplow.</li>
-                        <li><span class="ts">2:05</span> Exposed Position: Circle behind hips and plow to her back next time.</li>
-                        <li><span class="ts">2:32</span> <strong>Snowplow Cradle Setup:</strong> Half nelson is there—bury head in ribs, scoop leg, explode.</li>
-                        <li><span class="ts">3:14</span> Crossface Window: Arm across face, snag far arm, drive to roll her.</li>
-                        <li><span class="ts">3:37</span> Prime Crossface: Avoid half nelsons on strong bases; torque sideways instead.</li>
-                        <li><span class="ts">4:45</span> End: Solid sportsmanship. Remember: Lock hands only if including an arm/leg.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=0" target="_blank" class="ts">0:00</a> Match start: Strong aggression right off the whistle.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=18" target="_blank" class="ts">0:18</a> Early headlock: Good disruption. Use this to chain into a leg ride or single-leg.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=95" target="_blank" class="ts">1:35</a> Top Position: Stop hugging upper body! Grab an ankle/wrist and drive, or sink a crossface.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=122" target="_blank" class="ts">2:02</a> Breakdown Opportunity: Perfect for ankle-wrist combo into snowplow.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=125" target="_blank" class="ts">2:05</a> Exposed Position: Circle behind hips and plow to her back next time.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=152" target="_blank" class="ts">2:32</a> <strong>Snowplow Cradle Setup:</strong> Half nelson is there—bury head in ribs, scoop leg, explode.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=187" target="_blank" class="ts">3:07</a> Ankle Grab: Pair with wrist or arm pressure to collapse her.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=194" target="_blank" class="ts">3:14</a> Crossface Window: Arm across face, snag far arm, drive to roll her.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=203" target="_blank" class="ts">3:23</a> Ankle Opportunity: Lift one, drive knee in, dismantle the post.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=217" target="_blank" class="ts">3:37</a> Prime Crossface: Avoid half nelsons on strong bases; torque sideways instead.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=285" target="_blank" class="ts">4:45</a> <strong>Rule Check:</strong> You CAN lock hands around waist while <em>standing</em>. If opponent is <em>down</em> (on mat), you MUST release or trap an arm/leg to avoid penalty.</li>
+                        <li><span class="ts-label">Post-Match:</span> Excellent sportsmanship.</li>
                     </ul>
                 </div>
                 
