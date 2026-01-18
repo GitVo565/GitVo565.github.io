@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dan Voetberg | Chief Architect</title>
+    <title>Dan Voetberg | The Architect</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -29,127 +29,115 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             padding: 15px; 
             line-height: 1.5; 
-            max-width: 1000px; 
+            max-width: 1100px; 
             margin: 0 auto; 
             background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e9 100%); 
             color: var(--text-dark); 
             min-height: 100vh;
             font-size: 16px;
-            padding-bottom: 30vh; /* Scroll buffer */
+            padding-bottom: 30vh;
         }
         
         /* Navigation */
         .back-btn { 
-            display: inline-block; 
-            background: white; 
-            padding: 6px 15px; 
-            text-decoration: none; 
-            color: var(--text-dark); 
-            border-radius: 20px; 
-            border: 1px solid #ddd; 
-            font-size: 0.85em; 
-            margin-bottom: 15px; 
-            transition: all 0.2s; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: inline-block; background: white; padding: 6px 15px; 
+            text-decoration: none; color: var(--text-dark); border-radius: 20px; 
+            border: 1px solid #ddd; font-size: 0.85em; margin-bottom: 15px; 
+            transition: all 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .back-btn:hover { background: #eee; transform: translateX(-3px); }
 
         /* HERO SECTION */
         .profile-hero {
-            background: white;
-            border-radius: 12px;
-            padding: 20px; 
-            display: flex;
-            align-items: center;
-            gap: 20px; 
-            box-shadow: var(--card-shadow);
-            margin-bottom: 20px; 
+            background: white; border-radius: 12px; padding: 25px; 
+            display: flex; align-items: center; gap: 25px; 
+            box-shadow: var(--card-shadow); margin-bottom: 20px; 
             border-left: 6px solid var(--primary-green);
         }
 
-        .profile-img-container { flex: 0 0 140px; text-align: center; }
-
+        .profile-img-container { flex: 0 0 150px; text-align: center; }
         .profile-img {
-            width: 140px; height: 140px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--light-green);
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            width: 150px; height: 150px; object-fit: cover; border-radius: 50%;
+            border: 4px solid var(--light-green); box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
-        .profile-info h1 { margin: 0; color: var(--primary-green); font-size: 2em; line-height: 1.1; }
-        .profile-tagline { font-size: 1em; color: #444; font-weight: 600; margin: 4px 0 8px 0; }
-        .profile-loc { font-size: 0.9em; color: #777; display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+        .profile-info h1 { margin: 0; color: var(--primary-green); font-size: 2.2em; line-height: 1.1; }
+        .profile-tagline { font-size: 1.1em; color: #444; font-weight: 700; margin: 5px 0 8px 0; }
+        .profile-bio { font-size: 0.95em; color: #666; margin-bottom: 10px; max-width: 600px; }
         
-        .hero-badges { display: flex; gap: 6px; flex-wrap: wrap; }
-        .hero-badge { background: var(--light-green); color: var(--dark-green); padding: 3px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
-
-        /* Highlight Banner */
-        .highlight-banner { 
-            background: linear-gradient(90deg, #28a745, #218838); 
-            color: white; 
-            padding: 15px; 
-            border-radius: 10px; 
-            margin-bottom: 20px; 
-            text-align: center; 
-            box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3); 
+        .hero-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 5px; }
+        .hero-badge { 
+            background: var(--light-green); color: var(--dark-green); 
+            padding: 4px 12px; border-radius: 12px; font-size: 0.85em; font-weight: bold; 
+            border: 1px solid #c3e6cb;
         }
-        .highlight-banner h2 { margin: 0 0 3px 0; font-size: 1.2em; opacity: 0.95; }
-        .highlight-banner p { margin: 0; font-size: 1.1em; font-weight: bold; }
 
-        /* Grid Layout */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; align-items: start; }
+        /* STATS GRID - THE "WEAPON" FACTOR */
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px; margin-bottom: 25px;
+        }
+        .stat-card {
+            background: #2c3e50; color: white; padding: 15px; border-radius: 8px;
+            text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .stat-num { display: block; font-size: 1.8em; font-weight: 800; color: #2ecc71; line-height: 1; margin-bottom: 5px; }
+        .stat-label { font-size: 0.75em; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; }
+
+        /* MAIN CONTENT GRID */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 20px; align-items: start; }
         
         /* Cards */
         .card { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 10px; 
+            background: white; padding: 25px; border-radius: 10px; 
             box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
             border-top: 4px solid var(--primary-green); 
             margin-bottom: 20px;
         }
 
         .card h3 { 
-            margin-top: 0; 
-            color: var(--primary-green); 
-            border-bottom: 1px solid #eee; 
-            padding-bottom: 8px; 
-            margin-bottom: 15px;
-            display: flex; align-items: center; font-size: 1.25em;
+            margin-top: 0; color: var(--primary-green); border-bottom: 1px solid #eee; 
+            padding-bottom: 10px; margin-bottom: 15px; display: flex; align-items: center; 
+            font-size: 1.3em;
         }
-        .card-icon { margin-right: 8px; }
+        .card-icon { margin-right: 10px; }
 
-        /* Tag Cloud */
-        .tag-container { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        /* Narrative Text */
+        .narrative-p { font-size: 0.95em; color: #444; margin-bottom: 12px; line-height: 1.6; }
+        .highlight { font-weight: bold; color: #2c3e50; }
+
+        /* Lists with Icons */
+        ul.check-list { list-style: none; padding: 0; margin: 0; }
+        ul.check-list li { 
+            position: relative; padding-left: 25px; margin-bottom: 10px; 
+            font-size: 0.95em; color: #555;
+        }
+        ul.check-list li::before {
+            content: '✓'; position: absolute; left: 0; color: var(--primary-green); font-weight: bold;
+        }
+
+        /* Tech Stack Tags */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px; }
         .tag { 
-            background: #f8f9fa; color: #444; 
-            padding: 4px 10px; border-radius: 12px; 
-            font-size: 0.85em; font-weight: 600; border: 1px solid #ddd;
+            background: #f8f9fa; color: #333; padding: 5px 12px; 
+            border-radius: 6px; font-size: 0.8em; font-weight: 700; border: 1px solid #ddd;
         }
-        .tag.tech { background: #e8f5e9; color: var(--dark-green); border-color: #c3e6cb; }
+        .tag.code { background: #2c3e50; color: #fff; border-color: #2c3e50; }
 
-        /* Buttons */
+        /* Action Buttons */
         .link-btn { 
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            background: #fff; padding: 12px; margin-bottom: 8px;
-            border-radius: 8px; border: 1px solid #ddd; 
-            color: #333; font-weight: 600; text-decoration: none; font-size: 0.9em;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: #fff; padding: 12px; margin-bottom: 10px;
+            border-radius: 8px; border: 1px solid #ccc; 
+            color: #333; font-weight: 700; text-decoration: none; font-size: 0.9em;
             transition: all 0.2s;
         }
-        .link-btn:hover { background: #f8f9fa; border-color: var(--primary-green); color: var(--primary-green); box-shadow: 0 2px 8px rgba(0,0,0,0.05); transform: translateY(-2px); }
-
-        /* Brand Colors for Buttons */
-        .btn-stocks { border-left: 5px solid #1e222d; }
-        .btn-orders { border-left: 5px solid #c0392b; }
-        .btn-code { border-left: 5px solid #333; }
-
-        /* Lists */
-        ul { padding-left: 20px; margin: 0; color: #555; }
-        li { margin-bottom: 6px; }
+        .link-btn:hover { background: #f8f9fa; border-color: var(--primary-green); color: var(--primary-green); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .btn-black { border-left: 5px solid #2c3e50; }
+        .btn-red { border-left: 5px solid #c0392b; }
 
         /* Footer */
-        .footer-info { margin-top: 30px; padding-top: 10px; border-top: 1px solid #ddd; text-align: right; font-size: 0.75em; color: #999; }
+        .footer-info { margin-top: 40px; padding-top: 15px; border-top: 1px solid #ddd; text-align: right; font-size: 0.75em; color: #999; }
 
         @media (max-width: 768px) {
             .profile-hero { flex-direction: column; text-align: center; }
@@ -168,20 +156,37 @@
         </div>
         <div class="profile-info">
             <h1>Dan Voetberg</h1>
-            <div class="profile-tagline">Chief Architect | Retired at 40</div>
-            <div class="profile-loc">📍 Whiting, WI</div>
+            <div class="profile-tagline">Chief Architect | High-Agency Operator</div>
+            <div class="profile-bio">
+                Successfully retired at 40 to focus on "Family Architecture." 
+                Leveraging enterprise-level crisis management and data engineering to build a high-performance family culture.
+            </div>
             
             <div class="hero-badges">
-                <span class="hero-badge">💻 Vibe Coder</span>
-                <span class="hero-badge">📉 Investor</span>
-                <span class="hero-badge">👨‍👩‍👧‍👦 Family Logistics</span>
+                <span class="hero-badge">💼 Retired at 40</span>
+                <span class="hero-badge">🧠 Top 1% AI User</span>
+                <span class="hero-badge">🛠️ 18 Years @ K-C</span>
             </div>
         </div>
     </div>
 
-    <div class="highlight-banner">
-        <h2>🚀 Retired at 40</h2>
-        <p>18 Years at Kimberly-Clark → Full Time Passion Pursuit</p>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-num">40</span>
+            <span class="stat-label">Retirement Age</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-num">50%</span>
+            <span class="stat-label">Reduced IT Incidents</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-num">$800k</span>
+            <span class="stat-label">Operational Savings</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-num">3x</span>
+            <span class="stat-label">State Champ Kids</span>
+        </div>
     </div>
 
     <div class="grid-container">
@@ -189,29 +194,43 @@
         <div class="col-left">
             
             <div class="card">
-                <h3><span class="card-icon">💻</span>Tech & Finance</h3>
-                <p style="margin-bottom:10px;"><strong>AI Vibe Coding:</strong> Leveraging AI to build custom tools (like this Family Hub!).</p>
-                <p style="margin-bottom:15px;"><strong>Stock Investing:</strong> Managing the portfolio and tracking the markets.</p>
+                <h3><span class="card-icon">🛡️</span>The "War Room" Leader</h3>
+                <p class="narrative-p">
+                    At Kimberly-Clark, Dan was the "Break Glass in Case of Emergency" leader. Known for his cool demeanor during catastrophic system failures, he led IT "War Rooms" that protected global operations.
+                </p>
+                <ul class="check-list">
+                    <li><strong>Crisis Manager:</strong> Tapped to stabilize critical failures.</li>
+                    <li><strong>Results Driven:</strong> Awarded "Distinguished Performance" for operational readiness.</li>
+                    <li><strong>Financial Engineer:</strong> Built custom VBA/Python tools to manage assets, enabling early retirement via the "Rule of 55."</li>
+                </ul>
                 
-                <a href="stocks_2nB8q.html" class="link-btn btn-stocks">
-                    📈 Market Watch
+                <a href="stocks_2nB8q.html" class="link-btn btn-black">
+                    📈 Access Portfolio Systems
                 </a>
-
-                <div class="tag-container">
-                    <span class="tag tech">AI Coding</span>
-                    <span class="tag tech">Investing</span>
-                    <span class="tag tech">HTML/CSS</span>
-                    <span class="tag tech">Automation</span>
-                </div>
             </div>
 
             <div class="card">
-                <h3><span class="card-icon">🎮</span>The Digital Cave</h3>
-                <ul>
-                    <li><strong>Home Theater:</strong> Calibrating the perfect setup for movie nights.</li>
-                    <li><strong>Gaming:</strong> PS5 enthusiast (when I'm not coding).</li>
-                    <li><strong>Tech:</strong> If it has a processor, I'm probably tinkering with it.</li>
+                <h3><span class="card-icon">⚡</span>Family CIO & Tech Stack</h3>
+                <p class="narrative-p">
+                    Applying enterprise architecture to the household. Dan doesn't just use apps; he writes the code.
+                </p>
+                <ul class="check-list">
+                    <li><strong>Custom Coding:</strong> Wrote "AthleticScraper" (Python) to analyze track stats.</li>
+                    <li><strong>Smart Home:</strong> Engineered complex logic filters (JavaScript/Hubitat) for security and automation.</li>
+                    <li><strong>AI Operator:</strong> Uses LLMs to build legal and medical knowledge bases for family advocacy.</li>
                 </ul>
+                <div class="tag-container">
+                    <span class="tag code">Python</span>
+                    <span class="tag code">Excel VBA</span>
+                    <span class="tag code">Gen AI</span>
+                    <span class="tag code">Hubitat</span>
+                </div>
+                
+                <div style="margin-top:15px;">
+                    <a href="https://github.com/GitVo565/GitVo565.github.io" target="_blank" class="link-btn btn-black">
+                        💻 Edit Website Code
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -219,28 +238,35 @@
         <div class="col-right">
             
             <div class="card">
-                <h3><span class="card-icon">📋</span>Headquarters Command</h3>
-                <p style="font-size:0.9em; color:#555; margin-bottom:15px;">
-                    Strategic planning for Tacie's athletic development and Donald's collegiate transition.
+                <h3><span class="card-icon">⚾</span>"Moneyball" Parenting</h3>
+                <p class="narrative-p">
+                    Dan acts as the data scientist for his children's development, analyzing raw telemetry data (.TCX files) to optimize peak performance. The results speak for themselves:
                 </p>
-                
-                <a href="orders_9sL2k.html" class="link-btn btn-orders">
-                    📢 Manage Orders from HQ
-                </a>
+                <ul class="check-list">
+                    <li><strong>Brian (The Scholar):</strong> Valedictorian, Business Founder ("Dawg Water"), Finance Club President.</li>
+                    <li><strong>Donald (The Athlete):</strong> 3x State Team Champ, NCAA Commit, training in Montana altitude.</li>
+                    <li><strong>Tacie (The Polymath):</strong> State-ranked runner, wrestler, violinist, and coder.</li>
+                </ul>
+            </div>
 
-                <a href="https://github.com/GitVo565/GitVo565.github.io" target="_blank" class="link-btn btn-code">
-                    💻 Edit Website Code
+            <div class="card">
+                <h3><span class="card-icon">🦅</span>Headquarters Command</h3>
+                <p class="narrative-p">
+                    Operating as the "Family Architect," managing medical advocacy (reading his own X-rays), legal settlements, and complex logistics.
+                </p>
+                <a href="orders_9sL2k.html" class="link-btn btn-red">
+                    📢 Manage Orders from HQ
                 </a>
             </div>
 
             <div class="card">
-                <h3><span class="card-icon">🎣</span>Family & Outdoors</h3>
-                <ul>
-                    <li><strong>Family Logistics:</strong> Organizing the chaos and keeping the Voetberg army moving.</li>
-                    <li><strong>Ice Fishing:</strong> Chasing sunsets and fish on the hard water <em>with the family</em>.</li>
-                    <li><strong>Cheerleader:</strong> The loudest voice on the sidelines for track meets and wrestling matches.</li>
-                    <li><strong>Cycling:</strong> 26+ mile trail rides around Stevens Point.</li>
-                </ul>
+                <h3><span class="card-icon">🌎</span>Character & Grit</h3>
+                <p class="narrative-p">
+                    <strong>The Argentina Standard:</strong> During a 2014 assignment in Buenos Aires, Dan rejected the corporate hotel bubble. He insisted on living in a local apartment to force himself to learn Spanish through immersion—a testament to his belief in doing things the hard way to achieve real growth.
+                </p>
+                <div style="font-size:0.9em; margin-top:10px; color:#555;">
+                    <strong>Interests:</strong> "The Digital Cave" (Home Theater/PS5), 26-mile trail cycling, and ice fishing.
+                </div>
             </div>
 
         </div>
