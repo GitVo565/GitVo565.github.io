@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tacie's Wrestling Notebook</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow">
+    <meta name="gptbot" content="noindex, nofollow">
+    <meta name="CCBot" content="noindex, nofollow">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        /* Theme Variables */
+        :root {
+            --bg-dark: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --text-light: #ecf0f1;
+            --accent-gold: #f39c12;
+            --accent-blue: #3498db;
+            --success: #27ae60;
+            --danger: #c0392b;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            background: var(--bg-dark); 
+            color: var(--text-light); 
+        }
+        
+        /* Navigation */
+        .back-btn { 
+            display: inline-block; background: var(--card-bg); padding: 8px 15px; 
+            text-decoration: none; color: var(--text-light); border-radius: 20px; 
+            border: 1px solid #444; font-size: 0.9em; margin-bottom: 20px; 
+            transition: all 0.2s; 
+        }
+        .back-btn:hover { background: #444; }
+
+        /* Header */
+        .header-section { margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 10px; }
+        h1 { margin: 0; color: var(--accent-gold); font-size: 1.8em; }
+
+        /* --- LAYOUT GRID --- */
+        .app-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Sidebar is 1/3, Content is 2/3 */
+            gap: 25px;
+            align-items: start;
+        }
+
+        /* --- LEFT COLUMN: THE CHEAT SHEET (STICKY) --- */
+        .cheat-sheet {
+            background: #252525;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-blue);
+            position: sticky;
+            top: 20px; /* Sticks to top when scrolling */
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .cheat-sheet h2 { margin-top: 0; font-size: 1.3em; color: var(--accent-blue); border-bottom: 1px solid #444; padding-bottom: 8px; }
+        .concept-group { margin-bottom: 20px; }
+        .concept-title { font-weight: bold; color: #ccc; display: block; margin-bottom: 5px; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px; }
+        .concept-list { list-style: none; padding: 0; margin: 0; }
+        .concept-list li { margin-bottom: 8px; font-size: 0.95em; padding-left: 15px; position: relative; }
+        .concept-list li::before { content: '•'; position: absolute; left: 0; color: var(--accent-gold); }
+
+        /* --- RIGHT COLUMN: MATCH NOTES --- */
+        .notes-feed { display: flex; flex-direction: column; gap: 20px; }
+
+        .match-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid #555;
+            scroll-margin-top: 20px; /* Buffer for deep linking */
+        }
+
+        /* Dynamic Border Colors based on Outcome */
+        .outcome-win { border-top-color: var(--success); }
+        .outcome-loss { border-top-color: var(--danger); }
+
+        .match-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #444; padding-bottom: 10px; }
+        .match-title { font-size: 1.2em; font-weight: bold; color: white; margin: 0; }
+        .match-meta { font-size: 0.85em; color: #999; }
+        .score-badge { 
+            padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.9em; 
+        }
+        .bg-win { background: rgba(39, 174, 96, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .bg-loss { background: rgba(192, 57, 43, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+
+        /* Notes Sections */
+        .note-section { margin-bottom: 15px; }
+        .note-label { display: block; font-weight: bold; color: #ccc; font-size: 0.9em; margin-bottom: 4px; }
+        .note-text { margin: 0; color: #ddd; font-size: 0.95em; }
+        
+        .good-stuff { border-left: 3px solid var(--success); padding-left: 10px; }
+        .needs-work { border-left: 3px solid var(--danger); padding-left: 10px; }
+
+        /* Back to Top (Mobile) */
+        .mobile-jump { display: none; text-align: center; margin-top: 10px; }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .app-container { grid-template-columns: 1fr; }
+            .cheat-sheet { position: relative; top: 0; max-height: none; margin-bottom: 20px; }
+            .mobile-jump { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="tacie_wrestling_5fH3pK.html" class="back-btn">← Back to Season Hub</a>
+    
+    <div class="header-section">
+        <h1>Notebook & Analysis</h1>
+        <div style="font-size:0.9em; color:#888;">Reviewing tape with Brian & Dad</div>
+    </div>
+
+    <div class="app-container">
+        
+        <aside class="cheat-sheet">
+            <h2>⚡ Tacie's Keys</h2>
+            
+            <div class="concept-group">
+                <span class="concept-title">🧠 Mindset</span>
+                <ul class="concept-list">
+                    <li><strong>Aggressive Early:</strong> Don't wait for them to shoot.</li>
+                    <li><strong>Control the Ties:</strong> Hands on them immediately.</li>
+                    <li><strong>Short Memory:</strong> If you get taken down, stand up immediately.</li>
+                </ul>
+            </div>
+
+            <div class="concept-group">
+                <span class="concept-title">🛡️ Defense / Bottom</span>
+                <ul class="concept-list">
+                    <li><strong>Base Wide:</strong> Don't get cradled. Hips down.</li>
+                    <li><strong>Hand Control:</strong> Peel the hands before standing up.</li>
+                    <li><strong>Whizzer:</strong> If they shoot, dig the whizzer hard.</li>
+                </ul>
+            </div>
+
+            <div class="concept-group">
+                <span class="concept-title">⚔️ Offense / Neutral</span>
+                <ul class="concept-list">
+                    <li><strong>Snap Downs:</strong> Heavy hands on the head.</li>
+                    <li><strong>Chain Wrestling:</strong> If the shot fails, switch to the next move.</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="notes-feed">
+
+            <div id="jan17-match1" class="match-card outcome-win">
+                <div class="match-header">
+                    <div>
+                        <h3 class="match-title">vs. Taylor Gurney (Antigo)</h3>
+                        <div class="match-meta">Jan 17 | Battle by the River | 114 lbs</div>
+                    </div>
+                    <span class="score-badge bg-win">WIN 7-0</span>
+                </div>
+                
+                <div class="note-section good-stuff">
+                    <span class="note-label">✅ What Worked:</span>
+                    <p class="note-text">Great aggression off the whistle. Controlled the head well with snap downs. Rode the legs effectively in the 2nd period to maintain top control.</p>
+                </div>
+
+                <div class="note-section needs-work">
+                    <span class="note-label">🔧 To Improve:</span>
+                    <p class="note-text">Finish the half-nelson faster. Hesitated slightly when looking for the pin combination.</p>
+                </div>
+                
+                <div class="mobile-jump"><a href="#" style="color:#666; font-size:0.8em;">^ Top</a></div>
+            </div>
+
+            <div id="jan17-match2" class="match-card outcome-loss">
+                <div class="match-header">
+                    <div>
+                        <h3 class="match-title">vs. Serina Pattridge (Neenah)</h3>
+                        <div class="match-meta">Jan 17 | Battle by the River | 114 lbs</div>
+                    </div>
+                    <span class="score-badge bg-loss">LOSS 0-18</span>
+                </div>
+                
+                <div class="note-section good-stuff">
+                    <span class="note-label">✅ The Bright Side:</span>
+                    <p class="note-text">Never gave up. Fought off her back twice in the first period showing great bridge strength.</p>
+                </div>
+
+                <div class="note-section needs-work">
+                    <span class="note-label">⚠️ The Lesson:</span>
+                    <p class="note-text"><strong>Base Awareness:</strong> Got caught in a cradle because base was too narrow. Need to keep knees wide when on bottom. Also, need to peel hands immediately when opponent establishes a grip.</p>
+                </div>
+                
+                <div class="mobile-jump"><a href="#" style="color:#666; font-size:0.8em;">^ Top</a></div>
+            </div>
+
+            </main>
+    </div>
+
+    <script>
+        // Simple logic to highlight the target card if linked directly
+        document.addEventListener("DOMContentLoaded", function() {
+            if(window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                const element = document.getElementById(targetId);
+                if(element) {
+                    element.style.boxShadow = "0 0 15px var(--accent-gold)";
+                    element.style.borderColor = "var(--accent-gold)";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
