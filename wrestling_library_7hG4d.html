@@ -84,10 +84,11 @@
             background: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            border: 1px solid #333;
-            transition: transform 0.2s;
+            border: 2px solid #333; /* Thicker border for highlight visibility */
+            transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
+            scroll-margin-top: 20px; /* Offset for scrolling */
         }
-        .vid-card:hover { transform: translateY(-3px); border-color: var(--accent-gold); }
+        .vid-card:hover { transform: translateY(-3px); border-color: #666; }
 
         .vid-thumb {
             display: block; width: 100%; height: 160px; 
@@ -149,7 +150,7 @@
             <div class="topic-title">1. Breakdowns & Control</div>
             <div class="video-grid">
                 
-                <div class="vid-card">
+                <div class="vid-card" id="vid-tight-waist">
                     <a href="https://www.youtube.com/watch?v=g9wbyDs-tig" target="_blank" class="vid-thumb">
                         <span class="play-btn">▶</span>
                         <img src="https://img.youtube.com/vi/g9wbyDs-tig/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
@@ -157,12 +158,12 @@
                     <div class="vid-content">
                         <a href="https://www.youtube.com/watch?v=g9wbyDs-tig" target="_blank" class="vid-title">Tight Waist Ankle Stance & Motion</a>
                         <div class="coach-note">
-                            <strong>Why:</strong> Straightforward breakdown. Matches the missed opportunities at <strong>1:35</strong> and <strong>3:07</strong> in your match.
+                            <strong>Coach's Note:</strong> Matches the missed breakdown opportunities at <strong>1:35</strong> and <strong>3:07</strong> in your match.
                         </div>
                     </div>
                 </div>
 
-                <div class="vid-card">
+                <div class="vid-card" id="vid-askren-breakdown">
                     <a href="https://www.youtube.com/watch?v=YcVmav88uR0" target="_blank" class="vid-thumb">
                         <span class="play-btn">▶</span>
                         <img src="https://img.youtube.com/vi/YcVmav88uR0/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
@@ -170,7 +171,7 @@
                     <div class="vid-content">
                         <a href="https://www.youtube.com/watch?v=YcVmav88uR0" target="_blank" class="vid-title">Ben Askren: Tight Waist Ankle</a>
                         <div class="coach-note">
-                            <strong>Why:</strong> Askren explains how to keep constant pressure without gassing out. Focus on the hip drive.
+                            <strong>Coach's Note:</strong> Explains how to keep constant pressure without gassing out. Focus on the hip drive.
                         </div>
                     </div>
                 </div>
@@ -182,7 +183,7 @@
             <div class="topic-title">2. The Half Nelson Series</div>
             <div class="video-grid">
                 
-                <div class="vid-card">
+                <div class="vid-card" id="vid-half-nelson">
                     <a href="https://www.youtube.com/watch?v=53P1aPxRHqc" target="_blank" class="vid-thumb">
                         <span class="play-btn">▶</span>
                         <img src="https://img.youtube.com/vi/53P1aPxRHqc/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
@@ -190,12 +191,12 @@
                     <div class="vid-content">
                         <a href="https://www.youtube.com/watch?v=53P1aPxRHqc" target="_blank" class="vid-title">My Half Nelson Tutorial (Fundamentals)</a>
                         <div class="coach-note">
-                            <strong>Why:</strong> Breaks down power halfs and pinning setups. Great for "chaining" moves like we discussed.
+                            <strong>Coach's Note:</strong> Breaks down power halfs and pinning setups. Great for "chaining" moves.
                         </div>
                     </div>
                 </div>
 
-                <div class="vid-card">
+                <div class="vid-card" id="vid-usa-half">
                     <a href="https://www.youtube.com/watch?v=5DFJOOs-eVQ" target="_blank" class="vid-thumb">
                         <span class="play-btn">▶</span>
                         <img src="https://img.youtube.com/vi/5DFJOOs-eVQ/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
@@ -203,7 +204,7 @@
                     <div class="vid-content">
                         <a href="https://www.youtube.com/watch?v=5DFJOOs-eVQ" target="_blank" class="vid-title">USA Wrestling: Half Nelson Level 1</a>
                         <div class="coach-note">
-                            <strong>Why:</strong> Ideal for avoiding rookie mistakes. Focus on simple positioning and drive.
+                            <strong>Coach's Note:</strong> Ideal for avoiding rookie mistakes. Focus on simple positioning and drive.
                         </div>
                     </div>
                 </div>
@@ -215,7 +216,7 @@
             <div class="topic-title">3. Wrist Control & Cradles (Snowplow)</div>
             <div class="video-grid">
                 
-                <div class="vid-card">
+                <div class="vid-card" id="vid-wrist-half">
                     <a href="https://www.youtube.com/watch?v=QoZ1VbHPecg" target="_blank" class="vid-thumb">
                         <span class="play-btn">▶</span>
                         <img src="https://img.youtube.com/vi/QoZ1VbHPecg/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
@@ -223,12 +224,12 @@
                     <div class="vid-content">
                         <a href="https://www.youtube.com/watch?v=QoZ1VbHPecg" target="_blank" class="vid-title">Wrist & Half Nelson Finish (Vallimont)</a>
                         <div class="coach-note">
-                            <strong>Why:</strong> Focuses on wrist control. Exactly what you needed for that Snowplow transition at <strong>2:32</strong>.
+                            <strong>Coach's Note:</strong> Focuses on wrist control. Exactly what you needed for that Snowplow transition at <strong>2:32</strong>.
                         </div>
                     </div>
                 </div>
 
-                <div class="vid-card">
+                <div class="vid-card" id="vid-snowplow">
                     <a href="https://www.youtube.com/watch?v=P1YtvaRU-us" target="_blank" class="vid-thumb">
                         <span class="play-btn">▶</span>
                         <img src="https://img.youtube.com/vi/P1YtvaRU-us/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
@@ -236,7 +237,7 @@
                     <div class="vid-content">
                         <a href="https://www.youtube.com/watch?v=P1YtvaRU-us" target="_blank" class="vid-title">Half Nelson to Cradle Demo</a>
                         <div class="coach-note">
-                            <strong>Why:</strong> Easy visual on "sucking up the leg" and driving into the cradle.
+                            <strong>Coach's Note:</strong> Easy visual on "sucking up the leg" and driving into the cradle.
                         </div>
                     </div>
                 </div>
@@ -272,6 +273,26 @@
     <script>
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+        // HIGHLIGHTER SCRIPT
+        document.addEventListener("DOMContentLoaded", function() {
+            if(window.location.hash) {
+                // Remove the # to get the ID
+                const targetId = window.location.hash.substring(1);
+                const element = document.getElementById(targetId);
+                
+                if(element) {
+                    // Scroll to it
+                    element.scrollIntoView({ behavior: "smooth", block: "center" });
+                    
+                    // Apply highlight effect
+                    element.style.borderColor = "var(--accent-gold)";
+                    element.style.boxShadow = "0 0 20px rgba(243, 156, 18, 0.6)";
+                    
+                    // Flash effect logic if desired, or leave permanent for session
+                }
+            }
+        });
     </script>
 
 </body>
