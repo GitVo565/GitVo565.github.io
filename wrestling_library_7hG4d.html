@@ -23,7 +23,6 @@
             --text-light: #ecf0f1;
             --accent-gold: #f39c12;
             --accent-blue: #3498db;
-            --accent-green: #27ae60;
             --divider: #444;
         }
 
@@ -38,9 +37,7 @@
         }
         
         /* Navigation */
-        .nav-bar { 
-            display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;
-        }
+        .nav-bar { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .nav-btn {
             background: var(--card-bg); color: #ccc; 
             padding: 8px 16px; border-radius: 20px; 
@@ -65,7 +62,7 @@
         .pos-icon { font-size: 1.5em; }
         .pos-title { font-size: 1.5em; font-weight: bold; color: white; margin: 0; }
         
-        /* Topic Groups (e.g. "Breakdowns") */
+        /* Topic Groups */
         .topic-group { margin-bottom: 40px; }
         .topic-title { 
             color: var(--accent-blue); font-size: 1.1em; font-weight: bold; 
@@ -84,11 +81,25 @@
             background: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
-            border: 2px solid #333; /* Thicker border for highlight visibility */
-            transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
-            scroll-margin-top: 20px; /* Offset for scrolling */
+            border: 1px solid #333;
+            transition: transform 0.2s;
+            scroll-margin-top: 30px; /* Space for scrolling */
         }
         .vid-card:hover { transform: translateY(-3px); border-color: #666; }
+
+        /* TARGET LOCK ANIMATION */
+        @keyframes pulseGold {
+            0% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7); border-color: var(--accent-gold); }
+            50% { box-shadow: 0 0 25px 5px rgba(243, 156, 18, 0.5); border-color: #fff; }
+            100% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0); border-color: var(--accent-gold); }
+        }
+
+        .target-lock {
+            animation: pulseGold 2s infinite;
+            border: 3px solid var(--accent-gold) !important;
+            transform: scale(1.02);
+            z-index: 10;
+        }
 
         .vid-thumb {
             display: block; width: 100%; height: 160px; 
@@ -246,26 +257,6 @@
         </div>
     </div>
 
-    <div id="bottom-position" class="position-section">
-        <div class="position-header">
-            <span class="pos-icon">🛡️</span>
-            <h2 class="pos-title">Bottom Position (Defense)</h2>
-        </div>
-        <div class="empty-state">
-            Assignments coming soon! Focus on "Base Building" and "Hand Control" for now.
-        </div>
-    </div>
-
-    <div id="neutral-position" class="position-section">
-        <div class="position-header">
-            <span class="pos-icon">⚔️</span>
-            <h2 class="pos-title">Neutral Position (Takedowns)</h2>
-        </div>
-        <div class="empty-state">
-            Assignments coming soon! Focus on "Snap Downs" and "Ties".
-        </div>
-    </div>
-
     <div class="footer-info">
         <span id="lastUpdated"></span>
     </div>
@@ -274,22 +265,18 @@
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
-        // HIGHLIGHTER SCRIPT
+        // TARGET LOCK SCRIPT
         document.addEventListener("DOMContentLoaded", function() {
             if(window.location.hash) {
-                // Remove the # to get the ID
                 const targetId = window.location.hash.substring(1);
                 const element = document.getElementById(targetId);
                 
                 if(element) {
-                    // Scroll to it
+                    // Smooth scroll to the specific card
                     element.scrollIntoView({ behavior: "smooth", block: "center" });
                     
-                    // Apply highlight effect
-                    element.style.borderColor = "var(--accent-gold)";
-                    element.style.boxShadow = "0 0 20px rgba(243, 156, 18, 0.6)";
-                    
-                    // Flash effect logic if desired, or leave permanent for session
+                    // Apply the "Target Lock" animation class
+                    element.classList.add('target-lock');
                 }
             }
         });
