@@ -84,6 +84,16 @@
         .concept-list li { margin-bottom: 8px; font-size: 0.95em; padding-left: 15px; position: relative; }
         .concept-list li::before { content: '•'; position: absolute; left: 0; color: var(--accent-gold); }
 
+        /* Grandpa's Focus Box */
+        .grandpa-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed #999;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .grandpa-title { font-weight: bold; color: #fff; display: block; margin-bottom: 5px; }
+
         /* --- RIGHT COLUMN: MATCH NOTES --- */
         .notes-feed { display: flex; flex-direction: column; gap: 20px; }
 
@@ -176,14 +186,13 @@
         }
         .buck15-text:hover { background: var(--accent-gold); color: #000; border-bottom: solid; }
 
-        /* Back to Top (Mobile) */
-        .mobile-jump { display: none; text-align: center; margin-top: 10px; }
-        
+        /* Footer */
+        .footer-info { margin-top: 60px; padding-top: 20px; border-top: 1px solid #333; text-align: right; font-size: 0.8em; color: #666; }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .app-container { grid-template-columns: 1fr; }
             .cheat-sheet { position: relative; top: 0; max-height: none; margin-bottom: 20px; }
-            .mobile-jump { display: block; }
         }
     </style>
 </head>
@@ -203,8 +212,13 @@
         
         <aside class="cheat-sheet">
             <h2>⚡ Tacie's Keys</h2>
-            <div style="font-size:0.85em; color:#888; margin-bottom:15px; border-bottom:1px solid #444; padding-bottom:10px;">
-                <em>"Turn good habits into dominant ones."</em>
+            
+            <div class="grandpa-box">
+                <span class="grandpa-title">👴 Grandpa's Orders:</span>
+                <ul class="concept-list" style="margin-bottom:0;">
+                    <li><strong>Chops:</strong> <a href="wrestling_library_7hG4d.html#vid-chop-pop" class="move-link" target="_blank">Chop the Hands!</a> Don't let them lock.</li>
+                    <li><strong>Kicks:</strong> <a href="wrestling_library_7hG4d.html#vid-standup-variations" class="move-link" target="_blank">Kick Out!</a> Explode on the stand-up.</li>
+                </ul>
             </div>
 
             <div class="concept-group">
@@ -342,7 +356,14 @@
         </main>
     </div>
 
+    <div class="footer-info">
+        <span id="lastUpdated"></span>
+    </div>
+
     <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
         // Simple logic to highlight the target card if linked directly
         document.addEventListener("DOMContentLoaded", function() {
             if(window.location.hash) {
