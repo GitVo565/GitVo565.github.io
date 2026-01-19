@@ -21,6 +21,7 @@
             --primary-orange: #fd7e14;
             --dark-orange: #d35400;
             --light-orange: #fff3cd;
+            --training-green: #28a745;
             --text-dark: #2c3e50;
             --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
@@ -105,13 +106,13 @@
             padding: 20px; 
             border-radius: 10px; 
             box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
-            border-top: 4px solid var(--primary-orange); 
+            border-top: 4px solid #ddd; 
             margin-bottom: 20px;
         }
 
         .card h3 { 
             margin-top: 0; 
-            color: var(--primary-orange); 
+            color: var(--text-dark); 
             border-bottom: 1px solid #eee; 
             padding-bottom: 8px; 
             margin-bottom: 15px;
@@ -154,7 +155,7 @@
             color: #333; font-weight: 600; text-decoration: none; font-size: 0.9em;
             transition: all 0.2s;
         }
-        .link-btn:hover { background: #f8f9fa; border-color: var(--primary-orange); color: var(--primary-orange); box-shadow: 0 2px 8px rgba(0,0,0,0.05); transform: translateY(-2px); }
+        .link-btn:hover { background: #f8f9fa; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
         /* Brand Colors */
         .btn-wrestling { border-left: 5px solid #002f5d; background: #e6f4ff; }
@@ -162,7 +163,7 @@
         .btn-athletic { border-left: 5px solid #005f9e; }
         .btn-youtube { border-left: 5px solid #FF0000; }
         .btn-insta { border-left: 5px solid #E1306C; }
-        .btn-usab { border-left: 5px solid #2c3e50; } /* Dark Slate for USA Bracketing */
+        .btn-usab { border-left: 5px solid #2c3e50; } 
 
         /* BUCK15 ANIMATION */
         @keyframes pulseGlow {
@@ -211,7 +212,17 @@
         
         <div class="col-left">
             
-            <div class="card" style="border-top-color: #f39c12;">
+            <div class="card" style="border-top-color: var(--training-green);">
+                <h3 style="color:var(--training-green);"><span class="card-icon">🏋️‍♀️</span>Training HQ</h3>
+                <p style="font-size:0.9em; margin-bottom:15px; color:#555;">
+                    Daily directives, lifting protocols (Lift A/Armor), and seasonal roadmaps.
+                </p>
+                <a href="tacie_training_2pX4v.html" class="link-btn" style="border-left: 5px solid var(--training-green); font-weight:bold;">
+                    📋 View Daily Directives
+                </a>
+            </div>
+
+            <div class="card" style="border-top-color: var(--primary-orange);">
                 <h3><span class="card-icon">🤼‍♀️</span>Current Season: Wrestling</h3>
                 <p style="font-size:0.9em; margin-bottom:15px; color:#555;">
                     Follow match results, videos, and technique library for the 2026 Season.
