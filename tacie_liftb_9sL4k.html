@@ -56,11 +56,19 @@
 
         /* Header */
         .header-section { 
-            border-bottom: 2px solid var(--accent-gold); 
+            border-bottom: 2px solid var(--accent-blue); 
             padding-bottom: 20px; margin-bottom: 30px; 
         }
         h1 { margin: 0; font-size: 2em; letter-spacing: 1px; color: white; }
-        .subtitle { color: var(--accent-gold); font-weight: bold; font-size: 1.1em; text-transform: uppercase; margin-top: 5px; }
+        .subtitle { color: var(--accent-blue); font-weight: bold; font-size: 1.1em; text-transform: uppercase; margin-top: 5px; }
+
+        /* Instructions Box */
+        .instruction-box {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 15px; margin-bottom: 30px;
+            font-size: 0.95em; color: #ddd;
+        }
 
         /* Block Cards */
         .block-card {
@@ -89,7 +97,7 @@
         /* Text Styles */
         .ex-name { display: block; font-weight: bold; color: white; font-size: 1.1em; margin-bottom: 4px; }
         .ex-cues { display: block; font-size: 0.9em; color: #888; font-style: italic; margin-bottom: 8px; }
-        .target-reps { font-weight: bold; color: var(--accent-gold); }
+        .target-reps { font-weight: bold; color: var(--accent-blue); }
         .current-log { font-size: 0.9em; color: #eee; background: rgba(255,255,255,0.05); padding: 4px; border-radius: 4px; display: inline-block; margin-top: 5px;}
         
         .demo-link {
@@ -130,6 +138,11 @@
         📝 Open Tracker & Log Weights
     </a>
 
+    <div class="instruction-box">
+        <strong>⚡ SUPERSET INSTRUCTIONS:</strong><br>
+        Perform exercises in pairs (e.g., A1 then A2) with minimal rest between them. After finishing the second exercise, rest 60-90 seconds before starting the next round. Repeat for specified sets.
+    </div>
+
     <div class="block-card">
         <div class="block-header">
             <span class="block-title">BLOCK A</span>
@@ -148,7 +161,7 @@
                 <tr>
                     <td>
                         <span class="ex-name">A1. Quarter Squats</span>
-                        <span class="ex-cues">Athletic depth (4-6"). Drive up explosively. Step off, don't jump down.</span>
+                        <span class="ex-cues">Stance width. Dip 4-6" (athletic depth). Drive up explosively. Step off.</span>
                     </td>
                     <td><span class="target-reps">x6 Reps</span></td>
                     <td><span class="current-log">125 lbs</span></td>
@@ -160,7 +173,7 @@
                 <tr>
                     <td>
                         <span class="ex-name">A2. Depth Drops</span>
-                        <span class="ex-cues">Step off box. Land soft & stable. Absorb the force.</span>
+                        <span class="ex-cues">Step off box. Land soft & stable. Pull down to hips.</span>
                     </td>
                     <td><span class="target-reps">x6 Reps</span></td>
                     <td><span class="current-log">Bodyweight</span></td>
@@ -218,7 +231,7 @@
                 <tr>
                     <td style="width:40%;">
                         <span class="ex-name">C1. Hip Thrusters</span>
-                        <span class="ex-cues">Bench under blades. Chin tucked. Drive heels. Squeeze glutes.</span>
+                        <span class="ex-cues">Bench under blades. Chin tucked. Drive heels. Bridge high.</span>
                     </td>
                     <td style="width:20%;"><span class="target-reps">x8 Reps</span></td>
                     <td style="width:25%;"><span class="current-log">30 lbs</span></td>
@@ -267,7 +280,7 @@
                         <span class="ex-name">D2. Banded Hip Abduction</span>
                         <span class="ex-cues">Band around ankles. Stand tall. Lift leg to side.</span>
                     </td>
-                    <td><span class="target-reps">x12 / leg</span></td>
+                    <td style="width:20%;"><span class="target-reps">x12 / leg</span></td>
                     <td><span class="current-log">Band</span></td>
                     <td>
                         <div style="font-weight:bold; color:#f39c12;">RPE 8</div>
@@ -282,8 +295,8 @@
         <span class="note-title">⚠️ Coach's Notes</span>
         <ul class="note-list">
             <li><strong>Rest:</strong> No set rest time. Focus on form over speed. Take what you need.</li>
-            <li><strong>Progression:</strong> Master the movement first, then add weight.</li>
-            <li><strong>Adjustments:</strong> Progress naturally by adding a few pounds each week.</li>
+            <li><strong>Progression:</strong> Master the movement first, then add weight. Lift barefoot if possible.</li>
+            <li><strong>Adjustments:</strong> Progress naturally by adding a few pounds each week. Contact us if issues arise.</li>
         </ul>
     </div>
 
