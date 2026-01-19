@@ -38,7 +38,8 @@
         }
         
         /* Navigation */
-        .nav-bar { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .nav-bar { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; align-items: center; }
+        
         .nav-btn {
             background: var(--card-bg); color: #ccc; 
             padding: 8px 16px; border-radius: 20px; 
@@ -47,15 +48,21 @@
         }
         .nav-btn:hover { background: #333; color: white; border-color: #666; }
         
-        /* Active State - Black Text on Gold Background */
+        /* Primary Nav Buttons (Hub/Notes) */
+        .nav-primary {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+        .nav-primary:hover { background: var(--accent-blue); color: white; }
+
+        /* Active Section Button */
         .nav-btn.active { 
             background: var(--accent-gold); 
             color: #1a1a1a; 
             border-color: var(--accent-gold); 
             font-weight: bold; 
         }
-        
-        .back-link { margin-right: auto; border: none; background: none; padding-left: 0; }
 
         /* Header */
         .header-section { margin-bottom: 40px; border-bottom: 1px solid var(--divider); padding-bottom: 20px; }
@@ -151,13 +158,13 @@
 
         /* TARGET LOCK ANIMATION */
         @keyframes pulseGold {
-            0% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7); border-color: var(--accent-gold); }
-            50% { box-shadow: 0 0 25px 5px rgba(243, 156, 18, 0.5); border-color: #fff; }
-            100% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0); border-color: var(--accent-gold); }
+            0% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7); border-color: var(--accent-gold); background-color: rgba(243, 156, 18, 0.2); }
+            50% { box-shadow: 0 0 25px 5px rgba(243, 156, 18, 0.5); border-color: #fff; background-color: rgba(243, 156, 18, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0); border-color: var(--accent-gold); background-color: rgba(243, 156, 18, 0); }
         }
 
         .target-lock {
-            animation: pulseGold 2s infinite;
+            animation: pulseGold 1.5s infinite;
             border: 3px solid var(--accent-gold) !important;
             transform: scale(1.02);
             z-index: 10;
@@ -206,11 +213,13 @@
 <body>
 
     <div class="nav-bar">
-        <a href="tacie_wrestling_5fH3pK.html" class="nav-btn back-link">← Back to Hub</a>
+        <a href="tacie_wrestling_5fH3pK.html" class="nav-btn nav-primary">← Season Hub</a>
+        <a href="wrestling_notes_3jX9s.html" class="nav-btn nav-primary">📝 Coach's Notebook</a>
+        <div style="flex-grow:1;"></div>
         <a href="#buck15" class="nav-btn active">★ Buck 15 Specials</a>
-        <a href="#bottom-position" class="nav-btn">Defense / Bottom</a>
+        <a href="#bottom-position" class="nav-btn">Defense</a>
         <a href="#neutral-position" class="nav-btn">Neutral</a>
-        <a href="#top-position" class="nav-btn">Top / Offense</a>
+        <a href="#top-position" class="nav-btn">Top</a>
     </div>
     
     <div class="header-section">
@@ -334,6 +343,16 @@
                                 <div class="coach-note"><strong>Why:</strong> Build a wide base. Toe pressure helps you explode out.</div>
                             </div>
                         </div>
+                        <div class="vid-card" id="vid-chop-pop">
+                            <a href="https://www.youtube.com/watch?v=fr-e8yjsl5s" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/fr-e8yjsl5s/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=fr-e8yjsl5s" target="_blank" class="vid-title">Attacking the Chop Hand</a>
+                                <div class="coach-note"><strong>Why:</strong> The "Chop & Pop." Attack their chop hand first, then pop hips.</div>
+                            </div>
+                        </div>
                         <div class="vid-card" id="vid-standup-variations">
                             <a href="https://www.youtube.com/watch?v=4IzIPUoztFw" target="_blank" class="vid-thumb">
                                 <span class="play-btn">▶</span>
@@ -400,6 +419,16 @@
                                 <div class="coach-note"><strong>Why:</strong> Chop her arm and hop over for the reversal.</div>
                             </div>
                         </div>
+                        <div class="vid-card" id="vid-leg-counters">
+                            <a href="https://www.youtube.com/watch?v=836bISSoasg" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/836bISSoasg/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=836bISSoasg" target="_blank" class="vid-title">Leg Counters & Reversals</a>
+                                <div class="coach-note"><strong>Why:</strong> Jump to 3:00 for the "Hip Whip." Smash them down if they ride legs.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -424,6 +453,16 @@
                             <div class="vid-content">
                                 <a href="https://www.youtube.com/watch?v=_BVloS2mqRY" target="_blank" class="vid-title">Wrestling 101: Granby Roll</a>
                                 <div class="coach-note"><strong>Why:</strong> Useful when base is broken. Great for creating separation.</div>
+                            </div>
+                        </div>
+                        <div class="vid-card" id="vid-whizzer">
+                            <a href="https://www.youtube.com/watch?v=_nQATJzOePM" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/_nQATJzOePM/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=_nQATJzOePM" target="_blank" class="vid-title">Whizzer & Hip Heist (Askren)</a>
+                                <div class="coach-note"><strong>Why:</strong> Dig the whizzer deep on shots, then heist hips to spin behind.</div>
                             </div>
                         </div>
                     </div>
@@ -563,18 +602,27 @@
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
-        // TARGET LOCK SCRIPT
-        document.addEventListener("DOMContentLoaded", function() {
+        // TARGET LOCK SCRIPT (ENHANCED)
+        function checkHash() {
             if(window.location.hash) {
                 const targetId = window.location.hash.substring(1);
                 const element = document.getElementById(targetId);
                 
                 if(element) {
                     element.scrollIntoView({ behavior: "smooth", block: "center" });
+                    // Reset class to re-trigger animation if clicked again
+                    element.classList.remove('target-lock');
+                    void element.offsetWidth; // trigger reflow
                     element.classList.add('target-lock');
                 }
             }
-        });
+        }
+
+        // Run on load
+        document.addEventListener("DOMContentLoaded", checkHash);
+        
+        // Run on hash change (if user clicks notes links while already on this page)
+        window.addEventListener('hashchange', checkHash);
     </script>
 
 </body>
