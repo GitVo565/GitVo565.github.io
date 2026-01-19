@@ -52,7 +52,13 @@
             padding-bottom: 20px; margin-bottom: 30px; 
         }
         h1 { margin: 0; font-size: 2em; letter-spacing: 1px; color: white; }
-        .subtitle { color: var(--accent-gold); font-weight: bold; font-size: 1.1em; text-transform: uppercase; margin-top: 5px; }
+        .subtitle { 
+            color: var(--accent-gold); 
+            font-weight: bold; 
+            font-size: 1.1em; 
+            font-style: italic;
+            margin-top: 5px; 
+        }
 
         /* --- THE WAR MAP (STRATEGY) --- */
         .roadmap-container {
@@ -130,15 +136,23 @@
         .activity strong { color: white; }
         .activity-note { display: block; font-size: 0.85em; color: #888; font-style: italic; margin-top: 2px; }
         
-        /* Hyperlinks for Workouts */
+        /* HIGH VISIBILITY LINKS */
         .workout-link { 
-            color: #fff; 
-            text-decoration: underline; 
-            text-decoration-color: var(--accent-gold);
-            font-weight: bold;
+            color: var(--accent-gold); 
+            text-decoration: none; 
+            font-weight: 800; /* Extra Bold */
+            background: rgba(243, 156, 18, 0.15); 
+            padding: 2px 6px;
+            border-radius: 4px;
+            border-bottom: 1px solid var(--accent-gold);
             transition: all 0.2s;
         }
-        .workout-link:hover { color: var(--accent-gold); }
+        .workout-link:hover { 
+            background: var(--accent-gold); 
+            color: #000; 
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.6);
+        }
 
         /* Empty Slot */
         .empty-slot { color: #555; font-style: italic; font-size: 0.9em; }
@@ -167,7 +181,7 @@
     
     <div class="header-section">
         <h1>Buck15 Training Directives</h1>
-        <div class="subtitle">Detailed Strategic Roadmap</div>
+        <div class="subtitle">"Hard work beats talent when talent doesn't work hard."</div>
     </div>
 
     <div class="roadmap-container">
@@ -201,7 +215,7 @@
     <div class="week-group">
         <div class="week-header">
             <span class="week-title">Current Week: Jan 19 - 25</span>
-            <span class="week-theme">Theme: The Reset (Grip & Posterior Chain)</span>
+            <span class="week-theme">Status: THE RESET (Posterior Chain & Grip)</span>
         </div>
 
         <div class="day-card border-lift">
@@ -216,18 +230,21 @@
                         <strong>THE LIFT:</strong> <a href="tacie_lifta_8zK3m.html" target="_blank" class="workout-link">LIFT A</a> + <a href="tacie_armor_9kL2p.html" target="_blank" class="workout-link">"THE ARMOR"</a>
                     </div>
                     <div class="activity">
-                        <strong>Includes:</strong> Deadlifts, Box Jumps, Nordics.
+                        <strong>Protocol:</strong> Posterior Chain (Deadlifts, Box Jumps, Nordics).
                     </div>
                     <div class="activity">
                         <strong>Armor (Grip Focus):</strong> Heavy DB Rows (3x8) + Farmer Carries (3x40yds).
-                        <span class="activity-note">Directive: "Go with Donald. Run 3 miles, then hit the Deadlifts and Farmer Carries. We are building the grip strength starting today to stop those cradles."</span>
+                        <span class="activity-note">Cue: "Crush the handle." Walk perfectly straight.</span>
+                    </div>
+                    <div class="activity">
+                        <span class="activity-note" style="color:var(--accent-gold);">Directive: "Go with Donald. Run 3 miles, then hit the Deadlifts and Farmer Carries. We are building the grip strength starting today to stop those cradles."</span>
                     </div>
                 </div>
                 <div class="time-col pm">
                     <span class="time-label pm-label">🌙 Evening</span>
                     <div class="activity">
-                        <strong>The Run:</strong> 3 Miles (Zone 2).
-                        <span class="activity-note">Conversational pace. Just get the blood moving.</span>
+                        <strong>The Run:</strong> 3 Miles (Warm-up / Flush).
+                        <span class="activity-note">Pace: Zone 2 (Conversational). Just get blood moving.</span>
                     </div>
                 </div>
             </div>
