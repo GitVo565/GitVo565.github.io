@@ -164,6 +164,13 @@
         .btn-insta { border-left: 5px solid #E1306C; }
         .btn-usab { border-left: 5px solid #2c3e50; } /* Dark Slate for USA Bracketing */
 
+        /* BUCK15 ANIMATION */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(243, 156, 18, 0.7); }
+            100% { box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4); }
+        }
+
         /* Footer */
         .footer-info { margin-top: 30px; padding-top: 10px; border-top: 1px solid #ddd; text-align: right; font-size: 0.75em; color: #999; }
 
@@ -204,13 +211,13 @@
         
         <div class="col-left">
             
-            <div class="card" style="border-top-color: #002f5d;">
+            <div class="card" style="border-top-color: #f39c12;">
                 <h3><span class="card-icon">🤼‍♀️</span>Current Season: Wrestling</h3>
                 <p style="font-size:0.9em; margin-bottom:15px; color:#555;">
-                    Follow match results, videos, and schedule for the 2026 Season.
+                    Follow match results, videos, and technique library for the 2026 Season.
                 </p>
-                <a href="tacie_wrestling_5fH3pK.html" class="link-btn btn-wrestling">
-                    <strong>👉 Go to Wrestling Hub</strong>
+                <a href="tacie_wrestling_5fH3pK.html" class="link-btn" style="background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%); border: 2px solid #f39c12; color: #f39c12; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; animation: pulseGlow 3s infinite; text-align:center;">
+                    🤼 Enter the Buck15 Battlezone 🦌
                 </a>
             </div>
 
