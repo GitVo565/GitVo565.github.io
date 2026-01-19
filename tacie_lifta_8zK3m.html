@@ -61,6 +61,14 @@
         h1 { margin: 0; font-size: 2em; letter-spacing: 1px; color: white; }
         .subtitle { color: var(--accent-gold); font-weight: bold; font-size: 1.1em; text-transform: uppercase; margin-top: 5px; }
 
+        /* Instructions Box */
+        .instruction-box {
+            background: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px; margin-bottom: 30px;
+            font-size: 0.95em; color: #ddd;
+        }
+
         /* Block Cards */
         .block-card {
             background: var(--card-bg);
@@ -103,11 +111,13 @@
         .note-title { color: var(--accent-gold); font-weight: bold; display: block; margin-bottom: 10px; }
         .note-list li { margin-bottom: 8px; font-size: 0.95em; color: #ddd; }
 
+        /* Footer */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; }
+
         @media (max-width: 600px) {
-            .ex-table thead { display: none; } /* Hide headers on mobile */
+            .ex-table thead { display: none; } 
             .ex-table tr { display: block; border-bottom: 2px solid #444; padding: 10px 0; }
             .ex-table td { display: block; padding: 5px 10px; border: none; }
-            .mobile-label { display: inline-block; font-weight: bold; color: #666; width: 80px; font-size: 0.8em; }
         }
     </style>
 </head>
@@ -126,6 +136,11 @@
     <a href="https://docs.google.com/spreadsheets/d/1pMNVkxcF-WdyLk8tW8JBkPE1jfRD4RzQgXiIpM0vwF4/edit?gid=741796260#gid=741796260" target="_blank" class="tracker-btn">
         📝 Open Tracker & Log Weights
     </a>
+
+    <div class="instruction-box">
+        <strong>⚡ SUPERSET INSTRUCTIONS:</strong><br>
+        Perform exercises in pairs (e.g., A1 then A2) with minimal rest between them. After finishing the second exercise, rest 60-90 seconds before starting the next round.
+    </div>
 
     <div class="block-card">
         <div class="block-header">
@@ -147,14 +162,13 @@
                         <span class="ex-name">A1. Hex Bar Deadlift</span>
                         <span class="ex-cues">Shin vertical, "coil" tension, don't lean back.</span>
                     </td>
-                    <td><span class="target-reps">x6 Reps</span></td>
+                    <td><span class="target-reps">x5 Reps</span></td>
                     <td>
-                        <span class="current-log">85 lbs x 6</span><br>
-                        <span style="font-size:0.8em; color:#888;">(Doing Normal DL)</span>
+                        <span class="current-log">85 lbs</span><br>
                     </td>
                     <td>
                         <div style="font-weight:bold; color:#e74c3c;">RPE 9</div>
-                        <a href="https://www.youtube.com/results?search_query=hex+bar+deadlift+form" target="_blank" class="demo-link">▶ Demo</a>
+                        <a href="https://www.youtube.com/watch?v=1jC_nqcSCp8" target="_blank" class="demo-link">▶ Demo</a>
                     </td>
                 </tr>
                 <tr>
@@ -165,8 +179,8 @@
                     <td><span class="target-reps">x5 / leg</span></td>
                     <td><span class="current-log">Bodyweight</span></td>
                     <td>
-                        <div style="font-weight:bold; color:#e74c3c;">RPE 8</div>
-                        <a href="https://www.youtube.com/results?search_query=single+leg+box+jump" target="_blank" class="demo-link">▶ Demo</a>
+                        <div style="font-weight:bold; color:#f39c12;">RPE 8</div>
+                        <a href="https://www.youtube.com/watch?v=LDU_yVvp7pA" target="_blank" class="demo-link">▶ Demo</a>
                     </td>
                 </tr>
             </tbody>
@@ -182,14 +196,14 @@
             <tbody>
                 <tr>
                     <td style="width:40%;">
-                        <span class="ex-name">B1. Single Leg RDL </span>
+                        <span class="ex-name">B1. Single Leg RDL</span>
                         <span class="ex-cues">Hips square to floor, flat back, slight knee bend.</span>
                     </td>
                     <td style="width:20%;"><span class="target-reps">x8 / leg</span></td>
-                    <td style="width:25%;"><span class="current-log">15 lbs / hand</span></td>
-                    <td style="width:15%;">
+                    <td style="width:25%;"><span class="current-log">15 lbs / leg</span></td>
+                    <td>
                         <div style="font-weight:bold; color:#e74c3c;">RPE 9</div>
-                        <a href="https://www.youtube.com/results?search_query=single+leg+rdl+form" target="_blank" class="demo-link">▶ Demo</a>
+                        <a href="https://www.youtube.com/watch?v=MsE_T9nAsSE" target="_blank" class="demo-link">▶ Demo</a>
                     </td>
                 </tr>
                 <tr>
@@ -198,10 +212,10 @@
                         <span class="ex-cues">Ribs down, core tight, full ROM.</span>
                     </td>
                     <td><span class="target-reps">x10 Reps</span></td>
-                    <td><span class="current-log">15 lbs / hand</span></td>
+                    <td><span class="current-log">15 lbs / arm</span></td>
                     <td>
                         <div style="font-weight:bold; color:#e74c3c;">RPE 10</div>
-                        <a href="https://www.youtube.com/results?search_query=standing+dumbbell+shoulder+press" target="_blank" class="demo-link">▶ Demo</a>
+                        <a href="https://www.youtube.com/watch?v=B-aVuyhvLHU" target="_blank" class="demo-link">▶ Demo</a>
                     </td>
                 </tr>
             </tbody>
@@ -222,9 +236,9 @@
                     </td>
                     <td style="width:20%;"><span class="target-reps">x8 / leg</span></td>
                     <td style="width:25%;"><span class="current-log">15 lbs / hand</span></td>
-                    <td style="width:15%;">
+                    <td>
                         <div style="font-weight:bold; color:#e74c3c;">RPE 9</div>
-                        <a href="https://www.youtube.com/results?search_query=dumbbell+reverse+lunge" target="_blank" class="demo-link">▶ Demo</a>
+                        <a href="https://www.youtube.com/shorts/J9MpoAQCjos" target="_blank" class="demo-link">▶ Demo</a>
                     </td>
                 </tr>
                 <tr>
@@ -233,10 +247,10 @@
                         <span class="ex-cues">Forceful quad squeeze at lockout.</span>
                     </td>
                     <td><span class="target-reps">x8 / leg</span></td>
-                    <td><span class="current-log">Complete</span></td>
+                    <td><span class="current-log">Bodyweight</span></td>
                     <td>
                         <div style="font-weight:bold; color:#f39c12;">RPE 7</div>
-                        <a href="https://www.youtube.com/results?search_query=terminal+knee+extension+band" target="_blank" class="demo-link">▶ Demo</a>
+                        <a href="https://www.youtube.com/shorts/nlrRVpZTTRI" target="_blank" class="demo-link">▶ Demo</a>
                     </td>
                 </tr>
             </tbody>
@@ -256,10 +270,10 @@
                         <span class="ex-cues">Straight line knee-to-head. Resist gravity.</span>
                     </td>
                     <td style="width:20%;"><span class="target-reps">x6-8 Reps</span></td>
-                    <td style="width:25%;"><span class="current-log">8 / 6 Reps</span></td>
-                    <td style="width:15%;">
+                    <td style="width:25%;"><span class="current-log">Bodyweight</span></td>
+                    <td>
                         <div style="font-weight:bold; color:#e74c3c;">RPE 10</div>
-                        <a href="https://www.youtube.com/results?search_query=nordic+hamstring+curl+progression" target="_blank" class="demo-link">▶ Demo</a>
+                        <a href="https://www.youtube.com/watch?v=FV91PGE_oUg" target="_blank" class="demo-link">▶ Demo</a>
                     </td>
                 </tr>
                 <tr>
@@ -268,10 +282,10 @@
                         <span class="ex-cues">Use support. Pull leg across body.</span>
                     </td>
                     <td><span class="target-reps">x12 / leg</span></td>
-                    <td><span class="current-log">x12 Reps</span></td>
+                    <td><span class="current-log">Bodyweight</span></td>
                     <td>
                         <div style="font-weight:bold; color:#e74c3c;">RPE 8</div>
-                        <a href="https://www.youtube.com/results?search_query=copenhagen+plank+progression" target="_blank" class="demo-link">▶ Demo</a>
+                        <a href="https://www.youtube.com/watch?v=PTeIHHKeWvM" target="_blank" class="demo-link">▶ Demo</a>
                     </td>
                 </tr>
             </tbody>
@@ -279,11 +293,11 @@
     </div>
 
     <div class="notes-section">
-        <span class="note-title">⚠️ Important Notes</span>
+        <span class="note-title">⚠️ Coach's Notes</span>
         <ul class="note-list">
             <li><strong>Rest:</strong> No set rest time. Focus on form over speed. Take what you need.</li>
             <li><strong>Progression:</strong> Master the movement first, then add weight. Lift barefoot if possible.</li>
-            <li><strong>Adjustments:</strong> Progress naturally by adding a few pounds each week.</li>
+            <li><strong>Adjustments:</strong> Progress naturally by adding a few pounds each week. Contact us if issues arise.</li>
         </ul>
     </div>
 
@@ -291,6 +305,50 @@
     <a href="https://docs.google.com/spreadsheets/d/1pMNVkxcF-WdyLk8tW8JBkPE1jfRD4RzQgXiIpM0vwF4/edit?gid=741796260#gid=741796260" target="_blank" class="tracker-btn" style="background:#333; border-color:#555;">
         📝 Back to Tracker
     </a>
+
+    <div class="block-card" style="border-left-color: #9b59b6;">
+        <div class="block-header" style="background: rgba(155, 89, 182, 0.2);">
+            <span class="block-title">BLOCK E: THE ARMOR 🛡️</span>
+            <span class="block-repeat">Grip & Back Focus</span>
+        </div>
+        <table class="ex-table">
+            <tbody>
+                <tr>
+                    <td style="width:40%;">
+                        <span class="ex-name">E1. Heavy DB Rows</span>
+                        <span class="ex-cues">Flat back. Drive elbow to hip. Anti-rotation.</span>
+                    </td>
+                    <td style="width:20%;"><span class="target-reps">x8 / arm</span></td>
+                    <td style="width:25%;"><span class="current-log">--</span></td>
+                    <td style="width:15%;">
+                        <div style="font-weight:bold; color:#e74c3c;">RPE 9</div>
+                        <a href="https://www.youtube.com/results?search_query=heavy+dumbbell+row+form" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:40%;">
+                        <span class="ex-name">E2. Farmer Carries</span>
+                        <span class="ex-cues">Ribs down. Squeeze handle hard. Perfect posture.</span>
+                    </td>
+                    <td style="width:20%;"><span class="target-reps">3 x 40yds</span></td>
+                    <td style="width:25%;"><span class="current-log">Heavy</span></td>
+                    <td style="width:15%;">
+                        <div style="font-weight:bold; color:#e74c3c;">RPE 10</div>
+                        <a href="https://www.youtube.com/results?search_query=farmers+carry+form" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated"></span>
+    </div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
 
 </body>
 </html>
