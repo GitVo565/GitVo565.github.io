@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lift B: Anterior</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        /* Theme Variables */
+        :root {
+            --bg-dark: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --text-light: #ecf0f1;
+            --accent-gold: #f39c12;
+            --accent-blue: #3498db;
+            --lift-green: #27ae60; 
+            --divider: #444;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: var(--bg-dark); 
+            color: var(--text-light); 
+        }
+        
+        /* Navigation */
+        .nav-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .back-btn { 
+            display: inline-block; background: var(--card-bg); padding: 8px 15px; 
+            text-decoration: none; color: var(--text-light); border-radius: 20px; 
+            border: 1px solid #444; font-size: 0.9em; 
+            transition: all 0.2s; 
+        }
+        .back-btn:hover { background: #444; }
+
+        /* Tracker Button (Prominent) */
+        .tracker-btn {
+            display: block; width: 100%; text-align: center;
+            background: linear-gradient(135deg, var(--lift-green), #219150);
+            color: white; font-weight: bold; padding: 15px;
+            border-radius: 8px; text-decoration: none;
+            margin-bottom: 30px; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+            border: 1px solid #2ecc71; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .tracker-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(39, 174, 96, 0.6); }
+
+        /* Header */
+        .header-section { 
+            border-bottom: 2px solid var(--accent-gold); 
+            padding-bottom: 20px; margin-bottom: 30px; 
+        }
+        h1 { margin: 0; font-size: 2em; letter-spacing: 1px; color: white; }
+        .subtitle { color: var(--accent-gold); font-weight: bold; font-size: 1.1em; text-transform: uppercase; margin-top: 5px; }
+
+        /* Block Cards */
+        .block-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--accent-blue); /* Blue for Anterior Distinction */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .block-header {
+            background: rgba(0,0,0,0.2);
+            padding: 10px 15px;
+            border-bottom: 1px solid #444;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .block-title { font-weight: 800; font-size: 1.1em; color: white; }
+        .block-repeat { font-size: 0.9em; color: #aaa; background: #333; padding: 2px 8px; border-radius: 4px; }
+
+        /* Exercise Table */
+        .ex-table { width: 100%; border-collapse: collapse; }
+        .ex-table th { text-align: left; background: #333; color: #ccc; font-size: 0.8em; padding: 10px; text-transform: uppercase; }
+        .ex-table td { padding: 15px 10px; border-bottom: 1px solid #444; vertical-align: top; }
+        .ex-table tr:last-child td { border-bottom: none; }
+
+        /* Text Styles */
+        .ex-name { display: block; font-weight: bold; color: white; font-size: 1.1em; margin-bottom: 4px; }
+        .ex-cues { display: block; font-size: 0.9em; color: #888; font-style: italic; margin-bottom: 8px; }
+        .target-reps { font-weight: bold; color: var(--accent-gold); }
+        .current-log { font-size: 0.9em; color: #eee; background: rgba(255,255,255,0.05); padding: 4px; border-radius: 4px; display: inline-block; margin-top: 5px;}
+        
+        .demo-link {
+            display: inline-block; font-size: 0.8em; color: var(--accent-blue);
+            text-decoration: none; border: 1px solid var(--accent-blue);
+            padding: 2px 8px; border-radius: 4px; margin-top: 5px;
+        }
+        .demo-link:hover { background: var(--accent-blue); color: white; }
+
+        /* Notes Section */
+        .notes-section { background: rgba(52, 152, 219, 0.1); border: 1px dashed var(--accent-blue); padding: 20px; border-radius: 8px; margin-top: 40px; }
+        .note-title { color: var(--accent-blue); font-weight: bold; display: block; margin-bottom: 10px; }
+        .note-list li { margin-bottom: 8px; font-size: 0.95em; color: #ddd; }
+
+        @media (max-width: 600px) {
+            .ex-table thead { display: none; } 
+            .ex-table tr { display: block; border-bottom: 2px solid #444; padding: 10px 0; }
+            .ex-table td { display: block; padding: 5px 10px; border: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-bar">
+        <a href="tacie_training_2pX4v.html" class="back-btn">← Training Directives</a>
+        <a href="tacie_wrestling_5fH3pK.html" class="back-btn">🤼 Wrestling Hub</a>
+    </div>
+
+    <div class="header-section">
+        <h1>LIFT B: Anterior</h1>
+        <div class="subtitle">Leg Strength & Athletic Power</div>
+    </div>
+
+    <a href="https://docs.google.com/spreadsheets/d/1pMNVkxcF-WdyLk8tW8JBkPE1jfRD4RzQgXiIpM0vwF4/edit?gid=741796260#gid=741796260" target="_blank" class="tracker-btn">
+        📝 Open Tracker & Log Weights
+    </a>
+
+    <div class="block-card">
+        <div class="block-header">
+            <span class="block-title">BLOCK A</span>
+            <span class="block-repeat">Repeat 4 Times</span>
+        </div>
+        <table class="ex-table">
+            <thead>
+                <tr>
+                    <th style="width:40%;">Exercise</th>
+                    <th style="width:20%;">Target</th>
+                    <th style="width:25%;">Last Logged</th>
+                    <th style="width:15%;">Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="ex-name">A1. Quarter Squats</span>
+                        <span class="ex-cues">Athletic depth (4-6"). Drive up explosively. Step off, don't jump down.</span>
+                    </td>
+                    <td><span class="target-reps">x6 Reps</span></td>
+                    <td><span class="current-log">125 lbs</span></td>
+                    <td>
+                        <div style="font-weight:bold; color:#f39c12;">RPE 7</div>
+                        <a href="https://www.youtube.com/results?search_query=quarter+squat+athletic" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="ex-name">A2. Depth Drops</span>
+                        <span class="ex-cues">Step off box. Land soft & stable. Absorb the force.</span>
+                    </td>
+                    <td><span class="target-reps">x6 Reps</span></td>
+                    <td><span class="current-log">Bodyweight</span></td>
+                    <td>
+                        <div style="font-weight:bold; color:#f39c12;">RPE 7</div>
+                        <a href="https://www.youtube.com/results?search_query=depth+drop+plyometric" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="block-card">
+        <div class="block-header">
+            <span class="block-title">BLOCK B</span>
+            <span class="block-repeat">Repeat 3 Times</span>
+        </div>
+        <table class="ex-table">
+            <tbody>
+                <tr>
+                    <td style="width:40%;">
+                        <span class="ex-name">B1. Bulgarian Split Squat</span>
+                        <span class="ex-cues">Rear foot on bench. Drop knee straight down. Hinge slightly.</span>
+                    </td>
+                    <td style="width:20%;"><span class="target-reps">x8 / leg</span></td>
+                    <td style="width:25%;"><span class="current-log">40 lbs</span></td>
+                    <td>
+                        <div style="font-weight:bold; color:#e74c3c;">RPE 9</div>
+                        <a href="https://www.youtube.com/results?search_query=bulgarian+split+squat+form" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="ex-name">B2. Banded Lat Pulldown</span>
+                        <span class="ex-cues">Straight arms. Hinge forward. Pull band to hips.</span>
+                    </td>
+                    <td><span class="target-reps">x15 Reps</span></td>
+                    <td><span class="current-log">Band</span></td>
+                    <td>
+                        <div style="font-weight:bold; color:#e74c3c;">RPE 10</div>
+                        <a href="https://www.youtube.com/results?search_query=straight+arm+banded+lat+pulldown" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="block-card">
+        <div class="block-header">
+            <span class="block-title">BLOCK C</span>
+            <span class="block-repeat">Repeat 3 Times</span>
+        </div>
+        <table class="ex-table">
+            <tbody>
+                <tr>
+                    <td style="width:40%;">
+                        <span class="ex-name">C1. Hip Thrusters</span>
+                        <span class="ex-cues">Bench under blades. Chin tucked. Drive heels. Squeeze glutes.</span>
+                    </td>
+                    <td style="width:20%;"><span class="target-reps">x8 Reps</span></td>
+                    <td style="width:25%;"><span class="current-log">30 lbs</span></td>
+                    <td>
+                        <div style="font-weight:bold; color:#e74c3c;">RPE 9</div>
+                        <a href="https://www.youtube.com/results?search_query=dumbbell+hip+thruster" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="ex-name">C2. Hamstring Sliders</span>
+                        <span class="ex-cues">Bridge hips high. Keep glutes squeezed. Control the slide.</span>
+                    </td>
+                    <td><span class="target-reps">x8 Reps</span></td>
+                    <td><span class="current-log">Bodyweight</span></td>
+                    <td>
+                        <div style="font-weight:bold; color:#e74c3c;">RPE 9.5</div>
+                        <a href="https://www.youtube.com/results?search_query=hamstring+slider+curls" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="block-card">
+        <div class="block-header">
+            <span class="block-title">BLOCK D</span>
+            <span class="block-repeat">Repeat 3 Times</span>
+        </div>
+        <table class="ex-table">
+            <tbody>
+                <tr>
+                    <td style="width:40%;">
+                        <span class="ex-name">D1. Single Leg Step-Ups</span>
+                        <span class="ex-cues">Box below knee. Push through front heel. "Tap" the floor.</span>
+                    </td>
+                    <td style="width:20%;"><span class="target-reps">x10 / leg</span></td>
+                    <td style="width:25%;"><span class="current-log">Bodyweight</span></td>
+                    <td>
+                        <div style="font-weight:bold; color:#f39c12;">RPE 8</div>
+                        <a href="https://www.youtube.com/results?search_query=single+leg+step+up+form" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="ex-name">D2. Banded Hip Abduction</span>
+                        <span class="ex-cues">Band around ankles. Stand tall. Lift leg to side.</span>
+                    </td>
+                    <td><span class="target-reps">x12 / leg</span></td>
+                    <td><span class="current-log">Band</span></td>
+                    <td>
+                        <div style="font-weight:bold; color:#f39c12;">RPE 8</div>
+                        <a href="https://www.youtube.com/results?search_query=standing+banded+hip+abduction" target="_blank" class="demo-link">▶ Demo</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="notes-section">
+        <span class="note-title">⚠️ Coach's Notes</span>
+        <ul class="note-list">
+            <li><strong>Rest:</strong> No set rest time. Focus on form over speed. Take what you need.</li>
+            <li><strong>Progression:</strong> Master the movement first, then add weight.</li>
+            <li><strong>Adjustments:</strong> Progress naturally by adding a few pounds each week.</li>
+        </ul>
+    </div>
+
+    <br>
+    <a href="https://docs.google.com/spreadsheets/d/1pMNVkxcF-WdyLk8tW8JBkPE1jfRD4RzQgXiIpM0vwF4/edit?gid=741796260#gid=741796260" target="_blank" class="tracker-btn" style="background:#333; border-color:#555;">
+        📝 Back to Tracker
+    </a>
+
+</body>
+</html>
