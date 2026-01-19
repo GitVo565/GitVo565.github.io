@@ -24,6 +24,7 @@
             --rest-grey: #7f8c8d;
             --morning-sky: #81ecec;
             --evening-indigo: #a29bfe;
+            --alert-red: #e74c3c;
         }
 
         body { 
@@ -209,6 +210,7 @@
         .activity { margin-bottom: 6px; font-size: 0.9em; line-height: 1.4; }
         .activity strong { color: white; }
         .activity-note { display: block; font-size: 0.85em; color: #888; font-style: italic; margin-top: 2px; }
+        .alert-text { color: var(--alert-red); font-weight: bold; text-transform: uppercase; }
         
         /* Links */
         .workout-link { 
@@ -271,15 +273,16 @@
                         </li>
                         <li class="phase-item active">
                             <span class="phase-date">Jan 19</span>
-                            <span class="phase-desc"><strong>"Sneak Attack" Week.</strong> Grip Strength.</span>
+                            <span class="phase-desc"><strong>"The Reset."</strong> Building Man Strength.</span>
+                            <span class="phase-badge" style="background:var(--accent-gold); color:black;">Current</span>
                         </li>
                         <li class="phase-item">
                             <span class="phase-date">Jan 26</span>
-                            <span class="phase-desc"><strong>The Gauntlet.</strong> Survival Mode.</span>
+                            <span class="phase-desc"><strong>The Gauntlet.</strong> Survival Mode (Double Header).</span>
                         </li>
                         <li class="phase-item">
                             <span class="phase-date">Feb 02</span>
-                            <span class="phase-desc"><strong>The Reload.</strong> Home Meet.</span>
+                            <span class="phase-desc"><strong>The Reload.</strong> Home Meet & Strength.</span>
                         </li>
                         <li class="phase-item">
                             <span class="phase-date">Feb 09</span>
@@ -324,8 +327,8 @@
 
                 <div class="week-group">
                     <div class="week-header">
-                        <span class="week-title">Current Week: Jan 19 - 25</span>
-                        <span class="week-theme">Status: THE RESET</span>
+                        <span class="week-title">Week 1: Jan 19 - Jan 25</span>
+                        <span class="week-theme">Theme: The Reset (Man Strength)</span>
                     </div>
 
                     <div class="day-card border-lift">
@@ -335,19 +338,23 @@
                         </div>
                         <div class="day-split">
                             <div class="time-col">
-                                <span class="time-label am-label">🌞 Morning / Day</span>
+                                <span class="time-label am-label">🌞 Lift + Armor</span>
                                 <div class="activity">
-                                    <strong>THE LIFT:</strong> <a href="tacie_lifta_8zK3m.html" target="_blank" class="workout-link">LIFT A</a> + <a href="tacie_armor_9kL2p.html" target="_blank" class="workout-link">"THE ARMOR"</a>
+                                    <strong><a href="tacie_lifta_8zK3m.html" target="_blank" class="workout-link">LIFT A (Posterior)</a>:</strong> Deadlift 3x5.
                                 </div>
                                 <div class="activity">
-                                    <strong>Armor:</strong> Heavy DB Rows + Farmer Carries.
-                                    <span class="activity-note">Cue: "Crush the handle." Go with Donald.</span>
+                                    <strong><a href="tacie_armor_9kL2p.html" target="_blank" class="workout-link">THE ARMOR</a>:</strong>
+                                    <ul>
+                                        <li>Heavy DB Rows (3x8/arm). <em>"Start the lawnmower."</em></li>
+                                        <li>Farmer Carries (3x40yds). <em>"Crush the handle."</em></li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="time-col">
-                                <span class="time-label pm-label">🌙 Evening</span>
+                                <span class="time-label pm-label">🌙 Run</span>
                                 <div class="activity">
-                                    <strong>Run:</strong> 3 Miles (Zone 2).
+                                    <strong>3 Miles (Zone 2).</strong>
+                                    <span class="activity-note">Go to 212 with Donald.</span>
                                 </div>
                             </div>
                         </div>
@@ -355,50 +362,135 @@
 
                     <div class="day-card border-run">
                         <div class="day-top-bar"><span class="day-name">TUESDAY</span><span class="day-date">Jan 20</span></div>
-                        <div class="day-split"><div class="time-col"><div class="activity"><strong>Run:</strong> 4 Miles + Practice.</div></div></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="time-label am-label">🌞 Aerobic Flush</span>
+                                <div class="activity">
+                                    <strong>4 Miles (Zone 2).</strong>
+                                    <span class="activity-note">Constraint: Must run AM due to Showcase.</span>
+                                </div>
+                                <div class="activity" style="margin-top:10px;">
+                                    <span class="alert-text">⚠️ STOP ALLERGY PILLS.</span>
+                                </div>
+                            </div>
+                            <div class="time-col">
+                                <span class="time-label pm-label">🌙 Practice</span>
+                                <div class="activity">Wrestling Practice.</div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="day-card border-run">
                         <div class="day-top-bar"><span class="day-name">WEDNESDAY</span><span class="day-date">Jan 21</span></div>
-                        <div class="day-split"><div class="time-col"><div class="activity"><strong>Run:</strong> 3 Miles (Recovery) + Practice.</div></div></div>
-                    </div>
-
-                    <div class="day-card border-lift">
-                        <div class="day-top-bar"><span class="day-name">THURSDAY</span><span class="day-date">Jan 22</span></div>
                         <div class="day-split">
                             <div class="time-col">
-                                <div class="activity"><strong>AM:</strong> Lift B (Squats). <strong>PM:</strong> 3.5 Miles.</div>
+                                <span class="time-label am-label">🌞 Recovery Run</span>
+                                <div class="activity"><strong>3 Miles (Recovery Pace).</strong></div>
+                            </div>
+                            <div class="time-col">
+                                <span class="time-label pm-label">🌙 Practice</span>
+                                <div class="activity">Wrestling Practice.</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="day-card border-rest">
+                        <div class="day-top-bar"><span class="day-name">THURSDAY</span><span class="day-date">Jan 22</span></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="time-label am-label">🌞 Sleep In</span>
+                                <div class="empty-slot">OFF. No heavy lifting. Save legs for DCE.</div>
+                            </div>
+                            <div class="time-col">
+                                <span class="time-label pm-label">🌙 Prep</span>
+                                <div class="activity">Wrestling Practice + Violin.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card border-meet">
                         <div class="day-top-bar"><span class="day-name">FRIDAY</span><span class="day-date">Jan 23</span></div>
-                        <div class="day-split"><div class="time-col"><div class="activity"><strong>Full Rest.</strong> Shakeout optional.</div></div></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="time-label am-label">🌞 Morning</span>
+                                <div class="empty-slot">OFF</div>
+                            </div>
+                            <div class="time-col">
+                                <span class="time-label pm-label">🌙 GAME DAY</span>
+                                <div class="activity"><strong>DCE Wrestling Invite (4:15 PM).</strong></div>
+                                <div class="activity-note">Directive: PEEL THE HANDS.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card border-rest">
+                        <div class="day-top-bar"><span class="day-name">WEEKEND</span><span class="day-date">Jan 24 - 25</span></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <strong>SAT:</strong> OFF. Eat & Sleep. (Recovery).
+                            </div>
+                            <div class="time-col">
+                                <strong>SUN:</strong> 3 Miles (Zone 1). Flush system for Marathon.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="week-group" style="opacity: 0.9;">
+                <div class="week-group" style="opacity: 0.95;">
                     <div class="week-header" style="background: linear-gradient(90deg, #2c3e50, #1a1a1a); border-left-color: var(--accent-blue);">
-                        <span class="week-title">Next Week: Jan 26 - Feb 1</span>
-                        <span class="week-theme" style="color:var(--accent-blue);">Theme: Survival Mode</span>
+                        <span class="week-title">Week 2: Jan 26 - Feb 1</span>
+                        <span class="week-theme" style="color:var(--accent-blue);">Theme: The Gauntlet (Survival Mode)</span>
                     </div>
 
                     <div class="day-card border-meet">
                         <div class="day-top-bar"><span class="day-name">MON, JAN 26</span><span class="day-date">Meet @ Marathon</span></div>
-                        <div class="day-split"><div class="time-col"><div class="activity">Compete (4:15 PM)</div></div></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="pm-label">🌙 Compete</span>
+                                <div class="activity"><strong>Match (4:15 PM).</strong> Cue: "Immediate Offense."</div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="day-card border-lift">
                         <div class="day-top-bar"><span class="day-name">TUE, JAN 27</span><span class="day-date">Flush & Armor</span></div>
-                        <div class="day-split"><div class="time-col"><div class="activity"><a href="tacie_armor_9kL2p.html" target="_blank" class="workout-link">UPPER ARMOR</a> + 3 Mile Flush</div></div></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="am-label">🌞 Upper Armor</span>
+                                <div class="activity">
+                                    <a href="tacie_armor_9kL2p.html" target="_blank" class="workout-link">UPPER ARMOR</a> (No Legs).
+                                    <span class="activity-note">Farmer Carries (Anti-Cradle) + Pull-Ups.</span>
+                                </div>
+                            </div>
+                            <div class="time-col">
+                                <span class="pm-label">🌙 Flush</span>
+                                <div class="activity">3 Miles (Zone 1). Clear lactic acid.</div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="day-card border-lift">
                         <div class="day-top-bar"><span class="day-name">WED, JAN 28</span><span class="day-date">Maintenance</span></div>
-                        <div class="day-split"><div class="time-col"><div class="activity"><a href="tacie_lifta_8zK3m.html" target="_blank" class="workout-link">LIFT A (Mod)</a> + 4 Miles</div></div></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="am-label">🌞 Lift A (Mod)</span>
+                                <div class="activity">Deadlift 3x3 (Speed) + Heavy Rows.</div>
+                            </div>
+                            <div class="time-col">
+                                <span class="pm-label">🌙 Aerobic</span>
+                                <div class="activity">4 Miles (Zone 2).</div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="day-card border-meet">
                         <div class="day-top-bar"><span class="day-name">FRI, JAN 30</span><span class="day-date">Meet @ Merrill</span></div>
-                        <div class="day-split"><div class="time-col"><div class="activity">Compete (4:15 PM)</div></div></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="pm-label">🌙 Compete</span>
+                                <div class="activity"><strong>Match (4:15 PM).</strong> Cue: "BREAK THE GRIP."</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
