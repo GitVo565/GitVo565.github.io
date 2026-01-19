@@ -131,6 +131,24 @@
         
         .up-desc { color: #ccc; font-size: 0.9em; }
 
+        /* Motto Box */
+        .motto-box {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(243, 156, 18, 0.1); 
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            text-align: center;
+            color: var(--accent-gold);
+            font-size: 1.2em;
+            font-weight: bold;
+            font-style: italic;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        .footer-info { margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; }
+
         @media (max-width: 768px) {
             .profile-header { flex-direction: column; text-align: center; }
             .upcoming-card { flex-direction: column; text-align: center; gap: 15px; }
@@ -152,10 +170,10 @@
     </div>
 
     <div class="action-bar">
-        <a href="wrestling_notes_3jX9s.html" class="action-btn">
+        <a href="wrestling_notes_3jX9s.html" class="action-btn" target="_blank">
             📝 Coach's Notebook
         </a>
-        <a href="wrestling_library_7hG4d.html" class="action-btn">
+        <a href="wrestling_library_7hG4d.html" class="action-btn" target="_blank">
             📚 Buck15 Technique Library
         </a>
         <a href="https://www.trackwrestling.com" target="_blank" class="action-btn">
@@ -218,9 +236,18 @@
         </table>
     </div>
 
-    <div style="margin-top: 40px; text-align: center; color: #666; font-size: 0.9em;">
-        <em>"A Loss is Only a Loss if you Don't Learn from It."</em>
+    <div class="motto-box">
+        "A Loss is Only a Loss if you Don't Learn from It."
     </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated"></span>
+    </div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
 
 </body>
 </html>
