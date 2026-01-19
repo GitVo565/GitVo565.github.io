@@ -19,6 +19,7 @@
             --accent-gold: #f39c12;
             --accent-blue: #3498db;
             --accent-purple: #9b59b6;
+            --accent-power: #e74c3c;
             --lift-green: #27ae60;
             --run-red: #e74c3c;
             --meet-gold: #f1c40f;
@@ -144,11 +145,14 @@
         .phase-desc { color: #eee; font-size: 0.9em; }
         
         /* LIBRARY LINKS */
+        .lib-section-title { font-size:0.8em; color:#888; text-transform:uppercase; margin-bottom:8px; margin-top:20px; letter-spacing: 1px;}
+        .lib-section-title:first-child { margin-top: 0; }
+
         .lib-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
         .lib-btn {
             background: #333; padding: 10px; border-radius: 6px; text-align: center;
             text-decoration: none; color: #ccc; font-size: 0.85em; border: 1px solid #444;
-            transition: all 0.2s; display: block;
+            transition: all 0.2s; display: flex; align-items: center; justify-content: center; min-height: 40px;
         }
         .lib-btn.active { 
             background: linear-gradient(135deg, var(--accent-blue), #2980b9); 
@@ -295,20 +299,22 @@
                 <div class="roadmap-container">
                     <span class="roadmap-title">📚 Protocol Library</span>
                     
-                    <div style="font-size:0.8em; color:#888; text-transform:uppercase; margin-bottom:8px;">Active Protocols</div>
+                    <div class="lib-section-title">Main Lifts</div>
                     <div class="lib-grid">
                         <a href="tacie_lifta_8zK3m.html" target="_blank" class="lib-btn active">🏋️ Lift A (Posterior)</a>
                         <a href="tacie_liftb_9sL4k.html" target="_blank" class="lib-btn active">🏋️ Lift B (Anterior)</a>
                         <a href="tacie_liftc_7jK2n.html" target="_blank" class="lib-btn active" style="background: linear-gradient(135deg, var(--accent-purple), #8e44ad); border-color: var(--accent-purple);">🏋️ Lift C (Structural)</a>
-                        <a href="tacie_armor_9kL2p.html" target="_blank" class="lib-btn active">🛡️ The Armor</a>
+                        <a href="tacie_liftd_3mP9q.html" target="_blank" class="lib-btn active" style="background: linear-gradient(135deg, var(--accent-power), #c0392b); border-color: var(--accent-power);">🏋️ Lift D (Power)</a>
                     </div>
 
-                    <div style="font-size:0.8em; color:#888; text-transform:uppercase; margin-bottom:8px; margin-top:20px;">In Development</div>
+                    <div class="lib-section-title">Focused Add-Ons</div>
                     <div class="lib-grid">
-                        <span class="lib-btn soon">Lift D (Hyper)</span>
-                        <span class="lib-btn soon">Mobility / AIS</span>
+                        <a href="tacie_armor_9kL2p.html" target="_blank" class="lib-btn active" style="grid-column: span 2;">🛡️ The Armor</a>
                     </div>
+
+                    <div class="lib-section-title">In Development</div>
                     <div class="lib-grid">
+                        <span class="lib-btn soon">Mobility / AIS</span>
                         <span class="lib-btn soon">Core A (Density)</span>
                         <span class="lib-btn soon">Core B (Oblique)</span>
                         <span class="lib-btn soon">Core C (Integr)</span>
@@ -395,7 +401,7 @@
                         </div>
                     </div>
 
-                    <div class="day-card border-lift">
+                    <div class="day-card border-rest">
                         <div class="day-top-bar"><span class="day-name">THURSDAY</span><span class="day-date">Jan 22</span></div>
                         <div class="day-split">
                             <div class="time-col">
