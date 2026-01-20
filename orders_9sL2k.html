@@ -33,19 +33,27 @@
         .task-desc { flex-grow: 1; }
         .priority { color: #c0392b; font-weight: bold; font-size: 0.8em; margin-left: 10px; }
         .task-divider { border: 0; height: 3px; background: #bdc3c7; margin: 0; }
-
-        /* Training Link Button */
-        .training-btn { 
-            display: flex; align-items: center; justify-content: center; width: 100%; 
-            background: #f39c12; color: #fff; text-decoration: none; padding: 15px; 
-            border-radius: 4px; font-weight: bold; text-transform: uppercase; 
-            margin-top: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
-            transition: all 0.2s;
-        }
-        .training-btn:hover { background: #d35400; transform: translateY(-2px); }
+        
+        /* Links inside tasks */
+        .task-link { color: #2980b9; text-decoration: none; font-weight: bold; }
+        .task-link:hover { text-decoration: underline; color: #e74c3c; }
 
         /* Instruction Box */
         .instruction-box { display: block; width: 100%; text-align: center; background: #3498db; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-top: 20px; box-sizing: border-box; }
+
+        /* Tool Grid */
+        .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px; }
+        .tool-btn {
+            display: block; text-align: center; padding: 10px; border-radius: 4px;
+            text-decoration: none; color: white; font-size: 0.85em; font-weight: bold;
+            transition: all 0.2s;
+        }
+        .tool-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* Brand Colors for Tools */
+        .btn-ms { background: #2b88d8; } /* Microsoft Blue */
+        .btn-apple { background: #333; } /* Apple Dark */
+        .btn-google { background: #4285f4; } /* Google Blue */
 
         /* Footer Info */
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
@@ -73,7 +81,7 @@
             <hr class="task-divider">
             <li class="task-item">
                 <span class="assignee">Donald</span>
-                <span class="task-desc">Housing Signup & Deposit.</span>
+                <span class="task-desc">Work with Housing and Admissions on Questions.</span>
                 <span class="priority">HIGH</span>
             </li>
             <li class="task-item">
@@ -98,8 +106,19 @@
             <hr class="task-divider">
             <li class="task-item">
                 <span class="assignee">Tacie</span>
+                <span class="task-desc">
+                    <a href="tacie_training_2pX4v.html" class="task-link">Execute Training Plan ➔</a>
+                </span>
+                <span class="priority">DAILY</span>
+            </li>
+            <li class="task-item">
+                <span class="assignee">Tacie</span>
                 <span class="task-desc">Plan Courses (coordinate w/ Parents & Advisors).</span>
                 <span class="priority">HIGH</span>
+            </li>
+            <li class="task-item">
+                <span class="assignee">Tacie</span>
+                <span class="task-desc">Develop a Violin Music Binder.</span>
             </li>
             <li class="task-item">
                 <span class="assignee">Tacie</span>
@@ -107,15 +126,24 @@
             </li>
         </ul>
         
-        <div class="instruction-box">📱 Text Family with questions when complete.</div>
+        <div class="instruction-box">Please text Family with updates.</div>
     </div>
 
-    <div class="card" style="border-left-color: #f39c12;">
-        <h3>🏃‍♀️ Training Operations</h3>
-        <p style="margin-top:0; font-size:0.9em;">Detailed daily workouts, lifting protocols, and run schedules are now located in the Training Headquarters.</p>
-        <a href="tacie_training_2pX4v.html" class="training-btn">
-            ACCESS TRAINING DIRECTIVES ➔
-        </a>
+    <div class="card" style="border-left-color: #9b59b6;">
+        <h3>🗂️ Get Organized</h3>
+        <p style="margin:0; font-size:0.9em; color:#666;">Quick access to cloud task managers.</p>
+        
+        <div class="tool-grid">
+            <a href="https://to-do.office.com/tasks/" target="_blank" class="tool-btn btn-ms">
+                Microsoft To Do
+            </a>
+            <a href="https://www.icloud.com/reminders" target="_blank" class="tool-btn btn-apple">
+                Apple Reminders
+            </a>
+            <a href="https://calendar.google.com/calendar/u/0/r/tasks" target="_blank" class="tool-btn btn-google">
+                Google Tasks
+            </a>
+        </div>
     </div>
 
     <div class="footer-info">
