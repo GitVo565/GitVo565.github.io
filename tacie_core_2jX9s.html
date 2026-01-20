@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Core Routines: A, B, C</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        /* Theme Variables */
+        :root {
+            --bg-dark: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --text-light: #ecf0f1;
+            --accent-gold: #f39c12;
+            --accent-core: #34495e; /* CORE NAVY THEME */
+            --accent-highlight: #3498db;
+            --divider: #444;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: var(--bg-dark); 
+            color: var(--text-light); 
+        }
+        
+        /* Navigation */
+        .nav-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .back-btn { 
+            display: inline-block; background: var(--card-bg); padding: 8px 15px; 
+            text-decoration: none; color: var(--text-light); border-radius: 20px; 
+            border: 1px solid #444; font-size: 0.9em; 
+            transition: all 0.2s; 
+        }
+        .back-btn:hover { background: #444; }
+
+        /* Header */
+        .header-section { 
+            border-bottom: 2px solid var(--accent-core); 
+            padding-bottom: 20px; margin-bottom: 30px; 
+        }
+        h1 { margin: 0; font-size: 2em; letter-spacing: 1px; color: white; }
+        .subtitle { color: var(--accent-highlight); font-weight: bold; font-size: 1.1em; text-transform: uppercase; margin-top: 5px; }
+
+        /* Intro Box */
+        .intro-box {
+            background: rgba(52, 73, 94, 0.3);
+            border-left: 4px solid var(--accent-highlight);
+            padding: 15px; margin-bottom: 30px;
+            font-size: 0.95em; color: #ddd;
+        }
+
+        /* Level Cards (A, B, C) */
+        .level-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 1px solid #444;
+            scroll-margin-top: 20px; /* For anchor linking */
+        }
+        .level-header {
+            background: linear-gradient(90deg, var(--accent-core), #2c3e50);
+            padding: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .level-title { font-weight: 800; font-size: 1.4em; color: white; }
+        .level-badge { font-size: 0.9em; background: rgba(0,0,0,0.3); color: #fff; padding: 4px 10px; border-radius: 4px; }
+
+        .level-content { padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .protocol-box { background: rgba(0,0,0,0.2); padding: 15px; border-radius: 6px; text-align: center; }
+        .protocol-time { font-size: 1.8em; font-weight: 900; color: var(--accent-highlight); display: block; line-height: 1; margin-bottom: 5px;}
+        .protocol-label { font-size: 0.85em; text-transform: uppercase; color: #aaa; letter-spacing: 1px; }
+
+        /* Exercise Library Section */
+        .lib-header { margin-top: 50px; border-bottom: 1px solid #555; padding-bottom: 10px; margin-bottom: 20px; }
+        .lib-title { font-size: 1.5em; color: white; font-weight: bold; }
+
+        /* Exercise List */
+        .ex-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        .ex-item { 
+            background: #252525; padding: 15px; border-radius: 6px; border: 1px solid #333;
+            transition: transform 0.2s;
+        }
+        .ex-item:hover { transform: translateY(-2px); border-color: #555; }
+
+        .ex-name { font-weight: bold; font-size: 1.05em; color: white; display: block; margin-bottom: 5px; }
+        .ex-cues { font-size: 0.85em; color: #aaa; display: block; line-height: 1.4; margin-bottom: 10px; }
+        
+        .video-btn {
+            display: inline-block; font-size: 0.8em; color: var(--accent-highlight);
+            text-decoration: none; border: 1px solid var(--accent-highlight);
+            padding: 2px 8px; border-radius: 4px; 
+        }
+        .video-btn:hover { background: var(--accent-highlight); color: white; }
+
+        /* Footer Spec */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; }
+
+        @media (max-width: 600px) {
+            .level-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-bar">
+        <a href="tacie_training_2pX4v.html" class="back-btn">← Training Directives</a>
+        <a href="tacie_wrestling_5fH3pK.html" class="back-btn">🤼 Wrestling Hub</a>
+    </div>
+
+    <div class="header-section">
+        <h1>Core Routines</h1>
+        <div class="subtitle">Strength • Stability • Endurance</div>
+    </div>
+
+    <div class="intro-box">
+        <strong>⚡ INSTRUCTIONS:</strong><br>
+        1. <strong>Ab Portion:</strong> Cycle through exercises from the "Ab Library" to fill the time.<br>
+        2. <strong>Plank Portion:</strong> Immediately hold plank variations to fill the time.<br>
+        3. <strong>Superset:</strong> Complete both portions back-to-back with minimal rest.
+    </div>
+
+    <div id="core-a" class="level-card">
+        <div class="level-header">
+            <span class="level-title">CORE A</span>
+            <span class="level-badge">Level 1</span>
+        </div>
+        <div class="level-content">
+            <div class="protocol-box">
+                <span class="protocol-time">4:00</span>
+                <span class="protocol-label">Ab Circuit</span>
+            </div>
+            <div class="protocol-box">
+                <span class="protocol-time">2:00</span>
+                <span class="protocol-label">Plank Hold</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="core-b" class="level-card">
+        <div class="level-header" style="background: linear-gradient(90deg, #2980b9, #34495e);">
+            <span class="level-title">CORE B</span>
+            <span class="level-badge">Level 2</span>
+        </div>
+        <div class="level-content">
+            <div class="protocol-box">
+                <span class="protocol-time">5:00</span>
+                <span class="protocol-label">Ab Circuit</span>
+            </div>
+            <div class="protocol-box">
+                <span class="protocol-time">3:00</span>
+                <span class="protocol-label">Plank Hold</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="core-c" class="level-card">
+        <div class="level-header" style="background: linear-gradient(90deg, #8e44ad, #34495e);">
+            <span class="level-title">CORE C</span>
+            <span class="level-badge">Level 3</span>
+        </div>
+        <div class="level-content">
+            <div class="protocol-box">
+                <span class="protocol-time">6:00</span>
+                <span class="protocol-label">Ab Circuit</span>
+            </div>
+            <div class="protocol-box">
+                <span class="protocol-time">4:00</span>
+                <span class="protocol-label">Plank Hold</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="lib-header">
+        <span class="lib-title">📚 Ab Exercises (Mix & Match)</span>
+    </div>
+    <ul class="ex-list">
+        <li class="ex-item">
+            <span class="ex-name">Dead Bugs</span>
+            <span class="ex-cues">Back flat. Opposite arm/leg extend. Knees at 90°.</span>
+            <a href="https://www.youtube.com/watch?v=g_BYB0R-4Ws" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Hollow Holds</span>
+            <span class="ex-cues">Lower back into floor. Lift shoulders/legs slightly. Hold.</span>
+            <a href="https://www.youtube.com/watch?v=xD8zGmxV7BI" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Reverse Crunches</span>
+            <span class="ex-cues">Lift hips off floor by curling knees to chest. Control down.</span>
+            <a href="https://www.youtube.com/watch?v=XY8KzdDcMFg" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Bicycle Crunches</span>
+            <span class="ex-cues">Twist torso. Elbow to opposite knee. Extend other leg.</span>
+            <a href="https://www.youtube.com/watch?v=1we3bh9uhqY" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Toe Touches</span>
+            <span class="ex-cues">Legs straight up. Reach hands to toes. Crunch up.</span>
+            <a href="https://www.youtube.com/watch?v=9iEI95-eZWk" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Leg Raises</span>
+            <span class="ex-cues">Hands under hips. Lift straight legs. Lower without arching.</span>
+            <a href="https://www.youtube.com/watch?v=Wp4BlxcFTkE" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Russian Twists</span>
+            <span class="ex-cues">Sit balanced. Twist torso side-to-side touching floor.</span>
+            <a href="https://www.youtube.com/watch?v=JyUqwkVpsi8" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Mountain Climbers</span>
+            <span class="ex-cues">Plank position. Drive knees to chest quickly.</span>
+            <a href="https://www.youtube.com/watch?v=i7fYCgfoyP0" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Flutter Kicks</span>
+            <span class="ex-cues">Legs low. Small quick kicks up and down. Back flat.</span>
+            <a href="https://www.youtube.com/watch?v=ANVdMDaYRts" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">V-Ups</span>
+            <span class="ex-cues">Lift torso and legs simultaneously to form V. Touch feet.</span>
+            <a href="https://www.youtube.com/watch?v=iP2fjvG0g3w" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+    </ul>
+
+    <div class="lib-header" style="margin-top:40px;">
+        <span class="lib-title">🧱 Plank Variations</span>
+    </div>
+    <ul class="ex-list">
+        <li class="ex-item">
+            <span class="ex-name">Standard Plank</span>
+            <span class="ex-cues">Forearms/toes. Straight line. Squeeze glutes/core.</span>
+            <a href="https://www.youtube.com/watch?v=3QZlgJ40LfU" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Side Plank (L/R)</span>
+            <span class="ex-cues">One forearm. Stack hips vertically. Straight line.</span>
+            <a href="https://www.youtube.com/watch?v=pitOuJxdyI0" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Plank Hip Dips</span>
+            <span class="ex-cues">Forearm plank. Rotate hips side to side. Engage obliques.</span>
+            <a href="https://www.youtube.com/watch?v=em4gADvYvMA" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Shoulder Taps</span>
+            <span class="ex-cues">High plank. Tap opposite shoulder. Minimize hip sway.</span>
+            <a href="https://www.youtube.com/watch?v=QOCn3_iOAro" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+        <li class="ex-item">
+            <span class="ex-name">Spider Plank</span>
+            <span class="ex-cues">High plank. Bring knee to outside elbow. Alternate.</span>
+            <a href="https://www.youtube.com/watch?v=ECrqk2QP09w" target="_blank" class="video-btn">▶ Demo</a>
+        </li>
+    </ul>
+
+    <div class="footer-info">
+        <span id="lastUpdated"></span>
+    </div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
+
+</body>
+</html>
