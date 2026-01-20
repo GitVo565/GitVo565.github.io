@@ -9,10 +9,6 @@
 
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <meta name="googlebot" content="noindex, nofollow">
-    <meta name="google-extended" content="noindex, nofollow">
-    <meta name="gptbot" content="noindex, nofollow">
-    <meta name="CCBot" content="noindex, nofollow">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
@@ -145,6 +141,20 @@
 
         .logistics-box { background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #34495e; font-size: 0.9em; margin-bottom: 15px; }
 
+        /* Weather Alert Box */
+        .weather-alert {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px dashed #c0392b;
+            color: #c0392b;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* CALENDAR SECTION */
         .cal-cta {
             font-size: 0.8em;
@@ -165,7 +175,6 @@
         .btn-apple { background: #333; }
         .btn-apple:hover { background: #000; }
         
-        /* New Bracket Button Style */
         .btn-bracket { background: #2c3e50; border: 1px solid #34495e; width: 100%; text-align: center; box-sizing: border-box; margin-bottom: 5px; }
         .btn-bracket:hover { background: #34495e; }
 
@@ -189,46 +198,6 @@
         <div class="card-top-flex">
             <div class="header-left">
                 <div class="title-badge-row">
-                    <h2>🤼 Multi-Team Meet @ Auburndale</h2>
-                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
-                </div>
-            </div>
-            <div class="header-right">
-                <div class="day-badge">Mon</div>
-                <div class="date-badge"><span class="month">Jan</span><span class="day">19</span></div>
-            </div>
-        </div>
-
-        <div class="time-loc-wrapper">
-            <a href="https://www.google.com/maps/search/?api=1&query=10629+North+Rd,+Auburndale,+WI+54412" target="_blank" class="map-link">📍 Auburndale High School</a>
-            <span class="separator">|</span>
-            <span class="time-nowrap">🕟 4:15 PM</span>
-        </div>
-
-        <p style="font-size:0.9em; margin-bottom:10px;">
-            <strong>Teams:</strong> Auburndale, Point (Ben/PJ), Mosinee, Pittsville, Stratford, Tri-County, WI Rapids.<br>
-            <em>Expect wrestling to last until approx 6:30-7:00 PM.</em>
-        </p>
-
-        <div class="logistics-box">
-            <strong>Logistics:</strong> Ben Release 2:30 | Bus 3:00 | Weigh-ins 3:30.<br>
-            <strong>Spectators:</strong> ~$5 Entry. Concessions likely available.
-        </div>
-        
-        <a href="https://www.usabracketing.com/events/a34bd500-2f19-4983-82ef-25de4f6eb051" target="_blank" class="action-btn btn-bracket">📊 View Event on USA Bracketing</a>
-
-        <div class="cal-cta">📅 Add to your calendar:</div>
-        <div class="btn-container">
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+Multi-Team+Wrestling+Meet&dates=20260119T161500/20260119T190000&location=10629+North+Rd,+Auburndale,+WI+54412&details=Teams:+Auburndale,+Point,+Mosinee,+Pittsville,+Stratford,+Tri-County,+WI+Rapids.+Bus+leaves+at+3:00pm." target="_blank" class="action-btn btn-google">Google</a>
-            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-19T16:15:00&enddt=2026-01-19T19:00:00&subject=Tacie+-+Multi-Team+Wrestling+Meet&location=10629+North+Rd,+Auburndale,+WI+54412" target="_blank" class="action-btn btn-outlook">Outlook</a>
-            <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - Multi-Team Wrestling Meet%0ADTSTART%3A20260119T161500%0ADTEND%3A20260119T190000%0ALOCATION%3A10629 North Rd\, Auburndale\, WI 54412%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
-        </div>
-    </div>
-
-    <div class="event-card type-sports">
-        <div class="card-top-flex">
-            <div class="header-left">
-                <div class="title-badge-row">
                     <h2>🤼 D.C. Everest Invite - JH/MS</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
@@ -245,7 +214,14 @@
             <span class="time-nowrap">🕟 4:15 PM</span>
         </div>
 
-        <p><em>Check back closer to the event for more details.</em></p>
+        <div class="weather-alert">
+            <span style="font-size:1.5em;">❄️</span>
+            <div>
+                <strong>WEATHER WATCH:</strong> Forecast is -7°F / -24°F.<br>
+                <em>Monitoring closely for potential cancellation or rescheduling.</em>
+            </div>
+        </div>
+
         <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:15 | PJ Release 2:30 | Bus 2:45</div>
         
         <div class="cal-cta">📅 Add to your calendar:</div>
