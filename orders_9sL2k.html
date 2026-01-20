@@ -34,22 +34,15 @@
         .priority { color: #c0392b; font-weight: bold; font-size: 0.8em; margin-left: 10px; }
         .task-divider { border: 0; height: 3px; background: #bdc3c7; margin: 0; }
 
-        /* Training Section */
-        .training-card { border-left-color: #f39c12; }
-        .workout-day { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .workout-day:last-child { border-bottom: none; }
-        
-        .day-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-        .day-label { font-weight: bold; color: #d35400; text-transform: uppercase; font-size: 0.9em; }
-        
-        /* Lift Status Indicators */
-        .lift-status { font-weight: bold; font-size: 0.8em; padding: 2px 8px; border-radius: 4px; }
-        .lift-yes { background: #27ae60; color: white; }
-        .lift-no { background: #bdc3c7; color: #555; }
-
-        .workout-detail { background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95em; }
-        .workout-note { font-style: italic; color: #7f8c8d; font-size: 0.9em; margin-top: 5px; display: block; }
-        .special-focus { color: #c0392b; font-weight: bold; }
+        /* Training Link Button */
+        .training-btn { 
+            display: flex; align-items: center; justify-content: center; width: 100%; 
+            background: #f39c12; color: #fff; text-decoration: none; padding: 15px; 
+            border-radius: 4px; font-weight: bold; text-transform: uppercase; 
+            margin-top: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+            transition: all 0.2s;
+        }
+        .training-btn:hover { background: #d35400; transform: translateY(-2px); }
 
         /* Instruction Box */
         .instruction-box { display: block; width: 100%; text-align: center; background: #3498db; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-top: 20px; box-sizing: border-box; }
@@ -102,23 +95,11 @@
                 <span class="task-desc">Insurance Verification: Food Challenge Coverage.</span>
                 <span class="priority">HIGH</span>
             </li>
-            <li class="task-item">
-                <span class="assignee">Tonya</span>
-                <span class="task-desc">Resolve Tacie hair conflict.</span>
-            </li>
-            <li class="task-item">
-                <span class="assignee">Tonya</span>
-                <span class="task-desc">Order/Check Fridge Filters.</span>
-            </li>
             <hr class="task-divider">
             <li class="task-item">
                 <span class="assignee">Tacie</span>
                 <span class="task-desc">Plan Courses (coordinate w/ Parents & Advisors).</span>
                 <span class="priority">HIGH</span>
-            </li>
-            <li class="task-item">
-                <span class="assignee">Tacie</span>
-                <span class="task-desc">Set Violin Instruction expectations (New Teacher).</span>
             </li>
             <li class="task-item">
                 <span class="assignee">Tacie</span>
@@ -129,74 +110,12 @@
         <div class="instruction-box">📱 Text Family with questions when complete.</div>
     </div>
 
-    <div class="card training-card">
-        <h3>🏃‍♀️ Training Orders: Tacie <span style="font-size:0.7em; color:#7f8c8d;">Jan 19 - Jan 23</span></h3>
-        
-        <div class="workout-day">
-            <div class="day-header">
-                <span class="day-label">MONDAY, JAN 19 (TODAY)</span>
-                <span class="lift-status lift-yes">LIFT A + ARMOR</span>
-            </div>
-            <div class="workout-detail">
-                <strong>Status:</strong> THE RESET (POSTERIOR CHAIN & GRIP)<br>
-                <strong>The Run:</strong> 3 Miles @ Zone 2 (Conversational). Just get blood moving.<br>
-                <strong>The Lift:</strong> Deadlift (3x5), DB Rows (3x8).<br>
-                <strong>"The Armor":</strong> Farmer Carries (3x40 yds). Squeeze hard. Walk without slumping.<br>
-                <span class="workout-note">Directive: Go with Donald. We are building the grip strength to stop those cradles starting TODAY.</span>
-            </div>
-        </div>
-
-        <div class="workout-day">
-            <div class="day-header">
-                <span class="day-label">TUESDAY, JAN 20</span>
-                <span class="lift-status lift-no">Morning Lift: NO</span>
-            </div>
-            <div class="workout-detail">
-                <strong>Status:</strong> AEROBIC WORK<br>
-                <strong>The Run:</strong> 4 Miles (Zone 2).<br>
-                <strong>Wrestling:</strong> Practice.<br>
-                <span class="workout-note">Why: Rebuilding the engine. Consistent, steady work.</span>
-            </div>
-        </div>
-
-        <div class="workout-day">
-            <div class="day-header">
-                <span class="day-label">WEDNESDAY, JAN 21</span>
-                <span class="lift-status lift-no">Morning Lift: NO</span>
-            </div>
-            <div class="workout-detail">
-                <strong>Status:</strong> RECOVERY RUN<br>
-                <strong>The Run:</strong> 3 Miles (Recovery Pace).<br>
-                <strong>Wrestling:</strong> Practice.<br>
-                <span class="workout-note">Directive: Keep it slow. Save energy for the mat room.</span>
-            </div>
-        </div>
-
-        <div class="workout-day">
-            <div class="day-header">
-                <span class="day-label">THURSDAY, JAN 22</span>
-                <span class="lift-status lift-yes">LIFT B (SQUATS)</span>
-            </div>
-            <div class="workout-detail">
-                <strong>Status:</strong> LEG DAY<br>
-                <strong>The Lift:</strong> Squats (3x5), Step-Ups.<br>
-                <strong>The Run:</strong> 3 Miles (Zone 2).<br>
-                <span class="workout-note">Why: Back to the standard strength cycle.</span>
-            </div>
-        </div>
-
-        <div class="workout-day">
-            <div class="day-header">
-                <span class="day-label">FRIDAY, JAN 23</span>
-                <span class="lift-status lift-no">REST</span>
-            </div>
-            <div class="workout-detail">
-                <strong>Status:</strong> SHAKEOUT / REST<br>
-                <strong>The Run:</strong> Optional Shakeout or Full Rest.<br>
-                <span class="workout-note">Directive: Absorb the week's work.</span>
-            </div>
-        </div>
-
+    <div class="card" style="border-left-color: #f39c12;">
+        <h3>🏃‍♀️ Training Operations</h3>
+        <p style="margin-top:0; font-size:0.9em;">Detailed daily workouts, lifting protocols, and run schedules are now located in the Training Headquarters.</p>
+        <a href="tacie_training_2pX4v.html" class="training-btn">
+            ACCESS TRAINING DIRECTIVES ➔
+        </a>
     </div>
 
     <div class="footer-info">
