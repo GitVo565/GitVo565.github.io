@@ -51,6 +51,16 @@
         }
         .tool-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
+        /* Message Board Button */
+        .msg-btn {
+            display: flex; align-items: center; justify-content: center; width: 100%;
+            background: #27ae60; color: #fff; text-decoration: none; padding: 15px;
+            border-radius: 4px; font-weight: bold; text-transform: uppercase;
+            margin-top: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.2s; box-sizing: border-box;
+        }
+        .msg-btn:hover { background: #219150; transform: translateY(-2px); }
+
         /* Brand Colors for Tools */
         .btn-ms { background: #2b88d8; } /* Microsoft Blue */
         .btn-apple { background: #333; } /* Apple Dark */
@@ -68,6 +78,19 @@
     <div class="hq-header">
         <h1>Command Center</h1>
         <div class="subtitle">Official Orders & Directives</div>
+    </div>
+
+    <div class="card" style="border-left-color: #27ae60;">
+        <h3>📢 Family Message Board</h3>
+        <p style="margin-top:0; font-size:0.9em; color:#333;">
+            Interact, share notes, provide updates, and give feedback.
+        </p>
+        <a href="https://docs.google.com/document/d/1lcUVfAKbo-JDe7-N5hlTX3M8L0RMa9XNE-24-aA1q_8/edit?usp=sharing" target="_blank" class="msg-btn">
+            OPEN MESSAGE BOARD ➔
+        </a>
+        <div style="margin-top:15px; font-size:0.85em; color:#7f8c8d; border-top:1px solid #ddd; padding-top:10px;">
+            🔒 <strong>Access Restricted:</strong> Family only. Contact Dan if you need access.
+        </div>
     </div>
 
     <div class="card">
