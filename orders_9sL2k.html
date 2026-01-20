@@ -39,8 +39,13 @@
         .task-link { color: #2980b9; text-decoration: none; font-weight: bold; }
         .task-link:hover { text-decoration: underline; color: #e74c3c; }
 
-        /* Instruction Box */
-        .instruction-box { display: block; width: 100%; text-align: center; background: #3498db; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-top: 20px; box-sizing: border-box; }
+        /* Update Link (Subtle) */
+        .update-link { 
+            display: block; text-align: center; margin-top: 20px; padding-top: 15px; 
+            border-top: 1px solid #ddd; font-size: 0.9em; color: #7f8c8d; 
+            text-decoration: none; transition: color 0.2s;
+        }
+        .update-link:hover { color: #27ae60; text-decoration: underline; }
 
         /* Tool Grid */
         .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px; }
@@ -78,19 +83,6 @@
     <div class="hq-header">
         <h1>Command Center</h1>
         <div class="subtitle">Official Orders & Directives</div>
-    </div>
-
-    <div class="card" style="border-left-color: #27ae60;">
-        <h3>📢 Family Message Board</h3>
-        <p style="margin-top:0; font-size:0.9em; color:#333;">
-            Interact, share notes, provide updates, and give feedback.
-        </p>
-        <a href="https://docs.google.com/document/d/1lcUVfAKbo-JDe7-N5hlTX3M8L0RMa9XNE-24-aA1q_8/edit?usp=sharing" target="_blank" class="msg-btn">
-            OPEN MESSAGE BOARD ➔
-        </a>
-        <div style="margin-top:15px; font-size:0.85em; color:#7f8c8d; border-top:1px solid #ddd; padding-top:10px;">
-            🔒 <strong>Access Restricted:</strong> Family only. Contact Dan if you need access.
-        </div>
     </div>
 
     <div class="card">
@@ -150,7 +142,22 @@
             </li>
         </ul>
         
-        <div class="instruction-box">Please post task updates to the Family Message Board.</div>
+        <a href="https://docs.google.com/document/d/1lcUVfAKbo-JDe7-N5hlTX3M8L0RMa9XNE-24-aA1q_8/edit?usp=sharing" target="_blank" class="update-link">
+            📝 Please post task updates to the Family Message Board
+        </a>
+    </div>
+
+    <div class="card" style="border-left-color: #27ae60;">
+        <h3>📢 Family Message Board</h3>
+        <p style="margin-top:0; font-size:0.9em; color:#333;">
+            Interact, share notes, provide updates, and give feedback.
+        </p>
+        <a href="https://docs.google.com/document/d/1lcUVfAKbo-JDe7-N5hlTX3M8L0RMa9XNE-24-aA1q_8/edit?usp=sharing" target="_blank" class="msg-btn">
+            OPEN MESSAGE BOARD ➔
+        </a>
+        <div style="margin-top:15px; font-size:0.85em; color:#7f8c8d; border-top:1px solid #ddd; padding-top:10px;">
+            🔒 <strong>Access Restricted:</strong> Family only. Contact Dan if you need access.
+        </div>
     </div>
 
     <div class="card" style="border-left-color: #9b59b6;">
@@ -174,10 +181,4 @@
         <span id="lastUpdated"></span>
     </div>
 
-    <script>
-        var date = new Date(document.lastModified);
-        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    </script>
-
-</body>
-</html>
+    <script
