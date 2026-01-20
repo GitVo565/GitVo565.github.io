@@ -97,6 +97,13 @@
             font-weight: 600;
         }
         .map-link:hover { color: #d35400; border-bottom: 1px solid #d35400; }
+        
+        /* Plain Location Text (No Link) */
+        .loc-text {
+            color: #2c3e50;
+            font-weight: 600;
+            cursor: default;
+        }
 
         /* Unbreakable Time */
         .time-nowrap { white-space: nowrap; }
@@ -433,7 +440,7 @@
         </div>
 
         <div class="time-loc-wrapper">
-            <a href="https://www.google.com/maps/search/?api=1&query=565+S+Prais+St,+Stevens+Point,+WI" target="_blank" class="map-link">📍 Our Home</a>
+            <span class="loc-text">📍 Voetberg Home</span>
             <span class="separator">|</span>
             <span class="time-nowrap">🕛 12:00 PM - 10:00 PM</span>
         </div>
