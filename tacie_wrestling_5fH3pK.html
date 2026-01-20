@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tacie "Buck15" Battlezone</title>
+    <title>The Buck15 Battlezone</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -38,11 +38,11 @@
             background-size: cover;
         }
         
-        /* Overlay to ensure readability if image is bright spots */
+        /* Overlay to ensure readability */
         body::before {
             content: "";
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7); /* Darkening overlay */
+            background: rgba(0, 0, 0, 0.75); /* Strong darkening overlay */
             z-index: -1;
         }
         
@@ -58,29 +58,38 @@
 
         /* Header Branding */
         .profile-header { 
-            background: var(--card-bg); 
+            background: rgba(28, 28, 28, 0.95); 
             padding: 25px; 
             border-radius: 12px; 
-            border-left: 6px solid var(--accent-gold);
+            border-left: 6px solid var(--accent-red);
             display: flex; 
             align-items: center; 
             gap: 20px;
             margin-bottom: 40px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
         }
         
         .profile-img { 
             width: 80px; height: 80px; 
             border-radius: 50%; 
-            border: 3px solid var(--accent-gold); 
+            border: 3px solid var(--accent-red); 
             object-fit: cover; 
         }
         
-        .header-content h1 { margin: 0; font-size: 2em; color: white; text-shadow: 0 2px 4px black; }
+        .header-content h1 { 
+            margin: 0; 
+            font-size: 2.2em; 
+            color: white; 
+            text-shadow: 0 2px 4px black; 
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         .nickname { color: var(--accent-gold); font-style: italic; }
         .header-content p { margin: 5px 0 0 0; color: #aaa; font-size: 0.95em; }
 
-        /* --- TACTICAL UPLINK (Formerly Battle Zone Section) --- */
+        /* --- TACTICAL UPLINK (KEY LINKS) --- */
         .uplink-section {
             margin-bottom: 40px;
         }
@@ -135,7 +144,7 @@
         }
 
         /* Match Table */
-        .table-container { overflow-x: auto; background: var(--card-bg); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .table-container { overflow-x: auto; background: rgba(28, 28, 28, 0.95); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
         table { width: 100%; border-collapse: collapse; min-width: 600px; }
         
         th { text-align: left; padding: 15px; background: #333; color: #ccc; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #444; }
@@ -157,7 +166,7 @@
 
         /* Upcoming Event Card */
         .upcoming-card { 
-            background: linear-gradient(135deg, #2c3e50 0%, #000 100%);
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
             padding: 20px; border-radius: 8px; border: 1px solid #444;
             display: flex; justify-content: space-between; align-items: center;
             margin-bottom: 40px;
@@ -174,7 +183,7 @@
         .motto-box {
             margin-top: 40px;
             padding: 20px;
-            background: rgba(243, 156, 18, 0.1); 
+            background: rgba(28, 28, 28, 0.9); /* Opaque for readability */
             border: 1px solid var(--accent-gold);
             border-radius: 8px;
             text-align: center;
@@ -183,7 +192,6 @@
             font-weight: bold;
             font-style: italic;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            background: rgba(28, 28, 28, 0.9); /* Darker BG for readability */
         }
 
         /* Footer */
@@ -205,7 +213,7 @@
     <div class="profile-header">
         <img src="tacie_run.jpg" alt="Buck15" class="profile-img">
         <div class="header-content">
-            <h1>Tacie <span class="nickname">"Buck15"</span> Voetberg 🦌</h1>
+            <h1>The Buck15 Battlezone</h1>
             <p>Stevens Point Wrestling | 114 lbs | Class of 2031</p>
         </div>
     </div>
