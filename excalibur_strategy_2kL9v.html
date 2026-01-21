@@ -149,6 +149,9 @@
         .action-red { color: var(--accent-red); }
         .action-yellow { color: var(--accent-gold); }
 
+        /* Footer Spec */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; }
+
         @media (max-width: 768px) {
             .sop-grid { grid-template-columns: 1fr; }
             .proto-grid { grid-template-columns: 1fr; }
@@ -389,7 +392,7 @@
         <h3>🛑 The "Wrestling Filter" (Adjustment Logic)</h3>
         <div class="logic-row">
             <span class="logic-scenario">Scenario A: "The Grinder" (Hard Practice)</span>
-            <span class="logic-action action-red">CANCEL Run &gt; 3mi. Switch to Flush/Off.</span>
+            <span class="logic-action action-red">CANCEL Run > 3mi. Switch to Flush/Off.</span>
         </div>
         <div class="logic-row">
             <span class="logic-scenario">Scenario B: "The Drill" (Tech Practice)</span>
@@ -400,7 +403,7 @@
             <span class="logic-action action-yellow">MODIFY (Bike).</span>
         </div>
         <div class="logic-row" style="border-bottom:none;">
-            <span class="logic-scenario">Scenario D: "The Injury" (Pain &gt; 3/10)</span>
+            <span class="logic-scenario">Scenario D: "The Injury" (Pain > 3/10)</span>
             <span class="logic-action action-red">FULL STOP. Immune Protocol.</span>
         </div>
     </div>
@@ -413,6 +416,15 @@
             <li><strong>PM/AM Split:</strong> School Days = AM Lifts, PM Runs (unless blocked).</li>
         </ul>
     </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated">Loading...</span>
+    </div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
 
 </body>
 </html>
