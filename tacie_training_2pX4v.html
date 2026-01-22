@@ -39,6 +39,7 @@
             margin: 0 auto; 
             background: var(--bg-dark); 
             color: var(--text-light); 
+            scroll-behavior: smooth; /* Smooth scrolling for the jump button */
         }
 
         /* Main Content Container */
@@ -50,6 +51,7 @@
         
         /* Navigation */
         .nav-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;}
+        
         .back-btn { 
             display: inline-block; background: rgba(44, 44, 44, 0.8); padding: 8px 15px; 
             text-decoration: none; color: var(--text-light); border-radius: 20px; 
@@ -58,6 +60,16 @@
             backdrop-filter: blur(5px);
         }
         .back-btn:hover { background: #444; }
+        
+        /* NEW JUMP BUTTON STYLE */
+        .jump-btn {
+            background: var(--accent-gold);
+            color: black !important;
+            font-weight: 900;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.4);
+        }
+        .jump-btn:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(243, 156, 18, 0.8); }
         
         .strat-btn {
             border-color: var(--accent-gold);
@@ -199,6 +211,7 @@
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
+            scroll-margin-top: 20px; /* Offset for scroll to element */
         }
         
         /* DYNAMIC TODAY HIGHLIGHT */
@@ -282,6 +295,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="nav-bar">
+                <a href="#today-target" class="back-btn jump-btn">📍 JUMP TO TODAY</a>
                 <a href="tacie_6nQ1s.html" class="back-btn">← Tacie's Profile</a>
                 <a href="tacie_wrestling_5fH3pK.html" class="back-btn">🤼 Wrestling Hub</a>
                 <a href="excalibur_strategy_2kL9v.html" class="back-btn strat-btn">👁️ VIEW MASTER STRATEGY</a>
@@ -617,6 +631,7 @@
                     // This handles "Jan 24 - 25" correctly by matching "24" or "25"
                     if (numbers.includes(String(currentDay))) {
                         card.classList.add('today-active');
+                        card.id = 'today-target'; // Assign ID for the Jump Button
                         
                         // Add Badge
                         const nameSpan = card.querySelector('.day-name');
