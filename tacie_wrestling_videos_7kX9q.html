@@ -24,16 +24,25 @@
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            padding: 20px; 
-            line-height: 1.6; 
-            max-width: 1200px; 
-            margin: 0 auto; 
+            padding: 0; 
+            margin: 0;
             background: var(--bg-cinema); 
             color: var(--text-light); 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
         /* Navigation */
-        .nav-bar { display: flex; gap: 10px; margin-bottom: 30px; }
+        .top-nav { 
+            background: #111; 
+            padding: 15px 20px; 
+            border-bottom: 2px solid var(--accent-red);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            flex-shrink: 0;
+        }
         .back-btn { 
             display: inline-block; background: #222; padding: 8px 15px; 
             text-decoration: none; color: #ccc; border-radius: 20px; 
@@ -41,28 +50,68 @@
             transition: all 0.2s; 
         }
         .back-btn:hover { background: #444; color: white; }
+        
+        h1 { margin: 0; font-size: 1.5em; letter-spacing: 2px; color: white; text-transform: uppercase; text-shadow: 0 0 10px var(--accent-red); }
 
-        /* Header */
-        .header-section { 
-            text-align: center;
-            border-bottom: 2px solid var(--accent-red); 
-            padding-bottom: 20px; margin-bottom: 40px; 
+        /* MAIN LAYOUT */
+        .cinema-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden; /* Prevent body scroll */
         }
-        h1 { margin: 0; font-size: 2.5em; letter-spacing: 3px; color: white; text-transform: uppercase; text-shadow: 0 0 10px var(--accent-red); }
-        .subtitle { color: #888; font-weight: bold; font-size: 1em; text-transform: uppercase; margin-top: 5px; letter-spacing: 2px; }
 
-        /* Video Grid */
-        .video-category { margin-bottom: 50px; }
+        /* SIDEBAR INDEX */
+        .sidebar {
+            width: 250px;
+            background: #0a0a0a;
+            border-right: 1px solid #333;
+            padding: 20px;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        .index-title {
+            color: var(--accent-gold);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            display: block;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        .index-link {
+            display: block;
+            color: #888;
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: all 0.2s;
+        }
+        .index-link:hover { background: #222; color: white; padding-left: 15px; }
+        .index-link.active { background: rgba(231, 76, 60, 0.1); color: var(--accent-red); border-left: 3px solid var(--accent-red); }
+
+        /* VIDEO CONTENT AREA */
+        .content-area {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto; /* Scrollable area */
+        }
+
+        /* Video Categories */
+        .video-category { margin-bottom: 60px; scroll-margin-top: 20px; } /* scroll-margin for anchor links */
+        
         .category-title { 
-            font-size: 1.5em; color: var(--accent-gold); font-weight: 900; 
+            font-size: 1.8em; color: var(--accent-gold); font-weight: 900; 
             border-left: 5px solid var(--accent-red); padding-left: 15px; 
-            margin-bottom: 20px; text-transform: uppercase; 
+            margin-bottom: 25px; text-transform: uppercase; 
         }
 
         .video-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 30px; 
         }
 
         /* CARD SIZING FIXES */
@@ -72,17 +121,13 @@
             overflow: hidden;
             border: 1px solid #333;
             transition: transform 0.2s;
-            /* Prevent massive stretching */
             width: 100%;
             max-width: 700px; 
-            margin: 0 auto; /* Center in grid cell */
+            margin: 0 auto;
         }
         .video-card:hover { transform: scale(1.02); border-color: var(--accent-red); }
 
-        /* Specific modifier for Shorts to keep them phone-sized */
-        .shorts-card {
-            max-width: 350px !important;
-        }
+        .shorts-card { max-width: 350px !important; }
 
         .video-container {
             position: relative;
@@ -96,7 +141,6 @@
             border: 0;
         }
 
-        /* Shorts Container (Taller) */
         .shorts-container {
             position: relative;
             padding-bottom: 177%; /* 9:16 Aspect Ratio */
@@ -114,91 +158,115 @@
         .video-desc { font-size: 0.85em; color: #aaa; }
 
         /* Footer Spec */
-        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; }
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; padding-bottom: 20px;}
 
-        @media (max-width: 768px) {
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 800px) {
+            .cinema-container { flex-direction: column; overflow-y: auto; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #333; height: auto; padding: 10px; }
+            .index-link { display: inline-block; width: 45%; margin-right: 2%; } /* Multi-col links on mobile */
+            .content-area { padding: 15px; overflow-y: visible; }
             .video-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="nav-bar">
-        <a href="tacie_wrestling_5fH3pK.html" class="back-btn">← Wrestling Hub</a>
-        <a href="tacie_training_2pX4v.html" class="back-btn">📋 Training Log</a>
-    </div>
-
-    <div class="header-section">
+    <div class="top-nav">
         <h1>Buck15 Cinema</h1>
-        <div class="subtitle">The Film Room: Study Greatness</div>
-    </div>
-
-    <div class="video-category">
-        <div class="category-title">🏆 NCAA Championships (The Pinnacle)</div>
-        <div class="video-grid">
-            
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/zETjp6Dmbpk" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-title">Spencer Lee vs Nick Suriano (2018)</span>
-                    <span class="video-desc">NCAA Finals 125 lbs. Absolute grinder match between two legends.</span>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/epXN_WwO6cY" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-title">2025 NCAA Finals (Full Replay)</span>
-                    <span class="video-desc">Watch the entire broadcast of the championship finals.</span>
-                </div>
-            </div>
-
+        <div style="display:flex; gap:10px;">
+            <a href="tacie_wrestling_5fH3pK.html" class="back-btn">← Hub</a>
+            <a href="tacie_training_2pX4v.html" class="back-btn">📋 Logs</a>
         </div>
     </div>
 
-    <div class="video-category">
-        <div class="category-title">🌍 International & Youth Women</div>
-        <div class="video-grid">
-            
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/4LKjfHSoH3g" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-title">U17: Böttker (EST) vs Praulite (LAT)</span>
-                    <span class="video-desc">57kg Girls Youth. Study the movement and freestyle rules.</span>
+    <div class="cinema-container">
+        
+        <div class="sidebar">
+            <span class="index-title">CHANNEL GUIDE</span>
+            <a href="#ncaa" class="index-link">🏆 NCAA Championships</a>
+            <a href="#international" class="index-link">🌍 International / Youth</a>
+            <a href="#shorts" class="index-link">⚡ Quick Hits (Shorts)</a>
+        </div>
+
+        <div class="content-area">
+
+            <div id="ncaa" class="video-category">
+                <div class="category-title">🏆 NCAA Championships</div>
+                <div class="video-grid">
+                    
+                    <div class="video-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/zETjp6Dmbpk" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-title">Spencer Lee vs Nick Suriano (2018)</span>
+                            <span class="video-desc">NCAA Finals 125 lbs. Absolute grinder match between two legends.</span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/epXN_WwO6cY" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-title">2025 NCAA Finals (Full Replay)</span>
+                            <span class="video-desc">Watch the entire broadcast of the championship finals.</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-        </div>
-    </div>
+            <div id="international" class="video-category">
+                <div class="category-title">🌍 International & Youth</div>
+                <div class="video-grid">
+                    
+                    <div class="video-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/P_NuvgtCK2I" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-title">Sakshi Malik (Gold Medal Match)</span>
+                            <span class="video-desc">Commonwealth Games Final. Incredible comeback and pinfall technique.</span>
+                        </div>
+                    </div>
 
-    <div class="video-category">
-        <div class="category-title">⚡ Quick Hits (Shorts)</div>
-        <div class="video-grid">
-            
-            <div class="video-card shorts-card">
-                <div class="shorts-container">
-                    <iframe src="https://www.youtube.com/embed/o_9DovVQGwQ" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-title">Brian's Wrestling Match</span>
-                    <span class="video-desc">Quick visualization clip from 2023.</span>
+                    <div class="video-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/4LKjfHSoH3g" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-title">U17: Böttker (EST) vs Praulite (LAT)</span>
+                            <span class="video-desc">57kg Girls Youth. Study the movement and freestyle rules.</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-        </div>
-    </div>
+            <div id="shorts" class="video-category">
+                <div class="category-title">⚡ Quick Hits (Shorts)</div>
+                <div class="video-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    
+                    <div class="video-card shorts-card">
+                        <div class="shorts-container">
+                            <iframe src="https://www.youtube.com/embed/o_9DovVQGwQ" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-title">Technique Highlight</span>
+                            <span class="video-desc">Quick visualization clip.</span>
+                        </div>
+                    </div>
 
-    <div class="footer-info">
-        <span id="lastUpdated">Loading...</span>
-    </div>
+                </div>
+            </div>
 
-    <script>
+            <div class="footer-info">
+                <span id="lastUpdated">Loading...</span>
+            </div>
+
+        </div> </div> <script>
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     </script>
