@@ -198,6 +198,28 @@
             border-left: 5px solid #555;
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        /* DYNAMIC TODAY HIGHLIGHT */
+        .today-active {
+            box-shadow: 0 0 15px rgba(243, 156, 18, 0.4) !important;
+            background: linear-gradient(90deg, rgba(243, 156, 18, 0.1), var(--card-bg)) !important;
+            border: 1px solid var(--accent-gold) !important;
+            border-left-width: 5px !important; /* Keep thick left border */
+        }
+        
+        .today-badge {
+            background: var(--accent-gold);
+            color: black;
+            font-weight: bold;
+            font-size: 0.7em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            box-shadow: 0 0 5px rgba(243, 156, 18, 0.8);
         }
         
         .day-top-bar {
@@ -361,60 +383,15 @@
                     </div>
 
                     <div class="day-card border-lift">
-                        <div class="day-top-bar"><span class="day-name">MONDAY</span><span class="day-date">Jan 19</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="am-label">🌞 Lift + Armor</span>
-                                <div class="activity">
-                                    <a href="tacie_lifta_8zK3m.html" target="_blank" class="workout-link">LIFT A</a>: Deadlift 3x5 + Armor.
-                                </div>
-                            </div>
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Run</span>
-                                <div class="activity">3 Miles (Zone 2) @ 212.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card border-run">
-                        <div class="day-top-bar"><span class="day-name">TUESDAY</span><span class="day-date">Jan 20</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="am-label">🌞 Aerobic Flush</span>
-                                <div class="activity">
-                                    <span class="alert-scrub">4 Miles (Zone 2).</span><br>
-                                    <span class="alert-text">SCRUBBED (Scenario A: The Grinder).</span>
-                                    <div class="activity-note">Run CANCELLED. Stop Allergy Pills Protocol initiated.</div>
-                                </div>
-                            </div>
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Practice</span>
-                                <div class="activity">Wrestling Practice.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card border-run">
-                        <div class="day-top-bar"><span class="day-name">WEDNESDAY</span><span class="day-date">Jan 21</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Post-Practice "Double"</span>
-                                <div class="activity"><strong>4 Miles (Zone 2) @ 212 Fitness.</strong></div>
-                                <div class="activity-note">Status: <strong>RESILIENCE</strong>. GI Issues (Stops) but pushed through "Zonked" feeling.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card border-lift">
                         <div class="day-top-bar"><span class="day-name">THURSDAY (TODAY)</span><span class="day-date">Jan 22</span></div>
                         <div class="day-split">
                             <div class="time-col">
-                                <span class="am-label">🌞 Recovery & Violin</span>
+                                <span class="time-label am-label">🌞 Recovery & Violin</span>
                                 <div class="empty-slot">OFF. Recover from Wed Volume.</div>
                                 <div class="activity-note">Magnesium Split Protocol Start (1 AM / 1 PM).</div>
                             </div>
                             <div class="time-col">
-                                <span class="pm-label">🌙 Practice</span>
+                                <span class="time-label pm-label">🌙 Practice</span>
                                 <div class="activity">Wrestling Practice (Check Status).</div>
                                 <div class="activity-note">If cancelled, enjoy full rest.</div>
                             </div>
@@ -425,12 +402,12 @@
                         <div class="day-top-bar"><span class="day-name">FRIDAY</span><span class="day-date">Jan 23</span></div>
                         <div class="day-split">
                             <div class="time-col">
-                                <span class="am-label">🌞 THE OPPORTUNITY</span>
-                                <div class="activity"><strong style="color:var(--run-red);">TRAINING DAY (Meet Cancelled).</strong></div>
+                                <span class="time-label am-label">🌞 THE OPPORTUNITY</span>
+                                <div class="activity"><strong>TRAINING DAY (Meet Cancelled).</strong></div>
                                 <div class="activity-note">Action: Sleep in. Full CNS Restoration.</div>
                             </div>
                             <div class="time-col">
-                                <span class="pm-label">🌙 Replacement Run</span>
+                                <span class="time-label pm-label">🌙 Replacement Run</span>
                                 <div class="activity"><strong>5 Miles (Zone 2) @ 212 Fitness.</strong></div>
                                 <div class="activity-note">Why: Trade stress (meet) for aerobic growth. Hydrate well.</div>
                             </div>
@@ -560,12 +537,52 @@
                 </div>
 
             </div> </div> <div class="footer-info">
-            <span id="lastUpdated"></span>
+            <span id="lastUpdated">Loading...</span>
         </div>
 
     </div>
 
     <script>
+        // DYNAMIC DATE HIGHLIGHTER
+        (function highlightToday() {
+            const today = new Date();
+            const currentMonth = today.toLocaleString('default', { month: 'short' }); // "Jan"
+            const currentDay = today.getDate(); // 22 (number)
+
+            const cards = document.querySelectorAll('.day-card');
+
+            cards.forEach(card => {
+                const dateElem = card.querySelector('.day-date');
+                if (!dateElem) return;
+
+                const dateText = dateElem.innerText;
+
+                // Check if card contains current month
+                if (!dateText.includes(currentMonth)) return;
+
+                // Extract all numbers from the date string
+                const numbers = dateText.match(/\d+/g); 
+                
+                if (numbers) {
+                    // Check if current day is in the extracted numbers
+                    // This handles "Jan 24 - 25" correctly by matching "24" or "25"
+                    if (numbers.includes(String(currentDay))) {
+                        card.classList.add('today-active');
+                        
+                        // Add Badge
+                        const nameSpan = card.querySelector('.day-name');
+                        if (nameSpan) {
+                            const badge = document.createElement('span');
+                            badge.className = 'today-badge';
+                            badge.innerText = '📍 TODAY';
+                            nameSpan.prepend(badge);
+                        }
+                    }
+                }
+            });
+        })();
+
+        // TIMESTAMP
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     </script>
