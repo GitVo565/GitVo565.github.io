@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -56,7 +56,7 @@
         .category-title { 
             font-size: 1.5em; color: var(--accent-gold); font-weight: 900; 
             border-left: 5px solid var(--accent-red); padding-left: 15px; 
-            margin-bottom: 20px; text-transform: uppercase;
+            margin-bottom: 20px; text-transform: uppercase; 
         }
 
         .video-grid { 
@@ -81,6 +81,19 @@
             overflow: hidden;
         }
         .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: 0;
+        }
+
+        /* Shorts Container (Taller) */
+        .shorts-container {
+            position: relative;
+            padding-bottom: 177%; /* 9:16 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .shorts-container iframe {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             border: 0;
@@ -113,72 +126,61 @@
     <div class="video-category">
         <div class="category-title">🏆 NCAA Championships (The Pinnacle)</div>
         <div class="video-grid">
+            
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/zETjp6Dmbpk" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-title">Spencer Lee vs Nick Suriano (2018)</span>
+                    <span class="video-desc">NCAA Finals 125 lbs. Absolute grinder match between two legends.</span>
+                </div>
+            </div>
+
             <div class="video-card">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/epXN_WwO6cY" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
                     <span class="video-title">2025 NCAA Finals (Full Replay)</span>
-                    <span class="video-desc">Watch the entire broadcast of the championship finals. The highest level.</span>
+                    <span class="video-desc">Watch the entire broadcast of the championship finals.</span>
                 </div>
             </div>
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/ZDYe8Xg_qzs" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-title">Mendez vs. Hardy (141 lbs)</span>
-                    <span class="video-desc">A classic 12-9 shootout for the National Title. Study the attacks.</span>
-                </div>
-            </div>
+
         </div>
     </div>
 
     <div class="video-category">
-        <div class="category-title">😤 Big Ten Grinders (Physicality)</div>
+        <div class="category-title">🌍 International & Youth Women</div>
         <div class="video-grid">
+            
             <div class="video-card">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/aPYdS2b0eXo" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/4LKjfHSoH3g" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
-                    <span class="video-title">Iowa vs. Ohio State (Dual Highlights)</span>
-                    <span class="video-desc">Top tier dual meet action. Hand fighting and positioning.</span>
+                    <span class="video-title">U17: Böttker (EST) vs Praulite (LAT)</span>
+                    <span class="video-desc">57kg Girls Youth. Study the movement and freestyle rules.</span>
                 </div>
             </div>
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/GBUh7iHtKv8" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-title">Penn State Dominance</span>
-                    <span class="video-desc">Select matches from the Penn State dynasty. Aggressive chain wrestling.</span>
-                </div>
-            </div>
+
         </div>
     </div>
 
     <div class="video-category">
-        <div class="category-title">🧀 WIAA State (The Goal)</div>
-        <div class="video-grid">
+        <div class="category-title">⚡ Quick Hits (Shorts)</div>
+        <div class="video-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            
             <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/9m0AWYx2kLs" allowfullscreen></iframe>
+                <div class="shorts-container">
+                    <iframe src="https://www.youtube.com/embed/o_9DovVQGwQ" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
-                    <span class="video-title">WIAA State Finals (2025)</span>
-                    <span class="video-desc">This is where we want to be. The Kohl Center atmosphere.</span>
+                    <span class="video-title">Technique Highlight</span>
+                    <span class="video-desc">Quick visualization clip.</span>
                 </div>
             </div>
-            <div class="video-card">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/55HFw3xdTwE" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <span class="video-title">Mitchell Mesenbrink (WI Legend)</span>
-                    <span class="video-desc">Watch a future Penn State star win a Wisconsin state title.</span>
-                </div>
-            </div>
+
         </div>
     </div>
 
