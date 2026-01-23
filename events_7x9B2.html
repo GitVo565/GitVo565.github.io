@@ -441,6 +441,11 @@
     </div>
 
     <script>
+        // Back-Button Fix (Spec 3.2)
+        window.onpageshow = function(event) {
+            if (event.persisted) { window.location.reload(); }
+        };
+
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     </script>
