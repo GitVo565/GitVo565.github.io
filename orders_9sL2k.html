@@ -119,22 +119,11 @@
             </li>
             <li class="task-item">
                 <span class="assignee">Donald</span>
-                <span class="task-desc">Scholarships (Community Foundations, Capital, Xello).</span>
-                <span class="priority">HIGH</span>
-            </li>
-            <li class="task-item">
-                <span class="assignee">Donald</span>
                 <span class="task-desc">MSUB Portal: Complete Checklist & Setup Advisor Meeting.</span>
             </li>
             <li class="task-item">
                 <span class="assignee">Donald</span>
                 <span class="task-desc">Update NCAA Eligibility Portal.</span>
-            </li>
-            <hr class="task-divider">
-            <li class="task-item">
-                <span class="assignee">Tonya</span>
-                <span class="task-desc">Work with Mayo to see Bill Online, not on your login currently (Guarantor # mix up?).</span>
-                <span class="priority">HIGH</span>
             </li>
             <hr class="task-divider">
             <li class="task-item">
@@ -152,10 +141,6 @@
             <li class="task-item">
                 <span class="assignee">Tacie</span>
                 <span class="task-desc">Develop a Violin Music Binder.</span>
-            </li>
-            <li class="task-item">
-                <span class="assignee">Tacie</span>
-                <span class="task-desc">Wipe down bathroom.</span>
             </li>
         </ul>
         
@@ -199,6 +184,11 @@
     </div>
 
     <script>
+        // Back-Button Fix (Spec 3.2)
+        window.onpageshow = function(event) {
+            if (event.persisted) { window.location.reload(); }
+        };
+
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     </script>
