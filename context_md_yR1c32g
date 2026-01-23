@@ -1,0 +1,113 @@
+Project Context: Voetberg HQ & Excalibur Athletics
+1. Project Overview
+Name: Voetberg Family HQ / Excalibur Athletics Purpose: Central command center for family logistics and elite athletic training. Hosting: GitHub Pages (GitVo565.github.io). Repo Structure: Flat HTML architecture with an /images/ asset folder.
+
+2. Master File Directory
+(Use this list to validate links and filenames)
+
+Core Navigation
+index.html (Redirect/Landing)
+
+Pointers99.html (Main Hub / Family Portal)
+
+orders_9sL2k.html (Command Center / Task List). Status: Updated with Tonya's Mayo Task.
+
+events_7x9B2.html (Calendar/Events)
+
+404.html (Custom Error Page)
+
+Person Profiles
+Dan: dan_3mP9L.html
+
+Tonya: tonya_9vK2x.html
+
+Donald: donald_2yR5j.html
+
+Brian: brian_H4z8W.html
+
+Tacie: tacie_6nQ1s.html
+
+Wallace (Dog): wallace_8xL4p.html
+
+Excalibur Athletics (Training Ecosystem)
+Strategy Core: excalibur_strategy_2kL9v.html (Fueling updated: Liverwurst OK).
+
+Tacie Daily Log: tacie_training_2pX4v.html (Includes "Jump to Today" & Dynamic Date Highlighting).
+
+Wrestling Hub: tacie_wrestling_5fH3pK.html
+
+Wrestling Library: wrestling_library_7hG4d.html
+
+Wrestling Notes: wrestling_notes_3jX9s.html
+
+Wrestling Video Log: tacie_wrestling_videos_7kX9q.html
+
+Protocol Library (Sub-pages)
+tacie_lifta_8zK3m.html (Posterior Chain)
+
+tacie_liftb_9sL4k.html (Anterior Chain - Suspended)
+
+tacie_liftc_7jK2n.html (Structural/Unilateral)
+
+tacie_liftd_3mP9q.html (Power)
+
+tacie_circuit_a_4jK9m.html (Hip Health)
+
+tacie_circuit_b_5mL3k.html (Glute Dynamics)
+
+tacie_armor_9kL2p.html (Wrestling Durability)
+
+tacie_core_2jX9s.html (Core A/B/C)
+
+tacie_ais_4kL9m.html (Active Isolated Stretching)
+
+tacie_mobility_5nB8v.html (Run Drills)
+
+Lifestyle & Finance
+stocks_2nB8q.html (Investment Dashboard)
+
+fun_4aW8x.html (Recreation/Leisure)
+
+history_8kL9m.html (Family History/Archives)
+
+3. Asset Mapping (Images)
+All images located in /images/ directory.
+
+Family/Group: voetberg_family.jpg, 4_peat_bros.jpg, ice_fishing.jpg
+
+Dan: dan.jpg
+
+Tonya: tonya_kitchen.jpg, tonya_cook.jpg, tonya_office.jpg
+
+Donald: donald_insta.jpg, donald_run.jpg, donald_signing.jpg, donald_signs.jpg, Donald_Montana_Stream.jpg
+
+Brian: brian.jpg
+
+Tacie: tacie_run.jpg, tacie_take_on_weights.jpg (Hero Banner), tacie_wrestling_down.jpg
+
+Wallace: wallace.jpg
+
+Scenery/Misc: montana_2025.jpg, wrestling_background.jpg
+
+4. Design Standards & Rules
+A. The "GitHub Pages" Header
+Rule: Every HTML page MUST include these meta tags to prevent caching issues.
+
+HTML
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+B. Dynamic Functionality
+Date Highlighting: tacie_training_2pX4v.html uses a JS block at the bottom to find the current date, apply .today-active, and add a "📍 TODAY" badge.
+
+Jump Button: Navigation bars on long pages (like Training) include a "Jump to Today" button that links to the dynamically assigned ID #today-target.
+
+C. The "Sunday Law"
+Rule: Sundays are strictly OFF. No "Active Recovery." Absolute CNS Reset.
+
+D. Fueling Protocol (Updates)
+Magnesium: Split dose (AM/PM).
+
+Peanuts: ZERO TOLERANCE.
+
+Iron: NO Iron Supplements. Liverwurst is OK.
