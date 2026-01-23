@@ -457,34 +457,41 @@
                         </div>
                     </div>
 
-                    <div class="day-card border-run">
+                    <div class="day-card border-rest">
                         <div class="day-top-bar"><span class="day-name">FRIDAY</span><span class="day-date">Jan 23</span></div>
                         <div class="day-split">
                             <div class="time-col">
-                                <span class="am-label">🌞 THE OPPORTUNITY</span>
-                                <div class="activity"><strong style="color:var(--run-red);">TRAINING DAY (Meet Cancelled).</strong></div>
-                                <div class="activity-note">Action: Sleep in. Full CNS Restoration.</div>
-                            </div>
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Replacement Run</span>
-                                <div class="activity"><strong>5 Miles (Zone 2) @ 212 Fitness.</strong></div>
-                                <div class="activity-note">Why: Trade stress (meet) for aerobic growth. Hydrate well.</div>
+                                <span class="am-label" style="color:var(--alert-red);">🔴 RED LIGHT</span>
+                                <div class="activity"><strong style="color:var(--alert-red);">⛔ SICKNESS PROTOCOL (Fever 101.5°F)</strong></div>
+                                <div class="activity-note">Action: FULL STOP. Run SCRUBBED.</div>
+                                <div class="activity-note">Focus: Sleep, Hydration, Magnesium.</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="day-card border-lift">
-                        <div class="day-top-bar"><span class="day-name">WEEKEND</span><span class="day-date">Jan 24 - 25</span></div>
+                    <div class="day-card border-rest">
+                        <div class="day-top-bar"><span class="day-name">SATURDAY</span><span class="day-date">Jan 24</span></div>
                         <div class="day-split">
                             <div class="time-col">
-                                <strong>SAT (THE WORK DAY):</strong>
-                                <ul>
-                                    <li>🌞 <a href="tacie_liftc_7jK2n.html" target="_blank" class="workout-link">Lift C (Structural)</a>: Upper + Single Leg (No Heavy Squats).</li>
-                                    <li>🌙 Run: 3-4 Miles (Zone 2). Bank work before Sunday.</li>
-                                </ul>
+                                <span class="am-label">🌞 Immune Recovery</span>
+                                <div class="activity"><strong>OFF.</strong> Continued Fever Management.</div>
+                                <div class="activity"><span class="alert-scrub">Lift C (Structural).</span> <span class="alert-text">SCRUBBED.</span></div>
+                                <div class="activity-note">Goal: Break the fever before "The Gauntlet" begins Monday.</div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card border-run">
+                        <div class="day-top-bar"><span class="day-name">SUNDAY</span><span class="day-date">Jan 25</span></div>
+                        <div class="day-split">
                             <div class="time-col">
-                                <strong>SUN (REST):</strong> OFF. The Sunday Law. Full Reset.
+                                <span class="am-label" style="color:var(--accent-gold);">⚠️ CONDITIONAL SYSTEM CHECK</span>
+                                <div class="activity"><strong>SPECIAL EXEMPTION:</strong> Owner authorizes Sunday activity due to sickness.</div>
+                                <div class="activity" style="margin-top:5px;">
+                                    Logic Gate:<br>
+                                    1. IF Fever-Free > 12hrs: <strong>3 Miles (Zone 1) Flush.</strong><br>
+                                    2. ELSE: <strong>Continue Absolute Rest.</strong>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -645,6 +652,11 @@
                 }
             });
         })();
+
+        // Back-Button Fix (Spec 3.2)
+        window.onpageshow = function(event) {
+            if (event.persisted) { window.location.reload(); }
+        };
 
         // TIMESTAMP
         var date = new Date(document.lastModified);
