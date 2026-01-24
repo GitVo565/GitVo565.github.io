@@ -88,6 +88,14 @@
         .checklist { list-style: none; padding: 0; margin: 0; }
         .checklist li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; }
         .check-box { min-width: 18px; height: 18px; border: 2px solid #666; border-radius: 3px; margin-top: 4px; }
+        
+        /* X-MARK for Negative Items */
+        .x-box { 
+            min-width: 18px; height: 18px; margin-top: 4px; 
+            color: var(--alert-red); font-weight: bold; font-size: 1.2em; 
+            line-height: 16px; text-align: center; 
+        }
+
         .item-text { font-size: 1em; font-weight: bold; color: white; line-height: 1.3; }
         .item-note { display: block; font-size: 0.85em; color: #aaa; font-weight: normal; margin-top: 2px; }
         .brand-tag { color: var(--accent-blue); font-size: 0.85em; font-weight: bold; }
@@ -190,7 +198,7 @@
                     <li><div class="check-box"></div><div><span class="item-text">Creatine (1 Scoop)</span><span class="item-note">With 12oz Fluid. ATP Load.</span></div></li>
                     <li><div class="check-box"></div><div><span class="item-text">Potassium (2 Caps)</span></div></li>
                     <li><div class="check-box"></div><div><span class="item-text">CoQ10 (1 Cap)</span></div></li>
-                    <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab ONLY)</span><span class="item-note">Dose 1 of 2.</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab ONLY)</span><span class="item-note"><span class="brand-tag">Country Life</span>. Dose 1 of 2.</span></div></li>
                 </ul>
 
                 <span class="category-label food">🍽️ Food Targets (Calcium)</span>
@@ -232,15 +240,17 @@
             <div class="dose-box logic-gate-container">
                 <span class="dose-time">🌙 EVENING LOGIC GATE (Check Dinner Menu)</span>
                 
-                <div style="margin-bottom:15px; font-size:0.9em; text-align:center; color:#ccc;">
-                    <strong>Routine Meds:</strong> Spiriva (2 Puffs) + Zyrtec (1 Tab).
-                </div>
-
                 <div class="gate-split">
                     <div class="scenario-box scenario-a">
                         <span class="scenario-header">🍗 Scenario A: STANDARD</span>
                         <span class="menu-tag">Chicken, Fish, Tacos, Pasta</span>
                         
+                        <span class="category-label meds">Routine Meds</span>
+                        <ul class="checklist">
+                            <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
+                            <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
+                        </ul>
+
                         <span class="category-label food">🍽️ Food Target (Potassium)</span>
                         <ul class="checklist">
                             <li><div class="check-box" style="border-color:var(--std-blue)"></div><div><span class="item-text">Baked Potato (Skin On)</span><span class="item-note">~900mg Potassium (Superfood).</span></div></li>
@@ -257,16 +267,22 @@
                         <span class="scenario-header">🥩 Scenario B: IRON NIGHT</span>
                         <span class="menu-tag">Steak, Liverwurst, Lean Burger</span>
                         
+                        <span class="category-label meds">Routine Meds</span>
+                        <ul class="checklist">
+                            <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
+                            <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
+                        </ul>
+
                         <span class="category-label food">🍽️ Iron Rules</span>
                         <ul class="checklist">
                             <li><div class="check-box" style="border-color:var(--iron-rust)"></div><div><span class="item-text">Drink Orange Juice</span><span class="item-note">Vit C boosts Iron.</span></div></li>
-                            <li><div class="check-box" style="border-color:var(--iron-rust)"></div><div><span class="item-text warn-text">NO DAIRY / NO CHEESE</span><span class="item-note">Calcium blocks Iron absorption.</span></div></li>
+                            <li><div class="x-box">✕</div><div><span class="item-text warn-text">NO DAIRY / NO CHEESE</span><span class="item-note">Calcium blocks Iron absorption.</span></div></li>
                         </ul>
 
                         <span class="category-label">Supplements</span>
                         <ul class="checklist">
                             <li><div class="check-box"></div><div><span class="item-text">Klean Multi (2 Tabs)</span></div></li>
-                            <li><div class="check-box" style="border-color:var(--alert-red);"></div><div><span class="item-text warn-text">STOP: NO CAL/MAG</span><span class="item-note">Move pill to Bedtime.</span></div></li>
+                            <li><div class="x-box">✕</div><div><span class="item-text warn-text">STOP: NO CAL/MAG</span><span class="item-note">Move pill to Bedtime.</span></div></li>
                         </ul>
                     </div>
                 </div>
