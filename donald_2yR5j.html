@@ -28,38 +28,26 @@
             margin: 0; 
             padding: 0; 
             color: var(--text-main); 
-            /* Deep Navy Background to fill sides when video is contained */
             background-color: #001a33; 
             overflow-x: hidden;
         }
 
-        /* --- VIDEO BACKGROUND (SMART ZOOM) --- */
+        /* --- VIDEO BACKGROUND --- */
         .bg-video {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -2;
-            
-            /* DEFAULT (Mobile): Fill the screen, crop edges if needed */
-            object-fit: cover;
+            object-fit: cover; /* Standard full-screen fill */
             object-position: center top; 
         }
 
-        /* DESKTOP TWEAK: "Zoom Out" to show full height */
-        @media (min-aspect-ratio: 1/1) {
-            .bg-video {
-                /* 'contain' ensures the whole vertical image fits on screen */
-                object-fit: contain; 
-                object-position: center top;
-            }
-        }
-
-        /* Dark Overlay */
+        /* Subtle Overlay to ensure text pops */
         .bg-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.25);
             z-index: -1;
         }
         
@@ -90,8 +78,8 @@
             margin: 0 auto;
             padding: 20px;
             position: relative; z-index: 1;
-            /* SPACER: Pushes content down so the Moose Rider is visible initially */
-            padding-top: 35vh; 
+            /* Reverted to standard padding since the new video fits better */
+            padding-top: 80px; 
         }
 
         /* --- HERO CARD --- */
@@ -246,7 +234,7 @@
 <body>
 
     <video autoplay muted loop playsinline class="bg-video">
-        <source src="images/don_moose_rider.mp4" type="video/mp4">
+        <source src="images/don_moose_rider II.mp4" type="video/mp4">
     </video>
     <div class="bg-overlay"></div>
 
