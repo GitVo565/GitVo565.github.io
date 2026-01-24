@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tacie's Supplement Protocol v4.0</title>
+    <title>Tacie's Supplement Protocol v5.1</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -22,13 +22,14 @@
             --accent-green: #27ae60;
             --alert-red: #e74c3c;
             --warning-orange: #e67e22;
+            --med-purple: #9b59b6;
         }
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             padding: 20px; 
             line-height: 1.6; 
-            max-width: 900px; 
+            max-width: 1000px; 
             margin: 0 auto; 
             background: var(--bg-dark); 
             color: var(--text-light); 
@@ -63,7 +64,7 @@
         
         .protocol-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
@@ -75,6 +76,11 @@
         }
         .dose-time { font-weight: bold; color: var(--accent-gold); text-transform: uppercase; font-size: 0.9em; display: block; margin-bottom: 10px; border-bottom: 1px solid #555; padding-bottom: 5px; }
         
+        .category-label {
+            display: block; font-size: 0.7em; text-transform: uppercase; color: #888; margin-top: 10px; margin-bottom: 5px; font-weight: bold; letter-spacing: 1px;
+        }
+        .category-label.meds { color: var(--med-purple); }
+        
         /* Checkbox lists */
         .checklist { list-style: none; padding: 0; margin: 0; }
         .checklist li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
@@ -82,12 +88,14 @@
         .item-text { font-size: 1em; font-weight: bold; color: white; line-height: 1.3; }
         .item-note { display: block; font-size: 0.85em; color: #aaa; font-weight: normal; margin-top: 2px; }
         .brand-tag { color: var(--accent-blue); font-size: 0.85em; font-weight: bold; }
+        .warn-text { color: var(--alert-red); font-weight: bold; }
 
-        /* Training Window Special Style */
+        /* Highlight Boxes */
         .training-box { border-color: var(--accent-gold); background: rgba(243, 156, 18, 0.05); }
+        .lunch-box { border-color: var(--med-purple); background: rgba(155, 89, 182, 0.05); }
 
         /* SAFETY SECTION (Middle) */
-        .safety-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .safety-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
         
         .banned-box {
             background: rgba(231, 76, 60, 0.1);
@@ -99,16 +107,14 @@
         .banned-list li { margin-bottom: 10px; color: #ffadad; font-size: 0.95em; }
         .banned-reason { display: block; color: #bdc3c7; font-size: 0.85em; margin-top: 2px; font-style: italic; }
 
-        .inventory-box {
+        /* Red Light Toggle */
+        .red-light-box {
             background: #252525;
-            border: 1px solid #444;
+            border: 2px solid var(--alert-red);
             padding: 20px;
             border-radius: 8px;
         }
-        .inv-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
-        .inv-table th { text-align: left; color: #888; padding-bottom: 10px; border-bottom: 1px solid #444; }
-        .inv-table td { padding: 8px 0; border-bottom: 1px solid #333; color: #ddd; }
-        .inv-brand { color: var(--accent-blue); font-weight: bold; }
+        .red-light-header { color: var(--alert-red); font-weight: bold; text-transform: uppercase; margin-bottom: 10px; font-size: 1.1em; }
 
         /* ANALYSIS SECTION (Bottom) */
         .analysis-section {
@@ -125,22 +131,14 @@
         .data-table td { padding: 10px; border-bottom: 1px solid #333; vertical-align: top; }
         .data-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
         
-        .status-high { color: var(--warning-orange); font-weight: bold; }
-        .status-low { color: var(--alert-red); font-weight: bold; }
-        .status-good { color: var(--accent-green); font-weight: bold; }
-
-        .gap-box {
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            border-left: 4px solid var(--alert-red);
-            margin-bottom: 15px;
-        }
-        .gap-title { font-weight: bold; color: white; margin-bottom: 5px; display: block; }
-        .gap-action { color: #ddd; font-size: 0.95em; }
+        .rationale-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .rationale-item { margin-bottom: 15px; }
+        .rationale-title { font-weight: bold; color: var(--accent-gold); display: block; margin-bottom: 5px; }
+        .rationale-text { color: #ccc; font-size: 0.9em; }
 
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .protocol-grid { grid-template-columns: 1fr; }
             .safety-section { grid-template-columns: 1fr; }
         }
@@ -151,103 +149,73 @@
     <a href="excalibur_strategy_2kL9v.html" class="back-btn">← Back to Strategy Core</a>
     
     <div class="header-section">
-        <h1>💊 Supplement Protocol v4.0</h1>
-        <div class="subtitle">Effective Jan 2026 | Updated for Gut Tolerance</div>
-        <span class="status-badge">🟢 STATUS: UNRESTRICTED / HEALTHY</span>
+        <h1>💊 Supplement Protocol v5.1</h1>
+        <div class="subtitle">Effective Feb 2026 | Updated for Hybrid Training</div>
+        <span class="status-badge">🟢 STATUS: GREEN LIGHT (ACTIVE)</span>
     </div>
 
     <div class="protocol-card">
-        <div class="card-title">✅ Daily Execution (The Green Light Plan)</div>
+        <div class="card-title">✅ Daily Execution (The Checklist)</div>
         
         <div class="protocol-grid">
             <div class="dose-box">
                 <span class="dose-time">🌅 MORNING (Breakfast)</span>
+                
+                <span class="category-label meds">Medications (Airway)</span>
                 <ul class="checklist">
-                    <li>
-                        <div class="check-box"></div>
-                        <div>
-                            <span class="item-text">Vit D3 + K2 (1 Cap)</span>
-                            <span class="item-note"><span class="brand-tag">ForestLeaf</span> (5,000 IU). Do NOT use Spring Valley.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="check-box"></div>
-                        <div>
-                            <span class="item-text">Creatine (1 Scoop)</span>
-                            <span class="item-note"><span class="brand-tag">Thorne</span>. Mix w/ Juice/Water. ATP Critical.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="check-box"></div>
-                        <div>
-                            <span class="item-text">Potassium (2 Caps)</span>
-                            <span class="item-note"><span class="brand-tag">Vykee</span>. Electrolyte support.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="check-box"></div>
-                        <div>
-                            <span class="item-text">CoQ10 (1 Cap)</span>
-                            <span class="item-note"><span class="brand-tag">Futurebiotics</span>. Mitochondrial efficiency.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="check-box"></div>
-                        <div>
-                            <span class="item-text">Cal/Mag (1 Tab ONLY)</span>
-                            <span class="item-note"><span class="brand-tag">Country Life</span>. ⚠️ DOSE 1 OF 2. Do not take 2 tabs (prevents run diarrhea).</span>
-                        </div>
-                    </li>
+                    <li><div class="check-box"></div><div><span class="item-text">Pulmicort (2 Puffs)</span><span class="item-note">180 mcg.</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">Ryaltris (2 Sprays)</span><span class="item-note">Per nostril.</span></div></li>
+                </ul>
+
+                <span class="category-label">Supplements (Structural)</span>
+                <ul class="checklist">
+                    <li><div class="check-box"></div><div><span class="item-text">Vit D3 + K2 (1 Cap)</span><span class="item-note"><span class="brand-tag">ForestLeaf</span> Only.</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">Creatine (1 Scoop)</span><span class="item-note"><span class="brand-tag">Thorne</span>. With 12oz Water.</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">Potassium (2 Caps)</span><span class="item-note"><span class="brand-tag">Vykee</span>.</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">CoQ10 (1 Cap)</span><span class="item-note"><span class="brand-tag">Futurebiotics</span>.</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab ONLY)</span><span class="item-note"><span class="brand-tag">Country Life</span>. Dose 1 of 2.</span></div></li>
                 </ul>
             </div>
 
             <div style="display:flex; flex-direction:column; gap:20px;">
-                <div class="dose-box training-box">
-                    <span class="dose-time">🎒 TRAINING WINDOW (Pre-Run)</span>
+                <div class="dose-box lunch-box">
+                    <span class="dose-time">🍱 LUNCH (Nitric Oxide)</span>
                     <ul class="checklist">
                         <li>
                             <div class="check-box"></div>
                             <div>
-                                <span class="item-text">The "Bridge" Snack</span>
-                                <span class="item-note">Pretzels or Applesauce. Simple Carbs ONLY. No Fat/Fiber.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="check-box"></div>
-                            <div>
-                                <span class="item-text">Atrovent (2 Puffs)</span>
-                                <span class="item-note">20 mins pre-exertion.</span>
+                                <span class="item-text">Beet Root Juice (4 oz)</span>
+                                <span class="item-note">Titration Phase (Start small).</span>
+                                <span class="item-note warn-text">⚠️ NO MOUTHWASH/BRUSHING FOR 2 HOURS.</span>
                             </div>
                         </li>
                     </ul>
                 </div>
 
-                <div class="dose-box">
-                    <span class="dose-time">🌙 EVENING (Dinner/Bed)</span>
+                <div class="dose-box training-box">
+                    <span class="dose-time">🎒 THE BRIDGE (Pre-Practice)</span>
                     <ul class="checklist">
-                        <li>
-                            <div class="check-box"></div>
-                            <div>
-                                <span class="item-text">Multivitamin (2 Tabs)</span>
-                                <span class="item-note"><span class="brand-tag">Klean Athlete</span>. ⚠️ MUST TAKE WITH FULL MEAL (Zinc Nausea Risk).</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="check-box"></div>
-                            <div>
-                                <span class="item-text">Cal/Mag (1 Tab)</span>
-                                <span class="item-note"><span class="brand-tag">Country Life</span>. Dose 2 of 2. Muscle relaxation.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="check-box"></div>
-                            <div>
-                                <span class="item-text">Beet Root Juice (4 oz)</span>
-                                <span class="item-note">Nitric Oxide support.</span>
-                            </div>
-                        </li>
+                        <li><div class="check-box"></div><div><span class="item-text">Atrovent (2 Puffs)</span><span class="item-note">20 mins pre-exertion. (Backup: Albuterol).</span></div></li>
+                        <li><div class="check-box"></div><div><span class="item-text">The Snack</span><span class="item-note">Pretzels/Banana. No Fats/Protein.</span></div></li>
+                        <li><div class="check-box"></div><div><span class="item-text">Hydration (16oz)</span><span class="item-note">Critical to offset creatine/beets.</span></div></li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="dose-box">
+                <span class="dose-time">🌙 EVENING (Dinner/Bed)</span>
+                
+                <span class="category-label meds">Medications (Recovery)</span>
+                <ul class="checklist">
+                    <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
+                </ul>
+
+                <span class="category-label">Supplements (Reload)</span>
+                <ul class="checklist">
+                    <li><div class="check-box"></div><div><span class="item-text">Multivitamin (2 Tabs)</span><span class="item-note"><span class="brand-tag">Klean Athlete</span>. WITH FULL MEAL.</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab)</span><span class="item-note"><span class="brand-tag">Country Life</span>. Dose 2 of 2.</span></div></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -255,170 +223,70 @@
     <div class="safety-section">
         <div class="banned-box">
             <div class="banned-title">⛔ THE "DO NOT TOUCH" LIST</div>
-            <p style="font-size:0.85em; margin-bottom:15px; color:#ddd;">Items physically in the cabinet but BANNED for Tacie.</p>
             <ul class="checklist banned-list">
-                <li>
-                    <div>
-                        <span class="item-text">NOW Liver Caps (Beef Liver)</span>
-                        <span class="banned-reason">Medical Hold. High Ferritin (65 ng/mL). Iron overload risk.</span>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <span class="item-text">Nature Made / 21st Century Iron</span>
-                        <span class="banned-reason">Strict exclusion. Same as above.</span>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <span class="item-text">AG1 (Athletic Greens)</span>
-                        <span class="banned-reason">Contains Inulin. Triggers IBS/Bloating.</span>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <span class="item-text">Klean Athlete Ashwagandha</span>
-                        <span class="banned-reason">Hormonal modulator. Inappropriate for age.</span>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <span class="item-text">Nature's Bounty (Ca/Mg/Zn)</span>
-                        <span class="banned-reason">SICKNESS ONLY. Do not mix with daily stack (overdose risk).</span>
-                    </div>
-                </li>
+                <li><span class="item-text">NOW Liver Caps</span> <span class="banned-reason">Medical Hold (High Ferritin).</span></li>
+                <li><span class="item-text">Nature Made Iron</span> <span class="banned-reason">Strict exclusion. Toxicity risk.</span></li>
+                <li><span class="item-text">AG1 (Greens)</span> <span class="banned-reason">Contains Inulin (IBS trigger).</span></li>
+                <li><span class="item-text">Ashwagandha</span> <span class="banned-reason">Hormonal modulator. Banned.</span></li>
             </ul>
         </div>
 
-        <div class="inventory-box">
-            <div class="dose-time" style="color:#eee; border-color:#444;">🗄️ Cabinet Inventory Mapping</div>
-            <table class="inv-table">
-                <thead>
-                    <tr>
-                        <th>Supplement</th>
-                        <th>Correct Brand</th>
-                        <th>Dose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Multivitamin</td>
-                        <td class="inv-brand">Klean Athlete</td>
-                        <td>2 Tabs</td>
-                    </tr>
-                    <tr>
-                        <td>Creatine</td>
-                        <td class="inv-brand">Thorne</td>
-                        <td>1 Scoop</td>
-                    </tr>
-                    <tr>
-                        <td>Vitamin D</td>
-                        <td class="inv-brand">ForestLeaf</td>
-                        <td>1 Cap</td>
-                    </tr>
-                    <tr>
-                        <td>Cal/Mag</td>
-                        <td class="inv-brand">Country Life</td>
-                        <td>1 + 1 (Split)</td>
-                    </tr>
-                    <tr>
-                        <td>Potassium</td>
-                        <td class="inv-brand">Vykee</td>
-                        <td>2 Caps</td>
-                    </tr>
-                    <tr>
-                        <td>CoQ10</td>
-                        <td class="inv-brand">Futurebiotics</td>
-                        <td>1 Cap</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="red-light-box">
+            <div class="red-light-header">🚨 SICKNESS PROTOCOL (Red Light)</div>
+            <p style="font-size:0.9em; color:#ddd; margin-bottom:10px;">If Temp > 99.5°F or "Zonked" Fatigue:</p>
+            <ul class="checklist">
+                <li><strong>STOP:</strong> Klean Multi, Country Life, Beet Juice.</li>
+                <li><strong>START:</strong> Nature's Bounty (Zn/Mg/Ca/D3) + Vit C.</li>
+                <li><strong>CONTINUE:</strong> Creatine (Hydration) & Potassium.</li>
+            </ul>
+            <p style="font-size:0.85em; color:#aaa; margin-top:10px;">Resume v5.1 only after fever-free for 24 hrs.</p>
         </div>
     </div>
 
     <div class="analysis-section">
-        <h2>🔬 Forensic Analysis & Rationale</h2>
+        <h2>🔬 Strategic Rationale & Food Prescription</h2>
         
-        <h3 style="color:#ddd; margin-bottom:10px;">1. The "Big Three" (Structural)</h3>
+        <h3 style="color:var(--accent-green); margin-bottom:10px;">🍽️ The Food Prescription (Closing Gaps)</h3>
         <table class="data-table">
             <thead>
                 <tr>
                     <th>Nutrient</th>
-                    <th>Daily Intake</th>
-                    <th>Status</th>
-                    <th>Implication</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Vitamin D3</strong></td>
-                    <td>6,000 IU</td>
-                    <td class="status-high">⚠️ HIGH (Intentional)</td>
-                    <td>Winter defense dose. Safe only because K2 is included to direct calcium to bones.</td>
-                </tr>
-                <tr>
-                    <td><strong>Calcium</strong></td>
-                    <td>1,070 mg</td>
-                    <td class="status-low">📉 SLIGHTLY UNDER</td>
-                    <td>Supplements provide 82% of needs. Needs 1 cup milk/yogurt to hit growth target.</td>
-                </tr>
-                <tr>
-                    <td><strong>Magnesium</strong></td>
-                    <td>550 mg</td>
-                    <td class="status-high">⚠️ VERY HIGH</td>
-                    <td>230% of RDA. Supports muscle relax/QT history. <strong>AM/PM Split is mandatory to prevent diarrhea.</strong></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 style="color:#ddd; margin-bottom:10px;">2. Electrolytes & Fuel</h3>
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Nutrient</th>
-                    <th>Daily Intake</th>
-                    <th>Status</th>
-                    <th>Implication</th>
+                    <th>The Gap</th>
+                    <th>The Food "Script" (Daily Goal)</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><strong>Potassium</strong></td>
-                    <td>855 mg</td>
-                    <td class="status-low">📉 UNDER (37%)</td>
-                    <td>Supplements are just a top-off. <strong>Real Gap: ~1,500mg.</strong> Must eat potatoes/bananas.</td>
+                    <td class="status-low">Missing ~1,500mg</td>
+                    <td>1 Potato (Skin on) OR 1.5 Bananas daily. Coconut water is also valid.</td>
                 </tr>
                 <tr>
-                    <td><strong>Creatine</strong></td>
-                    <td>5,000 mg</td>
-                    <td class="status-good">✅ OPTIMAL</td>
-                    <td>Max ATP regeneration for wrestling. Requires extra water intake.</td>
+                    <td><strong>Iron</strong></td>
+                    <td class="status-low">Pills BANNED</td>
+                    <td>Liverwurst or Red Meat (2-3x/week). Pair w/ OJ. NO Milk w/ Meat.</td>
                 </tr>
                 <tr>
-                    <td><strong>Zinc</strong></td>
-                    <td>15 mg</td>
-                    <td class="status-good">✅ OPTIMAL</td>
-                    <td>High enough for immunity, low enough to avoid toxicity. Must take with food.</td>
+                    <td><strong>Calcium</strong></td>
+                    <td class="status-low">Short ~250mg</td>
+                    <td>1 Serving Dairy (Milk/Yogurt/Cheese) daily covers this gap.</td>
                 </tr>
             </tbody>
         </table>
 
-        <div style="margin-top:30px;">
-            <h3 style="color:var(--accent-gold); border-bottom:1px solid #555; padding-bottom:5px;">🚨 Critical Call-Outs (Dietary Gaps)</h3>
-            
-            <div class="gap-box" style="border-color:var(--alert-red);">
-                <span class="gap-title">🔴 The "Iron Gap" is Intentional</span>
-                <p class="gap-action">Daily intake is low (~1.4 mg). <strong>DO NOT SUPPLEMENT.</strong> Tacie is on a medical hold due to high ferritin (65 ng/mL). Gap must be filled by food only (Liverwurst/Red Meat) to avoid toxicity.</p>
+        <h3 style="color:var(--accent-blue); margin-bottom:15px; margin-top:30px;">🧠 Why we do this (The Strategy)</h3>
+        <div class="rationale-grid">
+            <div class="rationale-item">
+                <span class="rationale-title">1. The Nitric Oxide "Bio-Hack"</span>
+                <p class="rationale-text">Beet nitrates improve blood flow but take 2-3 hours to peak. Moving to Lunch hits the practice window perfectly. <strong>Hygiene Rule:</strong> Mouthwash kills the bacteria needed for this conversion.</p>
             </div>
-
-            <div class="gap-box" style="border-color:var(--warning-orange);">
-                <span class="gap-title">🟡 The "Potassium Gap" is Real</span>
-                <p class="gap-action">Missing ~1,500mg daily. Pills cannot safely cover this. <strong>The Fix:</strong> Daily consumption of 1 Medium Potato (600mg), 1 Banana (400mg), or Coconut Water.</p>
+            <div class="rationale-item">
+                <span class="rationale-title">2. The "War for Water"</span>
+                <p class="rationale-text">Creatine pulls water to muscle. Magnesium/Beets pull water to the gut. The <strong>Magnesium Split</strong> and <strong>16oz Water</strong> rule prevents the gut from losing this war (Diarrhea).</p>
             </div>
-
-            <div class="gap-box" style="border-color:var(--accent-green);">
-                <span class="gap-title">🟢 The "Calcium Gap" is Manageable</span>
-                <p class="gap-action">Short ~230mg. <strong>The Fix:</strong> One daily serving of dairy (milk, yogurt, cheese) covers this gap.</p>
+            <div class="rationale-item">
+                <span class="rationale-title">3. The Vitamin D Brand Lock</span>
+                <p class="rationale-text">We strictly use <strong>ForestLeaf</strong> because it contains K2. Vitamin K2 directs Calcium to the bones, preventing arterial calcification. The other bottles lack this protection.</p>
             </div>
         </div>
     </div>
