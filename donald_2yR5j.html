@@ -1,374 +1,388 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>The Albert St. Cinema | 9.4.6 Reference Theater</title>
-    
+    <title>Donald's Athlete Profile</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
     
     <style>
-        /* Cinema Theme Variables */
+        /* Theme Variables: MSUB Dark Mode */
         :root {
-            --bg-deep: #050505;
-            --card-bg: #111111;
-            --text-main: #e0e0e0;
-            --text-muted: #888888;
-            --cinema-gold: #d4af37;
-            --cinema-red: #c0392b;
-            --tech-blue: #2980b9;
-            --status-green: #27ae60;
-            --status-orange: #e67e22;
-            --border-color: #333;
+            --msub-blue: #00305e; /* Deep Navy */
+            --msub-yellow: #ffc72c; /* Athletic Gold */
+            --text-main: #ffffff;
+            --text-muted: #dbeafe;
+            
+            /* Dark Glass Settings */
+            --glass-bg: rgba(0, 48, 94, 0.75); /* 75% Opacity Navy */
+            --glass-border: rgba(255, 199, 44, 0.3); /* Subtle Gold Border */
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+            --blur-strength: 15px;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-main); 
+            background: transparent;
+            overflow-x: hidden;
         }
 
+        /* --- VIDEO BACKGROUND --- */
+        .bg-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            /* ALIGNMENT FIX: Keeps the rider visible at the top */
+            object-position: center top; 
+            z-index: -2;
+        }
+
+        /* Dark Overlay for Text Readability */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+        
+        /* Navigation */
+        .nav-bar { 
+            position: absolute; 
+            top: 20px; left: 20px; 
+            z-index: 10; 
+        }
+        .back-btn { 
+            display: inline-block; 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(5px);
+            padding: 8px 18px; 
+            text-decoration: none; 
+            color: var(--msub-yellow); 
+            border-radius: 20px; 
+            font-weight: bold;
+            border: 1px solid var(--msub-yellow);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.2s;
+        }
+        .back-btn:hover { background: var(--msub-yellow); color: var(--msub-blue); }
+
+        /* Main Container */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-        }
-
-        /* --- NAVIGATION --- */
-        .nav-bar { margin-bottom: 40px; display: flex; gap: 15px; }
-        .back-btn {
-            text-decoration: none;
-            color: var(--text-muted);
-            border: 1px solid var(--border-color);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            transition: all 0.3s;
-        }
-        .back-btn:hover { color: var(--cinema-gold); border-color: var(--cinema-gold); }
-
-        /* --- HERO SECTION (UPDATED FOR ZOOM OUT) --- */
-        .hero {
-            text-align: center;
-            /* Reduced vertical padding from 100px to 50px to show more image */
-            padding: 50px 20px;
-            border-bottom: 1px solid var(--cinema-gold);
-            margin-bottom: 50px;
-            border-radius: 12px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/home_theater.jpg');
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .hero h1 {
-            font-size: 3em;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--text-main);
-            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
-        }
-        .hero-sub {
-            color: var(--cinema-gold);
-            font-size: 1.2em;
-            font-weight: 300;
-            margin-top: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-        }
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-            font-family: 'Consolas', monospace;
-            color: #ccc;
-            font-size: 0.9em;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-        }
-
-        /* --- SECTIONS --- */
-        .section-title {
-            font-size: 1.8em;
-            color: var(--text-main);
-            border-left: 4px solid var(--cinema-gold);
-            padding-left: 15px;
-            margin-bottom: 25px;
-            margin-top: 60px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- GEAR GRID --- */
-        .gear-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gear-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
             padding: 20px;
+            position: relative; z-index: 1;
+            /* SPACER: Pushes content down so the Moose Rider is visible initially */
+            padding-top: 40vh; 
+        }
+
+        /* --- HERO CARD (SIDE-BY-SIDE) --- */
+        .hero-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur-strength));
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr; /* Stacked on mobile */
+        }
+
+        /* Desktop: Side-by-Side */
+        @media (min-width: 768px) {
+            .hero-card {
+                grid-template-columns: 2fr 3fr; 
+                align-items: center;
+                text-align: left;
+            }
+        }
+
+        .hero-image-box {
+            width: 100%;
+            min-height: 300px; /* Mobile height */
+            height: 100%; /* Desktop fill */
+            position: relative;
+            background-color: #000;
+        }
+        
+        .hero-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center center;
+        }
+
+        .hero-content { 
+            padding: 30px; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Desktop Alignment */
+        @media (min-width: 768px) {
+            .hero-content {
+                align-items: flex-start;
+            }
+             .hero-content h1 { text-align: left; }
+             .btn-insta { align-self: flex-start; } /* Left align button on desktop */
+        }
+
+        /* Mobile Alignment */
+        @media (max-width: 767px) {
+             .hero-content {
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .hero-content h1 { margin: 0; font-size: 2.5em; color: var(--msub-yellow); text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.1; }
+        .hero-content p { color: #fff; font-size: 1.2em; margin-top: 10px; font-weight: 400; }
+        
+        /* Action Buttons */
+        .btn-insta {
+            display: inline-block;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+        .btn-insta:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        /* Grid Layout */
+        .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+        /* INFO CARDS */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur-strength));
+            -webkit-backdrop-filter: blur(var(--blur-strength));
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--glass-shadow);
+            color: var(--text-main);
+            margin-bottom: 20px;
             transition: transform 0.2s;
         }
-        .gear-card:hover { transform: translateY(-2px); border-color: var(--cinema-gold); }
+        .card:hover { transform: translateY(-3px); background: rgba(0, 48, 94, 0.95); }
 
-        .category-tag {
-            font-size: 0.75em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--cinema-gold);
-            display: block;
-            margin-bottom: 5px;
+        .card h3 { 
+            margin-top: 0; 
+            border-bottom: 2px solid var(--msub-yellow); 
+            padding-bottom: 10px; 
+            display: flex; align-items: center;
+            color: var(--msub-yellow);
+            font-size: 1.4em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        .gear-name { font-size: 1.2em; font-weight: bold; color: white; display: block; margin-bottom: 8px; }
-        .gear-spec { color: var(--text-muted); font-size: 0.9em; margin: 0; line-height: 1.4; }
+        .icon { margin-right: 12px; font-size: 1.2em; }
 
-        /* --- TECH/INFRASTRUCTURE LISTS --- */
-        .tech-list { list-style: none; padding: 0; margin: 0; }
-        .tech-list li { 
-            position: relative; padding-left: 20px; margin-bottom: 8px; 
-            font-size: 0.9em; color: var(--text-muted); 
-        }
-        .tech-list li::before {
-            content: '•'; position: absolute; left: 0; color: var(--cinema-gold);
-        }
-        .tech-highlight { color: #e0e0e0; font-weight: bold; }
-
-        /* --- ROADMAP STYLES --- */
-        .roadmap-box {
-            background: rgba(39, 174, 96, 0.05);
-            border: 1px solid var(--status-green);
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-        .roadmap-header {
-            color: var(--status-green); font-weight: bold; text-transform: uppercase; 
-            font-size: 1.2em; display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 15px;
-        }
-        .step-list { list-style: none; padding: 0; margin: 0; }
-        .step-item { margin-bottom: 20px; padding-left: 15px; border-left: 2px solid #444; }
-        .step-title { font-weight: bold; color: white; display: block; margin-bottom: 5px; }
-        .step-desc { font-size: 0.9em; color: #aaa; line-height: 1.5; }
+        /* List Styles */
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 10px; color: #e2e8f0; font-weight: 400; }
+        li strong { color: #fff; }
         
-        .phase-tag { 
-            display: inline-block; padding: 2px 8px; border-radius: 4px; 
-            font-size: 0.7em; font-weight: bold; margin-bottom: 5px; 
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        .phase-1 { background: var(--cinema-red); color: white; }
-        .phase-2 { background: var(--tech-blue); color: white; }
-        .phase-3 { background: var(--status-orange); color: white; }
-        .phase-4 { background: #555; color: #ccc; }
+        /* Timeline */
+        .timeline-date { font-weight: 800; color: var(--msub-yellow); font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; }
+        .timeline-event { margin-bottom: 15px; border-left: 3px solid rgba(255,255,255,0.3); padding-left: 15px; }
+        .timeline-title { font-weight: bold; color: #fff; font-size: 1.1em; margin-bottom: 2px; display: block; }
 
-        /* --- ALERT BOX --- */
-        .alert-box {
-            background: rgba(230, 126, 34, 0.1);
-            border: 1px solid var(--status-orange);
-            color: #e67e22;
-            padding: 15px;
-            border-radius: 6px;
-            font-size: 0.9em;
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        /* PR Grid Style */
+        .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .pr-item { 
+            background: rgba(0, 0, 0, 0.3); 
+            padding: 12px; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 8px; text-align: center; 
         }
+        .pr-event { font-size: 0.75em; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .pr-time { font-weight: 800; font-size: 1.4em; color: var(--msub-yellow); margin: 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .pr-meet { font-size: 0.75em; color: #94a3b8; }
 
-        /* --- INCIDENT REPORT --- */
-        .incident-card {
-            background: rgba(192, 57, 43, 0.1);
-            border: 1px solid var(--cinema-red);
-            border-radius: 8px;
-            padding: 20px;
+        /* Video Embed */
+        .video-embed { margin-bottom: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); }
+        .video-embed iframe { width: 100%; height: 200px; border: 0; display: block; }
+        
+        /* External Link Buttons */
+        .link-btn { 
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.4); padding: 14px; margin-bottom: 10px; 
+            border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); 
+            text-decoration: none; color: #fff; font-weight: 700; font-size: 0.95em;
+            transition: all 0.2s;
         }
-        .incident-title { color: var(--cinema-red); font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: block; }
-
-        /* Footer */
-        .footer {
-            margin-top: 80px; padding-top: 20px; border-top: 1px solid #333;
-            text-align: center; color: #555; font-size: 0.8em;
-        }
+        .link-btn:hover { transform: translateX(3px); background: var(--msub-yellow); color: var(--msub-blue); border-color: var(--msub-yellow); }
+        
+        .btn-msub { border-left: 5px solid var(--msub-yellow); }
+        .btn-athletic { border-left: 5px solid #3b82f6; }
+        .btn-milesplit { border-left: 5px solid #ef4444; }
 
     </style>
 </head>
 <body>
 
-<div class="container">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="images/don_moose_rider.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
 
     <div class="nav-bar">
-        <a href="Pointers99.html" class="back-btn">🏠 Family Hub</a>
-        <a href="dan_3mP9L.html" class="back-btn">🏃‍♂️ Dan's Profile</a>
+        <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     </div>
 
-    <div class="hero">
-        <h1>The Albert St. Cinema</h1>
-        <div class="hero-sub">9.4.6 Reference Dolby Atmos System</div>
-        <div class="hero-stats">
-            <span>315 Sq. Ft.</span> • <span>15 Channels</span> • <span>4 Subwoofers</span> • <span>Dirac Live ART</span>
-        </div>
-    </div>
-
-    <div class="section-title">The Muscle (Hardware)</div>
-    <div class="gear-grid">
-        <div class="gear-card">
-            <span class="category-tag">Visuals</span>
-            <span class="gear-name">Sony BRAVIA XR-83A80L</span>
-            <p class="gear-spec">83" OLED | Perfect Black | 120Hz VRR</p>
-            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">+ Philips Hue Sync Box & Gradient Strip</p>
-        </div>
-        <div class="gear-card">
-            <span class="category-tag">The Engine</span>
-            <span class="gear-name">Denon AVR-A1H</span>
-            <p class="gear-spec">Flagship 15.4 Channel Processor</p>
-            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">+ <strong>Outlaw 5000x Amp</strong> (Powers LCR + Side Surrounds)</p>
-        </div>
-        <div class="gear-card">
-            <span class="category-tag">Pressurization</span>
-            <span class="gear-name">4x Klipsch RP-1600SW</span>
-            <p class="gear-spec">16-inch Drivers | 1600W Peak (Each)</p>
-            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">Corner Loaded. Fronts Y-Split to Out 1.</p>
-        </div>
-        <div class="gear-card">
-            <span class="category-tag">Bed Layer (9 Channels)</span>
-            <span class="gear-name">Polk Audio / Klipsch Hybrid</span>
-            <p class="gear-spec"><strong>LCR:</strong> Polk RTi A7 + CSi A6</p>
-            <p class="gear-spec"><strong>Wides/Sides:</strong> 4x Polk FXi A6 (Bipole)</p>
-            <p class="gear-spec" style="color:var(--status-orange);"><strong>Rears:</strong> 2x Klipsch R-40-SA II</p>
-        </div>
-        <div class="gear-card">
-            <span class="category-tag">Sky Layer (6 Channels)</span>
-            <span class="gear-name">Sonance Visual Performance</span>
-            <p class="gear-spec">6x VP60R In-Ceiling Speakers</p>
-            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">Config: Top Front, Top Middle, Top Rear</p>
-        </div>
-        <div class="gear-card">
-            <span class="category-tag">Thermal Management</span>
-            <span class="gear-name">AC Infinity AIRCOM T9</span>
-            <p class="gear-spec">Top-Exhaust active cooling.</p>
-        </div>
-    </div>
-
-    <div class="section-title">Infrastructure & Engineering</div>
-    <div class="gear-grid">
+    <div class="container">
         
-        <div class="gear-card" style="border-left: 4px solid var(--tech-blue);">
-            <span class="category-tag">The Power Backbone</span>
-            <span class="gear-name">"Chasing the Demon Hum"</span>
-            <ul class="tech-list" style="margin-top:10px;">
-                <li><span class="tech-highlight">7 Dedicated Circuits:</span> Ensures zero light flicker during high-SPL bass drops.</li>
-                <li><span class="tech-highlight">Subwoofer Array:</span> Each Klipsch sub (1600W) has its own 20-amp line.</li>
-                <li><span class="tech-highlight">"Clean Leg" Strategy:</span> All audio gear (Denon/Outlaw/Subs) installed on the same electrical phase to eliminate ground loops.</li>
-                <li><span class="tech-highlight">The "Snack Circuit":</span> Isolated rear-wall circuit for popcorn/appliances to prevent tripping the amps.</li>
-            </ul>
+        <div class="hero-card">
+            <div class="hero-image-box">
+                <img src="images/donald_signs.jpg" alt="Donald Signing Day">
+            </div>
+            <div class="hero-content">
+                <h1>Donald Voetberg</h1>
+                <p>MSU Billings Commit | Class of 2026</p>
+                <a href="https://www.instagram.com/donald_voetberg" target="_blank" class="btn-insta">
+                    📸 View Official Announcement on Instagram
+                </a>
+            </div>
         </div>
 
-        <div class="gear-card" style="border-left: 4px solid var(--cinema-red);">
-            <span class="category-tag">Immersive Lighting</span>
-            <span class="gear-name">"Surround Sound for Eyes"</span>
-            <ul class="tech-list" style="margin-top:10px;">
-                <li><span class="tech-highlight">Philips Hue Sync Box:</span> Intercepts video to sync room lights with on-screen action in real-time.</li>
-                <li><span class="tech-highlight">Bias Lighting:</span> Gradient Lightstrip behind the 83" OLED reduces eye strain and boosts perceived contrast.</li>
-                <li><span class="tech-highlight">Dolby Vision Interlock:</span> Tuned "Enhanced Compatibility" mode handles high-bandwidth HDR signals.</li>
-            </ul>
-        </div>
+        <div class="grid">
+            
+            <div class="col-left">
+                
+                <div class="card">
+                    <h3><span class="icon">📅</span>What's Happening</h3>
+                    
+                    <div class="timeline-event">
+                        <div class="timeline-date">March - June 2026</div>
+                        <span class="timeline-title">Senior Season: Track & Field</span>
+                        <div>Final high school season before transitioning to MSUB.</div>
+                    </div>
 
-        <div class="gear-card" style="border-left: 4px solid var(--status-green);">
-            <span class="category-tag">The Brain</span>
-            <span class="gear-name">Hubitat Elevation</span>
-            <p class="gear-spec" style="margin-top:10px;">
-                Unlike cloud-based smart homes, this theater uses <strong>Local Processing</strong>. Automation runs on the local network for zero-lag response.
-            </p>
-            <p class="gear-spec" style="margin-top:10px; font-style:italic;">
-                "Hey Google, Activate Sync Box."
-            </p>
-        </div>
+                    <div class="timeline-event" style="border-left-color: var(--msub-yellow);">
+                        <div class="timeline-date">Nov 12, 2025</div>
+                        <span class="timeline-title">Official Signing Day</span>
+                        <div>Signed NLI to compete for MSU Billings (NCAA D2).</div>
+                    </div>
 
-    </div>
+                    <div class="timeline-event">
+                        <div class="timeline-date">Nov 2025</div>
+                        <span class="timeline-title">State Champions (4-Peat!)</span>
+                        <div>Varsity runner on the historic 4th consecutive State Title team.</div>
+                    </div>
 
-    <div class="section-title" style="border-color:var(--status-green); color:var(--status-green);">Active Roadmap: 9.5.6 Endgame</div>
-    
-    <div class="roadmap-box">
-        <div class="roadmap-header">
-            <span>Execution Plan</span>
-            <span style="font-size:0.7em; background:#111; padding:4px 8px; border-radius:4px;">STATUS: BLOCKED (WAITING ON PARTS)</span>
-        </div>
-        
-        <ul class="step-list">
-            <li class="step-item">
-                <span class="phase-tag phase-1">Phase 1: Repair & Rotate</span>
-                <span class="step-title">The "Woofer Swap"</span>
-                <span class="step-desc">
-                    Amp plate replacement failed. Issue confirmed as mechanical. <br>
-                    <strong>Action:</strong> Wait for replacement 16" Driver (Ticket #821835). Install driver into Unit #4 and restore to Rear Left corner.
-                </span>
-            </li>
-            <li class="step-item">
-                <span class="phase-tag phase-2">Phase 2: Deployment</span>
-                <span class="step-title">Near Field Activation</span>
-                <span class="step-desc">
-                    Deploy "Strategic Spare" (Unit #5) directly behind MLP using <strong>Klipsch WA-2 Wireless Kit</strong>.<br>
-                    <strong>Routing:</strong> Front L/R are already Y-Split to Sub Out 1. <span style="color:var(--status-green);">Sub Out 4 is open and ready.</span>
-                </span>
-            </li>
-            <li class="step-item">
-                <span class="phase-tag phase-3">Phase 3: Critical Calibration</span>
-                <span class="step-title">Dirac Live Recalibration</span>
-                <span class="step-desc">
-                    Mandatory 17-point measurement required.
-                </span>
-                <div class="alert-box">
-                    <span style="font-size:1.5em;">⚠️</span>
-                    <div>
-                        <strong>CRITICAL TRIGGER:</strong> Since you switched the Polk FXi A6s from <em>Dipole</em> to <em>Bipole</em>, the current Dirac filters are invalid. Active Room Treatment (ART) is currently miscalculating reflections.
+                    <div class="timeline-event">
+                        <div class="timeline-date">Oct 2023</div>
+                        <span class="timeline-title">State Champions (Sophomore)</span>
+                        <div>Team Alternate for State Title #2.</div>
                     </div>
                 </div>
-            </li>
-        </ul>
-    </div>
 
-    <div class="section-title">Future Hardware Targets</div>
-    <div class="gear-grid">
-        <div class="gear-card" style="border-color:var(--cinema-red);">
-            <span class="category-tag">The "Trauma" Match</span>
-            <span class="gear-name">Klipsch RF-7 III & RC-64 III</span>
-            <p class="gear-spec">High Efficiency. Extreme Dynamics. Can keep up with the 16" subs without compression.</p>
+                <div class="card">
+                    <h3><span class="icon">⭐</span>Personal Interests</h3>
+                    <ul>
+                        <li><strong>The Montana Outdoorsman:</strong> Avid fisherman eager to take up fly fishing in Montana's "blue-ribbon" trout waters.</li>
+                        <li><strong>Altitude Ambition:</strong> Moving to Montana to develop altitude training and enhance running performance.</li>
+                        <li><strong>Future Entrepreneur:</strong> Majoring in Business Administration with goals of owning a business.</li>
+                        <li><strong>Nissan Frontier:</strong> Loves driving his truck.</li>
+                        <li><strong>TV Time:</strong> Watching <em>Landman</em> with Dad.</li>
+                        <li><strong>Photography:</strong> Capturing the outdoors.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><span class="icon">📰</span>In The News</h3>
+                    <ul>
+                        <li><a href="https://www.waow.com/news/top-stories/area-athletes-make-college-dreams-official-on-ncaa-early-signing-day/article_32beccca-1fd5-41c9-9e26-ea3c2acf929d.html" target="_blank" style="color:var(--msub-yellow)">WAOW: Signing Day Coverage</a></li>
+                        <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank" style="color:var(--msub-yellow)">WAOW: "Four Straight and Forever"</a></li>
+                        <li><a href="https://www.stevenspointjournal.com/picture-gallery/sports/high-school/2025/11/12/see-best-photos-of-spash-athletes-at-early-signing-day/87234625007/" target="_blank" style="color:var(--msub-yellow)">Journal: Signing Day Photos</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="col-right">
+                
+                <div class="card">
+                    <h3><span class="icon">⏱️</span>Personal Records</h3>
+                    <div class="pr-grid">
+                        <div class="pr-item">
+                            <div class="pr-event">800m (Outdoor)</div>
+                            <div class="pr-time">1:59.67</div>
+                            <div class="pr-meet">Spartan Invite</div>
+                        </div>
+                        <div class="pr-item">
+                            <div class="pr-event">1600m (Outdoor)</div>
+                            <div class="pr-time">4:27.23</div>
+                            <div class="pr-meet">WVC Conference</div>
+                        </div>
+                        <div class="pr-item">
+                            <div class="pr-event">3200m (Indoor)</div>
+                            <div class="pr-time">9:56.97</div>
+                            <div class="pr-meet">Ripon Showcase</div>
+                        </div>
+                        <div class="pr-item">
+                            <div class="pr-event">5K (XC)</div>
+                            <div class="pr-time">16:27.10</div>
+                            <div class="pr-meet">WVC Conf</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><span class="icon">🏆</span>Accolades</h3>
+                    <ul>
+                        <li><strong>WIAA State Champion:</strong> Member of 1st Place 2024 Team.</li>
+                        <li><strong>3x State Team Champion</strong> (XC)</li>
+                        <li><strong>Roy Griak Invitational Champion</strong> (Team)</li>
+                        <li><strong>2x First Team All-Conference</strong> (XC)</li>
+                        <li><strong>8x Varsity Letter Winner</strong> (4 XC, 4 Track)</li>
+                        <li><strong>Scholar Athlete:</strong> Honor Roll & Academic Excellence.</li>
+                        <li><strong>Scholarship Milestone:</strong> One of only two out-of-state students to receive a high-value MSUB athletic scholarship.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><span class="icon">🎥</span>Race Action</h3>
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/aBxdpRhD6iA" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/Y_F6DtiX6_0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><span class="icon">🔗</span>Profiles & Teams</h3>
+                    <a href="https://msubsports.com/sports/mens-cross-country" target="_blank" class="link-btn btn-msub">
+                        🐝 MSUB Men's XC Home
+                    </a>
+                    <a href="https://www.athletic.net/athlete/23587912/track-and-field/" target="_blank" class="link-btn btn-athletic">
+                        📊 Athletic.net Profile
+                    </a>
+                    <a href="https://wi.milesplit.com/athletes/13646503-donald-voetberg" target="_blank" class="link-btn btn-milesplit">
+                        🏃‍♂️ MileSplit Profile
+                    </a>
+                </div>
+
+            </div>
         </div>
-        <div class="gear-card" style="border-color:var(--tech-blue);">
-            <span class="category-tag">The "Neutral" Match</span>
-            <span class="gear-name">Revel F208 & C208</span>
-            <p class="gear-spec">Precision & Neutrality. Unlocks the resolution of the Denon A1H.</p>
-        </div>
     </div>
-
-    <div class="section-title" style="margin-top:40px; font-size:1.2em; border:none; padding:0;">Maintenance Logs</div>
-    <div class="incident-card">
-        <span class="incident-title">⚰️ Incident Report: Subwoofer #4</span>
-        <p style="margin:0; font-size:0.95em; color:#ddd;">
-            <strong>Unit ID:</strong> Serial Ending 213<br>
-            <strong>Status:</strong> Awaiting Parts (Driver)<br>
-            <strong>Diagnostic:</strong> Amp swap failed to resolve static. Voice coil rubbing confirmed.<br>
-            <strong>Current State:</strong> Unit #5 is filling this spot until repair is complete.
-        </p>
-    </div>
-
-    <div class="footer">
-        Voetberg Family Systems • Audio Division<br>
-        Last Update: Jan 2026
-    </div>
-
-</div>
 
 </body>
 </html>
