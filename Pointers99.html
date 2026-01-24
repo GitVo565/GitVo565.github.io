@@ -10,132 +10,262 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+    
     <style>
+        :root {
+            --glass-bg: rgba(30, 30, 30, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-muted: #cccccc;
+            --accent-gold: #f39c12;
+            --accent-blue: #3498db;
+            --accent-green: #27ae60;
+            --accent-red: #e74c3c;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('voetberg_family.jpg') no-repeat center center fixed; 
+            background: url('images/voetberg_family.jpg') no-repeat center center fixed; 
             background-size: cover;
-            color: #ecf0f1;
+            color: var(--text-main);
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
             min-height: 100vh;
         }
+
+        /* Dark Overlay to ensure text readability on any photo */
         body::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(20,20,20,0.6));
             z-index: -1;
+            position: fixed; /* Fixes overlay during scroll */
+        }
+
+        /* --- LAYOUT CONTAINER --- */
+        .hub-container {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* --- HEADER --- */
+        .header { 
+            text-align: center; 
+            margin-bottom: 10px; 
+            padding: 20px;
+        }
+        .header h1 { 
+            font-size: 2.2em; 
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .header-sub {
+            color: var(--accent-gold);
+            font-size: 0.9em;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        /* --- GLASS CARDS (Shared Style) --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .section-title {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+            display: block;
+        }
+
+        /* --- ACTION GRID (Top Row) --- */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.2s, background 0.2s;
+            text-align: center;
+            border: 1px solid transparent;
+            height: 100%;
+            box-sizing: border-box;
         }
         
-        /* HEADER */
-        .header { text-align: center; margin-bottom: 30px; }
-        .header h1 { font-size: 2.5em; color: #ecf0f1; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 0; }
-        .header h1::before { content: '🏠'; margin-right: 10px; }
-
-        /* BUTTON DEFAULTS */
-        button { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; cursor: pointer; border: none; border-radius: 8px; color: white; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
-        button:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); }
-        a { text-decoration: none; width: 100%; }
-
-        /* SECTIONS */
-        .section-container { width: 90%; max-width: 600px; margin-bottom: 30px; }
-        .family-container { width: 90%; max-width: 900px; margin-bottom: 40px; }
-
-        /* FOCUS BUTTON (Events) */
-        .focus-button { width: 100%; padding: 20px; font-size: 1.5em; font-weight: bold; background-color: #3498db; }
-        .focus-button::before { content: '📅'; margin-right: 15px; }
-
-        /* FAMILY GRID */
-        .family-container h2 { text-align: center; color: #bdc3c7; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1em; }
-        .family-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; justify-content: center; }
-        .family-button { padding: 15px; font-size: 1.2em; font-weight: bold; }
-        
-        .dan { background-color: #27ae60; } .dan::before { content: '🏃‍♂️'; margin-right: 10px; }
-        .tonya { background-color: #8e44ad; } .tonya::before { content: '💼'; margin-right: 10px; }
-        .brian { background-color: #16a085; } .brian::before { content: '🎓'; margin-right: 10px; }
-        .donald { background-color: #f39c12; color: #2c3e50; } .donald::before { content: '👟'; margin-right: 10px; }
-        .tacie { background-color: #e67e22; } .tacie::before { content: '🎻'; margin-right: 10px; }
-        .wallace { background-color: #7f8c8d; } .wallace::before { content: '🐾'; margin-right: 10px; }
-
-        /* FUN SECTION */
-        .fun-button { width: 100%; padding: 18px; font-size: 1.4em; font-weight: bold; background-color: #e74c3c; }
-        .fun-button::before { content: '🎉'; margin-right: 10px; }
-
-        /* ADMIN SECTION (Orders) */
-        .admin-container { 
-            width: 90%; max-width: 600px; margin-bottom: 40px; 
-            border-top: 1px solid #555; padding-top: 25px; 
+        .action-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.2);
         }
-        
-        /* Centered Admin Button */
-        .admin-grid { display: flex; justify-content: center; }
-        
-        .admin-button { 
-            width: 100%; padding: 15px; font-size: 1.1em; font-weight: bold; 
-            background-color: #2c3e50; /* Official Navy Blue */
-            border: 1px solid #444;
-        }
-        .orders-hq::before { content: '📢'; margin-right: 10px; }
 
-        /* LOGOUT */
-        .logout-container { margin-top: auto; padding-bottom: 20px; }
-        .logout { 
-            display: inline-block;
-            padding: 8px 25px; 
-            font-size: 0.9em; 
-            color: #bdc3c7; 
-            border: 1px solid #7f8c8d; 
-            border-radius: 20px; 
-            text-decoration: none; 
-            transition: 0.3s;
-            width: auto; 
-        }
-        .logout:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.1); }
+        .action-icon { font-size: 2em; margin-bottom: 8px; display: block; }
+        .action-label { font-weight: bold; font-size: 1.1em; color: white; }
+        .action-sub { font-size: 0.75em; color: #aaa; margin-top: 4px; }
 
+        /* Specific Brand Colors for Top Actions */
+        .btn-excalibur { border-bottom: 3px solid var(--accent-gold); }
+        .btn-excalibur .action-icon { text-shadow: 0 0 15px rgba(243, 156, 18, 0.6); }
+        
+        .btn-events { border-bottom: 3px solid var(--accent-blue); }
+        .btn-orders { border-bottom: 3px solid var(--accent-green); }
+
+        /* --- FAMILY GRID --- */
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+        }
+
+        .member-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 15px 10px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .member-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: scale(1.02);
+        }
+
+        .member-emoji { font-size: 1.8em; display: block; margin-bottom: 5px; }
+        .member-name { color: white; font-weight: 500; font-size: 1em; }
+
+        /* --- FOOTER LINKS --- */
+        .footer-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .footer-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9em;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.2s;
+        }
+        .footer-link:hover { color: white; border-color: white; }
+
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
-            .family-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.8em; }
+            .action-grid { grid-template-columns: 1fr; } /* Stack actions on mobile */
+            .action-btn { flex-direction: row; justify-content: flex-start; padding: 15px; text-align: left; }
+            .action-icon { margin-bottom: 0; margin-right: 15px; font-size: 1.5em; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Voetberg Family Hub</h1>
-    </div>
-    
-    <div class="section-container">
-        <a href="events_7x9B2.html"><button class="focus-button">Family Events</button></a>
-    </div>
-    
-    <div class="family-container">
-        <h2>Family Members</h2>
-        <div class="family-grid">
-            <a href="dan_3mP9L.html"><button class="family-button dan">Dan</button></a>
-            <a href="tonya_9vK2x.html"><button class="family-button tonya">Tonya</button></a>
-            <a href="brian_H4z8W.html"><button class="family-button brian">Brian</button></a>
-            <a href="donald_2yR5j.html"><button class="family-button donald">Donald</button></a>
-            <a href="tacie_6nQ1s.html"><button class="family-button tacie">Tacie</button></a>
-            <a href="wallace_8xL4p.html"><button class="family-button wallace">Wallace</button></a>
+    <div class="hub-container">
+        
+        <div class="header">
+            <h1>Voetberg Family Hub</h1>
+            <div class="header-sub">Command Center</div>
         </div>
-    </div>
-    
-    <div class="section-container">
-        <a href="fun_4aW8x.html"><button class="fun-button">Recent Fun & Highlights</button></a>
-    </div>
 
-    <div class="admin-container">
-        <div class="admin-grid">
-            <a href="orders_9sL2k.html"><button class="admin-button orders-hq">Orders from HQ</button></a>
+        <div class="glass-panel">
+            <span class="section-title">Logistics & Strategy</span>
+            <div class="action-grid">
+                
+                <a href="excalibur_strategy_2kL9v.html" class="action-btn btn-excalibur">
+                    <span class="action-icon">⚔️</span>
+                    <div>
+                        <div class="action-label">Excalibur Athletics</div>
+                        <div class="action-sub">Training, Nutrition & Strategy</div>
+                    </div>
+                </a>
+
+                <a href="events_7x9B2.html" class="action-btn btn-events">
+                    <span class="action-icon">📅</span>
+                    <div>
+                        <div class="action-label">Family Events</div>
+                        <div class="action-sub">Calendar & Schedules</div>
+                    </div>
+                </a>
+
+                <a href="orders_9sL2k.html" class="action-btn btn-orders">
+                    <span class="action-icon">📢</span>
+                    <div>
+                        <div class="action-label">Orders from HQ</div>
+                        <div class="action-sub">Tasks & Directives</div>
+                    </div>
+                </a>
+
+            </div>
         </div>
-    </div>
-    
-    <div class="logout-container">
-        <a href="index.html" class="logout">Logout</a>
+
+        <div class="glass-panel">
+            <span class="section-title">Member Profiles</span>
+            <div class="family-grid">
+                <a href="dan_3mP9L.html" class="member-card">
+                    <span class="member-emoji">🏃‍♂️</span>
+                    <span class="member-name">Dan</span>
+                </a>
+                <a href="tonya_9vK2x.html" class="member-card">
+                    <span class="member-emoji">💼</span>
+                    <span class="member-name">Tonya</span>
+                </a>
+                <a href="brian_H4z8W.html" class="member-card">
+                    <span class="member-emoji">🎓</span>
+                    <span class="member-name">Brian</span>
+                </a>
+                <a href="donald_2yR5j.html" class="member-card">
+                    <span class="member-emoji">👟</span>
+                    <span class="member-name">Donald</span>
+                </a>
+                <a href="tacie_6nQ1s.html" class="member-card">
+                    <span class="member-emoji">🤼‍♀️</span>
+                    <span class="member-name">Tacie</span>
+                </a>
+                <a href="wallace_8xL4p.html" class="member-card">
+                    <span class="member-emoji">🐾</span>
+                    <span class="member-name">Wallace</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-grid">
+            <a href="fun_4aW8x.html" class="footer-link">🎉 Highlights</a>
+            <a href="history_8kL9m.html" class="footer-link">📜 Archives</a>
+            <a href="index.html" class="footer-link" style="color:var(--accent-red);">🔒 Logout</a>
+        </div>
+
     </div>
 
 </body>
