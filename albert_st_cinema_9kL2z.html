@@ -132,6 +132,17 @@
         .gear-name { font-size: 1.2em; font-weight: bold; color: white; display: block; margin-bottom: 8px; }
         .gear-spec { color: var(--text-muted); font-size: 0.9em; margin: 0; line-height: 1.4; }
 
+        /* --- TECH/INFRASTRUCTURE LISTS --- */
+        .tech-list { list-style: none; padding: 0; margin: 0; }
+        .tech-list li { 
+            position: relative; padding-left: 20px; margin-bottom: 8px; 
+            font-size: 0.9em; color: var(--text-muted); 
+        }
+        .tech-list li::before {
+            content: '•'; position: absolute; left: 0; color: var(--cinema-gold);
+        }
+        .tech-highlight { color: #e0e0e0; font-weight: bold; }
+
         /* --- ROADMAP STYLES --- */
         .roadmap-box {
             background: rgba(39, 174, 96, 0.05);
@@ -210,33 +221,24 @@
 
     <div class="section-title">The Muscle (Hardware)</div>
     <div class="gear-grid">
-        
         <div class="gear-card">
             <span class="category-tag">Visuals</span>
             <span class="gear-name">Sony BRAVIA XR-83A80L</span>
             <p class="gear-spec">83" OLED | Perfect Black | 120Hz VRR</p>
             <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">+ Philips Hue Sync Box & Gradient Strip</p>
         </div>
-
         <div class="gear-card">
             <span class="category-tag">The Engine</span>
             <span class="gear-name">Denon AVR-A1H</span>
             <p class="gear-spec">Flagship 15.4 Channel Processor</p>
-            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">
-                + <strong>Outlaw 5000x Amp</strong><br>
-                (Powers LCR + Side Surrounds)
-            </p>
+            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">+ <strong>Outlaw 5000x Amp</strong> (Powers LCR + Side Surrounds)</p>
         </div>
-
         <div class="gear-card">
             <span class="category-tag">Pressurization</span>
             <span class="gear-name">4x Klipsch RP-1600SW</span>
             <p class="gear-spec">16-inch Drivers | 1600W Peak (Each)</p>
-            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">
-                Corner Loaded. Fronts Y-Split to Out 1.
-            </p>
+            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">Corner Loaded. Fronts Y-Split to Out 1.</p>
         </div>
-
         <div class="gear-card">
             <span class="category-tag">Bed Layer (9 Channels)</span>
             <span class="gear-name">Polk Audio / Klipsch Hybrid</span>
@@ -244,20 +246,52 @@
             <p class="gear-spec"><strong>Wides/Sides:</strong> 4x Polk FXi A6 (Bipole)</p>
             <p class="gear-spec" style="color:var(--status-orange);"><strong>Rears:</strong> 2x Klipsch R-40-SA II</p>
         </div>
-
         <div class="gear-card">
             <span class="category-tag">Sky Layer (6 Channels)</span>
             <span class="gear-name">Sonance Visual Performance</span>
             <p class="gear-spec">6x VP60R In-Ceiling Speakers</p>
-            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">
-                Config: Top Front, Top Middle, Top Rear
-            </p>
+            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">Config: Top Front, Top Middle, Top Rear</p>
         </div>
-
         <div class="gear-card">
             <span class="category-tag">Thermal Management</span>
             <span class="gear-name">AC Infinity AIRCOM T9</span>
             <p class="gear-spec">Top-Exhaust active cooling.</p>
+        </div>
+    </div>
+
+    <div class="section-title">Infrastructure & Engineering</div>
+    <div class="gear-grid">
+        
+        <div class="gear-card" style="border-left: 4px solid var(--tech-blue);">
+            <span class="category-tag">The Power Backbone</span>
+            <span class="gear-name">"Chasing the Demon Hum"</span>
+            <ul class="tech-list" style="margin-top:10px;">
+                <li><span class="tech-highlight">7 Dedicated Circuits:</span> Ensures zero light flicker during high-SPL bass drops.</li>
+                <li><span class="tech-highlight">Subwoofer Array:</span> Each Klipsch sub (1600W) has its own 20-amp line.</li>
+                <li><span class="tech-highlight">"Clean Leg" Strategy:</span> All audio gear (Denon/Outlaw/Subs) installed on the same electrical phase to eliminate ground loops.</li>
+                <li><span class="tech-highlight">The "Snack Circuit":</span> Isolated rear-wall circuit for popcorn/appliances to prevent tripping the amps.</li>
+            </ul>
+        </div>
+
+        <div class="gear-card" style="border-left: 4px solid var(--cinema-red);">
+            <span class="category-tag">Immersive Lighting</span>
+            <span class="gear-name">"Surround Sound for Eyes"</span>
+            <ul class="tech-list" style="margin-top:10px;">
+                <li><span class="tech-highlight">Philips Hue Sync Box:</span> Intercepts video to sync room lights with on-screen action in real-time.</li>
+                <li><span class="tech-highlight">Bias Lighting:</span> Gradient Lightstrip behind the 83" OLED reduces eye strain and boosts perceived contrast.</li>
+                <li><span class="tech-highlight">Dolby Vision Interlock:</span> Tuned "Enhanced Compatibility" mode handles high-bandwidth HDR signals.</li>
+            </ul>
+        </div>
+
+        <div class="gear-card" style="border-left: 4px solid var(--status-green);">
+            <span class="category-tag">The Brain</span>
+            <span class="gear-name">Hubitat Elevation</span>
+            <p class="gear-spec" style="margin-top:10px;">
+                Unlike cloud-based smart homes, this theater uses <strong>Local Processing</strong>. Automation runs on the local network for zero-lag response.
+            </p>
+            <p class="gear-spec" style="margin-top:10px; font-style:italic;">
+                "Hey Google, Activate Sync Box."
+            </p>
         </div>
 
     </div>
@@ -271,7 +305,6 @@
         </div>
         
         <ul class="step-list">
-            
             <li class="step-item">
                 <span class="phase-tag phase-1">Phase 1: Repair & Rotate</span>
                 <span class="step-title">The "Woofer Swap"</span>
@@ -280,7 +313,6 @@
                     <strong>Action:</strong> Wait for replacement 16" Driver (Ticket #821835). Install driver into Unit #4 and restore to Rear Left corner.
                 </span>
             </li>
-
             <li class="step-item">
                 <span class="phase-tag phase-2">Phase 2: Deployment</span>
                 <span class="step-title">Near Field Activation</span>
@@ -289,7 +321,6 @@
                     <strong>Routing:</strong> Front L/R are already Y-Split to Sub Out 1. <span style="color:var(--status-green);">Sub Out 4 is open and ready.</span>
                 </span>
             </li>
-
             <li class="step-item">
                 <span class="phase-tag phase-3">Phase 3: Critical Calibration</span>
                 <span class="step-title">Dirac Live Recalibration</span>
@@ -303,7 +334,6 @@
                     </div>
                 </div>
             </li>
-
         </ul>
     </div>
 
