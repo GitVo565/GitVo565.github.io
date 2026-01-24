@@ -9,44 +9,79 @@
     <meta http-equiv="Expires" content="0">
     
     <style>
-        /* BACKGROUND IMAGE HANDLING */
+        /* Theme Variables */
+        :root {
+            --msub-blue: #005f9e;
+            --msub-yellow: #ffc72c;
+            --text-dark: #1a202c;
+            --text-muted: #4a5568;
+            
+            /* Glassmorphism settings */
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --blur-strength: 12px;
+        }
+
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
             padding: 0; 
-            color: #333; 
-            background: url('images/Donald_Montana_Stream.jpg') no-repeat center center fixed; 
-            background-size: cover;
-            background-color: #333;
+            color: var(--text-dark); 
+            background: transparent;
+        }
+
+        /* --- VIDEO BACKGROUND --- */
+        .bg-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* Light Overlay to ensure text readability against the Moose */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* Low opacity for maximum visibility */
+            z-index: -1;
         }
         
         /* Navigation */
-        .nav-bar { padding: 20px; text-align: left; }
+        .nav-bar { padding: 20px; text-align: left; position: relative; z-index: 1; }
         .back-btn { 
             display: inline-block; 
-            background: rgba(255, 255, 255, 0.9); 
-            padding: 8px 15px; 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(5px);
+            padding: 8px 18px; 
             text-decoration: none; 
-            color: #333; 
+            color: var(--text-dark); 
             border-radius: 20px; 
             font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.2s;
         }
-        .back-btn:hover { background: #fff; transform: translateY(-2px); }
+        .back-btn:hover { background: #fff; transform: translateY(-2px); color: var(--msub-blue); }
 
         /* Main Container */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
+            position: relative; z-index: 1;
         }
 
         /* PROFILE HERO CARD */
         .hero-card {
-            background: #fff;
-            border-radius: 12px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur-strength));
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: var(--glass-shadow);
             margin-bottom: 30px;
             text-align: center;
         }
@@ -56,7 +91,8 @@
             height: 400px; 
             overflow: hidden;
             position: relative;
-            background-color: #f0f0f0; 
+            background-color: #f0f0f0;
+            border-bottom: 4px solid var(--msub-yellow);
         }
         
         .hero-image-box img {
@@ -67,20 +103,20 @@
         }
 
         .hero-content { padding: 30px; }
-        .hero-content h1 { margin: 0; font-size: 2.5em; color: #111; }
-        .hero-content p { color: #666; font-size: 1.1em; margin-top: 5px; }
+        .hero-content h1 { margin: 0; font-size: 2.8em; color: var(--msub-blue); text-transform: uppercase; letter-spacing: 1px; }
+        .hero-content p { color: var(--text-dark); font-size: 1.2em; margin-top: 5px; font-weight: 600; }
         
         /* Action Buttons */
         .btn-insta {
             display: inline-block;
             background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: transform 0.2s;
         }
         .btn-insta:hover { transform: scale(1.05); }
@@ -89,60 +125,78 @@
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
 
-        /* INFO CARDS */
+        /* INFO CARDS (Glassmorphism) */
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur-strength));
+            -webkit-backdrop-filter: blur(var(--blur-strength));
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            color: #333;
+            box-shadow: var(--glass-shadow);
+            color: var(--text-dark);
             margin-bottom: 20px;
+            transition: transform 0.2s;
         }
+        .card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.9); }
 
         .card h3 { 
             margin-top: 0; 
-            border-bottom: 2px solid #ffc107; /* Gold accent */
-            padding-bottom: 10px;
+            border-bottom: 3px solid var(--msub-yellow); 
+            padding-bottom: 10px; 
             display: flex; align-items: center;
+            color: var(--msub-blue);
+            font-size: 1.4em;
         }
-        .icon { margin-right: 10px; font-size: 1.2em; }
+        .icon { margin-right: 12px; font-size: 1.2em; }
 
         /* List Styles */
         ul { padding-left: 20px; margin: 0; }
-        li { margin-bottom: 10px; color: #444; }
+        li { margin-bottom: 10px; color: #333; font-weight: 500; }
         
         /* Timeline */
-        .timeline-date { font-weight: bold; color: #000; font-size: 0.9em; text-transform: uppercase; }
-        .timeline-event { margin-bottom: 15px; border-left: 3px solid #ddd; padding-left: 10px; }
-        .timeline-title { font-weight: bold; color: #222; }
+        .timeline-date { font-weight: 800; color: var(--msub-blue); font-size: 0.9em; text-transform: uppercase; }
+        .timeline-event { margin-bottom: 15px; border-left: 4px solid #ddd; padding-left: 15px; }
+        .timeline-title { font-weight: bold; color: #111; font-size: 1.1em; }
 
         /* PR Grid Style */
         .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .pr-item { background: #f8f9fa; padding: 10px; border: 1px solid #eee; border-radius: 5px; text-align: center; }
-        .pr-event { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px; }
-        .pr-time { font-weight: bold; font-size: 1.2em; color: #005f9e; }
-        .pr-meet { font-size: 0.75em; color: #888; margin-top: 2px; }
+        .pr-item { 
+            background: rgba(255,255,255,0.6); 
+            padding: 12px; 
+            border: 1px solid rgba(0,0,0,0.1); 
+            border-radius: 8px; text-align: center; 
+        }
+        .pr-event { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .pr-time { font-weight: 800; font-size: 1.4em; color: var(--msub-blue); margin: 5px 0; }
+        .pr-meet { font-size: 0.75em; color: #555; }
 
         /* Video Embed */
-        .video-embed { margin-bottom: 15px; border-radius: 8px; overflow: hidden; }
+        .video-embed { margin-bottom: 15px; border-radius: 8px; overflow: hidden; border: 2px solid rgba(255,255,255,0.5); }
         .video-embed iframe { width: 100%; height: 200px; border: 0; display: block; }
         
         /* External Link Buttons */
         .link-btn { 
             display: flex; align-items: center; justify-content: center;
-            background: #fff; padding: 12px; margin-bottom: 8px; 
-            border-radius: 6px; border: 1px solid #ddd; 
-            text-decoration: none; color: #333; font-weight: 600; font-size: 0.9em;
+            background: rgba(255,255,255,0.8); padding: 14px; margin-bottom: 10px; 
+            border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); 
+            text-decoration: none; color: #333; font-weight: 700; font-size: 0.95em;
             transition: all 0.2s;
         }
-        .link-btn:hover { transform: translateX(3px); background: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .btn-msub { border-left: 5px solid #ffc72c; }
-        .btn-athletic { border-left: 5px solid #005f9e; }
-        .btn-milesplit { border-left: 5px solid #d9534f; }
+        .link-btn:hover { transform: translateX(3px); background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        .btn-msub { border-left: 6px solid var(--msub-yellow); }
+        .btn-athletic { border-left: 6px solid var(--msub-blue); }
+        .btn-milesplit { border-left: 6px solid #d9534f; }
 
     </style>
 </head>
 <body>
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="images/don_moose_rider.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
 
     <div class="nav-bar">
         <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
@@ -176,7 +230,7 @@
                         <div>Final high school season before transitioning to MSUB.</div>
                     </div>
 
-                    <div class="timeline-event" style="border-left-color: #ffc107;">
+                    <div class="timeline-event" style="border-left-color: var(--msub-yellow);">
                         <div class="timeline-date">Nov 12, 2025</div>
                         <div class="timeline-title">Official Signing Day</div>
                         <div>Signed NLI to compete for MSU Billings (NCAA D2).</div>
@@ -210,9 +264,9 @@
                 <div class="card">
                     <h3><span class="icon">📰</span>In The News</h3>
                     <ul>
-                        <li><a href="https://www.waow.com/news/top-stories/area-athletes-make-college-dreams-official-on-ncaa-early-signing-day/article_32beccca-1fd5-41c9-9e26-ea3c2acf929d.html" target="_blank" style="color:#005f9e">WAOW: Signing Day Coverage</a></li>
-                        <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank" style="color:#005f9e">WAOW: "Four Straight and Forever"</a></li>
-                        <li><a href="https://www.stevenspointjournal.com/picture-gallery/sports/high-school/2025/11/12/see-best-photos-of-spash-athletes-at-early-signing-day/87234625007/" target="_blank" style="color:#005f9e">Journal: Signing Day Photos</a></li>
+                        <li><a href="https://www.waow.com/news/top-stories/area-athletes-make-college-dreams-official-on-ncaa-early-signing-day/article_32beccca-1fd5-41c9-9e26-ea3c2acf929d.html" target="_blank" style="color:var(--msub-blue)">WAOW: Signing Day Coverage</a></li>
+                        <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank" style="color:var(--msub-blue)">WAOW: "Four Straight and Forever"</a></li>
+                        <li><a href="https://www.stevenspointjournal.com/picture-gallery/sports/high-school/2025/11/12/see-best-photos-of-spash-athletes-at-early-signing-day/87234625007/" target="_blank" style="color:var(--msub-blue)">Journal: Signing Day Photos</a></li>
                     </ul>
                 </div>
 
