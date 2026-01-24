@@ -130,7 +130,7 @@
             margin-bottom: 5px;
         }
         .gear-name { font-size: 1.2em; font-weight: bold; color: white; display: block; margin-bottom: 8px; }
-        .gear-spec { color: var(--text-muted); font-size: 0.9em; margin: 0; }
+        .gear-spec { color: var(--text-muted); font-size: 0.9em; margin: 0; line-height: 1.4; }
 
         /* --- ROADMAP STYLES --- */
         .roadmap-box {
@@ -210,28 +210,56 @@
 
     <div class="section-title">The Muscle (Hardware)</div>
     <div class="gear-grid">
+        
         <div class="gear-card">
             <span class="category-tag">Visuals</span>
             <span class="gear-name">Sony BRAVIA XR-83A80L</span>
             <p class="gear-spec">83" OLED | Perfect Black | 120Hz VRR</p>
+            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">+ Philips Hue Sync Box & Gradient Strip</p>
         </div>
+
         <div class="gear-card">
-            <span class="category-tag"> The Engine</span>
+            <span class="category-tag">The Engine</span>
             <span class="gear-name">Denon AVR-A1H</span>
-            <p class="gear-spec">Flagship 15.4 Channel | 150W/Ch</p>
-            <p class="gear-spec" style="font-size:0.85em;">+ Outlaw 5000x Amp (LCR Stage)</p>
+            <p class="gear-spec">Flagship 15.4 Channel Processor</p>
+            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">
+                + <strong>Outlaw 5000x Amp</strong><br>
+                (Powers LCR + Side Surrounds)
+            </p>
         </div>
+
         <div class="gear-card">
             <span class="category-tag">Pressurization</span>
             <span class="gear-name">4x Klipsch RP-1600SW</span>
             <p class="gear-spec">16-inch Drivers | 1600W Peak (Each)</p>
+            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">
+                Corner Loaded. Fronts Y-Split to Out 1.
+            </p>
         </div>
+
         <div class="gear-card">
-            <span class="category-tag">Bed Layer</span>
-            <span class="gear-name">Polk Audio RTi/FXi Series</span>
-            <p class="gear-spec">L/R: RTi A7 Towers | Center: CSi A6</p>
-            <p class="gear-spec">Surrounds: 4x FXi A6 (Bipole Mode)</p>
+            <span class="category-tag">Bed Layer (9 Channels)</span>
+            <span class="gear-name">Polk Audio / Klipsch Hybrid</span>
+            <p class="gear-spec"><strong>LCR:</strong> Polk RTi A7 + CSi A6</p>
+            <p class="gear-spec"><strong>Wides/Sides:</strong> 4x Polk FXi A6 (Bipole)</p>
+            <p class="gear-spec" style="color:var(--status-orange);"><strong>Rears:</strong> 2x Klipsch R-40-SA II</p>
         </div>
+
+        <div class="gear-card">
+            <span class="category-tag">Sky Layer (6 Channels)</span>
+            <span class="gear-name">Sonance Visual Performance</span>
+            <p class="gear-spec">6x VP60R In-Ceiling Speakers</p>
+            <p class="gear-spec" style="font-size:0.85em; margin-top:5px;">
+                Config: Top Front, Top Middle, Top Rear
+            </p>
+        </div>
+
+        <div class="gear-card">
+            <span class="category-tag">Thermal Management</span>
+            <span class="gear-name">AC Infinity AIRCOM T9</span>
+            <p class="gear-spec">Top-Exhaust active cooling.</p>
+        </div>
+
     </div>
 
     <div class="section-title" style="border-color:var(--status-green); color:var(--status-green);">Active Roadmap: 9.5.6 Endgame</div>
@@ -258,7 +286,7 @@
                 <span class="step-title">Near Field Activation</span>
                 <span class="step-desc">
                     Deploy "Strategic Spare" (Unit #5) directly behind MLP using <strong>Klipsch WA-2 Wireless Kit</strong>.<br>
-                    <strong>Routing:</strong> Combine Front L/R subs via Y-Splitter to free up Denon Sub Out 4 for the Near Field unit.
+                    <strong>Routing:</strong> Front L/R are already Y-Split to Sub Out 1. <span style="color:var(--status-green);">Sub Out 4 is open and ready.</span>
                 </span>
             </li>
 
