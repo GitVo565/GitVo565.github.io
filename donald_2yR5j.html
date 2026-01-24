@@ -17,8 +17,8 @@
             --text-muted: #dbeafe;
             
             /* Dark Glass Settings */
-            --glass-bg: rgba(0, 48, 94, 0.75); /* 75% Opacity Navy */
-            --glass-border: rgba(255, 199, 44, 0.3); /* Subtle Gold Border */
+            --glass-bg: rgba(0, 48, 94, 0.75); 
+            --glass-border: rgba(255, 199, 44, 0.3); 
             --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
             --blur-strength: 15px;
         }
@@ -28,27 +28,38 @@
             margin: 0; 
             padding: 0; 
             color: var(--text-main); 
-            background: transparent;
+            /* Deep Navy Background to fill sides when video is contained */
+            background-color: #001a33; 
             overflow-x: hidden;
         }
 
-        /* --- VIDEO BACKGROUND --- */
+        /* --- VIDEO BACKGROUND (SMART ZOOM) --- */
         .bg-video {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            object-fit: cover;
-            /* ALIGNMENT FIX: Keeps the rider visible at the top */
-            object-position: center top; 
             z-index: -2;
+            
+            /* DEFAULT (Mobile): Fill the screen, crop edges if needed */
+            object-fit: cover;
+            object-position: center top; 
         }
 
-        /* Dark Overlay for Text Readability */
+        /* DESKTOP TWEAK: "Zoom Out" to show full height */
+        @media (min-aspect-ratio: 1/1) {
+            .bg-video {
+                /* 'contain' ensures the whole vertical image fits on screen */
+                object-fit: contain; 
+                object-position: center top;
+            }
+        }
+
+        /* Dark Overlay */
         .bg-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.2);
             z-index: -1;
         }
         
@@ -80,10 +91,10 @@
             padding: 20px;
             position: relative; z-index: 1;
             /* SPACER: Pushes content down so the Moose Rider is visible initially */
-            padding-top: 40vh; 
+            padding-top: 35vh; 
         }
 
-        /* --- HERO CARD (SIDE-BY-SIDE) --- */
+        /* --- HERO CARD --- */
         .hero-card {
             background: var(--glass-bg);
             backdrop-filter: blur(var(--blur-strength));
@@ -93,10 +104,9 @@
             box-shadow: var(--glass-shadow);
             margin-bottom: 30px;
             display: grid;
-            grid-template-columns: 1fr; /* Stacked on mobile */
+            grid-template-columns: 1fr;
         }
 
-        /* Desktop: Side-by-Side */
         @media (min-width: 768px) {
             .hero-card {
                 grid-template-columns: 2fr 3fr; 
@@ -107,8 +117,8 @@
 
         .hero-image-box {
             width: 100%;
-            min-height: 300px; /* Mobile height */
-            height: 100%; /* Desktop fill */
+            min-height: 300px;
+            height: 100%;
             position: relative;
             background-color: #000;
         }
@@ -126,16 +136,14 @@
             flex-direction: column;
         }
 
-        /* Desktop Alignment */
         @media (min-width: 768px) {
             .hero-content {
                 align-items: flex-start;
             }
              .hero-content h1 { text-align: left; }
-             .btn-insta { align-self: flex-start; } /* Left align button on desktop */
+             .btn-insta { align-self: flex-start; }
         }
 
-        /* Mobile Alignment */
         @media (max-width: 767px) {
              .hero-content {
                 align-items: center;
@@ -167,7 +175,7 @@
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
 
-        /* INFO CARDS */
+        /* INFO CARDS (Dark Glass) */
         .card {
             background: var(--glass-bg);
             backdrop-filter: blur(var(--blur-strength));
