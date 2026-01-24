@@ -18,9 +18,11 @@
             --card-bg: #111111;
             --text-main: #e0e0e0;
             --text-muted: #888888;
-            --cinema-gold: #d4af37; /* Oscar Gold */
-            --cinema-red: #c0392b; /* Carpet Red */
+            --cinema-gold: #d4af37;
+            --cinema-red: #c0392b;
             --tech-blue: #2980b9;
+            --status-green: #27ae60;
+            --status-orange: #e67e22;
             --border-color: #333;
         }
 
@@ -51,14 +53,13 @@
         }
         .back-btn:hover { color: var(--cinema-gold); border-color: var(--cinema-gold); }
 
-        /* --- HERO SECTION (UPDATED BACKGROUND) --- */
+        /* --- HERO SECTION --- */
         .hero {
             text-align: center;
-            padding: 100px 20px; /* Increased padding for dramatic effect */
+            padding: 100px 20px;
             border-bottom: 1px solid var(--cinema-gold);
             margin-bottom: 50px;
             border-radius: 12px;
-            /* The Photo + Dark Overlay */
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/home_theater.jpg');
             background-size: cover;
             background-position: center;
@@ -128,36 +129,52 @@
             display: block;
             margin-bottom: 5px;
         }
-        
-        .gear-name {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .gear-name:hover { text-decoration: underline; }
-        
+        .gear-name { font-size: 1.2em; font-weight: bold; color: white; display: block; margin-bottom: 8px; }
         .gear-spec { color: var(--text-muted); font-size: 0.9em; margin: 0; }
 
-        /* --- TECH SPECS (Table) --- */
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
+        /* --- ROADMAP STYLES --- */
+        .roadmap-box {
+            background: rgba(39, 174, 96, 0.05);
+            border: 1px solid var(--status-green);
             border-radius: 8px;
-            overflow: hidden;
+            padding: 25px;
+            margin-bottom: 25px;
         }
-        .tech-table th, .tech-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #222;
+        .roadmap-header {
+            color: var(--status-green); font-weight: bold; text-transform: uppercase; 
+            font-size: 1.2em; display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 15px;
         }
-        .tech-table th { color: var(--cinema-gold); width: 30%; text-transform: uppercase; font-size: 0.85em; }
-        .tech-table td { color: #ccc; }
+        .step-list { list-style: none; padding: 0; margin: 0; }
+        .step-item { margin-bottom: 20px; padding-left: 15px; border-left: 2px solid #444; }
+        .step-title { font-weight: bold; color: white; display: block; margin-bottom: 5px; }
+        .step-desc { font-size: 0.9em; color: #aaa; line-height: 1.5; }
+        
+        .phase-tag { 
+            display: inline-block; padding: 2px 8px; border-radius: 4px; 
+            font-size: 0.7em; font-weight: bold; margin-bottom: 5px; 
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .phase-1 { background: var(--cinema-red); color: white; }
+        .phase-2 { background: var(--tech-blue); color: white; }
+        .phase-3 { background: var(--status-orange); color: white; }
+        .phase-4 { background: #555; color: #ccc; }
 
-        /* --- INCIDENT REPORT (Graveyard) --- */
+        /* --- ALERT BOX --- */
+        .alert-box {
+            background: rgba(230, 126, 34, 0.1);
+            border: 1px solid var(--status-orange);
+            color: #e67e22;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* --- INCIDENT REPORT --- */
         .incident-card {
             background: rgba(192, 57, 43, 0.1);
             border: 1px solid var(--cinema-red);
@@ -166,29 +183,10 @@
         }
         .incident-title { color: var(--cinema-red); font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: block; }
 
-        /* --- GUEST GUIDE --- */
-        .guide-box {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--tech-blue);
-        }
-        .step { margin-bottom: 10px; display: flex; gap: 15px; align-items: center; }
-        .step-num { 
-            background: var(--tech-blue); color: white; 
-            width: 25px; height: 25px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            font-weight: bold; font-size: 0.9em;
-        }
-
         /* Footer */
         .footer {
-            margin-top: 80px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            text-align: center;
-            color: #555;
-            font-size: 0.8em;
+            margin-top: 80px; padding-top: 20px; border-top: 1px solid #333;
+            text-align: center; color: #555; font-size: 0.8em;
         }
 
     </style>
@@ -212,117 +210,103 @@
 
     <div class="section-title">The Muscle (Hardware)</div>
     <div class="gear-grid">
-        
         <div class="gear-card">
             <span class="category-tag">Visuals</span>
-            <a href="https://electronics.sony.com/tv-video/televisions/all-tvs/p/xr83a80l" target="_blank" class="gear-name">Sony BRAVIA XR-83A80L ↗</a>
+            <span class="gear-name">Sony BRAVIA XR-83A80L</span>
             <p class="gear-spec">83" OLED | Perfect Black | 120Hz VRR</p>
-            <p class="gear-spec" style="margin-top:10px; font-size:0.85em;">+ Philips Hue Sync Box & Gradiant Strip</p>
         </div>
-
         <div class="gear-card">
             <span class="category-tag"> The Engine</span>
-            <a href="https://www.denon.com/en-us/product/av-receivers/avr-a1h/300609.html" target="_blank" class="gear-name">Denon AVR-A1H ↗</a>
-            <p class="gear-spec">Flagship 15.4 Channel Processor | 150W/Ch</p>
-            <p class="gear-spec" style="margin-top:10px; font-size:0.85em;">+ <a href="https://outlawaudio.com/shop/power_amplifiers/45-model-5000x.html" target="_blank" style="color:#aaa;">Outlaw 5000x Amplifier</a> (LCR Stage)</p>
+            <span class="gear-name">Denon AVR-A1H</span>
+            <p class="gear-spec">Flagship 15.4 Channel | 150W/Ch</p>
+            <p class="gear-spec" style="font-size:0.85em;">+ Outlaw 5000x Amp (LCR Stage)</p>
         </div>
-
         <div class="gear-card">
             <span class="category-tag">Pressurization</span>
-            <a href="https://www.klipsch.com/products/rp-1600sw-subwoofer" target="_blank" class="gear-name">4x Klipsch RP-1600SW ↗</a>
+            <span class="gear-name">4x Klipsch RP-1600SW</span>
             <p class="gear-spec">16-inch Drivers | 1600W Peak (Each)</p>
-            <p class="gear-spec" style="margin-top:10px; font-size:0.85em;">Corner Loaded Configuration</p>
         </div>
-
         <div class="gear-card">
-            <span class="category-tag">Bed Layer (Ear Level)</span>
+            <span class="category-tag">Bed Layer</span>
             <span class="gear-name">Polk Audio RTi/FXi Series</span>
-            <p class="gear-spec">L/R: RTi A7 Towers</p>
-            <p class="gear-spec">Center: CSi A6</p>
+            <p class="gear-spec">L/R: RTi A7 Towers | Center: CSi A6</p>
             <p class="gear-spec">Surrounds: 4x FXi A6 (Bipole Mode)</p>
         </div>
-
-        <div class="gear-card">
-            <span class="category-tag">Sky Layer (Atmos)</span>
-            <a href="https://www.sonance.com/in-wall-in-ceiling/visual-performance/series-6" target="_blank" class="gear-name">6x Sonance VP60R ↗</a>
-            <p class="gear-spec">In-Ceiling Configuration (Front, Mid, Rear)</p>
-        </div>
-
-        <div class="gear-card">
-            <span class="category-tag">Thermal Management</span>
-            <a href="https://acinfinity.com/component-cooling/component-fan-systems/aircom-t9-receiver-and-av-component-cooling-fan-system-top-exhaust-17/" target="_blank" class="gear-name">AC Infinity AIRCOM T9 ↗</a>
-            <p class="gear-spec">Top-Exhaust active cooling for AVR & Amp.</p>
-        </div>
-
     </div>
 
-    <div class="section-title">The Brains (Calibration & Network)</div>
-    <div class="gear-card" style="margin-bottom:20px; border-left: 4px solid var(--cinema-gold);">
-        <span class="category-tag">Room Correction</span>
-        <a href="https://www.dirac.com/live/" target="_blank" class="gear-name" style="font-size:1.5em;">Dirac Live Active Room Treatment (ART) ↗</a>
-        <p class="gear-spec" style="color:#ddd; margin-top:10px;">
-            The system utilizes <strong>Dirac Live with Bass Control (DLBC)</strong> and <strong>ART</strong>. Unlike standard calibration, ART uses the speakers to actively cancel out lingering bass frequencies, removing "room boom" and tightening the impulse response.
-        </p>
-        <p class="gear-spec" style="margin-top:10px;"><strong>Current Profile:</strong> "Bring the Rain" (High Impact)</p>
+    <div class="section-title" style="border-color:var(--status-green); color:var(--status-green);">Active Roadmap: 9.5.6 Endgame</div>
+    
+    <div class="roadmap-box">
+        <div class="roadmap-header">
+            <span>Execution Plan</span>
+            <span style="font-size:0.7em; background:#111; padding:4px 8px; border-radius:4px;">STATUS: BLOCKED (WAITING ON PARTS)</span>
+        </div>
+        
+        <ul class="step-list">
+            
+            <li class="step-item">
+                <span class="phase-tag phase-1">Phase 1: Repair & Rotate</span>
+                <span class="step-title">The "Woofer Swap"</span>
+                <span class="step-desc">
+                    Amp plate replacement failed. Issue confirmed as mechanical. <br>
+                    <strong>Action:</strong> Wait for replacement 16" Driver (Ticket #821835). Install driver into Unit #4 and restore to Rear Left corner.
+                </span>
+            </li>
+
+            <li class="step-item">
+                <span class="phase-tag phase-2">Phase 2: Deployment</span>
+                <span class="step-title">Near Field Activation</span>
+                <span class="step-desc">
+                    Deploy "Strategic Spare" (Unit #5) directly behind MLP using <strong>Klipsch WA-2 Wireless Kit</strong>.<br>
+                    <strong>Routing:</strong> Combine Front L/R subs via Y-Splitter to free up Denon Sub Out 4 for the Near Field unit.
+                </span>
+            </li>
+
+            <li class="step-item">
+                <span class="phase-tag phase-3">Phase 3: Critical Calibration</span>
+                <span class="step-title">Dirac Live Recalibration</span>
+                <span class="step-desc">
+                    Mandatory 17-point measurement required.
+                </span>
+                <div class="alert-box">
+                    <span style="font-size:1.5em;">⚠️</span>
+                    <div>
+                        <strong>CRITICAL TRIGGER:</strong> Since you switched the Polk FXi A6s from <em>Dipole</em> to <em>Bipole</em>, the current Dirac filters are invalid. Active Room Treatment (ART) is currently miscalculating reflections.
+                    </div>
+                </div>
+            </li>
+
+        </ul>
     </div>
 
-    <table class="tech-table">
-        <tr>
-            <th>Automation</th>
-            <td><strong>Hubitat Elevation</strong> (Lighting Scenes, Power State)</td>
-        </tr>
-        <tr>
-            <th>Network</th>
-            <td><strong>Hardwired CAT6</strong> backbone to Netgear 8-Port Switch.</td>
-        </tr>
-        <tr>
-            <th>Streaming</th>
-            <td><strong>Nvidia Shield Pro</strong> (Plex Server) + <strong>Google Nest Wifi</strong> (Wired Backhaul).</td>
-        </tr>
-        <tr>
-            <th>Acoustics</th>
-            <td>USG Sandrift R808 Ceiling Panels + DreamWeaver Malibu III Carpet (60oz Face Weight).</td>
-        </tr>
-    </table>
-
-    <div class="section-title">Quick Start (Guest Mode)</div>
-    <div class="guide-box">
-        <div class="step">
-            <div class="step-num">1</div>
-            <div><strong>Lights:</strong> Say "Hey Google, Turn on Theater Lights."</div>
+    <div class="section-title">Future Hardware Targets</div>
+    <div class="gear-grid">
+        <div class="gear-card" style="border-color:var(--cinema-red);">
+            <span class="category-tag">The "Trauma" Match</span>
+            <span class="gear-name">Klipsch RF-7 III & RC-64 III</span>
+            <p class="gear-spec">High Efficiency. Extreme Dynamics. Can keep up with the 16" subs without compression.</p>
         </div>
-        <div class="step">
-            <div class="step-num">2</div>
-            <div><strong>Power:</strong> Denon Remote -> Press "Media Player" (Sets Input to Shield).</div>
-        </div>
-        <div class="step">
-            <div class="step-num">3</div>
-            <div><strong>Watch:</strong> Use the triangular Nvidia Remote to select Plex, Netflix, or YouTube.</div>
-        </div>
-        <div style="margin-top:15px; border-top:1px solid #333; padding-top:10px; font-size:0.9em; color:#aaa;">
-            🎮 <strong>PS5 Gamers:</strong> Switch Denon to <strong>"Game 1"</strong> (HDMI 4). This engages 120Hz/VRR Mode.
+        <div class="gear-card" style="border-color:var(--tech-blue);">
+            <span class="category-tag">The "Neutral" Match</span>
+            <span class="gear-name">Revel F208 & C208</span>
+            <p class="gear-spec">Precision & Neutrality. Unlocks the resolution of the Denon A1H.</p>
         </div>
     </div>
 
-    <div class="section-title" style="border-color:var(--cinema-red);">The Graveyard & Logs</div>
+    <div class="section-title" style="margin-top:40px; font-size:1.2em; border:none; padding:0;">Maintenance Logs</div>
     <div class="incident-card">
         <span class="incident-title">⚰️ Incident Report: Subwoofer #4</span>
         <p style="margin:0; font-size:0.95em; color:#ddd;">
             <strong>Unit ID:</strong> Serial Ending 213<br>
-            <strong>Failure Mode:</strong> Catastrophic Voice Coil Separation.<br>
-            <strong>Symptoms:</strong> Static/Scratching sound present even at zero volume.<br>
-            <strong>Resolution:</strong> Unit decommissioned. "Strategic Spare" (Unit #5) deployed to position. Warranty claim pending.
+            <strong>Status:</strong> Awaiting Parts (Driver)<br>
+            <strong>Diagnostic:</strong> Amp swap failed to resolve static. Voice coil rubbing confirmed.<br>
+            <strong>Current State:</strong> Unit #5 is filling this spot until repair is complete.
         </p>
-    </div>
-
-    <div class="section-title" style="border-color:var(--text-muted); color:var(--text-muted);">Future Upgrades</div>
-    <div style="color:var(--text-muted); font-style:italic;">
-        "The Chase for Efficiency." Target: <strong>Klipsch RF-7 III</strong> or <strong>Revel F208</strong> towers to match the pressurization of the 16" subs.
     </div>
 
     <div class="footer">
         Voetberg Family Systems • Audio Division<br>
-        Last Calibration: Jan 2026
+        Last Update: Jan 2026
     </div>
 
 </div>
