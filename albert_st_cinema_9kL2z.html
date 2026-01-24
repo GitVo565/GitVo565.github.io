@@ -51,13 +51,18 @@
         }
         .back-btn:hover { color: var(--cinema-gold); border-color: var(--cinema-gold); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (UPDATED BACKGROUND) --- */
         .hero {
             text-align: center;
-            padding: 60px 20px;
+            padding: 100px 20px; /* Increased padding for dramatic effect */
             border-bottom: 1px solid var(--cinema-gold);
             margin-bottom: 50px;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+            border-radius: 12px;
+            /* The Photo + Dark Overlay */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/home_theater.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .hero h1 {
             font-size: 3em;
@@ -65,7 +70,7 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--text-main);
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
         }
         .hero-sub {
             color: var(--cinema-gold);
@@ -74,6 +79,7 @@
             margin-top: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
         }
         .hero-stats {
             display: flex;
@@ -81,8 +87,9 @@
             gap: 30px;
             margin-top: 30px;
             font-family: 'Consolas', monospace;
-            color: var(--text-muted);
+            color: #ccc;
             font-size: 0.9em;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
         }
 
         /* --- SECTIONS --- */
