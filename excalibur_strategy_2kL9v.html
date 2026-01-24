@@ -15,7 +15,7 @@
         /* Theme Variables */
         :root {
             --bg-dark: #0f0f0f;
-            --card-bg: rgba(26, 26, 26, 0.85); /* Made semi-transparent for video */
+            --card-bg: rgba(26, 26, 26, 0.85); /* Semi-transparent for video */
             --text-light: #ecf0f1;
             --accent-gold: #f39c12;
             --accent-red: #c0392b;
@@ -33,7 +33,7 @@
             max-width: 1000px; 
             margin: 0 auto; 
             color: var(--text-light); 
-            background: transparent; /* Allows video to show */
+            background: transparent; 
         }
 
         /* --- VIDEO BACKGROUND --- */
@@ -55,7 +55,7 @@
         }
         
         /* Navigation */
-        .nav-bar { display: flex; gap: 10px; margin-bottom: 30px; position: relative; z-index: 1; }
+        .nav-bar { display: flex; gap: 10px; margin-bottom: 30px; position: relative; z-index: 1; flex-wrap: wrap; }
         .back-btn { 
             display: inline-block; background: var(--card-bg); padding: 8px 15px; 
             text-decoration: none; color: var(--text-light); border-radius: 20px; 
@@ -63,7 +63,7 @@
             transition: all 0.2s; 
             backdrop-filter: blur(5px);
         }
-        .back-btn:hover { background: #444; }
+        .back-btn:hover { background: #444; border-color: var(--accent-gold); }
 
         /* Header */
         .header-section { 
@@ -190,7 +190,8 @@
     <div class="bg-overlay"></div>
 
     <div class="nav-bar">
-        <a href="tacie_training_2pX4v.html" class="back-btn">← Back to Training HQ</a>
+        <a href="Pointers99.html" class="back-btn">🏠 Family Hub</a>
+        <a href="tacie_training_2pX4v.html" class="back-btn">← Training HQ</a>
     </div>
 
     <div class="header-section">
