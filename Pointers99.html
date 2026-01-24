@@ -32,23 +32,18 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden; /* Prevent scrollbar from zoom animation */
+            overflow-x: hidden;
         }
 
-        /* --- BACKGROUND MOTION LAYER --- */
-        /* To use a GIF, replace the URL below. Currently set to animate the JPG */
-        .bg-layer {
+        /* --- VIDEO BACKGROUND LAYER --- */
+        .bg-video {
             position: fixed;
-            top: -10%; left: -10%; width: 120%; height: 120%; /* Extra space for movement */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video fills screen without stretching */
             z-index: -2;
-            background: url('images/voetberg_family.jpg') no-repeat center center;
-            background-size: cover;
-            animation: slowPan 60s infinite alternate linear; /* The Motion Effect */
-        }
-
-        @keyframes slowPan {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-20px, -20px) scale(1.1); }
         }
 
         /* Dark Overlay to ensure text readability */
@@ -56,7 +51,7 @@
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(20,20,20,0.6));
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(20,20,20,0.6));
             z-index: -1;
         }
 
@@ -208,7 +203,10 @@
 </head>
 <body>
 
-    <div class="bg-layer"></div>
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="images/grok_mountain.mp4" type="video/mp4">
+    </video>
+    
     <div class="bg-overlay"></div>
 
     <div class="hub-container">
