@@ -16,9 +16,8 @@
             --text-main: #ffffff;
             --text-muted: #dbeafe;
             
-            /* Dark Glass Settings */
-            /* UPDATED: Increased transparency (0.75 -> 0.60) to show background better */
-            --glass-bg: rgba(0, 48, 94, 0.60); 
+            /* Standard Dark Glass Settings (For body cards) */
+            --glass-bg: rgba(0, 48, 94, 0.65); 
             --glass-border: rgba(255, 199, 44, 0.3); /* Subtle Gold Border */
             --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
             --blur-strength: 15px;
@@ -82,48 +81,65 @@
             padding-top: 80px; 
         }
 
-        /* --- HERO CARD (Simplified & More Transparent) --- */
+        /* --- COMPACT HERO CARD --- */
         .hero-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--blur-strength));
+            /* Much more transparent (0.4) than the rest of the page */
+            background: rgba(0, 48, 94, 0.4); 
+            backdrop-filter: blur(8px); /* Slightly less blur to see background details */
             border: 1px solid var(--glass-border);
             border-radius: 16px;
             box-shadow: var(--glass-shadow);
             margin-bottom: 30px;
             text-align: center;
-            padding: 40px; /* Increased padding now that image is gone */
+            /* Reduced padding to make the tile smaller/tighter */
+            padding: 25px 20px; 
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
 
-        .hero-content h1 { margin: 0; font-size: 3em; color: var(--msub-yellow); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.1; }
-        .hero-content p { color: #fff; font-size: 1.3em; margin-top: 10px; font-weight: 400; }
+        .hero-content h1 { 
+            margin: 0; 
+            font-size: 2.5em; /* Slightly smaller font to reduce height */
+            color: var(--msub-yellow); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Stronger shadow for readability */
+            line-height: 1.1; 
+        }
+        .hero-content p { 
+            color: #fff; 
+            font-size: 1.2em; 
+            margin-top: 5px; 
+            font-weight: 500; 
+            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+        }
         
         /* Action Button with Thumbnail Image */
         .btn-insta {
-            display: inline-flex; /* Changed to inline-flex to align image and text */
+            display: inline-flex;
             align-items: center;
             background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
             color: white;
-            padding: 10px 25px; /* Adjusted padding */
+            padding: 8px 20px; /* Compact padding */
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 25px;
+            margin-top: 15px; /* Reduced margin */
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             transition: transform 0.2s;
             border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9em;
         }
         .btn-insta:hover { transform: scale(1.05); filter: brightness(1.1); }
         
-        /* Style for the small thumbnail in the button */
         .btn-thumb {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%; /* Circle shape */
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
             object-fit: cover;
-            margin-right: 12px; /* Space between image and text */
+            margin-right: 10px;
             border: 2px solid white;
         }
 
@@ -131,7 +147,7 @@
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
 
-        /* INFO CARDS (Dark Glass) */
+        /* INFO CARDS (Standard Dark Glass) */
         .card {
             background: var(--glass-bg);
             backdrop-filter: blur(var(--blur-strength));
