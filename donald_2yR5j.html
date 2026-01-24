@@ -17,8 +17,9 @@
             --text-muted: #dbeafe;
             
             /* Dark Glass Settings */
-            --glass-bg: rgba(0, 48, 94, 0.75); 
-            --glass-border: rgba(255, 199, 44, 0.3); 
+            /* UPDATED: Increased transparency (0.75 -> 0.60) to show background better */
+            --glass-bg: rgba(0, 48, 94, 0.60); 
+            --glass-border: rgba(255, 199, 44, 0.3); /* Subtle Gold Border */
             --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
             --blur-strength: 15px;
         }
@@ -38,11 +39,11 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -2;
-            object-fit: cover; /* Standard full-screen fill */
+            object-fit: cover;
             object-position: center top; 
         }
 
-        /* Subtle Overlay to ensure text pops */
+        /* Subtle Overlay */
         .bg-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -74,90 +75,57 @@
 
         /* Main Container */
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             position: relative; z-index: 1;
-            /* Reverted to standard padding since the new video fits better */
             padding-top: 80px; 
         }
 
-        /* --- HERO CARD --- */
+        /* --- HERO CARD (Simplified & More Transparent) --- */
         .hero-card {
             background: var(--glass-bg);
             backdrop-filter: blur(var(--blur-strength));
             border: 1px solid var(--glass-border);
             border-radius: 16px;
-            overflow: hidden;
             box-shadow: var(--glass-shadow);
             margin-bottom: 30px;
-            display: grid;
-            grid-template-columns: 1fr;
-        }
-
-        @media (min-width: 768px) {
-            .hero-card {
-                grid-template-columns: 2fr 3fr; 
-                align-items: center;
-                text-align: left;
-            }
-        }
-
-        .hero-image-box {
-            width: 100%;
-            min-height: 300px;
-            height: 100%;
-            position: relative;
-            background-color: #000;
-        }
-        
-        .hero-image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            object-position: center center;
-        }
-
-        .hero-content { 
-            padding: 30px; 
+            text-align: center;
+            padding: 40px; /* Increased padding now that image is gone */
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
-        @media (min-width: 768px) {
-            .hero-content {
-                align-items: flex-start;
-            }
-             .hero-content h1 { text-align: left; }
-             .btn-insta { align-self: flex-start; }
-        }
-
-        @media (max-width: 767px) {
-             .hero-content {
-                align-items: center;
-                text-align: center;
-            }
-        }
-
-        .hero-content h1 { margin: 0; font-size: 2.5em; color: var(--msub-yellow); text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.1; }
-        .hero-content p { color: #fff; font-size: 1.2em; margin-top: 10px; font-weight: 400; }
+        .hero-content h1 { margin: 0; font-size: 3em; color: var(--msub-yellow); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.1; }
+        .hero-content p { color: #fff; font-size: 1.3em; margin-top: 10px; font-weight: 400; }
         
-        /* Action Buttons */
+        /* Action Button with Thumbnail Image */
         .btn-insta {
-            display: inline-block;
+            display: inline-flex; /* Changed to inline-flex to align image and text */
+            align-items: center;
             background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
             color: white;
-            padding: 12px 25px;
+            padding: 10px 25px; /* Adjusted padding */
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             transition: transform 0.2s;
             border: 1px solid rgba(255,255,255,0.2);
-            text-align: center;
         }
         .btn-insta:hover { transform: scale(1.05); filter: brightness(1.1); }
+        
+        /* Style for the small thumbnail in the button */
+        .btn-thumb {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%; /* Circle shape */
+            object-fit: cover;
+            margin-right: 12px; /* Space between image and text */
+            border: 2px solid white;
+        }
 
         /* Grid Layout */
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
@@ -176,7 +144,7 @@
             margin-bottom: 20px;
             transition: transform 0.2s;
         }
-        .card:hover { transform: translateY(-3px); background: rgba(0, 48, 94, 0.95); }
+        .card:hover { transform: translateY(-3px); background: rgba(0, 48, 94, 0.85); }
 
         .card h3 { 
             margin-top: 0; 
@@ -245,14 +213,13 @@
     <div class="container">
         
         <div class="hero-card">
-            <div class="hero-image-box">
-                <img src="images/donald_signs.jpg" alt="Donald Signing Day">
-            </div>
             <div class="hero-content">
                 <h1>Donald Voetberg</h1>
                 <p>MSU Billings Commit | Class of 2026</p>
+                
                 <a href="https://www.instagram.com/donald_voetberg" target="_blank" class="btn-insta">
-                    📸 View Official Announcement on Instagram
+                    <img src="images/donald_signs.jpg" alt="Signing" class="btn-thumb">
+                    <span>View Official Announcement on Instagram</span>
                 </a>
             </div>
         </div>
