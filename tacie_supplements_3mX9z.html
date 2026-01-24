@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tacie's Nutrition Protocol v7.3</title>
+    <title>Blood & Bone Protocol v7.4</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -23,8 +23,8 @@
             --alert-red: #e74c3c;
             --warning-orange: #e67e22;
             --med-purple: #9b59b6;
-            --iron-rust: #c0392b;
-            --std-blue: #2980b9;
+            --blood-red: #c0392b;
+            --bone-blue: #2980b9;
             --transition-teal: #1abc9c;
         }
 
@@ -128,13 +128,13 @@
         
         .scenario-box { padding: 15px; border-radius: 6px; border: 2px solid #444; position: relative; overflow: hidden; display: flex; flex-direction: column;}
         
-        /* Scenario A (Iron) Styles */
-        .scenario-a { border-color: var(--iron-rust); background: rgba(192, 57, 43, 0.15); }
-        .scenario-a .scenario-header { color: #ffadad; border-bottom: 1px solid var(--iron-rust); }
+        /* Scenario A (Iron/Blood) Styles */
+        .scenario-blood { border-color: var(--blood-red); background: rgba(192, 57, 43, 0.15); }
+        .scenario-blood .scenario-header { color: #ffadad; border-bottom: 1px solid var(--blood-red); }
         
-        /* Scenario B (Standard) Styles */
-        .scenario-b { border-color: var(--std-blue); background: rgba(41, 128, 185, 0.1); }
-        .scenario-b .scenario-header { color: var(--std-blue); border-bottom: 1px solid var(--std-blue); }
+        /* Scenario B (Standard/Bone) Styles */
+        .scenario-bone { border-color: var(--bone-blue); background: rgba(41, 128, 185, 0.1); }
+        .scenario-bone .scenario-header { color: var(--bone-blue); border-bottom: 1px solid var(--bone-blue); }
         
         .scenario-header { font-weight: 800; font-size: 1.2em; margin-bottom: 10px; display: block; text-align: center; padding-bottom: 5px; text-transform: uppercase; }
         .menu-tag { display: block; text-align: center; font-size: 0.9em; color: #ddd; margin-bottom: 15px; font-style: italic; }
@@ -183,7 +183,7 @@
     <a href="excalibur_strategy_2kL9v.html" class="back-btn">← Back to Strategy Core</a>
     
     <div class="header-section">
-        <h1>💊 Nutrition Protocol v7.3</h1>
+        <h1>🩸 Blood & 🦴 Bone Protocol v7.4</h1>
         <div class="subtitle">Effective March 2026 | The A/B Logic Gate</div>
         <span class="status-badge">🟢 STATUS: GREEN LIGHT (ACTIVE)</span>
     </div>
@@ -217,8 +217,8 @@
                 </div>
 
                 <div class="gate-split">
-                    <div class="scenario-box scenario-a">
-                        <span class="scenario-header">🩸 Scenario A: IRON DAY</span>
+                    <div class="scenario-box scenario-blood">
+                        <span class="scenario-header">🩸 BLOOD PHASE (IRON)</span>
                         <p style="font-size:0.85em; color:#ffadad; margin-bottom:10px; text-align:center;">Goal: Iron Absorption (No Blocks)</p>
                         <ul class="checklist">
                             <li><div class="check-box" style="border-color:var(--iron-rust)"></div><div><span class="item-text">Cream of Wheat</span><span class="item-note">2 Packets. 50% DV Iron.</span></div></li>
@@ -228,8 +228,8 @@
                         </ul>
                     </div>
 
-                    <div class="scenario-box scenario-b">
-                        <span class="scenario-header">🦴 Scenario B: BONE DAY</span>
+                    <div class="scenario-box scenario-bone">
+                        <span class="scenario-header">🦴 BONE PHASE (CALCIUM)</span>
                         <p style="font-size:0.85em; color:#ddd; margin-bottom:10px; text-align:center;">Goal: Calcium Bank</p>
                         <ul class="checklist">
                             <li><div class="check-box" style="border-color:var(--std-blue)"></div><div><span class="item-text">Greek Yogurt / Cereal</span><span class="item-note">Loads ~300mg Calcium.</span></div></li>
@@ -240,44 +240,42 @@
                 </div>
             </div>
 
-            <div style="display:flex; flex-direction:column; gap:20px;">
-                <div class="dose-box lunch-box">
-                    <span class="dose-time">🍱 LUNCH (Nitric + Calcium Gap Fill)</span>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <ul class="checklist">
-                            <li>
-                                <div class="check-box"></div>
-                                <div>
-                                    <span class="item-text">Beet Root Juice (4 oz)</span>
-                                    <span class="item-note warn-text">⚠️ NO MOUTHWASH for 2 hrs.</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="check-box"></div>
-                                <div>
-                                    <span class="item-text">Cold Baked Potato</span>
-                                    <span class="item-note">Skin On. #1 Potassium Source.</span>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="checklist">
-                            <li><div class="check-box" style="border-color:var(--accent-green)"></div><div><span class="item-text">The "Calcium Fill"</span><span class="item-note">1 String Cheese or Yogurt.</span></div></li>
-                            <li><div class="check-box" style="border-color:var(--accent-green)"></div><div><span class="item-text">Chomps Beef Stick</span><span class="item-note">Original. Heme Iron.</span></div></li>
-                        </ul>
-                    </div>
+            <div class="dose-box lunch-box">
+                <span class="dose-time">🍱 LUNCH (Nitric + Calcium Gap Fill)</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <ul class="checklist">
+                        <li>
+                            <div class="check-box"></div>
+                            <div>
+                                <span class="item-text">Beet Root Juice (4 oz)</span>
+                                <span class="item-note warn-text">⚠️ NO MOUTHWASH for 2 hrs.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-box"></div>
+                            <div>
+                                <span class="item-text">Cold Baked Potato</span>
+                                <span class="item-note">Skin On. #1 Potassium Source.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="checklist">
+                        <li><div class="check-box" style="border-color:var(--accent-green)"></div><div><span class="item-text">The "Calcium Fill"</span><span class="item-note">1 String Cheese or Yogurt.</span></div></li>
+                        <li><div class="check-box" style="border-color:var(--accent-green)"></div><div><span class="item-text">Chomps Beef Stick</span><span class="item-note">Original. Heme Iron.</span></div></li>
+                    </ul>
                 </div>
+            </div>
 
-                <div class="dose-box training-box">
-                    <span class="dose-time">🎒 BRIDGE (2:00 PM - Gut Safe)</span>
-                    <div style="display:flex; flex-wrap:wrap; gap:20px;">
-                        <ul class="checklist" style="flex:1;">
-                            <li><div class="check-box"></div><div><span class="item-text">The Snack</span><span class="item-note">Pretzels/Banana. <span class="warn-text">NO Fat/Fiber.</span></span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Hydration (16oz)</span><span class="item-note">Offset osmotic load.</span></div></li>
-                        </ul>
-                        <ul class="checklist" style="flex:1;">
-                            <li><div class="check-box"></div><div><span class="item-text">Atrovent (2 Puffs)</span><span class="item-note">20 mins pre-exertion. (Backup: Albuterol)</span></div></li>
-                        </ul>
-                    </div>
+            <div class="dose-box training-box">
+                <span class="dose-time">🎒 BRIDGE (2:00 PM - Gut Safe)</span>
+                <div style="display:flex; flex-wrap:wrap; gap:20px;">
+                    <ul class="checklist" style="flex:1;">
+                        <li><div class="check-box"></div><div><span class="item-text">The Snack</span><span class="item-note">Pretzels/Banana. <span class="warn-text">NO Fat/Fiber.</span></span></div></li>
+                        <li><div class="check-box"></div><div><span class="item-text">Hydration (16oz)</span><span class="item-note">Offset osmotic load.</span></div></li>
+                    </ul>
+                    <ul class="checklist" style="flex:1;">
+                        <li><div class="check-box"></div><div><span class="item-text">Atrovent (2 Puffs)</span><span class="item-note">20 mins pre-exertion. (Backup: Albuterol)</span></div></li>
+                    </ul>
                 </div>
             </div>
 
@@ -310,13 +308,13 @@
                 <div class="common-box">
                     <span class="category-label meds" style="margin-top:0;">💊 WITH DINNER</span>
                     <ul class="checklist common-list" style="justify-content:center;">
-                        <li><div class="check-box"></div><div><span class="item-text">Klean Multi (2 Tabs)</span><span class="item-note">Must take with full meal.</span></div></li>
+                        <li><div class="check-box"></div><div><span class="item-text">Klean Multi (2 Tabs)</span><span class="item-note">Take with full meal.</span></div></li>
                     </ul>
                 </div>
 
                 <div class="gate-split">
-                    <div class="scenario-box scenario-b">
-                        <span class="scenario-header">🍗 DINNER SCENARIO A: STANDARD</span>
+                    <div class="scenario-box scenario-bone">
+                        <span class="scenario-header">🦴 BONE PHASE (STANDARD)</span>
                         <span class="menu-tag">Chicken, Fish, Tacos, Pasta</span>
                         <ul class="checklist">
                             <li><div class="check-box" style="border-color:var(--std-blue)"></div><div><span class="item-text">Baked Potato (Skin)</span><span class="item-note">Potassium Load.</span></div></li>
@@ -324,8 +322,8 @@
                         </ul>
                     </div>
 
-                    <div class="scenario-box scenario-a">
-                        <span class="scenario-header">🥩 DINNER SCENARIO B: IRON NIGHT</span>
+                    <div class="scenario-box scenario-blood">
+                        <span class="scenario-header">🩸 BLOOD PHASE (IRON)</span>
                         <span class="menu-tag">Steak, Liverwurst, Lean Burger</span>
                         <ul class="checklist">
                             <li><div class="check-box" style="border-color:var(--iron-rust)"></div><div><span class="item-text">Drink Orange Juice</span><span class="item-note">Vit C boosts Iron.</span></div></li>
@@ -338,8 +336,8 @@
                 <div class="bedtime-header">🛌 BEDTIME PROTOCOL</div>
                 
                 <div class="gate-split">
-                    <div class="scenario-box scenario-b">
-                        <span class="scenario-header" style="font-size:1em;">Bedtime A: Standard</span>
+                    <div class="scenario-box scenario-bone">
+                        <span class="scenario-header" style="font-size:1em;">🦴 BONE NIGHT</span>
                         <ul class="checklist">
                             <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
                             <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
@@ -347,8 +345,8 @@
                         </ul>
                     </div>
 
-                    <div class="scenario-box scenario-a">
-                        <span class="scenario-header" style="font-size:1em;">Bedtime B: Iron Night</span>
+                    <div class="scenario-box scenario-blood">
+                        <span class="scenario-header" style="font-size:1em;">🩸 BLOOD NIGHT</span>
                         <ul class="checklist">
                             <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
                             <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
@@ -381,7 +379,7 @@
                 <li><strong>START:</strong> Nature's Bounty (Zn/Mg/Ca/D3) + Vit C.</li>
                 <li><strong>CONTINUE:</strong> Creatine (Hydration) & Potassium.</li>
             </ul>
-            <p style="font-size:0.85em; color:#aaa; margin-top:10px;">Resume v7.3 only after fever-free for 24 hrs.</p>
+            <p style="font-size:0.85em; color:#aaa; margin-top:10px;">Resume v7.4 only after fever-free for 24 hrs.</p>
         </div>
     </div>
 
