@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Albert St. Cinema | 9.4.6 Reference Theater</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    
+    <style>
+        /* Cinema Theme Variables */
+        :root {
+            --bg-deep: #050505;
+            --card-bg: #111111;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --cinema-gold: #d4af37; /* Oscar Gold */
+            --cinema-red: #c0392b; /* Carpet Red */
+            --tech-blue: #2980b9;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- NAVIGATION --- */
+        .nav-bar { margin-bottom: 40px; display: flex; gap: 15px; }
+        .back-btn {
+            text-decoration: none;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        .back-btn:hover { color: var(--cinema-gold); border-color: var(--cinema-gold); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid var(--cinema-gold);
+            margin-bottom: 50px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-main);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        .hero-sub {
+            color: var(--cinema-gold);
+            font-size: 1.2em;
+            font-weight: 300;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            font-family: 'Consolas', monospace;
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+
+        /* --- SECTIONS --- */
+        .section-title {
+            font-size: 1.8em;
+            color: var(--text-main);
+            border-left: 4px solid var(--cinema-gold);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            margin-top: 60px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- GEAR GRID --- */
+        .gear-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gear-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .gear-card:hover { transform: translateY(-2px); border-color: var(--cinema-gold); }
+
+        .category-tag {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--cinema-gold);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .gear-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .gear-name:hover { text-decoration: underline; }
+        
+        .gear-spec { color: var(--text-muted); font-size: 0.9em; margin: 0; }
+
+        /* --- TECH SPECS (Table) --- */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .tech-table th, .tech-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #222;
+        }
+        .tech-table th { color: var(--cinema-gold); width: 30%; text-transform: uppercase; font-size: 0.85em; }
+        .tech-table td { color: #ccc; }
+
+        /* --- INCIDENT REPORT (Graveyard) --- */
+        .incident-card {
+            background: rgba(192, 57, 43, 0.1);
+            border: 1px solid var(--cinema-red);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .incident-title { color: var(--cinema-red); font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: block; }
+
+        /* --- GUEST GUIDE --- */
+        .guide-box {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--tech-blue);
+        }
+        .step { margin-bottom: 10px; display: flex; gap: 15px; align-items: center; }
+        .step-num { 
+            background: var(--tech-blue); color: white; 
+            width: 25px; height: 25px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-weight: bold; font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #555;
+            font-size: 0.8em;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="nav-bar">
+        <a href="Pointers99.html" class="back-btn">🏠 Family Hub</a>
+        <a href="excalibur_strategy_2kL9v.html" class="back-btn">⚔️ Excalibur Strategy</a>
+    </div>
+
+    <div class="hero">
+        <h1>The Albert St. Cinema</h1>
+        <div class="hero-sub">9.4.6 Reference Dolby Atmos System</div>
+        <div class="hero-stats">
+            <span>315 Sq. Ft.</span> • <span>15 Channels</span> • <span>4 Subwoofers</span> • <span>Dirac Live ART</span>
+        </div>
+    </div>
+
+    <div class="section-title">The Muscle (Hardware)</div>
+    <div class="gear-grid">
+        
+        <div class="gear-card">
+            <span class="category-tag">Visuals</span>
+            <a href="https://electronics.sony.com/tv-video/televisions/all-tvs/p/xr83a80l" target="_blank" class="gear-name">Sony BRAVIA XR-83A80L ↗</a>
+            <p class="gear-spec">83" OLED | Perfect Black | 120Hz VRR</p>
+            <p class="gear-spec" style="margin-top:10px; font-size:0.85em;">+ Philips Hue Sync Box & Gradiant Strip</p>
+        </div>
+
+        <div class="gear-card">
+            <span class="category-tag"> The Engine</span>
+            <a href="https://www.denon.com/en-us/product/av-receivers/avr-a1h/300609.html" target="_blank" class="gear-name">Denon AVR-A1H ↗</a>
+            <p class="gear-spec">Flagship 15.4 Channel Processor | 150W/Ch</p>
+            <p class="gear-spec" style="margin-top:10px; font-size:0.85em;">+ <a href="https://outlawaudio.com/shop/power_amplifiers/45-model-5000x.html" target="_blank" style="color:#aaa;">Outlaw 5000x Amplifier</a> (LCR Stage)</p>
+        </div>
+
+        <div class="gear-card">
+            <span class="category-tag">Pressurization</span>
+            <a href="https://www.klipsch.com/products/rp-1600sw-subwoofer" target="_blank" class="gear-name">4x Klipsch RP-1600SW ↗</a>
+            <p class="gear-spec">16-inch Drivers | 1600W Peak (Each)</p>
+            <p class="gear-spec" style="margin-top:10px; font-size:0.85em;">Corner Loaded Configuration</p>
+        </div>
+
+        <div class="gear-card">
+            <span class="category-tag">Bed Layer (Ear Level)</span>
+            <span class="gear-name">Polk Audio RTi/FXi Series</span>
+            <p class="gear-spec">L/R: RTi A7 Towers</p>
+            <p class="gear-spec">Center: CSi A6</p>
+            <p class="gear-spec">Surrounds: 4x FXi A6 (Bipole Mode)</p>
+        </div>
+
+        <div class="gear-card">
+            <span class="category-tag">Sky Layer (Atmos)</span>
+            <a href="https://www.sonance.com/in-wall-in-ceiling/visual-performance/series-6" target="_blank" class="gear-name">6x Sonance VP60R ↗</a>
+            <p class="gear-spec">In-Ceiling Configuration (Front, Mid, Rear)</p>
+        </div>
+
+        <div class="gear-card">
+            <span class="category-tag">Thermal Management</span>
+            <a href="https://acinfinity.com/component-cooling/component-fan-systems/aircom-t9-receiver-and-av-component-cooling-fan-system-top-exhaust-17/" target="_blank" class="gear-name">AC Infinity AIRCOM T9 ↗</a>
+            <p class="gear-spec">Top-Exhaust active cooling for AVR & Amp.</p>
+        </div>
+
+    </div>
+
+    <div class="section-title">The Brains (Calibration & Network)</div>
+    <div class="gear-card" style="margin-bottom:20px; border-left: 4px solid var(--cinema-gold);">
+        <span class="category-tag">Room Correction</span>
+        <a href="https://www.dirac.com/live/" target="_blank" class="gear-name" style="font-size:1.5em;">Dirac Live Active Room Treatment (ART) ↗</a>
+        <p class="gear-spec" style="color:#ddd; margin-top:10px;">
+            The system utilizes <strong>Dirac Live with Bass Control (DLBC)</strong> and <strong>ART</strong>. Unlike standard calibration, ART uses the speakers to actively cancel out lingering bass frequencies, removing "room boom" and tightening the impulse response.
+        </p>
+        <p class="gear-spec" style="margin-top:10px;"><strong>Current Profile:</strong> "Bring the Rain" (High Impact)</p>
+    </div>
+
+    <table class="tech-table">
+        <tr>
+            <th>Automation</th>
+            <td><strong>Hubitat Elevation</strong> (Lighting Scenes, Power State)</td>
+        </tr>
+        <tr>
+            <th>Network</th>
+            <td><strong>Hardwired CAT6</strong> backbone to Netgear 8-Port Switch.</td>
+        </tr>
+        <tr>
+            <th>Streaming</th>
+            <td><strong>Nvidia Shield Pro</strong> (Plex Server) + <strong>Google Nest Wifi</strong> (Wired Backhaul).</td>
+        </tr>
+        <tr>
+            <th>Acoustics</th>
+            <td>USG Sandrift R808 Ceiling Panels + DreamWeaver Malibu III Carpet (60oz Face Weight).</td>
+        </tr>
+    </table>
+
+    <div class="section-title">Quick Start (Guest Mode)</div>
+    <div class="guide-box">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div><strong>Lights:</strong> Say "Hey Google, Turn on Theater Lights."</div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div><strong>Power:</strong> Denon Remote -> Press "Media Player" (Sets Input to Shield).</div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div><strong>Watch:</strong> Use the triangular Nvidia Remote to select Plex, Netflix, or YouTube.</div>
+        </div>
+        <div style="margin-top:15px; border-top:1px solid #333; padding-top:10px; font-size:0.9em; color:#aaa;">
+            🎮 <strong>PS5 Gamers:</strong> Switch Denon to <strong>"Game 1"</strong> (HDMI 4). This engages 120Hz/VRR Mode.
+        </div>
+    </div>
+
+    <div class="section-title" style="border-color:var(--cinema-red);">The Graveyard & Logs</div>
+    <div class="incident-card">
+        <span class="incident-title">⚰️ Incident Report: Subwoofer #4</span>
+        <p style="margin:0; font-size:0.95em; color:#ddd;">
+            <strong>Unit ID:</strong> Serial Ending 213<br>
+            <strong>Failure Mode:</strong> Catastrophic Voice Coil Separation.<br>
+            <strong>Symptoms:</strong> Static/Scratching sound present even at zero volume.<br>
+            <strong>Resolution:</strong> Unit decommissioned. "Strategic Spare" (Unit #5) deployed to position. Warranty claim pending.
+        </p>
+    </div>
+
+    <div class="section-title" style="border-color:var(--text-muted); color:var(--text-muted);">Future Upgrades</div>
+    <div style="color:var(--text-muted); font-style:italic;">
+        "The Chase for Efficiency." Target: <strong>Klipsch RF-7 III</strong> or <strong>Revel F208</strong> towers to match the pressurization of the 16" subs.
+    </div>
+
+    <div class="footer">
+        Voetberg Family Systems • Audio Division<br>
+        Last Calibration: Jan 2026
+    </div>
+
+</div>
+
+</body>
+</html>
