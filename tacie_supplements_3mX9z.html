@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tacie's Supplement Protocol v5.1</title>
+    <title>Tacie's Supplement Protocol v6.0</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -23,6 +23,7 @@
             --alert-red: #e74c3c;
             --warning-orange: #e67e22;
             --med-purple: #9b59b6;
+            --iron-rust: #c0392b;
         }
 
         body { 
@@ -80,6 +81,7 @@
             display: block; font-size: 0.7em; text-transform: uppercase; color: #888; margin-top: 10px; margin-bottom: 5px; font-weight: bold; letter-spacing: 1px;
         }
         .category-label.meds { color: var(--med-purple); }
+        .category-label.food { color: var(--accent-green); }
         
         /* Checkbox lists */
         .checklist { list-style: none; padding: 0; margin: 0; }
@@ -93,6 +95,19 @@
         /* Highlight Boxes */
         .training-box { border-color: var(--accent-gold); background: rgba(243, 156, 18, 0.05); }
         .lunch-box { border-color: var(--med-purple); background: rgba(155, 89, 182, 0.05); }
+
+        /* EVENING LOGIC GATE */
+        .logic-gate-container { grid-column: 1 / -1; margin-top: 10px; }
+        .gate-title { text-align: center; color: var(--accent-gold); font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .gate-split { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        .scenario-box { padding: 15px; border-radius: 6px; border: 2px solid #444; }
+        .scenario-a { border-color: var(--accent-blue); background: rgba(52, 152, 219, 0.1); }
+        .scenario-b { border-color: var(--iron-rust); background: rgba(192, 57, 43, 0.1); }
+        
+        .scenario-header { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; text-align: center; }
+        .scenario-a .scenario-header { color: var(--accent-blue); }
+        .scenario-b .scenario-header { color: var(--iron-rust); }
 
         /* SAFETY SECTION (Middle) */
         .safety-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
@@ -141,6 +156,7 @@
         @media (max-width: 768px) {
             .protocol-grid { grid-template-columns: 1fr; }
             .safety-section { grid-template-columns: 1fr; }
+            .gate-split { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -149,8 +165,8 @@
     <a href="excalibur_strategy_2kL9v.html" class="back-btn">← Back to Strategy Core</a>
     
     <div class="header-section">
-        <h1>💊 Supplement Protocol v5.1</h1>
-        <div class="subtitle">Effective Feb 2026 | Updated for Hybrid Training</div>
+        <h1>💊 Supplement Protocol v6.0</h1>
+        <div class="subtitle">Effective March 2026 | Iron vs. Calcium Logic Gate</div>
         <span class="status-badge">🟢 STATUS: GREEN LIGHT (ACTIVE)</span>
     </div>
 
@@ -163,8 +179,8 @@
                 
                 <span class="category-label meds">Medications (Airway)</span>
                 <ul class="checklist">
-                    <li><div class="check-box"></div><div><span class="item-text">Pulmicort (2 Puffs)</span><span class="item-note">180 mcg.</span></div></li>
-                    <li><div class="check-box"></div><div><span class="item-text">Ryaltris (2 Sprays)</span><span class="item-note">Per nostril.</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">Pulmicort (2 Puffs)</span></div></li>
+                    <li><div class="check-box"></div><div><span class="item-text">Ryaltris (2 Sprays)</span></div></li>
                 </ul>
 
                 <span class="category-label">Supplements (Structural)</span>
@@ -175,18 +191,30 @@
                     <li><div class="check-box"></div><div><span class="item-text">CoQ10 (1 Cap)</span><span class="item-note"><span class="brand-tag">Futurebiotics</span>.</span></div></li>
                     <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab ONLY)</span><span class="item-note"><span class="brand-tag">Country Life</span>. Dose 1 of 2.</span></div></li>
                 </ul>
+
+                <span class="category-label food">Food Focus</span>
+                <div style="font-size:0.85em; color:#ddd; margin-left:25px;">
+                    🥛 <strong>Dairy Encouraged:</strong> Drink milk or eat yogurt here to bank Calcium early.
+                </div>
             </div>
 
             <div style="display:flex; flex-direction:column; gap:20px;">
                 <div class="dose-box lunch-box">
-                    <span class="dose-time">🍱 LUNCH (Nitric Oxide)</span>
+                    <span class="dose-time">🍱 LUNCH (Gap Fill)</span>
                     <ul class="checklist">
                         <li>
                             <div class="check-box"></div>
                             <div>
                                 <span class="item-text">Beet Root Juice (4 oz)</span>
-                                <span class="item-note">Titration Phase (Start small).</span>
-                                <span class="item-note warn-text">⚠️ NO MOUTHWASH/BRUSHING FOR 2 HOURS.</span>
+                                <span class="item-note warn-text">⚠️ NO MOUTHWASH for 2 hrs.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-box"></div>
+                            <div>
+                                <span class="item-text">The "Calcium Fill"</span>
+                                <span class="item-note">1 String Cheese or Yogurt.</span>
+                                <span class="item-note" style="color:#aaa;">Why: Critical if dinner is red meat (No dairy later).</span>
                             </div>
                         </li>
                     </ul>
@@ -195,27 +223,40 @@
                 <div class="dose-box training-box">
                     <span class="dose-time">🎒 THE BRIDGE (Pre-Practice)</span>
                     <ul class="checklist">
-                        <li><div class="check-box"></div><div><span class="item-text">Atrovent (2 Puffs)</span><span class="item-note">20 mins pre-exertion. (Backup: Albuterol).</span></div></li>
-                        <li><div class="check-box"></div><div><span class="item-text">The Snack</span><span class="item-note">Pretzels/Banana. No Fats/Protein.</span></div></li>
-                        <li><div class="check-box"></div><div><span class="item-text">Hydration (16oz)</span><span class="item-note">Critical to offset creatine/beets.</span></div></li>
+                        <li><div class="check-box"></div><div><span class="item-text">Atrovent (2 Puffs)</span><span class="item-note">20 mins pre-exertion.</span></div></li>
+                        <li><div class="check-box"></div><div><span class="item-text">The Snack</span><span class="item-note">Pretzels/Banana. No Fats.</span></div></li>
+                        <li><div class="check-box"></div><div><span class="item-text">Hydration (16oz)</span><span class="item-note">Offset osmotic load.</span></div></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="dose-box">
-                <span class="dose-time">🌙 EVENING (Dinner/Bed)</span>
+            <div class="dose-box logic-gate-container">
+                <span class="dose-time">🌙 EVENING LOGIC GATE (Check Dinner Menu)</span>
                 
-                <span class="category-label meds">Medications (Recovery)</span>
-                <ul class="checklist">
-                    <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
-                    <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
-                </ul>
+                <div style="margin-bottom:15px; font-size:0.9em; text-align:center; color:#ccc;">
+                    <strong>Medications (Every Night):</strong> Spiriva (2 Puffs) + Zyrtec (1 Tab).
+                </div>
 
-                <span class="category-label">Supplements (Reload)</span>
-                <ul class="checklist">
-                    <li><div class="check-box"></div><div><span class="item-text">Multivitamin (2 Tabs)</span><span class="item-note"><span class="brand-tag">Klean Athlete</span>. WITH FULL MEAL.</span></div></li>
-                    <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab)</span><span class="item-note"><span class="brand-tag">Country Life</span>. Dose 2 of 2.</span></div></li>
-                </ul>
+                <div class="gate-split">
+                    <div class="scenario-box scenario-a">
+                        <span class="scenario-header">🍗 Scenario A: STANDARD</span>
+                        <p style="font-size:0.85em; color:#ddd; margin-bottom:10px; text-align:center;">Menu: Chicken, Fish, Pasta, Tacos</p>
+                        <ul class="checklist">
+                            <li><div class="check-box"></div><div><span class="item-text">Klean Multi (2 Tabs)</span></div></li>
+                            <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab)</span><span class="item-note">Safe to take with dinner.</span></div></li>
+                        </ul>
+                    </div>
+
+                    <div class="scenario-box scenario-b">
+                        <span class="scenario-header">🥩 Scenario B: IRON NIGHT</span>
+                        <p style="font-size:0.85em; color:#ffadad; margin-bottom:10px; text-align:center;">Menu: Steak, Liverwurst, Burger</p>
+                        <ul class="checklist">
+                            <li><div class="check-box"></div><div><span class="item-text">Drink Orange Juice</span><span class="item-note">Vit C boosts Iron. 🚫 NO MILK.</span></div></li>
+                            <li><div class="check-box"></div><div><span class="item-text">Klean Multi (2 Tabs)</span></div></li>
+                            <li><div class="check-box" style="border-color:var(--alert-red);"></div><div><span class="item-text warn-text">STOP: NO CAL/MAG</span><span class="item-note">Calcium blocks Iron. Move pill to Bedtime.</span></div></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -239,7 +280,7 @@
                 <li><strong>START:</strong> Nature's Bounty (Zn/Mg/Ca/D3) + Vit C.</li>
                 <li><strong>CONTINUE:</strong> Creatine (Hydration) & Potassium.</li>
             </ul>
-            <p style="font-size:0.85em; color:#aaa; margin-top:10px;">Resume v5.1 only after fever-free for 24 hrs.</p>
+            <p style="font-size:0.85em; color:#aaa; margin-top:10px;">Resume v6.0 only after fever-free for 24 hrs.</p>
         </div>
     </div>
 
@@ -264,12 +305,12 @@
                 <tr>
                     <td><strong>Iron</strong></td>
                     <td class="status-low">Pills BANNED</td>
-                    <td>Liverwurst or Red Meat (2-3x/week). Pair w/ OJ. NO Milk w/ Meat.</td>
+                    <td>Liverwurst or Red Meat (2-3x/week). <strong>MUST pair w/ OJ. NO Milk/Calcium at this meal.</strong></td>
                 </tr>
                 <tr>
                     <td><strong>Calcium</strong></td>
                     <td class="status-low">Short ~250mg</td>
-                    <td>1 Serving Dairy (Milk/Yogurt/Cheese) daily covers this gap.</td>
+                    <td>1 Serving Dairy (String Cheese/Yogurt) at <strong>Breakfast or Lunch</strong>.</td>
                 </tr>
             </tbody>
         </table>
@@ -277,12 +318,12 @@
         <h3 style="color:var(--accent-blue); margin-bottom:15px; margin-top:30px;">🧠 Why we do this (The Strategy)</h3>
         <div class="rationale-grid">
             <div class="rationale-item">
-                <span class="rationale-title">1. The Nitric Oxide "Bio-Hack"</span>
-                <p class="rationale-text">Beet nitrates improve blood flow but take 2-3 hours to peak. Moving to Lunch hits the practice window perfectly. <strong>Hygiene Rule:</strong> Mouthwash kills the bacteria needed for this conversion.</p>
+                <span class="rationale-title">1. The Iron/Calcium Segregation</span>
+                <p class="rationale-text">Calcium blocks Heme Iron absorption. Since we cannot use Iron pills (Medical Hold), we must maximize absorption from meat. A glass of milk or a Calcium pill at dinner neutralizes the iron benefit of the steak.</p>
             </div>
             <div class="rationale-item">
-                <span class="rationale-title">2. The "War for Water"</span>
-                <p class="rationale-text">Creatine pulls water to muscle. Magnesium/Beets pull water to the gut. The <strong>Magnesium Split</strong> and <strong>16oz Water</strong> rule prevents the gut from losing this war (Diarrhea).</p>
+                <span class="rationale-title">2. The Nitric Oxide "Bio-Hack"</span>
+                <p class="rationale-text">Beet nitrates improve blood flow but require oral bacteria to activate. Moving to Lunch hits the practice window. <strong>Hygiene Rule:</strong> Mouthwash kills the bacteria, rendering the juice useless.</p>
             </div>
             <div class="rationale-item">
                 <span class="rationale-title">3. The Vitamin D Brand Lock</span>
