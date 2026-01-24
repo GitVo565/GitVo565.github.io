@@ -25,8 +25,6 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('images/voetberg_family.jpg') no-repeat center center fixed; 
-            background-size: cover;
             color: var(--text-main);
             margin: 0;
             padding: 20px;
@@ -34,16 +32,32 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden; /* Prevent scrollbar from zoom animation */
         }
 
-        /* Dark Overlay to ensure text readability on any photo */
-        body::before {
+        /* --- BACKGROUND MOTION LAYER --- */
+        /* To use a GIF, replace the URL below. Currently set to animate the JPG */
+        .bg-layer {
+            position: fixed;
+            top: -10%; left: -10%; width: 120%; height: 120%; /* Extra space for movement */
+            z-index: -2;
+            background: url('images/voetberg_family.jpg') no-repeat center center;
+            background-size: cover;
+            animation: slowPan 60s infinite alternate linear; /* The Motion Effect */
+        }
+
+        @keyframes slowPan {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-20px, -20px) scale(1.1); }
+        }
+
+        /* Dark Overlay to ensure text readability */
+        .bg-overlay {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(20,20,20,0.6));
             z-index: -1;
-            position: fixed; /* Fixes overlay during scroll */
         }
 
         /* --- LAYOUT CONTAINER --- */
@@ -53,6 +67,8 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
+            position: relative;
+            z-index: 1;
         }
 
         /* --- HEADER --- */
@@ -192,6 +208,9 @@
 </head>
 <body>
 
+    <div class="bg-layer"></div>
+    <div class="bg-overlay"></div>
+
     <div class="hub-container">
         
         <div class="header">
@@ -203,14 +222,6 @@
             <span class="section-title">Logistics & Strategy</span>
             <div class="action-grid">
                 
-                <a href="excalibur_strategy_2kL9v.html" class="action-btn btn-excalibur">
-                    <span class="action-icon">⚔️</span>
-                    <div>
-                        <div class="action-label">Excalibur Athletics</div>
-                        <div class="action-sub">Training, Nutrition & Strategy</div>
-                    </div>
-                </a>
-
                 <a href="events_7x9B2.html" class="action-btn btn-events">
                     <span class="action-icon">📅</span>
                     <div>
@@ -224,6 +235,14 @@
                     <div>
                         <div class="action-label">Orders from HQ</div>
                         <div class="action-sub">Tasks & Directives</div>
+                    </div>
+                </a>
+
+                <a href="excalibur_strategy_2kL9v.html" class="action-btn btn-excalibur">
+                    <span class="action-icon">⚔️</span>
+                    <div>
+                        <div class="action-label">Excalibur Athletics</div>
+                        <div class="action-sub">Training, Nutrition & Strategy</div>
                     </div>
                 </a>
 
