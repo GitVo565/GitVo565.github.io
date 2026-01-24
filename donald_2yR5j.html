@@ -9,26 +9,27 @@
     <meta http-equiv="Expires" content="0">
     
     <style>
-        /* Theme Variables */
+        /* Theme Variables: MSUB Dark Mode */
         :root {
-            --msub-blue: #005f9e;
-            --msub-yellow: #ffc72c;
-            --text-dark: #1a202c;
-            --text-muted: #4a5568;
+            --msub-blue: #00305e; /* Deep Navy */
+            --msub-yellow: #ffc72c; /* Athletic Gold */
+            --text-main: #ffffff;
+            --text-muted: #dbeafe;
             
-            /* Glassmorphism settings */
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.5);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            --blur-strength: 12px;
+            /* Dark Glass Settings */
+            --glass-bg: rgba(0, 48, 94, 0.85); /* Dark Navy Glass */
+            --glass-border: rgba(255, 199, 44, 0.3); /* Subtle Gold Border */
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+            --blur-strength: 15px;
         }
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
             padding: 0; 
-            color: var(--text-dark); 
+            color: var(--text-main); 
             background: transparent;
+            overflow-x: hidden;
         }
 
         /* --- VIDEO BACKGROUND --- */
@@ -37,34 +38,40 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
+            /* CRITICAL FIX: Locks alignment to top so rider isn't cut off */
+            object-position: center top; 
             z-index: -2;
         }
 
-        /* Light Overlay to ensure text readability against the Moose */
+        /* Darker Overlay to make the Navy Glass pop */
         .bg-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Low opacity for maximum visibility */
+            background: rgba(0, 0, 0, 0.3);
             z-index: -1;
         }
         
         /* Navigation */
-        .nav-bar { padding: 20px; text-align: left; position: relative; z-index: 1; }
+        .nav-bar { 
+            position: absolute; /* Floating nav so it doesn't push content down */
+            top: 20px; left: 20px; 
+            z-index: 10; 
+        }
         .back-btn { 
             display: inline-block; 
             background: var(--glass-bg); 
             backdrop-filter: blur(5px);
             padding: 8px 18px; 
             text-decoration: none; 
-            color: var(--text-dark); 
+            color: var(--msub-yellow); 
             border-radius: 20px; 
             font-weight: bold;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid var(--msub-yellow);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             transition: all 0.2s;
         }
-        .back-btn:hover { background: #fff; transform: translateY(-2px); color: var(--msub-blue); }
+        .back-btn:hover { background: var(--msub-yellow); color: var(--msub-blue); }
 
         /* Main Container */
         .container {
@@ -72,6 +79,8 @@
             margin: 0 auto;
             padding: 20px;
             position: relative; z-index: 1;
+            /* CRITICAL FIX: Pushes content down 45% of screen height to show the Rider */
+            padding-top: 45vh; 
         }
 
         /* PROFILE HERO CARD */
@@ -88,10 +97,10 @@
 
         .hero-image-box {
             width: 100%;
-            height: 400px; 
+            height: 350px; 
             overflow: hidden;
             position: relative;
-            background-color: #f0f0f0;
+            background-color: #000;
             border-bottom: 4px solid var(--msub-yellow);
         }
         
@@ -103,8 +112,8 @@
         }
 
         .hero-content { padding: 30px; }
-        .hero-content h1 { margin: 0; font-size: 2.8em; color: var(--msub-blue); text-transform: uppercase; letter-spacing: 1px; }
-        .hero-content p { color: var(--text-dark); font-size: 1.2em; margin-top: 5px; font-weight: 600; }
+        .hero-content h1 { margin: 0; font-size: 2.8em; color: var(--msub-yellow); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .hero-content p { color: #fff; font-size: 1.2em; margin-top: 5px; font-weight: 400; }
         
         /* Action Buttons */
         .btn-insta {
@@ -116,16 +125,17 @@
             text-decoration: none;
             font-weight: bold;
             margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             transition: transform 0.2s;
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        .btn-insta:hover { transform: scale(1.05); }
+        .btn-insta:hover { transform: scale(1.05); filter: brightness(1.1); }
 
         /* Grid Layout */
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
 
-        /* INFO CARDS (Glassmorphism) */
+        /* INFO CARDS (Dark Glass) */
         .card {
             background: var(--glass-bg);
             backdrop-filter: blur(var(--blur-strength));
@@ -134,60 +144,62 @@
             border-radius: 12px;
             padding: 25px;
             box-shadow: var(--glass-shadow);
-            color: var(--text-dark);
+            color: var(--text-main);
             margin-bottom: 20px;
             transition: transform 0.2s;
         }
-        .card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.9); }
+        .card:hover { transform: translateY(-3px); background: rgba(0, 48, 94, 0.95); }
 
         .card h3 { 
             margin-top: 0; 
-            border-bottom: 3px solid var(--msub-yellow); 
+            border-bottom: 2px solid var(--msub-yellow); 
             padding-bottom: 10px; 
             display: flex; align-items: center;
-            color: var(--msub-blue);
+            color: var(--msub-yellow);
             font-size: 1.4em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         .icon { margin-right: 12px; font-size: 1.2em; }
 
         /* List Styles */
         ul { padding-left: 20px; margin: 0; }
-        li { margin-bottom: 10px; color: #333; font-weight: 500; }
+        li { margin-bottom: 10px; color: #e2e8f0; font-weight: 400; }
+        li strong { color: #fff; }
         
         /* Timeline */
-        .timeline-date { font-weight: 800; color: var(--msub-blue); font-size: 0.9em; text-transform: uppercase; }
-        .timeline-event { margin-bottom: 15px; border-left: 4px solid #ddd; padding-left: 15px; }
-        .timeline-title { font-weight: bold; color: #111; font-size: 1.1em; }
+        .timeline-date { font-weight: 800; color: var(--msub-yellow); font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; }
+        .timeline-event { margin-bottom: 15px; border-left: 3px solid rgba(255,255,255,0.3); padding-left: 15px; }
+        .timeline-title { font-weight: bold; color: #fff; font-size: 1.1em; margin-bottom: 2px; display: block; }
 
         /* PR Grid Style */
         .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .pr-item { 
-            background: rgba(255,255,255,0.6); 
+            background: rgba(0, 0, 0, 0.3); 
             padding: 12px; 
-            border: 1px solid rgba(0,0,0,0.1); 
+            border: 1px solid rgba(255,255,255,0.1); 
             border-radius: 8px; text-align: center; 
         }
-        .pr-event { font-size: 0.8em; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
-        .pr-time { font-weight: 800; font-size: 1.4em; color: var(--msub-blue); margin: 5px 0; }
-        .pr-meet { font-size: 0.75em; color: #555; }
+        .pr-event { font-size: 0.75em; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .pr-time { font-weight: 800; font-size: 1.4em; color: var(--msub-yellow); margin: 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .pr-meet { font-size: 0.75em; color: #94a3b8; }
 
         /* Video Embed */
-        .video-embed { margin-bottom: 15px; border-radius: 8px; overflow: hidden; border: 2px solid rgba(255,255,255,0.5); }
+        .video-embed { margin-bottom: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); }
         .video-embed iframe { width: 100%; height: 200px; border: 0; display: block; }
         
         /* External Link Buttons */
         .link-btn { 
             display: flex; align-items: center; justify-content: center;
-            background: rgba(255,255,255,0.8); padding: 14px; margin-bottom: 10px; 
-            border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); 
-            text-decoration: none; color: #333; font-weight: 700; font-size: 0.95em;
+            background: rgba(0, 0, 0, 0.4); padding: 14px; margin-bottom: 10px; 
+            border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); 
+            text-decoration: none; color: #fff; font-weight: 700; font-size: 0.95em;
             transition: all 0.2s;
         }
-        .link-btn:hover { transform: translateX(3px); background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .link-btn:hover { transform: translateX(3px); background: var(--msub-yellow); color: var(--msub-blue); border-color: var(--msub-yellow); }
         
-        .btn-msub { border-left: 6px solid var(--msub-yellow); }
-        .btn-athletic { border-left: 6px solid var(--msub-blue); }
-        .btn-milesplit { border-left: 6px solid #d9534f; }
+        .btn-msub { border-left: 5px solid var(--msub-yellow); }
+        .btn-athletic { border-left: 5px solid #3b82f6; }
+        .btn-milesplit { border-left: 5px solid #ef4444; }
 
     </style>
 </head>
@@ -226,25 +238,25 @@
                     
                     <div class="timeline-event">
                         <div class="timeline-date">March - June 2026</div>
-                        <div class="timeline-title">Senior Season: Track & Field</div>
+                        <span class="timeline-title">Senior Season: Track & Field</span>
                         <div>Final high school season before transitioning to MSUB.</div>
                     </div>
 
                     <div class="timeline-event" style="border-left-color: var(--msub-yellow);">
                         <div class="timeline-date">Nov 12, 2025</div>
-                        <div class="timeline-title">Official Signing Day</div>
+                        <span class="timeline-title">Official Signing Day</span>
                         <div>Signed NLI to compete for MSU Billings (NCAA D2).</div>
                     </div>
 
                     <div class="timeline-event">
                         <div class="timeline-date">Nov 2025</div>
-                        <div class="timeline-title">State Champions (4-Peat!)</div>
+                        <span class="timeline-title">State Champions (4-Peat!)</span>
                         <div>Varsity runner on the historic 4th consecutive State Title team.</div>
                     </div>
 
                     <div class="timeline-event">
                         <div class="timeline-date">Oct 2023</div>
-                        <div class="timeline-title">State Champions (Sophomore)</div>
+                        <span class="timeline-title">State Champions (Sophomore)</span>
                         <div>Team Alternate for State Title #2.</div>
                     </div>
                 </div>
@@ -264,9 +276,9 @@
                 <div class="card">
                     <h3><span class="icon">📰</span>In The News</h3>
                     <ul>
-                        <li><a href="https://www.waow.com/news/top-stories/area-athletes-make-college-dreams-official-on-ncaa-early-signing-day/article_32beccca-1fd5-41c9-9e26-ea3c2acf929d.html" target="_blank" style="color:var(--msub-blue)">WAOW: Signing Day Coverage</a></li>
-                        <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank" style="color:var(--msub-blue)">WAOW: "Four Straight and Forever"</a></li>
-                        <li><a href="https://www.stevenspointjournal.com/picture-gallery/sports/high-school/2025/11/12/see-best-photos-of-spash-athletes-at-early-signing-day/87234625007/" target="_blank" style="color:var(--msub-blue)">Journal: Signing Day Photos</a></li>
+                        <li><a href="https://www.waow.com/news/top-stories/area-athletes-make-college-dreams-official-on-ncaa-early-signing-day/article_32beccca-1fd5-41c9-9e26-ea3c2acf929d.html" target="_blank" style="color:var(--msub-yellow)">WAOW: Signing Day Coverage</a></li>
+                        <li><a href="https://www.waow.com/news/top-stories/four-straight-and-forever-spash-seniors-lead-panthers-to-historic-4-peat/article_1353559e-700c-40d9-a6f2-fa25cc14c5c2.html" target="_blank" style="color:var(--msub-yellow)">WAOW: "Four Straight and Forever"</a></li>
+                        <li><a href="https://www.stevenspointjournal.com/picture-gallery/sports/high-school/2025/11/12/see-best-photos-of-spash-athletes-at-early-signing-day/87234625007/" target="_blank" style="color:var(--msub-yellow)">Journal: Signing Day Photos</a></li>
                     </ul>
                 </div>
 
