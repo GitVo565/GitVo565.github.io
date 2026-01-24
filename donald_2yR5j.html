@@ -16,9 +16,10 @@
             --text-main: #ffffff;
             --text-muted: #dbeafe;
             
-            /* Dark Glass Settings */
-            --glass-bg: rgba(0, 48, 94, 0.85); /* Dark Navy Glass */
-            --glass-border: rgba(255, 199, 44, 0.3); /* Subtle Gold Border */
+            /* Dark Glass Settings - UPDATED FOR MORE TRANSPARENCY */
+            /* Changed opacity from 0.85 to 0.75 for a more "see-through" look */
+            --glass-bg: rgba(0, 48, 94, 0.75); 
+            --glass-border: rgba(255, 199, 44, 0.3); 
             --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
             --blur-strength: 15px;
         }
@@ -38,12 +39,11 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            /* CRITICAL FIX: Locks alignment to top so rider isn't cut off */
             object-position: center top; 
             z-index: -2;
         }
 
-        /* Darker Overlay to make the Navy Glass pop */
+        /* Darker Overlay */
         .bg-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -54,7 +54,7 @@
         
         /* Navigation */
         .nav-bar { 
-            position: absolute; /* Floating nav so it doesn't push content down */
+            position: absolute; 
             top: 20px; left: 20px; 
             z-index: 10; 
         }
@@ -75,15 +75,15 @@
 
         /* Main Container */
         .container {
-            max-width: 1000px;
+            max-width: 1100px; /* Slightly wider to accommodate side-by-side */
             margin: 0 auto;
             padding: 20px;
             position: relative; z-index: 1;
-            /* CRITICAL FIX: Pushes content down 45% of screen height to show the Rider */
-            padding-top: 45vh; 
+            /* Reduced padding-top since the hero isn't so tall anymore */
+            padding-top: 35vh; 
         }
 
-        /* PROFILE HERO CARD */
+        /* --- UPDATED HERO CARD FOR SIDE-BY-SIDE --- */
         .hero-card {
             background: var(--glass-bg);
             backdrop-filter: blur(var(--blur-strength));
@@ -92,16 +92,31 @@
             overflow: hidden;
             box-shadow: var(--glass-shadow);
             margin-bottom: 30px;
-            text-align: center;
+            /* Use Grid for layout control */
+            display: grid;
+            /* Default to stacked on mobile */
+            grid-template-columns: 1fr;
+        }
+
+        /* Desktop view: Switch to side-by-side */
+        @media (min-width: 768px) {
+            .hero-card {
+                /* 2/5 width for image, 3/5 for text */
+                grid-template-columns: 2fr 3fr; 
+                align-items: center; /* Center text vertically */
+                text-align: left; /* Left align text on desktop */
+            }
         }
 
         .hero-image-box {
             width: 100%;
-            height: 350px; 
-            overflow: hidden;
+            /* On mobile, keep a minimum height so it's not too squat */
+            min-height: 300px; 
+            /* On desktop, let it stretch to fill the grid cell height */
+            height: 100%; 
             position: relative;
             background-color: #000;
-            border-bottom: 4px solid var(--msub-yellow);
+            /* Removed the bottom border as it looks odd side-by-side */
         }
         
         .hero-image-box img {
@@ -111,9 +126,33 @@
             object-position: center center;
         }
 
-        .hero-content { padding: 30px; }
-        .hero-content h1 { margin: 0; font-size: 2.8em; color: var(--msub-yellow); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .hero-content p { color: #fff; font-size: 1.2em; margin-top: 5px; font-weight: 400; }
+        .hero-content { 
+            padding: 30px; 
+            /* Ensure buttons center properly even when text is left-aligned */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* On desktop, left align the content, but keep button centered */
+        @media (min-width: 768px) {
+            .hero-content {
+                align-items: flex-start;
+            }
+             .hero-content h1 { text-align: left; }
+             .btn-insta { align-self: center; }
+        }
+
+        /* On mobile, center everything */
+        @media (max-width: 767px) {
+             .hero-content {
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+
+        .hero-content h1 { margin: 0; font-size: 2.5em; color: var(--msub-yellow); text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.1; }
+        .hero-content p { color: #fff; font-size: 1.2em; margin-top: 10px; font-weight: 400; }
         
         /* Action Buttons */
         .btn-insta {
@@ -124,10 +163,11 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             transition: transform 0.2s;
             border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
         }
         .btn-insta:hover { transform: scale(1.05); filter: brightness(1.1); }
 
