@@ -20,10 +20,10 @@
             --text-muted: #cbd5e1; /* Light Slate */
             
             /* The Magic Glass Variables */
-            --glass-bg: rgba(15, 23, 42, 0.70); /* 70% Opacity Dark Blue/Grey */
+            --glass-bg: rgba(15, 23, 42, 0.70); /* Standard Dark Blue/Grey */
             --glass-border: rgba(255, 255, 255, 0.1);
             --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-            --blur-strength: 15px; /* Heavy blur to make text readable */
+            --blur-strength: 15px; 
         }
 
         body { 
@@ -53,7 +53,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Very light dark tint */
+            background: rgba(0, 0, 0, 0.2); 
             z-index: -1;
         }
         
@@ -71,35 +71,37 @@
         }
         .back-btn:hover { background: rgba(255,255,255,0.1); transform: translateX(-3px); color: #fff; border-color: #fff; }
 
-        /* HERO SECTION */
+        /* HERO SECTION - UPDATED: GHOST STYLE */
         .profile-hero {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--blur-strength));
-            -webkit-backdrop-filter: blur(var(--blur-strength));
-            border: 1px solid var(--glass-border);
+            /* Lower opacity and less blur for "unobtrusive" look */
+            background: rgba(15, 23, 42, 0.40); 
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(52, 211, 153, 0.2);
             border-radius: 16px; 
-            padding: 35px; 
+            padding: 30px; 
             display: flex; align-items: center; gap: 30px; 
-            box-shadow: var(--glass-shadow); 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3); 
             margin-bottom: 30px; 
-            border-left: 4px solid var(--primary-color);
+            /* Subtle Left Border */
+            border-left: 2px solid var(--primary-color);
             transition: transform 0.2s;
         }
 
         .profile-img-container { flex: 0 0 160px; text-align: center; }
         .profile-img {
             width: 160px; height: 160px; object-fit: cover; border-radius: 50%;
-            border: 3px solid var(--primary-color); box-shadow: 0 0 20px rgba(52, 211, 153, 0.3);
+            border: 2px solid var(--primary-color); box-shadow: 0 0 15px rgba(52, 211, 153, 0.2);
         }
 
-        .profile-info h1 { margin: 0; color: #fff; font-size: 2.5em; line-height: 1.1; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        .profile-info h1 { margin: 0; color: #fff; font-size: 2.5em; line-height: 1.1; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         .profile-tagline { font-size: 1.1em; color: var(--primary-color); font-weight: 700; margin: 8px 0 12px 0; text-transform: uppercase; letter-spacing: 1px; }
-        .profile-bio { font-size: 1em; color: var(--text-muted); margin-bottom: 15px; max-width: 650px; font-weight: 400; }
+        .profile-bio { font-size: 1em; color: #e2e8f0; margin-bottom: 15px; max-width: 650px; font-weight: 400; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
         
         .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
         .hero-badge { 
-            background: var(--primary-dim);
-            color: var(--primary-color); 
+            background: rgba(52, 211, 153, 0.15);
+            color: #fff; 
             padding: 5px 14px; border-radius: 15px; font-size: 0.8em; font-weight: bold; 
             border: 1px solid rgba(52, 211, 153, 0.3);
             text-transform: uppercase;
@@ -157,7 +159,7 @@
         ul.check-list { list-style: none; padding: 0; margin: 0; }
         ul.check-list li { 
             position: relative; padding-left: 28px; margin-bottom: 12px; 
-            font-size: 0.95em; color: #e2e8f0; /* Brighter text for dark bg */
+            font-size: 0.95em; color: #e2e8f0; 
         }
         ul.check-list li::before {
             content: '✓'; position: absolute; left: 0; top: 0px; 
@@ -192,7 +194,7 @@
             text-transform: uppercase; letter-spacing: 1px;
         }
 
-        /* Action Buttons - Dark Mode Versions */
+        /* Action Buttons */
         .link-btn { 
             display: flex; align-items: center; justify-content: center; gap: 10px;
             background: rgba(255,255,255,0.05); padding: 14px; margin-bottom: 12px;
@@ -205,6 +207,7 @@
         .btn-black { border-left: 4px solid #94a3b8; }
         .btn-red { border-left: 4px solid #e53e3e; }
         .btn-gold { border-left: 4px solid var(--accent-gold); }
+        .btn-green { border-left: 4px solid #2ecc71; } /* New Green Button Style */
 
         /* Footer */
         .footer-info { margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: right; font-size: 0.8em; color: #64748b; position: relative; z-index: 1;}
@@ -323,8 +326,13 @@
                     <li><strong>Donald (The Athlete):</strong> 3x State Team Champ, NCAA Commit, 3.9+ GPA Scholar Athlete.</li>
                     <li><strong>Tacie (The Polymath):</strong> State-ranked runner, wrestler, violinist, and coder.</li>
                 </ul>
+                
                 <a href="excalibur_strategy_2kL9v.html" class="link-btn btn-gold">
                     ⚔️ View Excalibur Strategy
+                </a>
+                
+                <a href="tacie_training_2pX4v.html" class="link-btn btn-green">
+                    🏋️ Monitor Tacie's Training (Live)
                 </a>
             </div>
 
