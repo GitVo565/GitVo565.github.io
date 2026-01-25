@@ -123,8 +123,8 @@
             color: var(--accent-gold); 
             font-weight: bold; 
             font-size: 1.2em; 
-            font-style: italic;
-            margin-top: 10px;
+            font-style: italic; 
+            margin-top: 10px; 
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
@@ -310,7 +310,6 @@
         .activity strong { color: white; }
         .activity-note { display: block; font-size: 0.85em; color: #888; font-style: italic; margin-top: 2px; }
         .alert-text { color: var(--alert-red); font-weight: bold; text-transform: uppercase; }
-        .alert-scrub { color: #7f8c8d; font-weight: bold; text-decoration: line-through; }
         
         /* Links */
         .workout-link { 
@@ -374,18 +373,18 @@
                             <span class="phase-date">Jan 12</span>
                             <span class="phase-desc">Race Week Routine.</span>
                         </li>
-                        <li class="phase-item active">
+                        <li class="phase-item done">
                             <span class="phase-date">Jan 19</span>
                             <span class="phase-desc"><strong>"The Pivot."</strong> Capitalizing on the Cold.</span>
+                        </li>
+                        <li class="phase-item active">
+                            <span class="phase-date">Jan 26</span>
+                            <span class="phase-desc"><strong>The Gauntlet.</strong> Survival Mode (Double Header).</span>
                             <span class="phase-badge" style="background:var(--accent-gold); color:black; cursor:default; transform:none;">Current</span>
                         </li>
                         <li class="phase-item">
-                            <span class="phase-date">Jan 26</span>
-                            <span class="phase-desc"><strong>The Gauntlet.</strong> Survival Mode (Double Header).</span>
-                        </li>
-                        <li class="phase-item">
                             <span class="phase-date">Feb 02</span>
-                            <span class="phase-desc"><strong>The Reload.</strong> Home Meet & Strength.</span>
+                            <span class="phase-desc"><strong>The Reload.</strong> Strength & Recovery.</span>
                         </li>
                         <li class="phase-item">
                             <span class="phase-date">Feb 09</span>
@@ -441,80 +440,26 @@
                 </div>
 
                 <div class="week-group">
-                    <div class="week-header">
-                        <span class="week-title">Week 1: Jan 19 - Jan 25</span>
-                        <span class="week-theme">Theme: The Pivot (Capitalizing on the Cold)</span>
-                    </div>
-
-                    <div class="day-card border-rest">
-                        <div class="day-top-bar"><span class="day-name">FRIDAY</span><span class="day-date">Jan 23</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="am-label" style="color:var(--alert-red);">🔴 RED LIGHT</span>
-                                <div class="activity"><strong style="color:var(--alert-red);">⛔ SICKNESS PROTOCOL (Fever 101.5°F)</strong></div>
-                                <div class="activity-note">Action: FULL STOP. Run SCRUBBED.</div>
-                                <div class="activity-note">Focus: Sleep, Hydration, Magnesium.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card border-rest">
-                        <div class="day-top-bar"><span class="day-name">SATURDAY</span><span class="day-date">Jan 24</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="am-label">🌞 Immune Recovery</span>
-                                <div class="activity"><strong>OFF.</strong> Continued Fever Management.</div>
-                                <div class="activity"><span class="alert-scrub">Lift C (Structural).</span> <span class="alert-text">SCRUBBED.</span></div>
-                                <div class="activity-note">Goal: Break the fever before "The Gauntlet" begins Monday.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card border-run bone-bg">
-                        <div class="day-top-bar"><span class="day-name">SUNDAY</span><span class="day-date">Jan 25</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="am-label" style="color:var(--accent-gold);">⚠️ CONDITIONAL SYSTEM CHECK</span>
-                                <div class="activity"><strong>SPECIAL EXEMPTION:</strong> Owner authorizes Sunday activity due to sickness.</div>
-                                <div class="activity" style="margin-top:5px;">
-                                    Logic Gate:<br>
-                                    1. IF Fever-Free > 12hrs: <strong>3 Miles (Zone 1) Flush.</strong><br>
-                                    2. ELSE: <strong>Continue Absolute Rest.</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nutri-footer">
-                            <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-bone">BONE</a>
-                            <div class="nutri-content">
-                                <span class="meal-name">Tater Tot Casserole</span>
-                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> Comfort & Sodium. Great for rehydration. Serve with Milk. <span style="color:var(--alert-red);">*IF FEVER > 99.5: ABORT and serve BRAT Diet.</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="week-group" style="opacity: 0.95;">
-                    <div class="week-header" style="background: linear-gradient(90deg, #2c3e50, #1a1a1a); border-left-color: var(--accent-blue);">
-                        <span class="week-title">Week 2: Jan 26 - Feb 1</span>
-                        <span class="week-theme" style="color:var(--accent-blue);">Theme: The Gauntlet (Survival Mode)</span>
+                    <div class="week-header" style="background: linear-gradient(90deg, #333, #1a1a1a); border-left-color: var(--accent-gold);">
+                        <span class="week-title">Week 1: Jan 26 - Feb 1</span>
+                        <span class="week-theme">Theme: The Gauntlet (Survival Mode)</span>
                     </div>
 
                     <div class="day-card border-meet blood-bg">
                         <div class="day-top-bar"><span class="day-name">MON, JAN 26</span><span class="day-date">Dual Meet vs. Marathon (Away)</span></div>
                         <div class="day-split">
                             <div class="time-col">
-                                <span class="pm-label">🌙 Compete</span>
-                                <div class="activity"><strong>Match Start: 4:15 PM @ Marathon High School</strong></div>
-                                <div class="activity-note" style="color:#eee;">Logistics: Ben Release 2:00 PM | PJ Release 2:15 PM | Bus 2:30 PM</div>
-                                <div class="activity-note">Fueling: Pretzels (2 PM). NO Peanuts.</div>
-                                <div class="activity-note">Cue: "Immediate Offense."</div>
+                                <span class="pm-label">🌙 Competition / Medical</span>
+                                <div class="activity"><strong>Match Start: 4:15 PM</strong></div>
+                                <div class="activity-note alert-text">⚠️ ALERT: Monitor Shrimp Challenge results.</div>
+                                <div class="activity-note">Logic: If GI distress/fatigue from immunotherapy -> SCRUB RUN & MEET immediately.</div>
                             </div>
                         </div>
                         <div class="nutri-footer">
                             <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-blood">BLOOD</a>
                             <div class="nutri-content">
                                 <span class="meal-name">Potato & Sausage Skillet</span>
-                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ⚠️ NO DAIRY. Serve with OJ. Ensure Tacie gets a heavy portion of Potatoes (Potassium) to refill electrolytes. <span style="color:var(--alert-red);">*IF FEVER > 99.5: ABORT.</span></div>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ❌ NO DAIRY. Drink Orange Juice.</div>
                             </div>
                         </div>
                     </div>
@@ -523,65 +468,57 @@
                         <div class="day-top-bar"><span class="day-name">TUE, JAN 27</span><span class="day-date">Lift A + Circuit A</span></div>
                         <div class="day-split">
                             <div class="time-col">
-                                <span class="am-label">🌞 Strength & Structure</span>
+                                <span class="am-label">🌞 Strength</span>
                                 <div class="activity">
-                                    <strong>AM/PM Strength:</strong> <a href="tacie_lifta_8zK3m.html" target="_blank" class="workout-link">LIFT A (Posterior)</a> - Deadlift 3x5.
-                                </div>
-                                <div class="activity">
-                                    <strong>Finisher:</strong> <a href="tacie_circuit_a_4jK9m.html" target="_blank" class="workout-link" style="border-color:var(--accent-drills);">CIRCUIT A (Hip Health)</a>. Use Mini Bands.
+                                    <strong>Lift:</strong> <a href="tacie_lifta_8zK3m.html" target="_blank" class="workout-link">LIFT A (Posterior)</a> + <a href="tacie_circuit_a_4jK9m.html" target="_blank" class="workout-link">Circuit A (Hip)</a>.
                                 </div>
                             </div>
                             <div class="time-col">
                                 <span class="pm-label">🌙 Flush</span>
-                                <div class="activity">3 Miles (Zone 1) @ 212 Fitness (Post-Practice).</div>
+                                <div class="activity">3 Miles (Zone 1) @ 212 Fitness.</div>
                             </div>
                         </div>
                         <div class="nutri-footer">
                             <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-bone">BONE</a>
                             <div class="nutri-content">
-                                <span class="meal-name">Sloppy Joe w/ Mac & Cheese</span>
-                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> Calorie Load. Serve with Milk. Ensure she eats the meat (protein) for recovery.</div>
+                                <span class="meal-name">Sloppy Joe Mac</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ✅ Dairy Allowed.</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="day-card border-run blood-bg">
-                        <div class="day-top-bar"><span class="day-name">WED, JAN 28</span><span class="day-date">Aerobic Maintenance</span></div>
+                        <div class="day-top-bar"><span class="day-name">WED, JAN 28</span><span class="day-date">Aerobic Base</span></div>
                         <div class="day-split">
                             <div class="time-col">
                                 <span class="pm-label">🌙 Run</span>
                                 <div class="activity">4 Miles (Zone 2).</div>
-                                <div class="activity-note">Prep: <a href="tacie_ais_4kL9m.html" target="_blank" class="workout-link">AIS Rope</a> Mandatory.</div>
-                                <div class="activity-note">Constraint: If Practice is a "Grinder," SCRUB this run.</div>
+                                <div class="activity-note">Constraint: If practice is "The Grinder" -> SCRUB RUN.</div>
                             </div>
                         </div>
                         <div class="nutri-footer">
                             <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-blood">BLOOD</a>
                             <div class="nutri-content">
-                                <span class="meal-name">Potato & Sausage Skillet</span>
-                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ⚠️ NO DAIRY. Serve with OJ. Do NOT put cheese on Tacie's portion.</div>
+                                <span class="meal-name">Chipotle Bowls</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ❌ NO CHEESE. Double Beans.</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="day-card border-lift blood-bg">
+                    <div class="day-card border-run blood-bg">
                         <div class="day-top-bar"><span class="day-name">THU, JAN 29</span><span class="day-date">Primer</span></div>
                         <div class="day-split">
                             <div class="time-col">
-                                <span class="am-label">🌞 Activation</span>
+                                <span class="pm-label">🌙 Run</span>
                                 <div class="activity">3 Miles (Zone 1) + 4x Strides.</div>
-                                <div class="activity-note">Focus: Neuromuscular activation. Do not fatigue legs.</div>
-                            </div>
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Practice</span>
-                                <div class="activity">Wrestling Practice.</div>
+                                <div class="activity-note">Focus: Snap & Speed. No fatigue.</div>
                             </div>
                         </div>
                         <div class="nutri-footer">
                             <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-blood">BLOOD</a>
                             <div class="nutri-content">
                                 <span class="meal-name">Meatball Subs</span>
-                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ⚠️ SEPARATION REQUIRED. Scoop Tacie's meatballs/sauce BEFORE adding cheese for the family. No cheese for Tacie.</div>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ⚠️ Scoop meatballs BEFORE adding cheese.</div>
                             </div>
                         </div>
                     </div>
@@ -591,43 +528,37 @@
                         <div class="day-split">
                             <div class="time-col">
                                 <span class="pm-label">🌙 Compete</span>
-                                <div class="activity"><strong>Match Start: 4:15 PM @ Merrill High School</strong></div>
-                                <div class="activity-note" style="color:#eee;">Logistics: Ben Release 1:30 PM | PJ Release 1:45 PM | Bus 2:00 PM</div>
-                                <div class="activity-note">Cue: "BREAK THE GRIP."</div>
+                                <div class="activity"><strong>Match Start: 4:15 PM</strong></div>
+                                <div class="activity-note">Load: High Intensity. Multi-match.</div>
                             </div>
                         </div>
                         <div class="nutri-footer">
                             <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-bone">BONE</a>
                             <div class="nutri-content">
-                                <span class="meal-name">Sloppy Joe w/ Mac & Cheese</span>
-                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> Refuel. Post-meet calorie reloading. Milk is allowed.</div>
+                                <span class="meal-name">Lasagna</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ✅ Dairy Allowed.</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="day-card border-lift bone-bg">
-                        <div class="day-top-bar"><span class="day-name">SAT, JAN 31</span><span class="day-date">Re-Build + Circuit B</span></div>
+                        <div class="day-top-bar"><span class="day-name">SAT, JAN 31</span><span class="day-date">Volume + Sleepover</span></div>
                         <div class="day-split">
                             <div class="time-col">
-                                <span class="am-label">🌞 Structure</span>
+                                <span class="am-label">🌞 Strength & Run</span>
                                 <div class="activity">
-                                    <strong>Strength:</strong> <a href="tacie_liftc_7jK2n.html" target="_blank" class="workout-link">LIFT C</a> (Unilateral/Upper).
+                                    <strong>Lift:</strong> <a href="tacie_liftc_7jK2n.html" target="_blank" class="workout-link">Lift C</a> + <a href="tacie_circuit_b_5mL3k.html" target="_blank" class="workout-link">Circuit B</a>.
                                 </div>
-                                <div class="activity">
-                                    <strong>Finisher:</strong> <a href="tacie_circuit_b_5mL3k.html" target="_blank" class="workout-link" style="border-color:var(--accent-drills);">CIRCUIT B (Glute Dynamics)</a>.
+                                <div class="activity" style="margin-top:5px;">
+                                    <strong>Run:</strong> 5 Miles (Zone 2) <em>before</em> departure.
                                 </div>
-                            </div>
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Long Run</span>
-                                <div class="activity"><strong>5 Miles (Zone 2).</strong></div>
-                                <div class="activity-note">Re-build the engine while not in combat.</div>
                             </div>
                         </div>
                         <div class="nutri-footer">
                             <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-bone">BONE</a>
                             <div class="nutri-content">
-                                <span class="meal-name">Tater Tot Casserole</span>
-                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> Standard. Serve with Milk.</div>
+                                <span class="meal-name">Pizza (at Friend's)</span>
+                                <div class="cook-note">⚠️ <strong>Check crust for Sesame.</strong> Pack safe snacks.</div>
                             </div>
                         </div>
                     </div>
@@ -637,14 +568,154 @@
                         <div class="day-split">
                             <div class="time-col">
                                 <div class="activity"><strong>OFF.</strong> No Running. No Lifting. Full CNS Reset.</div>
-                                <div class="activity-note">Reason: Hormonal growth and mental reset.</div>
+                                <div class="activity-note">Recovery: Drink Coconut Water immediately upon waking.</div>
+                            </div>
+                        </div>
+                        <div class="nutri-footer">
+                            <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-bone">BONE</a>
+                            <div class="nutri-content">
+                                <span class="meal-name">Tater Tot Casserole</span>
+                                <div class="cook-note">✅ Dairy OK.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="week-group" style="opacity: 0.95;">
+                    <div class="week-header" style="background: linear-gradient(90deg, #2c3e50, #1a1a1a); border-left-color: var(--accent-blue);">
+                        <span class="week-title">Week 2: Feb 2 - Feb 8</span>
+                        <span class="week-theme" style="color:var(--accent-blue);">Theme: The Reload (Strength Focus)</span>
+                    </div>
+
+                    <div class="day-card border-run blood-bg">
+                        <div class="day-top-bar"><span class="day-name">MON, FEB 2</span><span class="day-date">Aerobic Maintenance</span></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="pm-label">🌙 Work</span>
+                                <div class="activity">Run: 3.5 Miles (Zone 2).</div>
+                                <div class="activity">Lift: <a href="tacie_core_2jX9s.html#core-a" target="_blank" class="workout-link">Core A</a> (Post-Run).</div>
+                            </div>
+                        </div>
+                        <div class="nutri-footer">
+                            <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-blood">BLOOD</a>
+                            <div class="nutri-content">
+                                <span class="meal-name">Steak/Burger Night</span>
+                                <div class="cook-note">❌ NO DAIRY.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card border-lift bone-bg">
+                        <div class="day-top-bar"><span class="day-name">TUE, FEB 3</span><span class="day-date">Heavy Strength</span></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="pm-label">🌙 Lift</span>
+                                <div class="activity"><strong>Lift A (Deadlift Focus)</strong> + <a href="tacie_armor_9kL2p.html" target="_blank" class="workout-link">The Armor</a>.</div>
+                                <div class="activity-note">Run Scrubbed to prioritize CNS recovery.</div>
+                            </div>
+                        </div>
+                        <div class="nutri-footer">
+                            <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-bone">BONE</a>
+                            <div class="nutri-content">
+                                <span class="meal-name">Pasta/Chicken</span>
+                                <div class="cook-note">✅ Dairy OK.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card border-run blood-bg">
+                        <div class="day-top-bar"><span class="day-name">WED, FEB 4</span><span class="day-date">Volume</span></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="pm-label">🌙 Run</span>
+                                <div class="activity">4 Miles (Zone 2). Focus on mechanics.</div>
+                            </div>
+                        </div>
+                        <div class="nutri-footer">
+                            <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-blood">BLOOD</a>
+                            <div class="nutri-content">
+                                <span class="meal-name">Taco Night</span>
+                                <div class="cook-note">❌ NO CHEESE. Drink OJ.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card border-run blood-bg">
+                        <div class="day-top-bar"><span class="day-name">THU, FEB 5</span><span class="day-date">Tech + Flush</span></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="pm-label">🌙 Practice</span>
+                                <div class="activity">Wrestling Practice (Technical).</div>
+                                <div class="activity" style="margin-top:5px;">Run: 3 Miles (Zone 1 Flush).</div>
+                            </div>
+                        </div>
+                        <div class="nutri-footer">
+                            <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-blood">BLOOD</a>
+                            <div class="nutri-content">
+                                <span class="meal-name">Liverwurst / Iron Focus</span>
+                                <div class="cook-note">❌ NO DAIRY.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card border-rest bone-bg">
+                        <div class="day-top-bar"><span class="day-name">FRI, FEB 6</span><span class="day-date">Recovery</span></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <div class="activity"><strong>OFF.</strong> Light swim or mobility if tight.</div>
+                            </div>
+                        </div>
+                        <div class="nutri-footer">
+                            <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-bone">BONE</a>
+                            <div class="nutri-content">
+                                <span class="meal-name">Fish/Pizza</span>
+                                <div class="cook-note">✅ Dairy OK.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card border-lift bone-bg">
+                        <div class="day-top-bar"><span class="day-name">SAT, FEB 7</span><span class="day-date">Structural Saturday</span></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <span class="am-label">🌞 Strength</span>
+                                <div class="activity"><strong>Lift C</strong> (Unilateral) + <strong>Circuit B</strong>.</div>
+                            </div>
+                            <div class="time-col">
+                                <span class="pm-label">🌙 Long Run</span>
+                                <div class="activity">5 Miles (Zone 2).</div>
+                            </div>
+                        </div>
+                        <div class="nutri-footer">
+                            <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-bone">BONE</a>
+                            <div class="nutri-content">
+                                <span class="meal-name">Chef's Choice</span>
+                                <div class="cook-note">✅ Dairy OK.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-card border-rest">
+                        <div class="day-top-bar"><span class="day-name">SUN, FEB 8</span><span class="day-date">The Sunday Law</span></div>
+                        <div class="day-split">
+                            <div class="time-col">
+                                <div class="activity"><strong>OFF.</strong> Absolute Rest. No activity.</div>
+                            </div>
+                        </div>
+                        <div class="nutri-footer">
+                            <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-bone">BONE</a>
+                            <div class="nutri-content">
+                                <span class="meal-name">Standard Sunday</span>
                             </div>
                         </div>
                     </div>
 
                 </div>
 
-            </div> </div> <div class="footer-info">
+            </div>
+        </div>
+
+        <div class="footer-info">
             <span id="lastUpdated">Loading...</span>
         </div>
 
@@ -654,38 +725,34 @@
         // DYNAMIC DATE HIGHLIGHTER
         (function highlightToday() {
             const today = new Date();
-            const currentMonth = today.toLocaleString('default', { month: 'short' }); // "Jan"
-            const currentDay = today.getDate(); // 22 (number)
+            const currentMonth = today.toLocaleString('default', { month: 'short' }); 
+            const currentDay = today.getDate(); 
 
             const cards = document.querySelectorAll('.day-card');
 
             cards.forEach(card => {
-                const dateElem = card.querySelector('.day-date');
-                if (!dateElem) return;
+                const dateElem = card.querySelector('.day-date'); // This usually holds specific text now
+                const nameElem = card.querySelector('.day-name'); // This holds the "MON, JAN 26" part
+                
+                if (!nameElem) return;
 
-                const dateText = dateElem.innerText;
+                const dateText = nameElem.innerText; // Check the DAY-NAME span for the date string
 
                 // Check if card contains current month
-                if (!dateText.includes(currentMonth)) return;
+                if (!dateText.includes(currentMonth.toUpperCase())) return;
 
-                // Extract all numbers from the date string
+                // Extract numbers
                 const numbers = dateText.match(/\d+/g); 
                 
                 if (numbers) {
-                    // Check if current day is in the extracted numbers
-                    // This handles "Jan 24 - 25" correctly by matching "24" or "25"
                     if (numbers.includes(String(currentDay))) {
                         card.classList.add('today-active');
-                        card.id = 'today-target'; // Assign ID for the Jump Button
+                        card.id = 'today-target'; 
                         
-                        // Add Badge
-                        const nameSpan = card.querySelector('.day-name');
-                        if (nameSpan) {
-                            const badge = document.createElement('span');
-                            badge.className = 'today-badge';
-                            badge.innerText = '📍 TODAY';
-                            nameSpan.prepend(badge);
-                        }
+                        const badge = document.createElement('span');
+                        badge.className = 'today-badge';
+                        badge.innerText = '📍 TODAY';
+                        nameElem.prepend(badge);
                     }
                 }
             });
