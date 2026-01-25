@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Project Log: Garage Heater Replacement</title>
+    <title>Project Log: Garage Heater Build & Maintenance</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -20,6 +20,7 @@
             --safety-orange: #ff9800;
             --success-green: #4caf50;
             --alert-red: #f44336;
+            --info-blue: #2196f3;
             --border-color: #333;
         }
 
@@ -57,6 +58,7 @@
             margin-top: 10px;
             display: flex;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         /* --- CARDS --- */
@@ -82,10 +84,42 @@
             gap: 10px;
         }
 
+        /* --- TIMELINE TAGS --- */
+        .phase-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .tag-phase1 { background: var(--info-blue); color: white; }
+        .tag-phase2 { background: var(--safety-orange); color: black; }
+
+        /* --- IMAGES --- */
+        .project-image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+        .image-caption {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
         /* --- GRID LISTS --- */
         .spec-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
         }
         .spec-item {
@@ -125,13 +159,6 @@
         }
         .alert-title { color: var(--alert-red); font-weight: bold; display: block; margin-bottom: 5px; text-transform: uppercase; }
 
-        .success-box {
-            background: rgba(76, 175, 80, 0.1);
-            border-left: 4px solid var(--success-green);
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-
         /* --- LINKS --- */
         .link-grid {
             display: grid;
@@ -151,7 +178,6 @@
         }
         .product-link:hover { background: var(--safety-orange); color: #000; }
 
-        /* Footer */
         .footer {
             margin-top: 50px;
             border-top: 1px solid var(--border-color);
@@ -172,86 +198,128 @@
 <div class="container">
 
     <div class="header">
-        <h1>Garage Heater Replacement</h1>
+        <h1>Garage Heater Project Log</h1>
         <div class="meta-data">
             <span>📍 Location: Albert St. Garage</span>
-            <span>📅 Date: Jan 2026</span>
-            <span>🔧 Project: Like-for-Like Swap</span>
+            <span>⚡ Service: 240V / 100A Sub-Panel</span>
+            <span>🌡️ Target: 70°F Winter Hold</span>
         </div>
     </div>
 
-    <div class="success-box">
-        <strong>✅ Project Outcome:</strong> Successful direct swap. The new unit utilizes the existing ceiling bracket and 240V wiring. No drilling or electrical rework required.
-    </div>
+    <div class="card" style="border-left: 4px solid var(--info-blue);">
+        <span class="phase-tag tag-phase1">Phase 1: Initial Build (Feb 2024)</span>
+        <div class="card-title" style="color:var(--info-blue); border-bottom-color:var(--info-blue);">Construction & Rough-In</div>
+        
+        <p style="margin-bottom:15px;">
+            The heating system was part of the "Attached Garage" finishing project executed between Jan-May 2024. The space was prepped specifically to retain heat before the unit was installed.
+        </p>
 
-    <div class="card">
-        <div class="card-title">⚙️ Hardware Specifications</div>
+        <div class="project-image-container">
+            <img src="images/dynaglo.png" alt="Dyna-Glo Heater Installed in Garage Ceiling" class="project-image">
+            <div class="image-caption">Initial installation completed by Lanke Electric (Feb 2024).</div>
+        </div>
+
         <div class="spec-grid">
             <div class="spec-item">
-                <span class="spec-label">Make / Model</span>
-                <span class="spec-value">Dyna-Glo EG7500DH</span>
+                <span class="spec-label">Contractor</span>
+                <span class="spec-value">Lanke Electric</span>
             </div>
             <div class="spec-item">
-                <span class="spec-label">Power</span>
-                <span class="spec-value">7500W / 240V</span>
+                <span class="spec-label">Service Capacity</span>
+                <span class="spec-value">100 AMP Sub-Panel</span>
             </div>
             <div class="spec-item">
-                <span class="spec-label">Amperage</span>
-                <span class="spec-value">31.3 Amps (Requires 40A/50A)</span>
+                <span class="spec-label">Insulation (Ceiling)</span>
+                <span class="spec-value">R-21</span>
             </div>
             <div class="spec-item">
-                <span class="spec-label">Replacement Source</span>
-                <span class="spec-value">Amazon (ASIN: B07KLN4XB4)</span>
+                <span class="spec-label">Insulation (Walls)</span>
+                <span class="spec-value">R-13 + OSB Sheathing</span>
             </div>
         </div>
+
+        <ul class="log-list" style="margin-top:20px;">
+            <li><strong>The "Workhorse" Unit:</strong> Purchased "DUAL 5-7.5KWATT GRGE HTR" from Menards on Feb 1, 2024 ($258.16).</li>
+            <li><strong>Infrastructure:</strong> Lanke Electric ran dedicated 240V conduit to the ceiling mount location.</li>
+            <li><strong>Future Proofing:</strong> The 100A sub-panel was sized to handle this heater plus future loads (e.g., Level 2 EV Charger).</li>
+        </ul>
     </div>
 
-    <div class="card">
-        <div class="card-title">🛠️ Installation Notes (Direct Swap)</div>
+    <div class="card" style="border-left: 4px solid var(--safety-orange);">
+        <span class="phase-tag tag-phase2">Phase 2: Maintenance Swap (Jan 2026)</span>
+        <div class="card-title">Replacement & Repair</div>
+        
+        <p style="margin-bottom:15px;">
+            Objective: Replace failing unit (lost "Low" stage heat) with identical hardware to avoid rewiring.
+        </p>
+
+        <div class="spec-grid">
+            <div class="spec-item" style="border-left-color: var(--safety-orange);">
+                <span class="spec-label">Replacement Model</span>
+                <span class="spec-value">Dyna-Glo EG7500DH</span>
+            </div>
+            <div class="spec-item" style="border-left-color: var(--safety-orange);">
+                <span class="spec-label">Output</span>
+                <span class="spec-value">7500W / 25,590 BTU</span>
+            </div>
+            <div class="spec-item" style="border-left-color: var(--safety-orange);">
+                <span class="spec-label">Draw</span>
+                <span class="spec-value">~31.3 Amps</span>
+            </div>
+        </div>
+
+        <h3 style="color:var(--text-main); margin-top:20px; border-bottom:1px solid #333; padding-bottom:5px;">Installation Strategy</h3>
         <ul class="log-list">
-            <li><strong>Bracket Strategy:</strong> The existing U-shaped ceiling bracket was retained. The old heater body was simply unbolted at the side knobs, and the new body lifted into the existing mount.</li>
-            <li><strong>Conduit Transfer:</strong> The conduit locknut on the old unit was seized. Used the <em>"Tap and Twist"</em> method (flathead screwdriver + hammer tap against the nut's teeth) to loosen it without damaging the wiring.</li>
-            <li><strong>Wiring Configuration:</strong>
+            <li><strong>Direct Swap:</strong> The existing U-shaped ceiling bracket was NOT removed. The new body was lifted directly into the old mount.</li>
+            <li><strong>Conduit Transfer:</strong> Old locknut was seized. Used "Tap and Twist" method (flathead + hammer) to loosen without stripping wires.</li>
+            <li><strong>Wiring Confirmation:</strong>
                 <ul style="padding-left: 20px; margin-top:5px; color:#aaa; font-size:0.9em;">
-                    <li><strong>L1 / L2:</strong> Thick Black and White/Red wires → Top center terminal block.</li>
-                    <li><strong>Ground:</strong> Green wire → Chassis screw (Right side).</li>
-                    <li><strong>Safety Loop:</strong> Confirmed presence of the small jumper loop (bottom/board area). <em>Must remain installed for heater to operate without a wall thermostat.</em></li>
+                    <li>L1/L2: Black & White/Red wires → Top Terminal.</li>
+                    <li>Ground: Green wire → Chassis Screw.</li>
+                    <li>Jumper: Safety loop confirmed installed.</li>
                 </ul>
             </li>
         </ul>
     </div>
 
-    <div class="card" style="border-left: 4px solid var(--alert-red);">
-        <div class="card-title" style="color:var(--alert-red);">⚠️ Critical Setup & Operations</div>
+    <div class="card">
+        <div class="card-title">🧠 Smart Climate Ecosystem</div>
+        <p style="margin-bottom:15px;">
+            The heater is integrated into the home automation stack for precise control and independent monitoring.
+        </p>
         
         <div class="spec-grid">
-            <div class="spec-item" style="border-left-color: var(--safety-orange);">
-                <span class="spec-label">Rear Switch</span>
-                <span class="spec-value">Set to "INT" (Internal)</span>
-                <div style="font-size:0.85em; color:#aaa; margin-top:5px;">If set to "EXT", unit will run continuously and overheat.</div>
+            <div class="spec-item" style="border-left-color: var(--success-green);">
+                <span class="spec-label">Controller</span>
+                <span class="spec-value">Ecobee Smart Thermostat</span>
             </div>
-            <div class="spec-item" style="border-left-color: var(--safety-orange);">
-                <span class="spec-label">Thermostat Mode</span>
-                <span class="spec-value">Set to "AU" (Auto)</span>
-                <div style="font-size:0.85em; color:#aaa; margin-top:5px;">Cycles between High (Recovery) and Low (Maintenance).</div>
+            <div class="spec-item" style="border-left-color: var(--success-green);">
+                <span class="spec-label">Independent Monitor</span>
+                <span class="spec-value">Zooz ZSE44 Sensor</span>
             </div>
-        </div>
-
-        <div class="alert-box">
-            <span class="alert-title">SHUTDOWN PROCEDURE</span>
-            Always turn off via the <strong>Remote or Control Panel first</strong>. This keeps the fan running for ~60 seconds to cool the heating elements. Killing the breaker directly traps heat and creates a fire hazard/component failure.
+            <div class="spec-item" style="border-left-color: var(--success-green);">
+                <span class="spec-label">Current Temp (Jan '26)</span>
+                <span class="spec-value">~71.7°F (Steady)</span>
+            </div>
+            <div class="spec-item" style="border-left-color: var(--success-green);">
+                <span class="spec-label">Current Humidity</span>
+                <span class="spec-value">27-28%</span>
+            </div>
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-title">💡 Tech Notes & Troubleshooting</div>
+    <div class="card" style="border-left: 4px solid var(--alert-red);">
+        <div class="card-title" style="color:var(--alert-red);">⚠️ Critical Operational Rules</div>
+        
         <ul class="log-list">
-            <li><strong>The "Cold Air" Failure:</strong> The previous unit failed because the "Low" stage stopped producing heat. This is likely a burnt solder joint on the PCB relay or a severed wire at the heating element spade connector.</li>
-            <li><strong>Repair Potential:</strong> The old unit is serviceable. A technician can often repair this by reflowing solder on the main relay or replacing the thermal cut-off fuse.</li>
-            <li><strong>Maintenance Plan:</strong> The #1 killer of these units is drywall/sawdust intake.
-                <br><em>Action: Blow out the rear intake with compressed air annually (Next: April 2026).</em>
-            </li>
+            <li><strong>Rear Switch:</strong> Must be set to <strong>"INT" (Internal)</strong>. Setting to "EXT" causes continuous overrun/overheating.</li>
+            <li><strong>Thermostat Mode:</strong> Set to <strong>"AU" (Auto)</strong> to cycle between 5000W and 7500W stages automatically.</li>
         </ul>
+
+        <div class="alert-box">
+            <span class="alert-title">SHUTDOWN PROCEDURE</span>
+            Always turn off via the <strong>Remote or Control Panel first</strong>. This keeps the fan running for ~60 seconds to cool the heating elements. Killing the breaker directly traps heat and destroys internal components.
+        </div>
     </div>
 
     <div class="link-grid">
