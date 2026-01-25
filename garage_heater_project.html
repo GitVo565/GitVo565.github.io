@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project Log: Garage Heater Replacement</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    
+    <style>
+        /* Industrial Theme Variables */
+        :root {
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --safety-orange: #ff9800;
+            --success-green: #4caf50;
+            --alert-red: #f44336;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            border-bottom: 2px solid var(--safety-orange);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        .meta-data {
+            color: var(--safety-orange);
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* --- CARDS --- */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        .card-title {
+            color: var(--safety-orange);
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- GRID LISTS --- */
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .spec-item {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 15px;
+            border-radius: 4px;
+            border-left: 3px solid var(--text-muted);
+        }
+        .spec-label { font-size: 0.8em; color: var(--text-muted); text-transform: uppercase; display: block; }
+        .spec-value { font-weight: bold; font-size: 1.1em; color: #fff; }
+
+        /* --- CHECKLISTS & NOTES --- */
+        ul.log-list { list-style: none; padding: 0; margin: 0; }
+        ul.log-list li { 
+            position: relative; 
+            padding-left: 20px; 
+            margin-bottom: 10px; 
+            color: var(--text-main);
+        }
+        ul.log-list li::before {
+            content: '»'; 
+            position: absolute; 
+            left: 0; 
+            color: var(--safety-orange);
+            font-weight: bold;
+        }
+        
+        strong { color: #fff; }
+
+        /* --- ALERTS --- */
+        .alert-box {
+            background: rgba(244, 67, 54, 0.1);
+            border-left: 4px solid var(--alert-red);
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+        .alert-title { color: var(--alert-red); font-weight: bold; display: block; margin-bottom: 5px; text-transform: uppercase; }
+
+        .success-box {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid var(--success-green);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* --- LINKS --- */
+        .link-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .product-link {
+            display: block;
+            text-align: center;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .product-link:hover { background: var(--safety-orange); color: #000; }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            .meta-data { flex-direction: column; gap: 5px; }
+            .link-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Garage Heater Replacement</h1>
+        <div class="meta-data">
+            <span>📍 Location: Albert St. Garage</span>
+            <span>📅 Date: Jan 2026</span>
+            <span>🔧 Project: Like-for-Like Swap</span>
+        </div>
+    </div>
+
+    <div class="success-box">
+        <strong>✅ Project Outcome:</strong> Successful direct swap. The new unit utilizes the existing ceiling bracket and 240V wiring. No drilling or electrical rework required.
+    </div>
+
+    <div class="card">
+        <div class="card-title">⚙️ Hardware Specifications</div>
+        <div class="spec-grid">
+            <div class="spec-item">
+                <span class="spec-label">Make / Model</span>
+                <span class="spec-value">Dyna-Glo EG7500DH</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Power</span>
+                <span class="spec-value">7500W / 240V</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Amperage</span>
+                <span class="spec-value">31.3 Amps (Requires 40A/50A)</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Replacement Source</span>
+                <span class="spec-value">Amazon (ASIN: B07KLN4XB4)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">🛠️ Installation Notes (Direct Swap)</div>
+        <ul class="log-list">
+            <li><strong>Bracket Strategy:</strong> The existing U-shaped ceiling bracket was retained. The old heater body was simply unbolted at the side knobs, and the new body lifted into the existing mount.</li>
+            <li><strong>Conduit Transfer:</strong> The conduit locknut on the old unit was seized. Used the <em>"Tap and Twist"</em> method (flathead screwdriver + hammer tap against the nut's teeth) to loosen it without damaging the wiring.</li>
+            <li><strong>Wiring Configuration:</strong>
+                <ul style="padding-left: 20px; margin-top:5px; color:#aaa; font-size:0.9em;">
+                    <li><strong>L1 / L2:</strong> Thick Black and White/Red wires → Top center terminal block.</li>
+                    <li><strong>Ground:</strong> Green wire → Chassis screw (Right side).</li>
+                    <li><strong>Safety Loop:</strong> Confirmed presence of the small jumper loop (bottom/board area). <em>Must remain installed for heater to operate without a wall thermostat.</em></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card" style="border-left: 4px solid var(--alert-red);">
+        <div class="card-title" style="color:var(--alert-red);">⚠️ Critical Setup & Operations</div>
+        
+        <div class="spec-grid">
+            <div class="spec-item" style="border-left-color: var(--safety-orange);">
+                <span class="spec-label">Rear Switch</span>
+                <span class="spec-value">Set to "INT" (Internal)</span>
+                <div style="font-size:0.85em; color:#aaa; margin-top:5px;">If set to "EXT", unit will run continuously and overheat.</div>
+            </div>
+            <div class="spec-item" style="border-left-color: var(--safety-orange);">
+                <span class="spec-label">Thermostat Mode</span>
+                <span class="spec-value">Set to "AU" (Auto)</span>
+                <div style="font-size:0.85em; color:#aaa; margin-top:5px;">Cycles between High (Recovery) and Low (Maintenance).</div>
+            </div>
+        </div>
+
+        <div class="alert-box">
+            <span class="alert-title">SHUTDOWN PROCEDURE</span>
+            Always turn off via the <strong>Remote or Control Panel first</strong>. This keeps the fan running for ~60 seconds to cool the heating elements. Killing the breaker directly traps heat and creates a fire hazard/component failure.
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">💡 Tech Notes & Troubleshooting</div>
+        <ul class="log-list">
+            <li><strong>The "Cold Air" Failure:</strong> The previous unit failed because the "Low" stage stopped producing heat. This is likely a burnt solder joint on the PCB relay or a severed wire at the heating element spade connector.</li>
+            <li><strong>Repair Potential:</strong> The old unit is serviceable. A technician can often repair this by reflowing solder on the main relay or replacing the thermal cut-off fuse.</li>
+            <li><strong>Maintenance Plan:</strong> The #1 killer of these units is drywall/sawdust intake.
+                <br><em>Action: Blow out the rear intake with compressed air annually (Next: April 2026).</em>
+            </li>
+        </ul>
+    </div>
+
+    <div class="link-grid">
+        <a href="https://www.amazon.com/dp/B07KLN4XB4" target="_blank" class="product-link">
+            📦 Replacement Unit (Amazon)
+        </a>
+        <a href="https://www.menards.com/main/p-1444444120543.htm" target="_blank" class="product-link">
+            🏢 Original Source (Menards)
+        </a>
+    </div>
+
+    <div class="footer">
+        Project Log Generated: Jan 2026 • Voetberg Family Systems
+    </div>
+
+</div>
+
+</body>
+</html>
