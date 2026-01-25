@@ -58,14 +58,20 @@
         }
         
         /* Navigation */
+        .nav-container { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; position: relative; z-index: 1; }
+
         .back-btn { 
             display: inline-block; background: #34495e; padding: 8px 15px; 
             text-decoration: none; color: #ecf0f1; border-radius: 20px; 
-            border: 1px solid #465c71; font-size: 0.9em; margin-bottom: 20px; 
+            border: 1px solid #465c71; font-size: 0.9em; 
             transition: 0.2s; 
-            position: relative; z-index: 1;
         }
         .back-btn:hover { background: #465c71; }
+        
+        .training-btn {
+            background: var(--accent-gold); color: black; border-color: var(--accent-gold); font-weight: bold;
+        }
+        .training-btn:hover { background: #d4ac0d; }
 
         /* Header */
         .header-section { 
@@ -212,7 +218,10 @@
     </video>
     <div class="bg-overlay"></div>
 
-    <a href="excalibur_strategy_2kL9v.html" class="back-btn">← Back to Strategy Core</a>
+    <div class="nav-container">
+        <a href="excalibur_strategy_2kL9v.html" class="back-btn">← Back to Strategy Core</a>
+        <a href="tacie_training_2pX4v.html" class="back-btn training-btn">🏋️ Go to Training Plan</a>
+    </div>
     
     <div class="header-section">
         <h1>🩸 Blood & 🦴 Bone Protocol v7.4</h1>
@@ -345,15 +354,6 @@
                 </div>
 
                 <div class="gate-split">
-                    <div class="scenario-box scenario-bone">
-                        <span class="scenario-header">🦴 BONE PHASE (STANDARD)</span>
-                        <span class="menu-tag">Chicken, Fish, Tacos, Pasta</span>
-                        <ul class="checklist">
-                            <li><div class="check-box" style="border-color:var(--std-blue)"></div><div><span class="item-text">Baked Potato (Skin)</span><span class="item-note">Potassium Load.</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab)</span><span class="item-note">Safe to take with dinner.</span></div></li>
-                        </ul>
-                    </div>
-
                     <div class="scenario-box scenario-blood">
                         <span class="scenario-header">🩸 BLOOD PHASE (IRON)</span>
                         <span class="menu-tag">Steak, Liverwurst, Lean Burger</span>
@@ -363,20 +363,20 @@
                             <li><div class="x-box">✕</div><div><span class="item-text warn-text">STOP: NO CAL/MAG</span><span class="item-note">Move pill to Bedtime.</span></div></li>
                         </ul>
                     </div>
+
+                    <div class="scenario-box scenario-bone">
+                        <span class="scenario-header">🦴 BONE PHASE (STANDARD)</span>
+                        <span class="menu-tag">Chicken, Fish, Tacos, Pasta</span>
+                        <ul class="checklist">
+                            <li><div class="check-box" style="border-color:var(--std-blue)"></div><div><span class="item-text">Baked Potato (Skin)</span><span class="item-note">Potassium Load.</span></div></li>
+                            <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab)</span><span class="item-note">Safe to take with dinner.</span></div></li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="bedtime-header">🛌 BEDTIME PROTOCOL</div>
                 
                 <div class="gate-split">
-                    <div class="scenario-box scenario-bone">
-                        <span class="scenario-header" style="font-size:1em;">🦴 BONE NIGHT</span>
-                        <ul class="checklist">
-                            <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Tart Cherry Juice</span><span class="item-note">Sleep/Recovery.</span></div></li>
-                        </ul>
-                    </div>
-
                     <div class="scenario-box scenario-blood">
                         <span class="scenario-header" style="font-size:1em;">🩸 BLOOD NIGHT</span>
                         <ul class="checklist">
@@ -384,6 +384,15 @@
                             <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
                             <li><div class="check-box"></div><div><span class="item-text">Tart Cherry Juice</span></div></li>
                             <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (Pill #2)</span><span class="item-note">Taken now because of Iron Dinner.</span></div></li>
+                        </ul>
+                    </div>
+
+                    <div class="scenario-box scenario-bone">
+                        <span class="scenario-header" style="font-size:1em;">🦴 BONE NIGHT</span>
+                        <ul class="checklist">
+                            <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
+                            <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
+                            <li><div class="check-box"></div><div><span class="item-text">Tart Cherry Juice</span><span class="item-note">Sleep/Recovery.</span></div></li>
                         </ul>
                     </div>
                 </div>
