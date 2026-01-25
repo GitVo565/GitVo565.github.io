@@ -30,6 +30,7 @@
             --morning-sky: #81ecec;
             --evening-indigo: #a29bfe;
             --alert-red: #e74c3c;
+            --bone-white: #bdc3c7;
         }
 
         body { 
@@ -39,7 +40,7 @@
             margin: 0 auto; 
             background: var(--bg-dark); 
             color: var(--text-light); 
-            scroll-behavior: smooth; /* Smooth scrolling for the jump button */
+            scroll-behavior: smooth;
         }
 
         /* Main Content Container */
@@ -61,7 +62,6 @@
         }
         .back-btn:hover { background: #444; }
         
-        /* NEW JUMP BUTTON STYLE */
         .jump-btn {
             background: var(--accent-gold);
             color: black !important;
@@ -131,7 +131,7 @@
         /* --- DASHBOARD GRID --- */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: 350px 1fr; /* Left col fixed width, Right col flexible */
+            grid-template-columns: 350px 1fr;
             gap: 30px;
             align-items: start;
         }
@@ -211,15 +211,51 @@
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
-            scroll-margin-top: 20px; /* Offset for scroll to element */
+            scroll-margin-top: 20px;
         }
         
+        /* BLOOD & BONE MODES */
+        .blood-bg {
+            background: linear-gradient(120deg, var(--card-bg) 60%, rgba(231, 76, 60, 0.2) 100%);
+            border-right: 3px solid var(--run-red);
+        }
+        .bone-bg {
+            background: linear-gradient(120deg, var(--card-bg) 60%, rgba(189, 195, 199, 0.2) 100%);
+            border-right: 3px solid var(--bone-white);
+        }
+
+        .nutri-footer {
+            background: rgba(0,0,0,0.3);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85em;
+        }
+        .phase-badge {
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            letter-spacing: 0.5px;
+            min-width: 60px;
+            text-align: center;
+        }
+        .badge-blood { color: #fff; background: var(--run-red); box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); }
+        .badge-bone { color: #000; background: var(--bone-white); box-shadow: 0 0 5px rgba(189, 195, 199, 0.5); }
+        
+        .meal-info { color: #ddd; flex-grow: 1; }
+        .meal-info strong { color: white; }
+        .protocol-alert { color: var(--accent-gold); font-weight: bold; font-size: 0.8em; text-transform: uppercase; margin-left: auto; }
+
         /* DYNAMIC TODAY HIGHLIGHT */
         .today-active {
             box-shadow: 0 0 15px rgba(243, 156, 18, 0.4) !important;
             background: linear-gradient(90deg, rgba(243, 156, 18, 0.1), var(--card-bg)) !important;
             border: 1px solid var(--accent-gold) !important;
-            border-left-width: 5px !important; /* Keep thick left border */
+            border-left-width: 5px !important;
         }
         
         .today-badge {
@@ -283,9 +319,11 @@
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; }
 
         @media (max-width: 900px) {
-            .dashboard-grid { grid-template-columns: 1fr; } /* Stack on mobile */
+            .dashboard-grid { grid-template-columns: 1fr; }
             .hero-banner { height: 300px; }
             h1 { font-size: 1.8em; }
+            .nutri-footer { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .protocol-alert { margin-left: 0; }
         }
     </style>
 </head>
@@ -442,7 +480,7 @@
                     </div>
 
                     <div class="day-card border-lift">
-                        <div class="day-top-bar"><span class="day-name">THURSDAY (TODAY)</span><span class="day-date">Jan 22</span></div>
+                        <div class="day-top-bar"><span class="day-name">THURSDAY</span><span class="day-date">Jan 22</span></div>
                         <div class="day-split">
                             <div class="time-col">
                                 <span class="am-label">🌞 Recovery & Violin</span>
@@ -481,7 +519,7 @@
                         </div>
                     </div>
 
-                    <div class="day-card border-run">
+                    <div class="day-card border-run bone-bg">
                         <div class="day-top-bar"><span class="day-name">SUNDAY</span><span class="day-date">Jan 25</span></div>
                         <div class="day-split">
                             <div class="time-col">
@@ -494,6 +532,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="nutri-footer">
+                            <span class="phase-badge badge-bone">BONE</span>
+                            <span class="meal-info"><strong>Tater Tot Casserole.</strong> Comfort & Sodium.</span>
+                            <span class="protocol-alert">🥛 MILK OK</span>
+                        </div>
                     </div>
                 </div>
 
@@ -503,7 +546,7 @@
                         <span class="week-theme" style="color:var(--accent-blue);">Theme: The Gauntlet (Survival Mode)</span>
                     </div>
 
-                    <div class="day-card border-meet">
+                    <div class="day-card border-meet blood-bg">
                         <div class="day-top-bar"><span class="day-name">MON, JAN 26</span><span class="day-date">Dual Meet vs. Marathon (Away)</span></div>
                         <div class="day-split">
                             <div class="time-col">
@@ -514,9 +557,14 @@
                                 <div class="activity-note">Cue: "Immediate Offense."</div>
                             </div>
                         </div>
+                        <div class="nutri-footer">
+                            <span class="phase-badge badge-blood">BLOOD</span>
+                            <span class="meal-info"><strong>Potato & Sausage Skillet.</strong> Potassium Reload.</span>
+                            <span class="protocol-alert">🍊 OJ ONLY • NO DAIRY</span>
+                        </div>
                     </div>
 
-                    <div class="day-card border-lift">
+                    <div class="day-card border-lift bone-bg">
                         <div class="day-top-bar"><span class="day-name">TUE, JAN 27</span><span class="day-date">Lift A + Circuit A</span></div>
                         <div class="day-split">
                             <div class="time-col">
@@ -533,9 +581,14 @@
                                 <div class="activity">3 Miles (Zone 1) @ 212 Fitness (Post-Practice).</div>
                             </div>
                         </div>
+                        <div class="nutri-footer">
+                            <span class="phase-badge badge-bone">BONE</span>
+                            <span class="meal-info"><strong>Sloppy Joe w/ Mac & Cheese.</strong> Repair.</span>
+                            <span class="protocol-alert">🥛 MILK OK</span>
+                        </div>
                     </div>
 
-                    <div class="day-card border-run">
+                    <div class="day-card border-run blood-bg">
                         <div class="day-top-bar"><span class="day-name">WED, JAN 28</span><span class="day-date">Aerobic Maintenance</span></div>
                         <div class="day-split">
                             <div class="time-col">
@@ -545,9 +598,14 @@
                                 <div class="activity-note">Constraint: If Practice is a "Grinder," SCRUB this run.</div>
                             </div>
                         </div>
+                        <div class="nutri-footer">
+                            <span class="phase-badge badge-blood">BLOOD</span>
+                            <span class="meal-info"><strong>Potato & Sausage Skillet.</strong> Iron & C Stack.</span>
+                            <span class="protocol-alert">🍊 OJ ONLY • NO DAIRY</span>
+                        </div>
                     </div>
 
-                    <div class="day-card border-lift">
+                    <div class="day-card border-lift blood-bg">
                         <div class="day-top-bar"><span class="day-name">THU, JAN 29</span><span class="day-date">Primer</span></div>
                         <div class="day-split">
                             <div class="time-col">
@@ -560,9 +618,14 @@
                                 <div class="activity">Wrestling Practice.</div>
                             </div>
                         </div>
+                        <div class="nutri-footer">
+                            <span class="phase-badge badge-blood">BLOOD</span>
+                            <span class="meal-info"><strong>Meatball Subs.</strong> Heme Iron.</span>
+                            <span class="protocol-alert">⛔ NO CHEESE ON SUB</span>
+                        </div>
                     </div>
 
-                    <div class="day-card border-meet">
+                    <div class="day-card border-meet bone-bg">
                         <div class="day-top-bar"><span class="day-name">FRI, JAN 30</span><span class="day-date">Merrill Invitational (Away)</span></div>
                         <div class="day-split">
                             <div class="time-col">
@@ -572,9 +635,14 @@
                                 <div class="activity-note">Cue: "BREAK THE GRIP."</div>
                             </div>
                         </div>
+                        <div class="nutri-footer">
+                            <span class="phase-badge badge-bone">BONE</span>
+                            <span class="meal-info"><strong>Sloppy Joe w/ Mac & Cheese.</strong> Calorie Density.</span>
+                            <span class="protocol-alert">🥛 MILK OK</span>
+                        </div>
                     </div>
 
-                    <div class="day-card border-lift">
+                    <div class="day-card border-lift bone-bg">
                         <div class="day-top-bar"><span class="day-name">SAT, JAN 31</span><span class="day-date">Re-Build + Circuit B</span></div>
                         <div class="day-split">
                             <div class="time-col">
@@ -591,6 +659,11 @@
                                 <div class="activity"><strong>5 Miles (Zone 2).</strong></div>
                                 <div class="activity-note">Re-build the engine while not in combat.</div>
                             </div>
+                        </div>
+                        <div class="nutri-footer">
+                            <span class="phase-badge badge-bone">BONE</span>
+                            <span class="meal-info"><strong>Tater Tot Casserole.</strong> Sodium & Cals.</span>
+                            <span class="protocol-alert">🥛 MILK OK</span>
                         </div>
                     </div>
 
