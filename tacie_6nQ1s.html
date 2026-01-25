@@ -11,25 +11,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
-        /* Theme Variables: Dragonfire Dark Mode */
+        /* Theme Variables: Dragonfire Integrated */
         :root {
             --dragon-orange: #fd7e14;
             --dragon-gold: #f39c12;
             --training-green: #2ecc71;
             --text-main: #ffffff;
-            --text-muted: #e0e0e0;
+            --text-muted: #dbeafe;
             
-            /* Glass Settings */
-            --glass-bg: rgba(20, 20, 20, 0.75); 
-            --glass-border: rgba(253, 126, 20, 0.3); 
+            /* Integrated Glass Settings */
+            --glass-bg: rgba(20, 20, 20, 0.70); 
+            --glass-border: rgba(255, 255, 255, 0.1); 
             --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
             --blur-strength: 15px;
         }
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            padding: 15px; 
-            line-height: 1.5; 
+            padding: 20px; 
+            line-height: 1.6; 
             max-width: 1000px; 
             margin: 0 auto; 
             background-color: #1a1a1a; 
@@ -54,7 +54,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Darkens video for readability */
+            background: rgba(0, 0, 0, 0.4); 
             z-index: -1;
         }
         
@@ -69,7 +69,7 @@
             border-radius: 20px; 
             border: 1px solid var(--glass-border); 
             font-size: 0.9em; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             transition: all 0.2s; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             font-weight: bold;
@@ -82,12 +82,13 @@
             backdrop-filter: blur(var(--blur-strength));
             border: 1px solid var(--glass-border);
             border-radius: 16px;
-            padding: 25px; 
+            padding: 30px; 
             display: flex;
             align-items: center;
-            gap: 25px; 
+            gap: 30px; 
             box-shadow: var(--glass-shadow);
-            margin-bottom: 25px; 
+            margin-bottom: 30px; 
+            /* Unified Left Border Style */
             border-left: 6px solid var(--dragon-orange);
         }
 
@@ -98,7 +99,7 @@
             object-fit: cover;
             border-radius: 50%;
             border: 3px solid var(--dragon-orange);
-            box-shadow: 0 0 15px rgba(253, 126, 20, 0.4);
+            box-shadow: 0 0 20px rgba(253, 126, 20, 0.3);
         }
 
         .profile-info h1 { margin: 0; color: var(--dragon-orange); font-size: 2.2em; line-height: 1.1; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
@@ -118,60 +119,97 @@
 
         /* Highlight Banner */
         .highlight-banner { 
-            background: linear-gradient(90deg, #d35400, #f39c12); 
+            background: linear-gradient(90deg, rgba(211, 84, 0, 0.8), rgba(243, 156, 18, 0.8)); 
+            backdrop-filter: blur(5px);
             color: white; 
             padding: 15px; 
             border-radius: 12px; 
-            margin-bottom: 25px; 
+            margin-bottom: 30px; 
             text-align: center; 
-            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.5); 
-            border: 1px solid #e67e22;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            border: 1px solid rgba(255,255,255,0.2);
         }
         .highlight-banner h2 { margin: 0 0 3px 0; font-size: 1.3em; text-transform: uppercase; letter-spacing: 1px; }
         .highlight-banner p { margin: 0; font-size: 1.1em; font-weight: bold; opacity: 0.9; }
 
         /* Grid Layout */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; align-items: start; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px; align-items: start; }
         
-        /* Cards */
+        /* UNIFIED CARD STYLE */
         .card { 
             background: var(--glass-bg);
             backdrop-filter: blur(var(--blur-strength));
             padding: 25px; 
-            border-radius: 12px; 
+            border-radius: 16px; 
             box-shadow: var(--glass-shadow); 
             border: 1px solid var(--glass-border);
-            border-top: 4px solid var(--dragon-gold); 
-            margin-bottom: 20px;
-            transition: transform 0.2s;
+            /* Standard Left Border for Integration */
+            border-left: 6px solid var(--text-muted); 
+            margin-bottom: 0;
+            transition: transform 0.2s, background 0.2s;
         }
         .card:hover { transform: translateY(-3px); background: rgba(30, 30, 30, 0.85); }
 
+        /* Card Headers */
         .card h3 { 
             margin-top: 0; 
-            color: var(--dragon-gold); 
+            color: #fff; 
             border-bottom: 1px solid rgba(255,255,255,0.1); 
-            padding-bottom: 10px; 
-            margin-bottom: 15px;
+            padding-bottom: 12px; 
+            margin-bottom: 18px;
             display: flex; align-items: center; font-size: 1.3em;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-        .card-icon { margin-right: 10px; }
+        .card-icon { margin-right: 12px; font-size: 1.1em; }
+
+        /* Color Variations for Specific Cards */
+        .card-training { border-left-color: var(--training-green); }
+        .card-wrestling { border-left-color: var(--dragon-gold); }
+        .card-timeline { border-left-color: var(--dragon-orange); }
+
+        /* "ETCHED" ACTION BUTTONS */
+        .action-btn { 
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: rgba(255, 255, 255, 0.05); 
+            padding: 16px; 
+            border-radius: 12px; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            color: #fff; 
+            font-weight: 700; 
+            text-decoration: none; 
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        /* Specific Glows for Buttons */
+        .btn-green:hover { 
+            background: rgba(46, 204, 113, 0.2); 
+            border-color: var(--training-green); 
+            box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
+        }
+        .btn-gold { animation: pulseGlow 4s infinite; }
+        .btn-gold:hover { 
+            background: rgba(243, 156, 18, 0.2); 
+            border-color: var(--dragon-gold); 
+            box-shadow: 0 0 20px rgba(243, 156, 18, 0.5);
+        }
 
         /* PR Grid */
         .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .pr-item { 
-            background: rgba(255,255,255,0.05); 
+            background: rgba(0,0,0,0.3); 
             padding: 12px; 
-            border: 1px solid rgba(255,255,255,0.1); 
+            border: 1px solid rgba(255,255,255,0.05); 
             border-radius: 8px; text-align: center; 
         }
-        .pr-event { font-size: 0.8em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight:bold; }
+        .pr-event { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight:bold; }
         .pr-time { font-weight: 800; font-size: 1.3em; color: var(--dragon-orange); margin: 4px 0; }
-        .pr-meet { font-size: 0.75em; color: #999; }
+        .pr-meet { font-size: 0.7em; color: #999; }
 
         /* Timeline Styles */
-        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 20px; border-left: 3px solid var(--dragon-gold); }
+        .timeline-item { position: relative; padding-left: 20px; margin-bottom: 20px; border-left: 3px solid rgba(255,255,255,0.2); }
         .timeline-item:last-child { margin-bottom: 0; }
         .timeline-item.active { border-left-color: var(--training-green); }
         
@@ -186,37 +224,34 @@
         .tag { 
             background: rgba(255,255,255,0.1); color: #fff; 
             padding: 5px 12px; border-radius: 15px; 
-            font-size: 0.85em; font-weight: 600; border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.8em; font-weight: 600; border: 1px solid rgba(255,255,255,0.2);
         }
         .tag-fav { background: rgba(243, 156, 18, 0.2); color: var(--dragon-gold); border-color: var(--dragon-gold); }
 
-        /* Buttons */
+        /* External Link Buttons (Small) */
         .link-btn { 
             display: flex; align-items: center; justify-content: center; gap: 8px;
-            background: rgba(255,255,255,0.05); padding: 14px; margin-bottom: 10px;
+            background: rgba(255,255,255,0.05); padding: 12px; margin-bottom: 8px;
             border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); 
-            color: #fff; font-weight: 600; text-decoration: none; font-size: 0.95em;
+            color: #ccc; font-weight: 600; text-decoration: none; font-size: 0.9em;
             transition: all 0.2s;
         }
-        .link-btn:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); border-color: #fff; }
+        .link-btn:hover { background: rgba(255,255,255,0.1); transform: translateX(3px); color: #fff; border-color: rgba(255,255,255,0.3); }
 
-        /* Brand Colors */
-        .btn-wrestling { border-left: 5px solid #002f5d; }
-        .btn-milesplit { border-left: 5px solid #d9534f; }
-        .btn-athletic { border-left: 5px solid #005f9e; }
-        .btn-youtube { border-left: 5px solid #FF0000; }
-        .btn-insta { border-left: 5px solid #E1306C; }
-        .btn-usab { border-left: 5px solid #2c3e50; } 
+        /* Brand Colors for Small Buttons */
+        .btn-youtube:hover { border-left: 4px solid #FF0000; }
+        .btn-insta:hover { border-left: 4px solid #E1306C; }
+        .btn-milesplit:hover { border-left: 4px solid #d9534f; }
 
-        /* BUCK15 ANIMATION */
+        /* BUCK15 ANIMATION (Subtle Pulse) */
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 10px rgba(243, 156, 18, 0.2); border-color: #f39c12; }
-            50% { box-shadow: 0 0 20px rgba(243, 156, 18, 0.6); border-color: #fff; }
-            100% { box-shadow: 0 0 10px rgba(243, 156, 18, 0.2); border-color: #f39c12; }
+            0% { border-color: rgba(243, 156, 18, 0.5); }
+            50% { border-color: rgba(243, 156, 18, 1); box-shadow: 0 0 15px rgba(243, 156, 18, 0.3); }
+            100% { border-color: rgba(243, 156, 18, 0.5); }
         }
 
         /* Footer */
-        .footer-info { margin-top: 40px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.2); text-align: right; font-size: 0.8em; color: #888; }
+        .footer-info { margin-top: 40px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); text-align: right; font-size: 0.8em; color: #666; }
 
         @media (max-width: 768px) {
             .profile-hero { flex-direction: column; text-align: center; }
@@ -260,27 +295,27 @@
         
         <div class="col-left">
             
-            <div class="card" style="border-top-color: var(--training-green);">
+            <div class="card card-training">
                 <h3 style="color:var(--training-green);"><span class="card-icon">🏋️‍♀️</span>Training HQ</h3>
-                <p style="font-size:0.95em; margin-bottom:15px; color:var(--text-muted);">
+                <p style="font-size:0.95em; margin-bottom:20px; color:var(--text-muted);">
                     Daily directives, lifting protocols (Lift A/Armor), and seasonal roadmaps.
                 </p>
-                <a href="tacie_training_2pX4v.html" class="link-btn" style="border-left: 5px solid var(--training-green);">
+                <a href="tacie_training_2pX4v.html" class="action-btn btn-green">
                     📋 View Daily Directives
                 </a>
             </div>
 
-            <div class="card" style="border-top-color: var(--dragon-gold);">
-                <h3><span class="card-icon">🤼‍♀️</span>Current Season: Wrestling</h3>
-                <p style="font-size:0.95em; margin-bottom:15px; color:var(--text-muted);">
+            <div class="card card-wrestling">
+                <h3 style="color:var(--dragon-gold);"><span class="card-icon">🤼‍♀️</span>Current Season: Wrestling</h3>
+                <p style="font-size:0.95em; margin-bottom:20px; color:var(--text-muted);">
                     Follow match results, videos, and technique library for the 2026 Season.
                 </p>
-                <a href="tacie_wrestling_5fH3pK.html" class="link-btn" style="background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(44, 62, 80, 0.8) 100%); color: #f39c12; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; animation: pulseGlow 3s infinite; text-align:center;">
+                <a href="tacie_wrestling_5fH3pK.html" class="action-btn btn-gold">
                     🤼 Enter the Buck15 Battlezone 🦌
                 </a>
             </div>
 
-            <div class="card">
+            <div class="card card-timeline">
                 <h3><span class="card-icon">📅</span>Timeline & Highlights</h3>
                 
                 <div class="timeline-item active">
