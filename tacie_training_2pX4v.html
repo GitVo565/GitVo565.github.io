@@ -142,8 +142,7 @@
             margin-bottom: 15px; border-bottom: 2px solid #444; padding-bottom: 5px;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .header-badge { font-size: 0.6em; background: #444; padding: 2px 8px; border-radius: 4px; color: #ccc; }
-
+        
         /* --- ROADMAP & LIBRARY (LEFT COL) --- */
         .roadmap-container {
             background: rgba(255, 255, 255, 0.05);
@@ -180,9 +179,6 @@
             background: linear-gradient(135deg, var(--accent-blue), #2980b9); 
             color: white; border-color: var(--accent-blue); font-weight: bold;
         }
-        .lib-btn.soon { opacity: 0.5; cursor: default; border-style: dashed; }
-        .lib-btn:hover:not(.soon) { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-
         .strategy-link {
             display: block; width: 100%; text-align: center; padding: 12px;
             background: rgba(243, 156, 18, 0.1); border: 1px solid var(--accent-gold);
@@ -216,39 +212,43 @@
         
         /* BLOOD & BONE MODES */
         .blood-bg {
-            background: linear-gradient(120deg, var(--card-bg) 60%, rgba(231, 76, 60, 0.2) 100%);
+            background: linear-gradient(120deg, var(--card-bg) 60%, rgba(231, 76, 60, 0.15) 100%);
             border-right: 3px solid var(--run-red);
         }
         .bone-bg {
-            background: linear-gradient(120deg, var(--card-bg) 60%, rgba(189, 195, 199, 0.2) 100%);
+            background: linear-gradient(120deg, var(--card-bg) 60%, rgba(189, 195, 199, 0.15) 100%);
             border-right: 3px solid var(--bone-white);
         }
 
         .nutri-footer {
             background: rgba(0,0,0,0.3);
             border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 8px 12px;
+            padding: 10px 12px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 15px;
             font-size: 0.85em;
         }
+        .nutri-content { flex-grow: 1; display: flex; flex-direction: column; gap: 4px; }
+        
         .phase-badge {
             font-weight: 800;
             text-transform: uppercase;
-            padding: 2px 6px;
+            padding: 4px 8px;
             border-radius: 3px;
             font-size: 0.8em;
             letter-spacing: 0.5px;
             min-width: 60px;
             text-align: center;
+            align-self: flex-start;
+            margin-top: 2px;
         }
         .badge-blood { color: #fff; background: var(--run-red); box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); }
         .badge-bone { color: #000; background: var(--bone-white); box-shadow: 0 0 5px rgba(189, 195, 199, 0.5); }
         
-        .meal-info { color: #ddd; flex-grow: 1; }
-        .meal-info strong { color: white; }
-        .protocol-alert { color: var(--accent-gold); font-weight: bold; font-size: 0.8em; text-transform: uppercase; margin-left: auto; }
+        .meal-name { color: white; font-weight: bold; font-size: 1em; }
+        .cook-note { color: #ccc; font-size: 0.9em; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4px; padding-top: 4px; }
+        .cook-note strong { color: var(--accent-gold); }
 
         /* DYNAMIC TODAY HIGHLIGHT */
         .today-active {
@@ -322,8 +322,7 @@
             .dashboard-grid { grid-template-columns: 1fr; }
             .hero-banner { height: 300px; }
             h1 { font-size: 1.8em; }
-            .nutri-footer { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .protocol-alert { margin-left: 0; }
+            .nutri-footer { gap: 10px; }
         }
     </style>
 </head>
@@ -434,67 +433,6 @@
                         <span class="week-theme">Theme: The Pivot (Capitalizing on the Cold)</span>
                     </div>
 
-                    <div class="day-card border-lift">
-                        <div class="day-top-bar"><span class="day-name">MONDAY</span><span class="day-date">Jan 19</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="am-label">🌞 Lift + Armor</span>
-                                <div class="activity">
-                                    <a href="tacie_lifta_8zK3m.html" target="_blank" class="workout-link">LIFT A</a>: Deadlift 3x5 + Armor.
-                                </div>
-                            </div>
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Run</span>
-                                <div class="activity">3 Miles (Zone 2) @ 212.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card border-run">
-                        <div class="day-top-bar"><span class="day-name">TUESDAY</span><span class="day-date">Jan 20</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="am-label">🌞 Aerobic Flush</span>
-                                <div class="activity">
-                                    <span class="alert-scrub">4 Miles (Zone 2).</span><br>
-                                    <span class="alert-text">SCRUBBED (Scenario A: The Grinder).</span>
-                                    <div class="activity-note">Run CANCELLED. Stop Allergy Pills Protocol initiated.</div>
-                                </div>
-                            </div>
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Practice</span>
-                                <div class="activity">Wrestling Practice.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card border-run">
-                        <div class="day-top-bar"><span class="day-name">WEDNESDAY</span><span class="day-date">Jan 21</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Post-Practice "Double"</span>
-                                <div class="activity"><strong>4 Miles (Zone 2) @ 212 Fitness.</strong></div>
-                                <div class="activity-note">Status: <strong>RESILIENCE</strong>. GI Issues (Stops) but pushed through "Zonked" feeling.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="day-card border-lift">
-                        <div class="day-top-bar"><span class="day-name">THURSDAY</span><span class="day-date">Jan 22</span></div>
-                        <div class="day-split">
-                            <div class="time-col">
-                                <span class="am-label">🌞 Recovery & Violin</span>
-                                <div class="empty-slot">OFF. Recover from Wed Volume.</div>
-                                <div class="activity-note">Magnesium Split Protocol Start (1 AM / 1 PM).</div>
-                            </div>
-                            <div class="time-col">
-                                <span class="pm-label">🌙 Practice</span>
-                                <div class="activity">Wrestling Practice (Check Status).</div>
-                                <div class="activity-note">If cancelled, enjoy full rest.</div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="day-card border-rest">
                         <div class="day-top-bar"><span class="day-name">FRIDAY</span><span class="day-date">Jan 23</span></div>
                         <div class="day-split">
@@ -534,8 +472,10 @@
                         </div>
                         <div class="nutri-footer">
                             <span class="phase-badge badge-bone">BONE</span>
-                            <span class="meal-info"><strong>Tater Tot Casserole.</strong> Comfort & Sodium.</span>
-                            <span class="protocol-alert">🥛 MILK OK</span>
+                            <div class="nutri-content">
+                                <span class="meal-name">Tater Tot Casserole</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> Comfort & Sodium. Great for rehydration. Serve with Milk. <span style="color:var(--alert-red);">*IF FEVER > 99.5: ABORT and serve BRAT Diet.</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -559,8 +499,10 @@
                         </div>
                         <div class="nutri-footer">
                             <span class="phase-badge badge-blood">BLOOD</span>
-                            <span class="meal-info"><strong>Potato & Sausage Skillet.</strong> Potassium Reload.</span>
-                            <span class="protocol-alert">🍊 OJ ONLY • NO DAIRY</span>
+                            <div class="nutri-content">
+                                <span class="meal-name">Potato & Sausage Skillet</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ⚠️ NO DAIRY. Serve with OJ. Ensure Tacie gets a heavy portion of Potatoes (Potassium) to refill electrolytes. <span style="color:var(--alert-red);">*IF FEVER > 99.5: ABORT.</span></div>
+                            </div>
                         </div>
                     </div>
 
@@ -583,8 +525,10 @@
                         </div>
                         <div class="nutri-footer">
                             <span class="phase-badge badge-bone">BONE</span>
-                            <span class="meal-info"><strong>Sloppy Joe w/ Mac & Cheese.</strong> Repair.</span>
-                            <span class="protocol-alert">🥛 MILK OK</span>
+                            <div class="nutri-content">
+                                <span class="meal-name">Sloppy Joe w/ Mac & Cheese</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> Calorie Load. Serve with Milk. Ensure she eats the meat (protein) for recovery.</div>
+                            </div>
                         </div>
                     </div>
 
@@ -600,8 +544,10 @@
                         </div>
                         <div class="nutri-footer">
                             <span class="phase-badge badge-blood">BLOOD</span>
-                            <span class="meal-info"><strong>Potato & Sausage Skillet.</strong> Iron & C Stack.</span>
-                            <span class="protocol-alert">🍊 OJ ONLY • NO DAIRY</span>
+                            <div class="nutri-content">
+                                <span class="meal-name">Potato & Sausage Skillet</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ⚠️ NO DAIRY. Serve with OJ. Do NOT put cheese on Tacie's portion.</div>
+                            </div>
                         </div>
                     </div>
 
@@ -620,8 +566,10 @@
                         </div>
                         <div class="nutri-footer">
                             <span class="phase-badge badge-blood">BLOOD</span>
-                            <span class="meal-info"><strong>Meatball Subs.</strong> Heme Iron.</span>
-                            <span class="protocol-alert">⛔ NO CHEESE ON SUB</span>
+                            <div class="nutri-content">
+                                <span class="meal-name">Meatball Subs</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> ⚠️ SEPARATION REQUIRED. Scoop Tacie's meatballs/sauce BEFORE adding cheese for the family. No cheese for Tacie.</div>
+                            </div>
                         </div>
                     </div>
 
@@ -637,8 +585,10 @@
                         </div>
                         <div class="nutri-footer">
                             <span class="phase-badge badge-bone">BONE</span>
-                            <span class="meal-info"><strong>Sloppy Joe w/ Mac & Cheese.</strong> Calorie Density.</span>
-                            <span class="protocol-alert">🥛 MILK OK</span>
+                            <div class="nutri-content">
+                                <span class="meal-name">Sloppy Joe w/ Mac & Cheese</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> Refuel. Post-meet calorie reloading. Milk is allowed.</div>
+                            </div>
                         </div>
                     </div>
 
@@ -662,8 +612,10 @@
                         </div>
                         <div class="nutri-footer">
                             <span class="phase-badge badge-bone">BONE</span>
-                            <span class="meal-info"><strong>Tater Tot Casserole.</strong> Sodium & Cals.</span>
-                            <span class="protocol-alert">🥛 MILK OK</span>
+                            <div class="nutri-content">
+                                <span class="meal-name">Tater Tot Casserole</span>
+                                <div class="cook-note">👨‍🍳 <strong>Cook's Note:</strong> Standard. Serve with Milk.</div>
+                            </div>
                         </div>
                     </div>
 
