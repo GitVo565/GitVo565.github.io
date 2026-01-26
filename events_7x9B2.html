@@ -7,21 +7,47 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
-        /* Dark background for high contrast */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #2c3e50; color: #ecf0f1; }
+        /* Theme Variables */
+        :root {
+            --bg-dark: #0f0f0f;
+            --card-bg: #1f1f1f;
+            --text-light: #e0e0e0;
+            --accent-gold: #f1c40f;
+            --accent-blue: #3498db;
+            --accent-red: #e74c3c;
+            --accent-green: #2ecc71;
+            --bus-yellow: #f39c12;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: var(--bg-dark); 
+            color: var(--text-light); 
+        }
         
         /* Navigation */
-        .back-btn { display: inline-block; background: #34495e; padding: 8px 15px; text-decoration: none; color: #ecf0f1; border-radius: 20px; border: 1px solid #465c71; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
+        .back-btn { 
+            display: inline-block; background: #34495e; padding: 8px 15px; 
+            text-decoration: none; color: #ecf0f1; border-radius: 20px; 
+            border: 1px solid #465c71; font-size: 0.9em; margin-bottom: 20px; 
+            transition: all 0.2s; 
+        }
         .back-btn:hover { background: #465c71; }
 
         /* Banner */
-        .header-section { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #e74c3c; padding-bottom: 20px; }
-        h1 { margin: 10px 0 5px 0; color: #ecf0f1; }
+        .header-section { 
+            text-align: center; margin-bottom: 40px; 
+            border-bottom: 2px solid var(--accent-gold); padding-bottom: 20px; 
+        }
+        h1 { margin: 10px 0 5px 0; color: #ecf0f1; text-transform: uppercase; letter-spacing: 1px;}
         .subtitle { color: #bdc3c7; font-style: italic; margin-bottom: 15px; }
 
         /* Archive Link Button */
@@ -40,18 +66,20 @@
 
         /* Event Cards */
         .event-card { 
-            background: white; 
-            color: #333; 
-            padding: 20px; 
+            background: var(--card-bg); 
+            color: var(--text-light); 
+            padding: 0; 
             border-radius: 8px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
             margin-bottom: 25px; 
-            border-left: 8px solid #ccc; 
+            border-left: 6px solid #ccc; 
+            overflow: hidden;
         }
 
         /* Border Colors */
         .type-party { border-left-color: #f1c40f; } 
         .type-sports { border-left-color: #e67e22; }
+        .type-alert { border-left-color: var(--accent-red); }
 
         /* HEADER LAYOUT */
         .card-top-flex {
@@ -59,7 +87,8 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 15px;
-            margin-bottom: 5px;
+            padding: 15px 20px 5px 20px;
+            background: rgba(255,255,255,0.03);
         }
 
         .header-left { flex: 1; }
@@ -73,7 +102,10 @@
             margin-bottom: 5px;
         }
 
-        h2 { margin: 0; color: #2c3e50; font-size: 1.3em; line-height: 1.2; }
+        h2 { margin: 0; color: var(--accent-gold); font-size: 1.3em; line-height: 1.2; }
+
+        /* Content Body */
+        .card-body { padding: 0 20px 20px 20px; }
 
         /* SMART ADDRESS & TIME LAYOUT */
         .time-loc-wrapper {
@@ -81,45 +113,45 @@
             flex-wrap: wrap; 
             align-items: center;
             gap: 8px; 
-            margin-bottom: 10px; 
+            margin-bottom: 15px; 
             padding-top: 5px;
             font-size: 0.95em;
-            color: #555;
+            color: #aaa;
             font-weight: 500;
         }
 
         /* Map Link */
         .map-link {
-            color: #2c3e50;
+            color: var(--accent-blue);
             text-decoration: none;
             border-bottom: 1px dotted #999;
             transition: all 0.2s;
             font-weight: 600;
         }
-        .map-link:hover { color: #d35400; border-bottom: 1px solid #d35400; }
+        .map-link:hover { color: #fff; border-bottom: 1px solid #fff; }
         
         /* Plain Location Text (No Link) */
         .loc-text {
-            color: #2c3e50;
+            color: #aaa;
             font-weight: 600;
             cursor: default;
         }
 
         /* Unbreakable Time */
-        .time-nowrap { white-space: nowrap; }
+        .time-nowrap { white-space: nowrap; color: #fff; }
 
         /* Separator Pipe (|) */
-        .separator { color: #ccc; display: none; }
+        .separator { color: #555; display: none; }
         @media (min-width: 600px) { .separator { display: inline; } }
 
         /* Date Badges */
         .date-badge { 
-            text-align: center; background: #f0f2f5; 
-            padding: 5px 10px; border-radius: 8px; border: 1px solid #ddd; 
-            font-weight: bold; color: #333;
+            text-align: center; background: #333; 
+            padding: 5px 10px; border-radius: 8px; border: 1px solid #555; 
+            font-weight: bold; color: #fff;
             min-width: 45px;
         }
-        .date-badge .month { display: block; font-size: 0.75em; text-transform: uppercase; color: #e74c3c; line-height: 1; margin-bottom: 2px; }
+        .date-badge .month { display: block; font-size: 0.75em; text-transform: uppercase; color: var(--accent-red); line-height: 1; margin-bottom: 2px; }
         .date-badge .day { font-size: 1.3em; line-height: 1; }
         
         .day-badge {
@@ -139,14 +171,27 @@
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             white-space: nowrap;
         }
-        .member-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .member-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
         .btn-tacie { background-color: #e67e22; color: white; border: 1px solid #d35400; }
         .btn-donald { background-color: #f39c12; color: #2c3e50; border: 1px solid #e67e22; }
 
-        .logistics-box { background: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #34495e; font-size: 0.9em; margin-bottom: 15px; }
+        .logistics-box { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 4px; border-left: 3px solid #34495e; font-size: 0.9em; margin-bottom: 15px; color:#ccc; }
+
+        /* Alert Box */
+        .alert-box {
+            background: rgba(231, 76, 60, 0.15);
+            color: #ffadad;
+            padding: 10px;
+            font-size: 0.9em;
+            font-weight: bold;
+            border-radius: 4px;
+            border: 1px solid var(--accent-red);
+            margin-bottom: 15px;
+            display: flex; align-items: center; gap: 10px;
+        }
 
         /* CALENDAR SECTION */
         .cal-cta {
@@ -165,7 +210,7 @@
         .btn-rsvp { background: #3b5998; }
         .btn-google { background: #db4437; }
         .btn-outlook { background: #0078d4; }
-        .btn-apple { background: #333; }
+        .btn-apple { background: #333; border:1px solid #555; }
         .btn-apple:hover { background: #000; }
         
         .btn-bracket { background: #2c3e50; border: 1px solid #34495e; width: 100%; text-align: center; box-sizing: border-box; margin-bottom: 5px; }
@@ -187,11 +232,11 @@
         <a href="history_8kL9m.html" class="archive-btn">📂 View Past Events Archive</a>
     </div>
 
-    <div class="event-card type-sports">
+    <div class="event-card type-alert">
         <div class="card-top-flex">
             <div class="header-left">
                 <div class="title-badge-row">
-                    <h2>🤼 MS Match @ Marathon (Multi-Team)</h2>
+                    <h2>🤼 MS Match @ Marathon (Updated)</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
             </div>
@@ -201,22 +246,27 @@
             </div>
         </div>
 
-        <div class="time-loc-wrapper">
-            <a href="https://www.google.com/maps/search/?api=1&query=Marathon+High+School+WI" target="_blank" class="map-link">📍 204 East St, Marathon, WI</a>
-            <span class="separator">|</span>
-            <span class="time-nowrap">🕟 4:15 PM - 8:00 PM</span>
-        </div>
+        <div class="card-body">
+            <div class="alert-box">
+                <span>📢 LOGISTICS ALERT: Venue changed to Elementary School per Zach Urquhart.</span>
+            </div>
 
-        <p><strong>Middle School Wrestling Meet (Grades 6-8):</strong> Stevens Point vs. Marathon, Stratford, Phillips & others. Boys & Girls divisions.</p>
-        <p style="font-size:0.9em; color:#555;"><strong>Admission:</strong> Free (or nominal $2-5). Concessions available (Cash only). No outside food.</p>
-        
-        <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
-        
-        <div class="cal-cta">📅 Add to your calendar:</div>
-        <div class="btn-container">
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+MS+Wrestling+@+Marathon&dates=20260126T161500/20260126T200000&location=204+East+St,+Marathon,+WI+54448&details=Multi-team+Junior+High+Match.+Admission+Free+or+Nominal.+Cash+Concessions.+Updates:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-google">Google</a>
-            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-26T16:15:00&enddt=2026-01-26T20:00:00&subject=Tacie+-+MS+Wrestling+@+Marathon&location=204+East+St,+Marathon,+WI+54448&body=Multi-team+Junior+High+Match.+Admission+Free+or+Nominal.+Cash+Concessions.+Updates:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-outlook">Outlook</a>
-            <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - MS Wrestling @ Marathon%0ADTSTART%3A20260126T161500%0ADTEND%3A20260126T200000%0ALOCATION%3A204 East St\, Marathon\, WI 54448%0ADESCRIPTION%3AMulti-team Junior High Match. Admission Free or Nominal. Cash Concessions. Updates: https://gitvo565.github.io/events_7x9B2.html%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+            <div class="time-loc-wrapper">
+                <a href="https://maps.google.com/?q=100+Spring+Valley+Drive,+Marathon,+WI+54448" target="_blank" class="map-link">📍 100 Spring Valley Drive, Marathon</a>
+                <span class="separator">|</span>
+                <span class="time-nowrap">🕟 4:15 PM - 8:00 PM</span>
+            </div>
+
+            <p><strong>Middle School Wrestling Meet:</strong> Stevens Point vs. Marathon & others.</p>
+            
+            <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
+            
+            <div class="cal-cta">📅 Add to your calendar:</div>
+            <div class="btn-container">
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+MS+Wrestling+@+Marathon+(Elementary)&dates=20260126T161500/20260126T200000&location=100+Spring+Valley+Drive,+Marathon,+WI+54448&details=Venue+Change:+Marathon+Elementary+School.+Multi-team+Junior+High+Match." target="_blank" class="action-btn btn-google">Google</a>
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-26T16:15:00&enddt=2026-01-26T20:00:00&subject=Tacie+-+MS+Wrestling+@+Marathon+(Elementary)&location=100+Spring+Valley+Drive,+Marathon,+WI+54448&body=Venue+Change:+Marathon+Elementary+School.+Multi-team+Junior+High+Match." target="_blank" class="action-btn btn-outlook">Outlook</a>
+                <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - MS Wrestling @ Marathon (Elementary)%0ADTSTART%3A20260126T161500%0ADTEND%3A20260126T200000%0ALOCATION%3A100 Spring Valley Drive\, Marathon\, WI 54448%0ADESCRIPTION%3AVenue Change: Marathon Elementary School. Multi-team Junior High Match.%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+            </div>
         </div>
     </div>
 
@@ -234,20 +284,21 @@
             </div>
         </div>
 
-        <div class="time-loc-wrapper">
-            <a href="https://maps.google.com/?q=Merrill+High+School,+WI" target="_blank" class="map-link">📍 Merrill High School</a>
-            <span class="separator">|</span>
-            <span class="time-nowrap">🕟 4:15 PM</span>
-        </div>
+        <div class="card-body">
+            <div class="time-loc-wrapper">
+                <a href="https://maps.google.com/?q=Merrill+High+School,+WI" target="_blank" class="map-link">📍 Merrill High School</a>
+                <span class="separator">|</span>
+                <span class="time-nowrap">🕟 4:15 PM</span>
+            </div>
 
-        <p><em>Check back closer to the event for more details.</em></p>
-        <div class="logistics-box"><strong>Logistics:</strong> Ben Release 1:30 | PJ Release 1:45 | Bus 2:00</div>
-        
-        <div class="cal-cta">📅 Add to your calendar:</div>
-        <div class="btn-container">
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+Merrill+Invitational&dates=20260130T161500/20260130T190000&location=Merrill+High+School,+WI&details=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-google">Google</a>
-            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-30T16:15:00&enddt=2026-01-30T19:00:00&subject=Tacie+-+Merrill+Invitational&location=Merrill+High+School,+WI&body=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-outlook">Outlook</a>
-            <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - Merrill Invitational%0ADTSTART%3A20260130T161500%0ADTEND%3A20260130T190000%0ALOCATION%3AMerrill High School\, WI%0ADESCRIPTION%3ABe sure to visit the Voetberg Events Page for updates on this event: https://gitvo565.github.io/events_7x9B2.html%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+            <p><em>Check back closer to the event for more details.</em></p>
+            <div class="logistics-box"><strong>Logistics:</strong> Ben Release 1:30 | PJ Release 1:45 | Bus 2:00</div>
+            
+            <div class="cal-cta">📅 Add to your calendar:</div>
+            <div class="btn-container">
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+Merrill+Invitational&dates=20260130T161500/20260130T190000&location=Merrill+High+School,+WI&details=Details+at+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-google">Google</a>
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-30T16:15:00&enddt=2026-01-30T19:00:00&subject=Tacie+-+Merrill+Invitational&location=Merrill+High+School,+WI" target="_blank" class="action-btn btn-outlook">Outlook</a>
+            </div>
         </div>
     </div>
 
@@ -265,20 +316,21 @@
             </div>
         </div>
 
-        <div class="time-loc-wrapper">
-            <a href="https://maps.google.com/?q=PJ+Jacobs+Junior+High,+Stevens+Point,+WI" target="_blank" class="map-link">📍 PJ's (Home)</a>
-            <span class="separator">|</span>
-            <span class="time-nowrap">🕟 4:15 PM</span>
-        </div>
+        <div class="card-body">
+            <div class="time-loc-wrapper">
+                <a href="https://maps.google.com/?q=PJ+Jacobs+Junior+High,+Stevens+Point,+WI" target="_blank" class="map-link">📍 PJ's (Home)</a>
+                <span class="separator">|</span>
+                <span class="time-nowrap">🕟 4:15 PM</span>
+            </div>
 
-        <p><em>Check back closer to the event for more details.</em></p>
-        <div class="logistics-box"><strong>Note:</strong> Home Meet! Come cheer loud! (No early departure)</div>
-        
-        <div class="cal-cta">📅 Add to your calendar:</div>
-        <div class="btn-container">
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+PJ's+Home+Meet&dates=20260203T161500/20260203T180000&location=PJ+Jacobs+Junior+High,+Stevens+Point,+WI&details=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-google">Google</a>
-            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-03T16:15:00&enddt=2026-02-03T18:00:00&subject=Tacie+-+PJ's+Home+Meet&location=PJ+Jacobs+Junior+High,+Stevens+Point,+WI&body=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-outlook">Outlook</a>
-            <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - PJ's Home Meet%0ADTSTART%3A20260203T161500%0ADTEND%3A20260203T180000%0ALOCATION%3APJ Jacobs Junior High\, Stevens Point\, WI%0ADESCRIPTION%3ABe sure to visit the Voetberg Events Page for updates on this event: https://gitvo565.github.io/events_7x9B2.html%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+            <p><em>Check back closer to the event for more details.</em></p>
+            <div class="logistics-box"><strong>Note:</strong> Home Meet! Come cheer loud! (No early departure)</div>
+            
+            <div class="cal-cta">📅 Add to your calendar:</div>
+            <div class="btn-container">
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+PJ's+Home+Meet&dates=20260203T161500/20260203T180000&location=PJ+Jacobs+Junior+High,+Stevens+Point,+WI" target="_blank" class="action-btn btn-google">Google</a>
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-03T16:15:00&enddt=2026-02-03T18:00:00&subject=Tacie+-+PJ's+Home+Meet&location=PJ+Jacobs+Junior+High,+Stevens+Point,+WI" target="_blank" class="action-btn btn-outlook">Outlook</a>
+            </div>
         </div>
     </div>
 
@@ -296,20 +348,20 @@
             </div>
         </div>
 
-        <div class="time-loc-wrapper">
-            <a href="https://maps.google.com/?q=Edgar+High+School,+WI" target="_blank" class="map-link">📍 Edgar High School</a>
-            <span class="separator">|</span>
-            <span class="time-nowrap">🕟 4:15 PM</span>
-        </div>
+        <div class="card-body">
+            <div class="time-loc-wrapper">
+                <a href="https://maps.google.com/?q=Edgar+High+School,+WI" target="_blank" class="map-link">📍 Edgar High School</a>
+                <span class="separator">|</span>
+                <span class="time-nowrap">🕟 4:15 PM</span>
+            </div>
 
-        <p><em>Check back closer to the event for more details.</em></p>
-        <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
-        
-        <div class="cal-cta">📅 Add to your calendar:</div>
-        <div class="btn-container">
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+Dual+Meet+vs+Edgar&dates=20260209T161500/20260209T180000&location=Edgar+High+School,+WI&details=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-google">Google</a>
-            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-09T16:15:00&enddt=2026-02-09T18:00:00&subject=Tacie+-+Dual+Meet+vs+Edgar&location=Edgar+High+School,+WI&body=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-outlook">Outlook</a>
-            <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - Dual Meet vs Edgar%0ADTSTART%3A20260209T161500%0ADTEND%3A20260209T180000%0ALOCATION%3AEdgar High School\, WI%0ADESCRIPTION%3ABe sure to visit the Voetberg Events Page for updates on this event: https://gitvo565.github.io/events_7x9B2.html%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+            <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
+            
+            <div class="cal-cta">📅 Add to your calendar:</div>
+            <div class="btn-container">
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+Dual+Meet+vs+Edgar&dates=20260209T161500/20260209T180000&location=Edgar+High+School,+WI" target="_blank" class="action-btn btn-google">Google</a>
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-09T16:15:00&enddt=2026-02-09T18:00:00&subject=Tacie+-+Dual+Meet+vs+Edgar&location=Edgar+High+School,+WI" target="_blank" class="action-btn btn-outlook">Outlook</a>
+            </div>
         </div>
     </div>
 
@@ -327,19 +379,20 @@
             </div>
         </div>
 
-        <div class="time-loc-wrapper">
-            <a href="https://maps.google.com/?q=6400+Alderson+St,+Weston,+WI+54476" target="_blank" class="map-link">📍 Greenheck Field House, Weston</a>
-            <span class="separator">|</span>
-            <span class="time-nowrap">🕟 4:15 PM</span>
-        </div>
+        <div class="card-body">
+            <div class="time-loc-wrapper">
+                <a href="https://maps.google.com/?q=6400+Alderson+St,+Weston,+WI+54476" target="_blank" class="map-link">📍 Greenheck Field House, Weston</a>
+                <span class="separator">|</span>
+                <span class="time-nowrap">🕟 4:15 PM</span>
+            </div>
 
-        <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:15 | PJ Release 2:30 | Bus 2:45</div>
-        
-        <div class="cal-cta">📅 Add to your calendar:</div>
-        <div class="btn-container">
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+D.C.+Everest+Invite+(Rescheduled)&dates=20260212T161500/20260212T190000&location=6400+Alderson+St,+Weston,+WI+54476&details=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-google">Google</a>
-            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-12T16:15:00&enddt=2026-02-12T19:00:00&subject=Tacie+-+D.C.+Everest+Invite+(Rescheduled)&location=6400+Alderson+St,+Weston,+WI+54476&body=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-outlook">Outlook</a>
-            <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - D.C. Everest Invite (Rescheduled)%0ADTSTART%3A20260212T161500%0ADTEND%3A20260212T190000%0ALOCATION%3A6400 Alderson St\, Weston\, WI 54476%0ADESCRIPTION%3ABe sure to visit the Voetberg Events Page for updates on this event: https://gitvo565.github.io/events_7x9B2.html%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+            <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:15 | PJ Release 2:30 | Bus 2:45</div>
+            
+            <div class="cal-cta">📅 Add to your calendar:</div>
+            <div class="btn-container">
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+D.C.+Everest+Invite+(Rescheduled)&dates=20260212T161500/20260212T190000&location=6400+Alderson+St,+Weston,+WI+54476" target="_blank" class="action-btn btn-google">Google</a>
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-12T16:15:00&enddt=2026-02-12T19:00:00&subject=Tacie+-+D.C.+Everest+Invite+(Rescheduled)&location=6400+Alderson+St,+Weston,+WI+54476" target="_blank" class="action-btn btn-outlook">Outlook</a>
+            </div>
         </div>
     </div>
 
@@ -357,20 +410,20 @@
             </div>
         </div>
 
-        <div class="time-loc-wrapper">
-            <a href="https://maps.google.com/?q=Marshfield+High+School,+WI" target="_blank" class="map-link">📍 Marshfield High School</a>
-            <span class="separator">|</span>
-            <span class="time-nowrap">🕟 4:15 PM</span>
-        </div>
+        <div class="card-body">
+            <div class="time-loc-wrapper">
+                <a href="https://maps.google.com/?q=Marshfield+High+School,+WI" target="_blank" class="map-link">📍 Marshfield High School</a>
+                <span class="separator">|</span>
+                <span class="time-nowrap">🕟 4:15 PM</span>
+            </div>
 
-        <p><em>Check back closer to the event for more details.</em></p>
-        <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
-        
-        <div class="cal-cta">📅 Add to your calendar:</div>
-        <div class="btn-container">
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+Dual+Meet+vs+Marshfield&dates=20260217T161500/20260217T180000&location=Marshfield+High+School,+WI&details=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-google">Google</a>
-            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-17T16:15:00&enddt=2026-02-17T18:00:00&subject=Tacie+-+Dual+Meet+vs+Marshfield&location=Marshfield+High+School,+WI&body=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-outlook">Outlook</a>
-            <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - Dual Meet vs Marshfield%0ADTSTART%3A20260217T161500%0ADTEND%3A20260217T180000%0ALOCATION%3AMarshfield High School\, WI%0ADESCRIPTION%3ABe sure to visit the Voetberg Events Page for updates on this event: https://gitvo565.github.io/events_7x9B2.html%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+            <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
+            
+            <div class="cal-cta">📅 Add to your calendar:</div>
+            <div class="btn-container">
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+Dual+Meet+vs+Marshfield&dates=20260217T161500/20260217T180000&location=Marshfield+High+School,+WI" target="_blank" class="action-btn btn-google">Google</a>
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-17T16:15:00&enddt=2026-02-17T18:00:00&subject=Tacie+-+Dual+Meet+vs+Marshfield&location=Marshfield+High+School,+WI" target="_blank" class="action-btn btn-outlook">Outlook</a>
+            </div>
         </div>
     </div>
     
@@ -388,20 +441,20 @@
             </div>
         </div>
 
-        <div class="time-loc-wrapper">
-            <a href="https://maps.google.com/?q=Marshfield+High+School,+WI" target="_blank" class="map-link">📍 Marshfield High School</a>
-            <span class="separator">|</span>
-            <span class="time-nowrap">🕟 4:15 PM</span>
-        </div>
+        <div class="card-body">
+            <div class="time-loc-wrapper">
+                <a href="https://maps.google.com/?q=Marshfield+High+School,+WI" target="_blank" class="map-link">📍 Marshfield High School</a>
+                <span class="separator">|</span>
+                <span class="time-nowrap">🕟 4:15 PM</span>
+            </div>
 
-        <p><em>Check back closer to the event for more details.</em></p>
-        <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
-        
-        <div class="cal-cta">📅 Add to your calendar:</div>
-        <div class="btn-container">
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+Dual+Meet+vs+Marshfield&dates=20260223T161500/20260223T180000&location=Marshfield+High+School,+WI&details=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-google">Google</a>
-            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-23T16:15:00&enddt=2026-02-23T18:00:00&subject=Tacie+-+Dual+Meet+vs+Marshfield&location=Marshfield+High+School,+WI&body=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-outlook">Outlook</a>
-            <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - Dual Meet vs Marshfield%0ADTSTART%3A20260223T161500%0ADTEND%3A20260223T180000%0ALOCATION%3AMarshfield High School\, WI%0ADESCRIPTION%3ABe sure to visit the Voetberg Events Page for updates on this event: https://gitvo565.github.io/events_7x9B2.html%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+            <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
+            
+            <div class="cal-cta">📅 Add to your calendar:</div>
+            <div class="btn-container">
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+Dual+Meet+vs+Marshfield&dates=20260223T161500/20260223T180000&location=Marshfield+High+School,+WI" target="_blank" class="action-btn btn-google">Google</a>
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-02-23T16:15:00&enddt=2026-02-23T18:00:00&subject=Tacie+-+Dual+Meet+vs+Marshfield&location=Marshfield+High+School,+WI" target="_blank" class="action-btn btn-outlook">Outlook</a>
+            </div>
         </div>
     </div>
 
@@ -419,20 +472,21 @@
             </div>
         </div>
 
-        <div class="time-loc-wrapper">
-            <span class="loc-text">📍 Voetberg Home</span>
-            <span class="separator">|</span>
-            <span class="time-nowrap">🕛 12:00 PM - 10:00 PM</span>
-        </div>
+        <div class="card-body">
+            <div class="time-loc-wrapper">
+                <span class="loc-text">📍 Voetberg Home</span>
+                <span class="separator">|</span>
+                <span class="time-nowrap">🕛 12:00 PM - 10:00 PM</span>
+            </div>
 
-        <p>Celebrate Donald's Graduation (Class of 2026)!</p>
-        
-        <div class="cal-cta">📅 Add to your calendar:</div>
-        <div class="btn-container">
-            <a href="https://fb.me/e/8o2oN3wj9" target="_blank" class="action-btn btn-rsvp">Facebook RSVP</a>
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Donald+-+Grad+Party&dates=20260627T120000/20260627T220000&location=Our+Home&details=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-google">Google</a>
-            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-06-27T12:00:00&enddt=2026-06-27T22:00:00&subject=Donald+-+Grad+Party&location=Our+Home&body=Be+sure+to+visit+the+Voetberg+Events+Page+for+updates+on+this+event:+https://gitvo565.github.io/events_7x9B2.html" target="_blank" class="action-btn btn-outlook">Outlook</a>
-            <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ADonald - Grad Party%0ADTSTART%3A20260627T120000%0ADTEND%3A20260627T220000%0ALOCATION%3AOur Home%0ADESCRIPTION%3ABe sure to visit the Voetberg Events Page for updates on this event: https://gitvo565.github.io/events_7x9B2.html%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+            <p>Celebrate Donald's Graduation (Class of 2026)!</p>
+            
+            <div class="cal-cta">📅 Add to your calendar:</div>
+            <div class="btn-container">
+                <a href="https://fb.me/e/8o2oN3wj9" target="_blank" class="action-btn btn-rsvp">Facebook RSVP</a>
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Donald+-+Grad+Party&dates=20260627T120000/20260627T220000&location=Our+Home" target="_blank" class="action-btn btn-google">Google</a>
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-06-27T12:00:00&enddt=2026-06-27T22:00:00&subject=Donald+-+Grad+Party&location=Our+Home" target="_blank" class="action-btn btn-outlook">Outlook</a>
+            </div>
         </div>
     </div>
 
