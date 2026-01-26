@@ -180,6 +180,18 @@
 
         .logistics-box { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 4px; border-left: 3px solid #34495e; font-size: 0.9em; margin-bottom: 15px; color:#ccc; }
 
+        /* TEAMS BOX */
+        .teams-box {
+            background: rgba(46, 204, 113, 0.1); 
+            border: 1px solid #2ecc71; 
+            padding: 10px; 
+            border-radius: 4px; 
+            margin-bottom: 15px;
+            font-size: 0.85em;
+            color: #ddd;
+        }
+        .teams-title { font-weight: bold; color: #2ecc71; text-transform: uppercase; display: block; margin-bottom: 5px; }
+
         /* Alert Box */
         .alert-box {
             background: rgba(231, 76, 60, 0.15);
@@ -213,8 +225,8 @@
         .btn-apple { background: #333; border:1px solid #555; }
         .btn-apple:hover { background: #000; }
         
-        .btn-bracket { background: #2c3e50; border: 1px solid #34495e; width: 100%; text-align: center; box-sizing: border-box; margin-bottom: 5px; }
-        .btn-bracket:hover { background: #34495e; }
+        .btn-bracket { background: #27ae60; border: 1px solid #2ecc71; width: 100%; text-align: center; box-sizing: border-box; margin-bottom: 10px; display: block; }
+        .btn-bracket:hover { background: #2ecc71; }
 
         /* Footer */
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
@@ -236,7 +248,7 @@
         <div class="card-top-flex">
             <div class="header-left">
                 <div class="title-badge-row">
-                    <h2>🤼 MS Match @ Marathon (Updated)</h2>
+                    <h2>🤼 Marathon Multi-Team Meet</h2>
                     <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
                 </div>
             </div>
@@ -257,15 +269,22 @@
                 <span class="time-nowrap">🕟 4:15 PM - 8:00 PM</span>
             </div>
 
-            <p><strong>Middle School Wrestling Meet:</strong> Stevens Point vs. Marathon & others.</p>
+            <div class="teams-box">
+                <span class="teams-title">Participating Teams</span>
+                Stevens Point, Marathon, Crandon, Merrill, Phillips, Stratford, Tomahawk, Tri-County.
+            </div>
             
+            <a href="https://www.usabracketing.com/events/cbff1f3a-864f-4793-ab89-479c5d89e876" target="_blank" class="action-btn btn-bracket">
+                🏆 View Brackets (USA Bracketing)
+            </a>
+
             <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
             
             <div class="cal-cta">📅 Add to your calendar:</div>
             <div class="btn-container">
-                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+MS+Wrestling+@+Marathon+(Elementary)&dates=20260126T161500/20260126T200000&location=100+Spring+Valley+Drive,+Marathon,+WI+54448&details=Venue+Change:+Marathon+Elementary+School.+Multi-team+Junior+High+Match." target="_blank" class="action-btn btn-google">Google</a>
-                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-26T16:15:00&enddt=2026-01-26T20:00:00&subject=Tacie+-+MS+Wrestling+@+Marathon+(Elementary)&location=100+Spring+Valley+Drive,+Marathon,+WI+54448&body=Venue+Change:+Marathon+Elementary+School.+Multi-team+Junior+High+Match." target="_blank" class="action-btn btn-outlook">Outlook</a>
-                <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - MS Wrestling @ Marathon (Elementary)%0ADTSTART%3A20260126T161500%0ADTEND%3A20260126T200000%0ALOCATION%3A100 Spring Valley Drive\, Marathon\, WI 54448%0ADESCRIPTION%3AVenue Change: Marathon Elementary School. Multi-team Junior High Match.%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+MS+Wrestling+@+Marathon+(Elementary)&dates=20260126T161500/20260126T200000&location=100+Spring+Valley+Drive,+Marathon,+WI+54448&details=Venue+Change:+Marathon+Elementary+School.+Teams:+SPASH,+Marathon,+Crandon,+Merrill,+Phillips,+Stratford,+Tomahawk,+Tri-County." target="_blank" class="action-btn btn-google">Google</a>
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-26T16:15:00&enddt=2026-01-26T20:00:00&subject=Tacie+-+MS+Wrestling+@+Marathon+(Elementary)&location=100+Spring+Valley+Drive,+Marathon,+WI+54448&body=Venue+Change:+Marathon+Elementary+School.+Teams:+SPASH,+Marathon,+Crandon,+Merrill,+Phillips,+Stratford,+Tomahawk,+Tri-County." target="_blank" class="action-btn btn-outlook">Outlook</a>
+                <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - MS Wrestling @ Marathon (Elementary)%0ADTSTART%3A20260126T161500%0ADTEND%3A20260126T200000%0ALOCATION%3A100 Spring Valley Drive\, Marathon\, WI 54448%0ADESCRIPTION%3AVenue Change: Marathon Elementary School. Teams: SPASH, Marathon, Crandon, Merrill, Phillips, Stratford, Tomahawk, Tri-County.%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
             </div>
         </div>
     </div>
