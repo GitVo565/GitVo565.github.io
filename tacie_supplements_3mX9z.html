@@ -1,213 +1,222 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blood & Bone Protocol v7.4</title>
+    <title>Blood & Bone Protocol v8.9</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
-        /* Theme Variables aligned with Master Spec CSS */
+        /* Theme Variables */
         :root {
             --bg-dark: #1a1a1a;
-            --card-bg: rgba(44, 44, 44, 0.9); /* Semi-transparent for video depth */
+            --card-bg: rgba(30, 30, 30, 0.85);
             --text-light: #ecf0f1;
             --accent-gold: #f39c12;
-            --accent-blue: #3498db;
-            --accent-green: #27ae60;
-            --alert-red: #e74c3c;
-            --warning-orange: #e67e22;
-            --med-purple: #9b59b6;
             --blood-red: #c0392b;
+            --blood-glow: rgba(192, 57, 43, 0.3);
             --bone-blue: #2980b9;
-            --transition-teal: #1abc9c;
+            --bone-glow: rgba(41, 128, 185, 0.3);
+            --success-green: #27ae60;
+            --alert-red: #e74c3c;
         }
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             padding: 20px; 
-            line-height: 1.6; 
+            line-height: 1.5; 
             max-width: 1000px; 
             margin: 0 auto; 
-            background: transparent; /* Allows video to show */
+            background: transparent; 
             color: var(--text-light); 
+            scroll-behavior: smooth;
         }
 
         /* --- VIDEO BACKGROUND --- */
         .bg-video {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: -2;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: -2;
         }
-
-        /* Dark Overlay for Text Readability */
         .bg-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            /* REDUCED OPACITY FROM 0.85 TO 0.7 FOR BRIGHTER VIDEO */
-            background: rgba(0, 0, 0, 0.7); 
-            z-index: -1;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75); z-index: -1;
         }
         
         /* Navigation */
-        .nav-container { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; position: relative; z-index: 1; }
-
+        .nav-container { display: flex; gap: 10px; margin-bottom: 20px; }
         .back-btn { 
-            display: inline-block; background: #34495e; padding: 8px 15px; 
-            text-decoration: none; color: #ecf0f1; border-radius: 20px; 
-            border: 1px solid #465c71; font-size: 0.9em; 
-            transition: 0.2s; 
+            background: #34495e; padding: 8px 15px; text-decoration: none; 
+            color: #ecf0f1; border-radius: 20px; border: 1px solid #555; 
+            font-size: 0.9em; transition: 0.2s; 
         }
-        .back-btn:hover { background: #465c71; }
-        
-        .training-btn {
-            background: var(--accent-gold); color: black; border-color: var(--accent-gold); font-weight: bold;
-        }
-        .training-btn:hover { background: #d4ac0d; }
+        .back-btn:hover { background: #444; }
 
-        /* Header */
-        .header-section { 
-            text-align: center; 
-            border-bottom: 2px solid var(--accent-gold); 
-            padding-bottom: 20px; margin-bottom: 30px;
-            position: relative; z-index: 1;
-        }
-        h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #ecf0f1; font-size: 1.8em; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
-        .subtitle { color: #bdc3c7; font-size: 0.9em; text-transform: uppercase; margin-top: 5px; }
-        .status-badge { display: inline-block; background: var(--accent-green); color: white; padding: 4px 12px; border-radius: 4px; font-weight: bold; font-size: 0.8em; margin-top: 10px; }
+        /* HEADER */
+        .header-section { text-align: center; margin-bottom: 30px; }
+        h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #fff; font-size: 1.8em; }
+        .version-tag { color: var(--accent-gold); font-size: 0.9em; font-weight: bold; }
+        .update-note { font-size: 0.85em; color: #aaa; margin-top: 5px; font-style: italic; }
 
-        /* PROTOCOL CARD */
-        .protocol-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(5px);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-left: 6px solid var(--accent-green);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .card-title { font-size: 1.4em; font-weight: bold; margin-bottom: 15px; color: var(--accent-green); display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #444; padding-bottom: 10px; }
-        
-        /* Main Grid Layout */
-        .protocol-grid {
-            display: flex;
-            flex-direction: column;
+        /* --- MODE SELECTOR (Creative Top Links) --- */
+        .mode-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
+            margin-bottom: 40px;
         }
 
-        .dose-box {
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #444;
-        }
-        .dose-time { font-weight: bold; color: var(--accent-gold); text-transform: uppercase; font-size: 0.9em; display: block; margin-bottom: 10px; border-bottom: 1px solid #555; padding-bottom: 5px; }
-        
-        .category-label {
-            display: block; font-size: 0.7em; text-transform: uppercase; color: #888; margin-top: 15px; margin-bottom: 5px; font-weight: bold; letter-spacing: 1px;
-        }
-        .category-label.meds { color: var(--med-purple); margin-top: 0; }
-        .category-label.food { color: var(--accent-green); }
-        .category-label.fuel { color: var(--transition-teal); }
-        
-        /* Checkbox lists */
-        .checklist { list-style: none; padding: 0; margin: 0; }
-        .checklist li { margin-bottom: 8px; display: flex; align-items: flex-start; gap: 10px; }
-        .check-box { min-width: 18px; height: 18px; border: 2px solid #666; border-radius: 3px; margin-top: 4px; }
-        
-        /* X-MARK */
-        .x-box { 
-            min-width: 18px; height: 18px; margin-top: 4px; 
-            color: var(--alert-red); font-weight: bold; font-size: 1.2em; 
-            line-height: 16px; text-align: center; 
-        }
-
-        .item-text { font-size: 1em; font-weight: bold; color: white; line-height: 1.3; }
-        .item-note { display: block; font-size: 0.85em; color: #aaa; font-weight: normal; margin-top: 2px; }
-        .brand-tag { color: var(--accent-blue); font-size: 0.85em; font-weight: bold; }
-        .warn-text { color: var(--alert-red); font-weight: bold; }
-
-        /* Highlight Boxes */
-        .training-box { border-color: var(--accent-gold); background: rgba(243, 156, 18, 0.05); }
-        .lunch-box { border-color: var(--med-purple); background: rgba(155, 89, 182, 0.05); }
-        .transition-box { border-color: var(--transition-teal); background: rgba(26, 188, 156, 0.05); }
-
-        /* LOGIC GATE LAYOUTS */
-        .logic-gate-container { border-color: var(--accent-blue); }
-        .breakfast-gate { border-color: var(--accent-gold); }
-        
-        .common-box {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            border: 1px solid #555;
-        }
-        .common-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-        }
-
-        .gate-split { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        
-        .scenario-box { padding: 15px; border-radius: 6px; border: 2px solid #444; position: relative; overflow: hidden; display: flex; flex-direction: column;}
-        
-        /* Scenario A (Iron/Blood) Styles */
-        .scenario-blood { border-color: var(--blood-red); background: rgba(192, 57, 43, 0.15); }
-        .scenario-blood .scenario-header { color: #ffadad; border-bottom: 1px solid var(--blood-red); }
-        
-        /* Scenario B (Standard/Bone) Styles */
-        .scenario-bone { border-color: var(--bone-blue); background: rgba(41, 128, 185, 0.1); }
-        .scenario-bone .scenario-header { color: var(--bone-blue); border-bottom: 1px solid var(--bone-blue); }
-        
-        .scenario-header { font-weight: 800; font-size: 1.2em; margin-bottom: 10px; display: block; text-align: center; padding-bottom: 5px; text-transform: uppercase; }
-        .menu-tag { display: block; text-align: center; font-size: 0.9em; color: #ddd; margin-bottom: 15px; font-style: italic; }
-
-        /* Bedtime Section */
-        .bedtime-header {
-            margin-top: 20px; 
-            margin-bottom: 10px;
-            font-weight: bold; 
-            color: var(--accent-gold); 
-            text-transform: uppercase; 
+        .mode-btn {
+            display: block;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
-            border-top: 1px solid #444;
-            padding-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
         }
 
-        /* SAFETY SECTION */
-        .safety-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
-        .banned-box { background: rgba(231, 76, 60, 0.1); border: 2px solid var(--alert-red); padding: 20px; border-radius: 8px; }
-        .banned-title { color: var(--alert-red); font-weight: bold; text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; font-size: 1.1em; }
-        .banned-list li { margin-bottom: 10px; color: #ffadad; font-size: 0.95em; }
-        .banned-reason { display: block; color: #bdc3c7; font-size: 0.85em; margin-top: 2px; font-style: italic; }
+        .mode-blood {
+            background: linear-gradient(145deg, rgba(60, 10, 10, 0.9), rgba(192, 57, 43, 0.8));
+            border-color: var(--blood-red);
+            color: #fff;
+        }
+        .mode-blood:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--blood-glow);
+        }
 
-        /* Red Light Toggle */
-        .red-light-box { background: #252525; border: 2px solid var(--alert-red); padding: 20px; border-radius: 8px; }
-        .red-light-header { color: var(--alert-red); font-weight: bold; text-transform: uppercase; margin-bottom: 10px; font-size: 1.1em; }
+        .mode-bone {
+            background: linear-gradient(145deg, rgba(10, 20, 40, 0.9), rgba(41, 128, 185, 0.8));
+            border-color: var(--bone-blue);
+            color: #fff;
+        }
+        .mode-bone:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--bone-glow);
+        }
 
-        /* KITCHEN INTEL SECTION */
-        .kitchen-section { background: rgba(32, 32, 32, 0.95); padding: 25px; border-radius: 8px; border-top: 4px solid var(--accent-gold); }
-        .kitchen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px; }
-        .kitchen-item { background: #333; padding: 15px; border-radius: 6px; border: 1px solid #444; }
-        .k-title { color: var(--accent-green); font-weight: bold; display: block; margin-bottom: 5px; }
-        .k-desc { font-size: 0.9em; color: #ccc; }
+        .mode-icon { font-size: 2em; display: block; margin-bottom: 5px; }
+        .mode-title { font-weight: 900; text-transform: uppercase; font-size: 1.2em; display: block; }
+        .mode-desc { font-size: 0.85em; opacity: 0.9; display: block; margin-top: 5px; }
 
-        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; position: relative; z-index: 1;}
+        /* --- PROTOCOL SECTIONS --- */
+        .protocol-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 50px;
+            border: 1px solid #444;
+            scroll-margin-top: 20px;
+        }
 
+        .blood-theme { border-left: 6px solid var(--blood-red); }
+        .bone-theme { border-left: 6px solid var(--bone-blue); }
+
+        .sec-header {
+            font-size: 1.6em;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 15px;
+        }
+        .blood-text { color: var(--blood-red); }
+        .bone-text { color: var(--bone-blue); }
+
+        .trigger-box {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .trigger-label { font-weight: bold; color: #888; text-transform: uppercase; font-size: 0.8em; }
+        .trigger-val { font-weight: bold; color: #fff; }
+
+        /* --- TIMELINE GRID --- */
+        .timeline-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .time-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            background: rgba(255,255,255,0.03);
+            border-radius: 6px;
+            overflow: hidden;
+            border-left: 3px solid #555;
+        }
+        
+        .blood-theme .time-row { border-left-color: var(--blood-red); }
+        .bone-theme .time-row { border-left-color: var(--bone-blue); }
+
+        .t-time {
+            padding: 12px;
+            font-weight: bold;
+            color: var(--accent-gold);
+            font-size: 0.85em;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+        .t-action {
+            padding: 12px;
+            font-weight: bold;
+            color: white;
+            font-size: 0.95em;
+        }
+        .t-logic {
+            padding: 12px;
+            color: #aaa;
+            font-size: 0.85em;
+            font-style: italic;
+            border-left: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Checkbox Mockup */
+        .cb { 
+            display: inline-block; width: 14px; height: 14px; 
+            border: 1px solid #777; margin-right: 8px; border-radius: 2px; 
+            vertical-align: middle;
+        }
+
+        /* --- SAFETY & BANNED --- */
+        .safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+        
+        .info-box {
+            padding: 20px; border-radius: 8px; border: 1px solid #444;
+            background: rgba(20, 20, 20, 0.9);
+        }
+        .info-title { font-weight: bold; text-transform: uppercase; margin-bottom: 15px; display: block; border-bottom: 1px solid #444; padding-bottom: 5px; }
+        
+        .banned-box { border-color: var(--alert-red); }
+        .banned-title { color: var(--alert-red); }
+        
+        .list-clean { list-style: none; padding: 0; margin: 0; }
+        .list-clean li { margin-bottom: 8px; font-size: 0.9em; display: flex; gap: 10px;}
+
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .safety-section { grid-template-columns: 1fr; }
-            .gate-split { grid-template-columns: 1fr; }
-            .common-grid { grid-template-columns: 1fr; }
+            .time-row { grid-template-columns: 1fr; padding: 10px; gap: 5px; }
+            .t-time { border-right: none; padding: 0; margin-bottom: 5px; }
+            .t-action { padding: 0; font-size: 1.1em; margin-bottom: 5px; }
+            .t-logic { padding: 0; border-left: none; }
+            .safety-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -219,234 +228,174 @@
     <div class="bg-overlay"></div>
 
     <div class="nav-container">
-        <a href="excalibur_strategy_2kL9v.html" class="back-btn">← Back to Strategy Core</a>
-        <a href="tacie_training_2pX4v.html" class="back-btn training-btn">🏋️ Go to Training Plan</a>
+        <a href="excalibur_strategy_2kL9v.html" class="back-btn">← Strategy</a>
+        <a href="tacie_training_2pX4v.html" class="back-btn">🏋️ Training Log</a>
     </div>
-    
+
     <div class="header-section">
-        <h1>🩸 Blood & 🦴 Bone Protocol v7.4</h1>
-        <div class="subtitle">Effective March 2026 | The A/B Logic Gate</div>
-        <span class="status-badge">🟢 STATUS: GREEN LIGHT (ACTIVE)</span>
+        <h1>Tacie Supplement Plan (003a)</h1>
+        <div class="version-tag">VERSION 8.9 | 🟢 ACTIVE</div>
+        <div class="update-note">Updates: Potassium Gap Fill, Gut Defense (Rice), Glycogen Transition.</div>
     </div>
 
-    <div class="protocol-card">
-        <div class="card-title">✅ Daily Execution (The Checklist)</div>
+    <div class="mode-selector">
+        <a href="#blood-protocol" class="mode-btn mode-blood">
+            <span class="mode-icon">🩸</span>
+            <span class="mode-title">Blood Mode</span>
+            <span class="mode-desc">Steak / Iron Days</span>
+        </a>
+        <a href="#bone-protocol" class="mode-btn mode-bone">
+            <span class="mode-icon">🦴</span>
+            <span class="mode-title">Bone Mode</span>
+            <span class="mode-desc">Pasta / Calcium Days</span>
+        </a>
+    </div>
+
+    <div id="blood-protocol" class="protocol-section blood-theme">
+        <div class="sec-header blood-text">
+            <span>🩸 Plan A: Blood Days (Iron Focus)</span>
+        </div>
         
-        <div class="protocol-grid">
-            
-            <div class="dose-box breakfast-gate">
-                <span class="dose-time">🌅 BREAKFAST (Check Daily Toggle)</span>
-                
-                <div class="common-box">
-                    <span class="category-label meds" style="margin-top:0;">💊 Universal Morning Stack</span>
-                    <div class="common-grid">
-                        <div>
-                            <span style="font-size:0.8em; color:#aaa; display:block; margin-bottom:5px;">MEDICATIONS</span>
-                            <ul class="checklist">
-                                <li><div class="check-box"></div><div><span class="item-text">Pulmicort (2 Puffs)</span></div></li>
-                                <li><div class="check-box"></div><div><span class="item-text">Ryaltris (2 Sprays)</span></div></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <span style="font-size:0.8em; color:#aaa; display:block; margin-bottom:5px;">SUPPLEMENTS</span>
-                            <ul class="checklist">
-                                <li><div class="check-box"></div><div><span class="item-text">Vit D3+K2 + Creatine + K+</span></div></li>
-                                <li><div class="check-box"></div><div><span class="item-text">CoQ10 + Cal/Mag (1 Tab)</span></div></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <div class="trigger-box">
+            <div><span class="trigger-label">Trigger:</span> <span class="trigger-val">Red Meat Dinner</span></div>
+            <div><span class="trigger-label">Goal:</span> <span class="trigger-val">Max Absorption</span></div>
+            <div><span class="trigger-label" style="color:var(--alert-red)">Rule:</span> <span class="trigger-val">NO CALCIUM PILLS till 9 PM</span></div>
+        </div>
 
-                <div class="gate-split">
-                    <div class="scenario-box scenario-blood">
-                        <span class="scenario-header">🩸 BLOOD PHASE (IRON)</span>
-                        <p style="font-size:0.85em; color:#ffadad; margin-bottom:10px; text-align:center;">Goal: Iron Absorption (No Blocks)</p>
-                        <ul class="checklist">
-                            <li><div class="check-box" style="border-color:var(--iron-rust)"></div><div><span class="item-text">Cream of Wheat</span><span class="item-note">2 Packets. 50% DV Iron.</span></div></li>
-                            <li><div class="check-box" style="border-color:var(--iron-rust)"></div><div><span class="item-text">Sliced Banana</span><span class="item-note">Potassium add-on.</span></div></li>
-                            <li><div class="x-box">✕</div><div><span class="item-text warn-text">NO MILK / DAIRY</span><span class="item-note">Make w/ Water. Calcium blocks Iron.</span></div></li>
-                            <li><div class="check-box" style="border-color:var(--iron-rust)"></div><div><span class="item-text">Orange Juice</span><span class="item-note">Vit C boosts absorption.</span></div></li>
-                        </ul>
-                    </div>
-
-                    <div class="scenario-box scenario-bone">
-                        <span class="scenario-header">🦴 BONE PHASE (CALCIUM)</span>
-                        <p style="font-size:0.85em; color:#ddd; margin-bottom:10px; text-align:center;">Goal: Calcium Bank</p>
-                        <ul class="checklist">
-                            <li><div class="check-box" style="border-color:var(--std-blue)"></div><div><span class="item-text">Greek Yogurt / Cereal</span><span class="item-note">Loads ~300mg Calcium.</span></div></li>
-                            <li><div class="check-box" style="border-color:var(--std-blue)"></div><div><span class="item-text">Drink Milk or Water</span></div></li>
-                            <li><div class="check-box" style="border-color:var(--std-blue)"></div><div><span class="item-text">Standard Fruit</span><span class="item-note">Berries/Apple/Banana.</span></div></li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="timeline-grid">
+            <div class="time-row">
+                <div class="t-time">07:00 AM</div>
+                <div class="t-action"><span class="cb"></span>Meds: Pulmicort + Ryaltris</div>
+                <div class="t-logic">Airway maintenance.</div>
             </div>
-
-            <div class="dose-box lunch-box">
-                <span class="dose-time">🍱 LUNCH (Nitric + Calcium Gap Fill)</span>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <ul class="checklist">
-                        <li>
-                            <div class="check-box"></div>
-                            <div>
-                                <span class="item-text">Beet Root Juice (4 oz)</span>
-                                <span class="item-note warn-text">⚠️ NO MOUTHWASH for 2 hrs.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="check-box"></div>
-                            <div>
-                                <span class="item-text">Cold Baked Potato</span>
-                                <span class="item-note">Skin On. #1 Potassium Source.</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="checklist">
-                        <li><div class="check-box" style="border-color:var(--accent-green)"></div><div><span class="item-text">The "Calcium Fill"</span><span class="item-note">1 String Cheese or Yogurt.</span></div></li>
-                        <li><div class="check-box" style="border-color:var(--accent-green)"></div><div><span class="item-text">Chomps Beef Stick</span><span class="item-note">Original. Heme Iron.</span></div></li>
-                    </ul>
-                </div>
+            <div class="time-row">
+                <div class="t-time">07:00 AM</div>
+                <div class="t-action"><span class="cb"></span>MENU: Cream of Wheat (Water) + OJ</div>
+                <div class="t-logic">Iron Source 1 (50% DV). No Milk.</div>
             </div>
-
-            <div class="dose-box training-box">
-                <span class="dose-time">🎒 BRIDGE (2:00 PM - Gut Safe)</span>
-                <div style="display:flex; flex-wrap:wrap; gap:20px;">
-                    <ul class="checklist" style="flex:1;">
-                        <li><div class="check-box"></div><div><span class="item-text">The Snack</span><span class="item-note">Pretzels/Banana. <span class="warn-text">NO Fat/Fiber.</span></span></div></li>
-                        <li><div class="check-box"></div><div><span class="item-text">Hydration (16oz)</span><span class="item-note">Offset osmotic load.</span></div></li>
-                    </ul>
-                    <ul class="checklist" style="flex:1;">
-                        <li><div class="check-box"></div><div><span class="item-text">Atrovent (2 Puffs)</span><span class="item-note">20 mins pre-exertion. (Backup: Albuterol)</span></div></li>
-                    </ul>
-                </div>
+            <div class="time-row">
+                <div class="t-time">07:00 AM</div>
+                <div class="t-action"><span class="cb"></span>Creatine + D3/K2 + CoQ10 + K+</div>
+                <div class="t-logic">Structural integrity & ATP.</div>
             </div>
-
-            <div class="dose-box transition-box">
-                <span class="dose-time" style="color:var(--transition-teal);">⚡ THE TRANSITION (Post-Wrestle / Pre-Run)</span>
-                
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
-                    <div>
-                        <span class="category-label fuel">Liquid Priority</span>
-                        <ul class="checklist">
-                            <li><div class="check-box"></div><div><span class="item-text">Gatorade / Gatorlyte</span><span class="item-note">Liquid carbs absorb fastest.</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Applesauce + Coconut Water</span><span class="item-note">Potassium reload.</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Pretzels / White Toast</span><span class="item-note">If hungry.</span></div></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <span class="category-label warn-text">❌ NO-GO LIST (Gut Defense)</span>
-                        <ul class="checklist">
-                            <li><div class="x-box">✕</div><div><span class="item-text">NO PROTEIN SHAKES</span><span class="item-note">Too heavy for running.</span></div></li>
-                            <li><div class="x-box">✕</div><div><span class="item-text">NO FATS (Nuts/PB)</span><span class="item-note">Slows digestion.</span></div></li>
-                            <li><div class="x-box">✕</div><div><span class="item-text">NO VIT-C / MAGNESIUM</span><span class="item-note">Laxative risk.</span></div></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="time-row">
+                <div class="t-time">07:00 AM</div>
+                <div class="t-action" style="color:#777; text-decoration:line-through;">Cal-Mag-Phos Pill</div>
+                <div class="t-logic" style="color:var(--blood-red); font-weight:bold;">SKIPPED (Blocks Iron).</div>
             </div>
-
-            <div class="dose-box logic-gate-container">
-                <span class="dose-time">🌙 EVENING LOGIC GATE (Check Dinner Menu)</span>
-                
-                <div class="common-box">
-                    <span class="category-label meds" style="margin-top:0;">💊 WITH DINNER</span>
-                    <ul class="checklist common-list" style="justify-content:center;">
-                        <li><div class="check-box"></div><div><span class="item-text">Klean Multi (2 Tabs)</span><span class="item-note">Take with full meal.</span></div></li>
-                    </ul>
-                </div>
-
-                <div class="gate-split">
-                    <div class="scenario-box scenario-blood">
-                        <span class="scenario-header">🩸 BLOOD PHASE (IRON)</span>
-                        <span class="menu-tag">Steak, Liverwurst, Lean Burger</span>
-                        <ul class="checklist">
-                            <li><div class="check-box" style="border-color:var(--iron-rust)"></div><div><span class="item-text">Drink Orange Juice</span><span class="item-note">Vit C boosts Iron.</span></div></li>
-                            <li><div class="x-box">✕</div><div><span class="item-text warn-text">NO DAIRY / NO CHEESE</span></div></li>
-                            <li><div class="x-box">✕</div><div><span class="item-text warn-text">STOP: NO CAL/MAG</span><span class="item-note">Move pill to Bedtime.</span></div></li>
-                        </ul>
-                    </div>
-
-                    <div class="scenario-box scenario-bone">
-                        <span class="scenario-header">🦴 BONE PHASE (STANDARD)</span>
-                        <span class="menu-tag">Chicken, Fish, Tacos, Pasta</span>
-                        <ul class="checklist">
-                            <li><div class="check-box" style="border-color:var(--std-blue)"></div><div><span class="item-text">Baked Potato (Skin)</span><span class="item-note">Potassium Load.</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (1 Tab)</span><span class="item-note">Safe to take with dinner.</span></div></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="bedtime-header">🛌 BEDTIME PROTOCOL</div>
-                
-                <div class="gate-split">
-                    <div class="scenario-box scenario-blood">
-                        <span class="scenario-header" style="font-size:1em;">🩸 BLOOD NIGHT</span>
-                        <ul class="checklist">
-                            <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Tart Cherry Juice</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Cal/Mag (Pill #2)</span><span class="item-note">Taken now because of Iron Dinner.</span></div></li>
-                        </ul>
-                    </div>
-
-                    <div class="scenario-box scenario-bone">
-                        <span class="scenario-header" style="font-size:1em;">🦴 BONE NIGHT</span>
-                        <ul class="checklist">
-                            <li><div class="check-box"></div><div><span class="item-text">Spiriva (2 Puffs)</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Zyrtec (1 Tab)</span></div></li>
-                            <li><div class="check-box"></div><div><span class="item-text">Tart Cherry Juice</span><span class="item-note">Sleep/Recovery.</span></div></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="time-row">
+                <div class="t-time">11:30 AM</div>
+                <div class="t-action"><span class="cb"></span>Beet Juice (4oz) + Beef Stick</div>
+                <div class="t-logic">Nitric Oxide + Heme Iron.</div>
             </div>
-
+            <div class="time-row">
+                <div class="t-time">11:30 AM</div>
+                <div class="t-action"><span class="cb"></span>Potassium Fill: Cold Potato (Skin)</div>
+                <div class="t-logic">Gap Closer (~900mg K+).</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">02:00 PM</div>
+                <div class="t-action"><span class="cb"></span>Atrovent + Snack + Water</div>
+                <div class="t-logic">Pretzels/Banana. No Fats.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">05:15 PM</div>
+                <div class="t-action"><span class="cb"></span>Gatorade OR Coconut Water</div>
+                <div class="t-logic">Transition Fuel / Potassium Load.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">06:00 PM</div>
+                <div class="t-action"><span class="cb"></span>MENU: Steak/Burger + Liverwurst</div>
+                <div class="t-logic">Iron Source 2. Drink OJ/Water.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">09:00 PM</div>
+                <div class="t-action"><span class="cb"></span>Multi + Cal-Mag Pill + Tart Cherry</div>
+                <div class="t-logic">Moved here to avoid blocking dinner iron.</div>
+            </div>
         </div>
     </div>
 
-    <div class="safety-section">
-        <div class="banned-box">
-            <div class="banned-title">⛔ THE "DO NOT TOUCH" LIST</div>
-            <ul class="checklist banned-list">
-                <li><span class="item-text">NOW Liver Caps</span> <span class="banned-reason">Medical Hold (High Ferritin).</span></li>
-                <li><span class="item-text">Nature Made Iron</span> <span class="banned-reason">Strict exclusion. Toxicity risk.</span></li>
-                <li><span class="item-text">AG1 (Greens)</span> <span class="banned-reason">Contains Inulin (IBS trigger).</span></li>
-                <li><span class="item-text">Ashwagandha</span> <span class="banned-reason">Hormonal modulator. Banned.</span></li>
-            </ul>
+    <div id="bone-protocol" class="protocol-section bone-theme">
+        <div class="sec-header bone-text">
+            <span>🦴 Plan B: Bone Days (Calcium Focus)</span>
         </div>
 
-        <div class="red-light-box">
-            <div class="red-light-header">🚨 SICKNESS PROTOCOL (Red Light)</div>
-            <p style="font-size:0.9em; color:#ddd; margin-bottom:10px;">If Temp > 99.5°F or "Zonked" Fatigue:</p>
-            <ul class="checklist">
-                <li><strong>STOP:</strong> Klean Multi, Country Life, Beet Juice, Cherry Juice.</li>
-                <li><strong>START:</strong> Nature's Bounty (Zn/Mg/Ca/D3) + Vit C.</li>
-                <li><strong>CONTINUE:</strong> Creatine (Hydration) & Potassium.</li>
-            </ul>
-            <p style="font-size:0.85em; color:#aaa; margin-top:10px;">Resume v7.4 only after fever-free for 24 hrs.</p>
+        <div class="trigger-box">
+            <div><span class="trigger-label">Trigger:</span> <span class="trigger-val">Pasta/Pizza Dinner</span></div>
+            <div><span class="trigger-label">Goal:</span> <span class="trigger-val">Bone Density</span></div>
+            <div><span class="trigger-label" style="color:var(--success-green)">Rule:</span> <span class="trigger-val">Dairy & Calcium Encouraged</span></div>
+        </div>
+
+        <div class="timeline-grid">
+            <div class="time-row">
+                <div class="t-time">07:00 AM</div>
+                <div class="t-action"><span class="cb"></span>Meds: Pulmicort + Ryaltris</div>
+                <div class="t-logic">Airway maintenance.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">07:00 AM</div>
+                <div class="t-action"><span class="cb"></span>MENU: Chocolate Milk</div>
+                <div class="t-logic">Calcium/Protein Load.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">07:00 AM</div>
+                <div class="t-action"><span class="cb"></span>Creatine + D3/K2 + CoQ10 + K+</div>
+                <div class="t-logic">Structural integrity & ATP.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">07:00 AM</div>
+                <div class="t-action"><span class="cb"></span>Cal-Mag-Phos (Pill 1 of 2)</div>
+                <div class="t-logic" style="color:var(--bone-blue);">Safe to take with Milk.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">11:30 AM</div>
+                <div class="t-action"><span class="cb"></span>Beet Juice + Potato + Cheese</div>
+                <div class="t-logic">Nitric Oxide + K+ + Calcium Fill.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">02:00 PM</div>
+                <div class="t-action"><span class="cb"></span>Atrovent + Snack + Water</div>
+                <div class="t-logic">Pretzels/Banana. No Fats.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">06:00 PM</div>
+                <div class="t-action"><span class="cb"></span>MENU: Pasta/Pizza + Liverwurst</div>
+                <div class="t-logic">Calcium Window. Drink Milk.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">06:00 PM</div>
+                <div class="t-action"><span class="cb"></span>Multi + Cal-Mag (Pill 2 of 2)</div>
+                <div class="t-logic">Taken with full meal.</div>
+            </div>
+            <div class="time-row">
+                <div class="t-time">09:00 PM</div>
+                <div class="t-action"><span class="cb"></span>Tart Cherry + Night Meds</div>
+                <div class="t-logic">No Supplements (Done at dinner).</div>
+            </div>
         </div>
     </div>
 
-    <div class="kitchen-section">
-        <h2>🛒 Kitchen Intel: The "Gap Closers"</h2>
-        <div class="kitchen-grid">
-            <div class="kitchen-item">
-                <span class="k-title">🥣 Instant Cream of Wheat</span>
-                <span class="k-desc">Iron Heavy Hitter (~50% DV). Make w/ Water.</span>
-            </div>
-            <div class="kitchen-item">
-                <span class="k-title">🥤 Gatorade / Gatorlyte</span>
-                <span class="k-desc">Post-Wrestling "Transition" Fuel. Liquid Glycogen.</span>
-            </div>
-            <div class="kitchen-item">
-                <span class="k-title">🥔 Russet Potatoes</span>
-                <span class="k-desc">Superfood. Skin-on = ~900mg Potassium.</span>
-            </div>
-            <div class="kitchen-item">
-                <span class="k-title">🍒 Tart Cherry Juice</span>
-                <span class="k-desc">Natural Melatonin. Bedtime Recovery.</span>
-            </div>
-            <div class="kitchen-item">
-                <span class="k-title">🥩 Chomps Beef Sticks</span>
-                <span class="k-desc">Original Flavor (Heme Iron). Lunch protein.</span>
-            </div>
+    <div class="safety-grid">
+        <div class="info-box">
+            <span class="info-title" style="color:var(--accent-gold)">🚑 Safety & Nutrients</span>
+            <ul class="list-clean">
+                <li>💊 <strong>PRN:</strong> Epinephrine (0.3mg) for Anaphylaxis.</li>
+                <li>🍌 <strong>Potassium Mandate:</strong> Pills don't cover the gap. Potato/Banana/Coconut Water are MEDICAL REQUIREMENTS.</li>
+                <li>🍚 <strong>Gut Defense:</strong> Add White Rice to dinner to bind excess water from Magnesium.</li>
+                <li>🚫 <strong>Post-Practice:</strong> NO Protein Shakes, NO Fats, NO Magnesium before runs.</li>
+            </ul>
+        </div>
+
+        <div class="info-box banned-box">
+            <span class="info-title banned-title">🚨 Do Not Touch (Banned)</span>
+            <ul class="list-clean">
+                <li>❌ <strong>Iron Pills:</strong> MEDICAL BAN (Ferritin High).</li>
+                <li>❌ <strong>AG1 (Greens):</strong> Contains Inulin (IBS).</li>
+                <li>❌ <strong>Fiber Gummies:</strong> GI Distress risk.</li>
+                <li>❌ <strong>Ashwagandha:</strong> Hormonal precaution.</li>
+                <li>❌ <strong>Nature's Bounty:</strong> Sickness Only.</li>
+            </ul>
         </div>
     </div>
 
