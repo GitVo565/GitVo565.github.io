@@ -194,6 +194,12 @@
             border: 1px solid #777; margin-right: 8px; border-radius: 2px; 
             vertical-align: middle;
         }
+        
+        /* DATA TOOLTIPS (THE TRUTH TABLE) */
+        [title] {
+            cursor: help;
+            border-bottom: 1px dotted #777;
+        }
 
         /* --- SAFETY & BANNED --- */
         .safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
@@ -235,7 +241,7 @@
     <div class="header-section">
         <h1>Blood vs Bone Protocol</h1>
         <div class="version-tag">VERSION 8.9 | 🟢 ACTIVE</div>
-        <div class="update-note">Updates: Potassium Gap Fill, Gut Defense (Rice), Glycogen Transition.</div>
+        <div class="update-note">Updates: Vykee Safety Lock, Magnesium Split, Auto-Push Logic.</div>
     </div>
 
     <div class="mode-selector">
@@ -275,7 +281,7 @@
             </div>
             <div class="time-row">
                 <div class="t-time">07:00 AM</div>
-                <div class="t-action"><span class="cb"></span>Creatine + D3/K2 + CoQ10 + K+</div>
+                <div class="t-action"><span class="cb"></span><span title="Brand: Thorne | Dose: 1 Scoop (5g) | Note: Mix in Juice. ATP Regen.">Creatine</span> + <span title="Brand: ForestLeaf | Dose: 1 Capsule | Note: 5,000 IU D3 + 100mcg K2. Do not double dose.">D3/K2</span> + <span title="Brand: Futurebiotics | Dose: 1 Capsule (200mg) | Note: Mitochondrial support.">CoQ10</span> + <span title="Brand: Vykee | Dose: 2 Capsules | Note: ⚠️ SAFETY CHECK: Vykee = Safe. 21st Century = Iron (BANNED).">Vykee (K+)</span></div>
                 <div class="t-logic">Structural integrity & ATP.</div>
             </div>
             <div class="time-row">
@@ -285,7 +291,7 @@
             </div>
             <div class="time-row">
                 <div class="t-time">11:30 AM</div>
-                <div class="t-action"><span class="cb"></span>Beet Juice (4oz) + Beef Stick</div>
+                <div class="t-action"><span class="cb"></span><span title="Brand: Lakewood | Dose: 4 oz | Note: Drink at Lunch. NO Mouthwash after drinking.">Beet Juice</span> + Beef Stick</div>
                 <div class="t-logic">Nitric Oxide + Heme Iron.</div>
             </div>
             <div class="time-row">
@@ -309,8 +315,13 @@
                 <div class="t-logic">Iron Source 2. Drink OJ/Water.</div>
             </div>
             <div class="time-row">
+                <div class="t-time">06:00 PM</div>
+                <div class="t-action" style="color:#777; text-decoration:line-through;">NO Multi / NO Calcium</div>
+                <div class="t-logic" style="color:var(--blood-red); font-weight:bold;">AUTO-PUSHED TO 9PM.</div>
+            </div>
+            <div class="time-row">
                 <div class="t-time">09:00 PM</div>
-                <div class="t-action"><span class="cb"></span>Multi + Cal-Mag Pill + Tart Cherry</div>
+                <div class="t-action"><span class="cb"></span><span title="Brand: Klean Athlete | Dose: 2 Tablets | Note: NSF Certified. Contains Zinc/Calcium. Do NOT take on Iron Nights (Dinner).">Klean Multi</span> + <span title="Brand: Country Life | Dose: 1 Tablet | Note: 500mg Ca. NEVER take 2 at once (Diarrhea risk).">Cal-Mag (1 Tab)</span> + Tart Cherry</div>
                 <div class="t-logic">Moved here to avoid blocking dinner iron.</div>
             </div>
         </div>
@@ -340,17 +351,17 @@
             </div>
             <div class="time-row">
                 <div class="t-time">07:00 AM</div>
-                <div class="t-action"><span class="cb"></span>Creatine + D3/K2 + CoQ10 + K+</div>
+                <div class="t-action"><span class="cb"></span><span title="Brand: Thorne | Dose: 1 Scoop (5g)">Creatine</span> + <span title="Brand: ForestLeaf | Dose: 1 Capsule">D3/K2</span> + <span title="Brand: Futurebiotics | Dose: 1 Cap">CoQ10</span> + <span title="Brand: Vykee | Dose: 2 Capsules | Note: ⚠️ SAFETY CHECK: Vykee = Safe.">Vykee (K+)</span></div>
                 <div class="t-logic">Structural integrity & ATP.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">07:00 AM</div>
-                <div class="t-action"><span class="cb"></span>Cal-Mag-Phos (Pill 1 of 2)</div>
+                <div class="t-action"><span class="cb"></span><span title="Brand: Country Life | Dose: 1 Tablet | Note: AM Dose. Do not stack.">Cal-Mag-Phos (Pill 1 of 2)</span></div>
                 <div class="t-logic" style="color:var(--bone-blue);">Safe to take with Milk.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">11:30 AM</div>
-                <div class="t-action"><span class="cb"></span>Beet Juice + Potato + Cheese</div>
+                <div class="t-action"><span class="cb"></span><span title="Brand: Lakewood | Dose: 4 oz">Beet Juice</span> + Potato + Cheese</div>
                 <div class="t-logic">Nitric Oxide + K+ + Calcium Fill.</div>
             </div>
             <div class="time-row">
@@ -365,7 +376,7 @@
             </div>
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
-                <div class="t-action"><span class="cb"></span>Multi + Cal-Mag (Pill 2 of 2)</div>
+                <div class="t-action"><span class="cb"></span><span title="Brand: Klean Athlete | Dose: 2 Tablets">Klean Multi</span> + <span title="Brand: Country Life | Dose: 1 Tablet | Note: PM Dose. Do not stack.">Cal-Mag (Pill 2 of 2)</span></div>
                 <div class="t-logic">Taken with full meal.</div>
             </div>
             <div class="time-row">
@@ -390,11 +401,10 @@
         <div class="info-box banned-box">
             <span class="info-title banned-title">🚨 Do Not Touch (Banned)</span>
             <ul class="list-clean">
-                <li>❌ <strong>Iron Pills:</strong> MEDICAL BAN (Ferritin High).</li>
-                <li>❌ <strong>AG1 (Greens):</strong> Contains Inulin (IBS).</li>
-                <li>❌ <strong>Fiber Gummies:</strong> GI Distress risk.</li>
-                <li>❌ <strong>Ashwagandha:</strong> Hormonal precaution.</li>
-                <li>❌ <strong>Nature's Bounty:</strong> Sickness Only.</li>
+                <li>⛔ <strong>Iron Pills (21st Century):</strong> Medical Ban (High Ferritin).</li>
+                <li>⛔ <strong>AG1 (Athletic Greens):</strong> Contains Inulin (IBS Trigger).</li>
+                <li>⛔ <strong>Nature's Bounty Multi:</strong> Sickness Only (Zinc toxicity risk).</li>
+                <li>⛔ <strong>Ashwagandha:</strong> Hormonal precaution.</li>
             </ul>
         </div>
     </div>
