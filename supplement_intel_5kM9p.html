@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Protocol Intelligence v10.5</title>
+    <title>Protocol Intelligence v10.6</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -105,7 +105,7 @@
             border: 1px solid #444;
             position: relative;
             overflow: hidden;
-            scroll-margin-top: 20px; /* For anchor linking */
+            scroll-margin-top: 20px; 
         }
         .item-card:hover { border-color: #666; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
@@ -126,6 +126,17 @@
         }
         .science-label { color: var(--science-blue); font-weight: bold; font-size: 0.85em; text-transform: uppercase; display: block; margin-bottom: 3px; }
         .science-text { font-size: 0.95em; font-style: italic; color: #ccc; }
+
+        /* Pro Tip Box (Rocket) */
+        .pro-tip-box {
+            background: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 15px;
+        }
+        .pro-tip-label { color: var(--accent-gold); font-weight: bold; font-size: 0.85em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+        .pro-tip-text { font-size: 0.95em; color: #eee; }
 
         .protocol-line { font-weight: bold; color: #fff; background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 4px; display: inline-block; }
 
@@ -169,7 +180,7 @@
     <div class="main-header">
         <h1>The "Why" Intelligence Briefing</h1>
         <div class="subtitle">Fuel vs. Medicine vs. Poison</div>
-        <div class="meta-info">Version 10.5 | 🟢 Active Protocol</div>
+        <div class="meta-info">Version 10.6 | 🟢 Active Protocol</div>
     </div>
 
     <div class="index-container">
@@ -177,6 +188,7 @@
         <a href="#respiratory-stack" class="index-link">🫁 Respiratory</a>
         <a href="#performance-stack" class="index-link">🔋 Performance</a>
         <a href="#medical-foods" class="index-link">🥔 Medical Foods</a>
+        <a href="#structural-support" class="index-link">🏗️ Structural</a>
         <a href="#red-zone" class="index-link idx-alert">⚠️ Red Zone</a>
     </div>
 
@@ -190,6 +202,15 @@
             </div>
             <span class="job-tag">The Job: "The Ejection Seat"</span>
             <div class="job-desc">The life-saving intervention for anaphylaxis (Nut/Fish allergy).</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Delivers massive adrenaline that instantly vasoconstricts (raises BP) and bronchodilates (opens lungs) to reverse shock.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>Blue to the Sky, Orange to the Thigh.</strong> Hold firmly against thigh for 3 full seconds.</span>
+            </div>
             <div class="protocol-line">Protocol: Must be in the bag at all times.</div>
         </div>
 
@@ -199,7 +220,12 @@
                 <span class="item-icon">💨</span>
             </div>
             <span class="job-tag">The Job: "The Backup Chute"</span>
-            <div class="job-desc">Used ONLY if Atrovent fails to clear the airway during an attack. It is the secondary rescue line.</div>
+            <div class="job-desc">Used ONLY if Atrovent fails. The secondary rescue line.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">A "Beta-Agonist" that forcibly relaxes smooth muscles. Faster than Atrovent but causes higher heart rate (jitters).</span>
+            </div>
             <div class="protocol-line">Protocol: Carry as backup. Use Atrovent first.</div>
         </div>
     </div>
@@ -214,9 +240,14 @@
             </div>
             <span class="job-tag">The Job: "The Shield"</span>
             <div class="job-desc">Reduces inflammation so the airway doesn't swell shut during the day.</div>
+            
             <div class="science-box">
-                <span class="science-label">🔬 Research Insight</span>
-                <span class="science-text">Prevents "airway remodeling" (scarring) in endurance athletes who breathe cold, dry air.</span>
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Inhaled Steroids prevent "airway remodeling" (scarring). Ryaltris blocks post-nasal drip triggers.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>Rinse and Spit.</strong> Rinse mouth after use to prevent thrush and ensure meds stay in lungs, not stomach.</span>
             </div>
             <div class="protocol-line">Protocol: 2 Puffs / 2 Sprays (Every Morning)</div>
         </div>
@@ -227,7 +258,16 @@
                 <span class="item-icon">🏃</span>
             </div>
             <span class="job-tag">The Job: "The Door Opener"</span>
-            <div class="job-desc">Forces bronchioles open. <strong>Using this 15 mins before a run is not optional</strong>; it prevents the asthma attack.</div>
+            <div class="job-desc">Forces bronchioles open. <strong>15 mins before a run is not optional</strong>.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Blocks the Parasympathetic reflex that makes lungs "twitch" shut in cold air. Gold Standard for cold-weather asthma.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>The 20-Minute Rule.</strong> Take exactly 20 mins before gun time. Matches XC race duration perfectly.</span>
+            </div>
             <div class="protocol-line">Protocol: 2 Puffs (15-30 mins Pre-Practice)</div>
         </div>
 
@@ -237,7 +277,16 @@
                 <span class="item-icon">🌙</span>
             </div>
             <span class="job-tag">The Job: "The 24-Hour Guard"</span>
-            <div class="job-desc">Spiriva keeps lungs relaxed for 24 hours. Zyrtec blocks histamine triggers while you sleep.</div>
+            <div class="job-desc">Keeps lungs relaxed for 24 hours. Blocks histamine triggers while you sleep.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Spiriva is a LAMA. It prevents the 4:00 AM "Cortisol Drop" that usually triggers early morning attacks.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>Consistency is King.</strong> Spiriva takes 3-4 days to build up. Missing a dose creates a gap 24hrs later.</span>
+            </div>
             <div class="protocol-line">Protocol: 2 Puffs + 1 Tablet at Bedtime</div>
         </div>
     </div>
@@ -251,10 +300,15 @@
                 <span class="item-icon">⚡</span>
             </div>
             <span class="job-tag">The Job: "The Snap"</span>
-            <div class="job-desc">Regenerates ATP (energy) instantly. Gives explosive power for a takedown in the 3rd period.</div>
+            <div class="job-desc">Regenerates ATP (energy) instantly. Gives explosive power for a takedown.</div>
+            
             <div class="science-box">
-                <span class="science-label">🔬 Research Insight</span>
-                <span class="science-text">Increases Intermittent Power Output. Acts as a "Cellular Hydrator," protecting muscles from heat stress.</span>
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Saturates muscles with Phosphocreatine for 0-10s bursts. Acts as a "Cellular Hydrator" against heat stress.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>The "Sludge" Check.</strong> Mix in warm water/juice until dissolved. If you crunch it, you waste it.</span>
             </div>
             <div class="protocol-line">Protocol: 1 Scoop Daily (Morning) + 16oz Water</div>
         </div>
@@ -266,6 +320,15 @@
             </div>
             <span class="job-tag">The Job: "The Engine Oil"</span>
             <div class="job-desc">Helps mitochondria burn fuel cleanly without "overheating" (oxidative stress).</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Required for Electron Transport Chain. Low levels linked to "exercise intolerance" and fatigue.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>Fat Friend.</strong> It is fat-soluble. Take with Milk or Beef Stick, not empty water.</span>
+            </div>
             <div class="protocol-line">Protocol: 1 Capsule Daily (Morning)</div>
         </div>
 
@@ -275,7 +338,16 @@
                 <span class="item-icon">☀️</span>
             </div>
             <span class="job-tag">The Job: "The Winter Sun"</span>
-            <div class="job-desc">Keeps immune system fighting viruses and ensures calcium goes to bones, not arteries.</div>
+            <div class="job-desc">Keeps immune system fighting viruses and ensures calcium goes to bones.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">K2 activates Osteocalcin, binding calcium to bone. Without K2, calcium can calcify arteries.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>The 5,000 IU Baseline.</strong> Mimics summer sun exposure to keep immunity aggressive against flu.</span>
+            </div>
             <div class="protocol-line">Protocol: 1 Capsule Daily (Morning)</div>
         </div>
     </div>
@@ -289,22 +361,36 @@
                 <span class="item-icon">🥩</span>
             </div>
             <span class="job-tag">The Job: "The Oxygen Carrier"</span>
-            <div class="job-desc">Red blood cells need Iron to carry oxygen. Since you cannot take pills, this meat is your <strong>only source</strong>.</div>
+            <div class="job-desc">Red blood cells need Iron. This meat is your <strong>only source</strong> (Pills Banned).</div>
+            
             <div class="science-box">
-                <span class="science-label">🔬 The Chemical Key</span>
-                <span class="science-text">Must be consumed with ORANGE JUICE. Vitamin C triples absorption.</span>
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Heme Iron absorbs via HCP1 pathway. Vitamin C converts it to Ferrous state, increasing absorption 300%.</span>
             </div>
-            <div class="protocol-line">Protocol: Blood Days Only (NO DAIRY)</div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>The Calcium Window.</strong> Wait 2 hours before/after dairy. Cheese blocks 60% of iron absorption.</span>
+            </div>
+            <div class="protocol-line">Protocol: Blood Days Only (With OJ / NO DAIRY)</div>
         </div>
 
-        <div id="chocolate-milk" class="item-card">
+        <div id="beet-root" class="item-card">
             <div class="item-header">
-                <span class="item-name">Chocolate Milk</span>
-                <span class="item-icon">🍫</span>
+                <span class="item-name">Beet Root Juice</span>
+                <span class="item-icon">🍷</span>
             </div>
-            <span class="job-tag">The Job: "The Calcium Load"</span>
-            <div class="job-desc">Provides the heavy Calcium and Protein load required on days when you don't eat steak.</div>
-            <div class="protocol-line">Protocol: "Bone Day" Breakfasts</div>
+            <span class="job-tag">The Job: "The Turbo Boost"</span>
+            <div class="job-desc">Increases Nitric Oxide, opening blood vessels to deliver oxygen.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Enterosalivary Circulation: Nitrates absorb -> Saliva converts to Nitrite -> Stomach converts to Nitric Oxide.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>Swish and Swallow.</strong> Swish for 10s to coat tongue bacteria. <strong>NEVER</strong> use mouthwash after.</span>
+            </div>
+            <div class="protocol-line">Protocol: 4 oz at Lunch.</div>
         </div>
 
         <div id="potato" class="item-card">
@@ -313,18 +399,35 @@
                 <span class="item-icon">🥔</span>
             </div>
             <span class="job-tag">The Job: "The Cramp Killer"</span>
-            <div class="job-desc">Potassium pills are capped at 99mg. You need 2,500mg. The potato provides 900mg. It is a <strong>Medical Requirement</strong>.</div>
+            <div class="job-desc">Potassium pills are capped at 99mg. You need 2,500mg. Potato = 900mg.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Sodium-Potassium Pump controls contraction. Low intracellular K+ = failure to relax (cramp).</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>Bake, Don't Boil.</strong> Boiling leaches 50% of Potassium. Microwaving keeps it in. Eat the skin.</span>
+            </div>
             <div class="protocol-line">Protocol: Eat Daily (Skin-On)</div>
         </div>
 
-        <div id="beet-root" class="item-card">
+        <div id="chocolate-milk" class="item-card">
             <div class="item-header">
-                <span class="item-name">Beet Root Juice</span>
-                <span class="item-icon">🍷</span>
+                <span class="item-name">Chocolate Milk</span>
+                <span class="item-icon">🍫</span>
             </div>
-            <span class="job-tag">The Job: "The Turbo"</span>
-            <div class="job-desc">Increases Nitric Oxide, opening blood vessels to deliver oxygen during the 3:30 PM practice.</div>
-            <div class="protocol-line">Protocol: 4 oz at Lunch. NO Mouthwash.</div>
+            <span class="job-tag">The Job: "The Calcium Load"</span>
+            <div class="job-desc">Provides Calcium + Protein load on non-steak days.</div>
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">"Golden Ratio" of Carbs-to-Protein (3:1) for glycogen replenishment.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>The Morning Load.</strong> Since dairy is banned at dinner on Iron nights, load up at breakfast.</span>
+            </div>
+            <div class="protocol-line">Protocol: "Bone Day" Breakfasts</div>
         </div>
 
         <div id="tart-cherry" class="item-card">
@@ -333,28 +436,59 @@
                 <span class="item-icon">🍒</span>
             </div>
             <span class="job-tag">The Job: "The Sleep System"</span>
-            <div class="job-desc">Natural Melatonin to clear inflammation and reset the nervous system.</div>
+            <div class="job-desc">Natural Melatonin + Anti-Inflammatory.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Anthocyanins downregulate inflammation markers (COX-2) like Ibuprofen, but gut-safe.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>The 30-Minute Window.</strong> Drink 30-60 mins before lights out to match circadian rhythm.</span>
+            </div>
             <div class="protocol-line">Protocol: Drink at Bedtime</div>
         </div>
+    </div>
 
-        <div id="applesauce" class="item-card">
+    <div id="structural-support" class="section-block">
+        <div class="sec-title">🏗️ Structural Support</div>
+
+        <div id="cal-mag" class="item-card">
             <div class="item-header">
-                <span class="item-name">Applesauce Pouches</span>
-                <span class="item-icon">🍎</span>
+                <span class="item-name">Cal-Mag-Phos (Country Life)</span>
+                <span class="item-icon">🧱</span>
             </div>
-            <span class="job-tag">The Job: "The Gut-Safe Sugar"</span>
-            <div class="job-desc">An alternative to pretzels. Provides fast glycogen without dryness.</div>
-            <div class="protocol-line">Protocol: 2:00 PM Bridge Snack</div>
+            <span class="job-tag">The Job: "The Structural Repair"</span>
+            <div class="job-desc">Calcium for bone density; Magnesium for muscle relaxation.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Diminishing returns: The gut processes ~500mg at a time. Taking 1,000mg at once wastes 50%.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>The Split.</strong> Split AM/PM to trick the body into absorbing nearly 100%.</span>
+            </div>
+            <div class="protocol-line" style="background:var(--danger-red);">⚠️ SPLIT DOSE (1 AM / 1 PM). Never take 2 at once.</div>
         </div>
 
         <div id="protein-shake" class="item-card">
             <div class="item-header">
-                <span class="item-name">Protein Shake</span>
+                <span class="item-name">Recovery Protein</span>
                 <span class="item-icon">🥤</span>
             </div>
             <span class="job-tag">The Job: "The Rapid Repair"</span>
             <div class="job-desc">Stops muscle breakdown immediately after practice.</div>
-            <div class="protocol-line">Protocol: Evening (Post-Run). Never immediately before running.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text">Liquid protein bypasses mechanical digestion, spiking amino acids (Leucine) in 30 mins vs 3 hours.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact</span>
+                <span class="pro-tip-text"><strong>The Anabolic Window.</strong> Drink within 45 mins of practice to stop catabolic breakdown.</span>
+            </div>
+            <div class="protocol-line">Protocol: Evening (Post-Run)</div>
         </div>
     </div>
 
@@ -367,17 +501,8 @@
                 <span class="item-icon">☠️</span>
             </div>
             <span class="danger-label">The Danger: "The Poison"</span>
-            <div class="job-desc">Tacie's Ferritin is optimized (65 ng/mL). Taking these could cause Iron Toxicity (organ damage).</div>
+            <div class="job-desc">Tacie's Ferritin is high (65). Taking these causes ROS (Reactive Oxygen Species) organ damage.</div>
             <div class="protocol-line">VISUAL CHECK: Looks like Potassium. CHECK LABEL.</div>
-        </div>
-
-        <div id="vykee-lock" class="item-card" style="border-color: var(--safe-green);">
-            <div class="item-header">
-                <span class="item-name">Potassium Citrate (Vykee)</span>
-                <span class="item-icon">🧪</span>
-            </div>
-            <span class="job-tag" style="color:var(--safe-green)">The Status: "The Safe Top-Off"</span>
-            <div class="job-desc">This is SAFE. Helps the potato keep muscles functioning. <strong>Verify it is Vykee, not 21st Century.</strong></div>
         </div>
 
         <div id="ag1" class="item-card banned-card">
@@ -386,16 +511,7 @@
                 <span class="item-icon">❌</span>
             </div>
             <span class="danger-label">The Danger: "The Gut Bomb"</span>
-            <div class="job-desc">Contains Inulin, a fiber that triggers Tacie's specific IBS/cramping.</div>
-        </div>
-
-        <div id="natures-bounty" class="item-card banned-card">
-            <div class="item-header">
-                <span class="item-name">Nature's Bounty Multi</span>
-                <span class="item-icon">❌</span>
-            </div>
-            <span class="danger-label">The Danger: "The Double Dose"</span>
-            <div class="job-desc">Contains Zinc. Stacking this with the Klean Athlete Multi causes Zinc toxicity. Reserved for Sickness Protocol only.</div>
+            <div class="job-desc">Contains Inulin (FOS). Ferments rapidly in colon -> Distension/Cramping.</div>
         </div>
     </div>
 
