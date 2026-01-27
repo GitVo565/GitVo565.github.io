@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Protocol Intelligence v10.3</title>
+    <title>Protocol Intelligence v10.5</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -21,6 +21,7 @@
             --danger-red: #c0392b;
             --safe-green: #27ae60;
             --rx-purple: #9b59b6;
+            --emergency-orange: #d35400;
         }
 
         body { 
@@ -55,14 +56,40 @@
         }
         .back-btn:hover { background: var(--accent-gold); color: #000; border-color: var(--accent-gold); }
 
+        /* --- INDEX (IN-PAGE NAV) --- */
+        .index-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #444;
+        }
+        .index-link {
+            text-decoration: none;
+            color: #ccc;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.85em;
+            font-weight: bold;
+            transition: 0.2s;
+            border: 1px solid transparent;
+        }
+        .index-link:hover { background: var(--science-blue); color: white; border-color: #fff; }
+        .idx-alert:hover { background: var(--danger-red); }
+
         /* --- HEADER --- */
-        .main-header { text-align: center; margin-bottom: 50px; border-bottom: 1px solid #444; padding-bottom: 20px; }
+        .main-header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #444; padding-bottom: 20px; }
         h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; font-size: 2.2em; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         .subtitle { color: var(--accent-gold); font-weight: bold; margin-top: 5px; font-size: 1.1em; }
         .meta-info { color: #888; font-size: 0.9em; margin-top: 5px; }
 
         /* --- SECTION STYLING --- */
-        .section-block { margin-bottom: 60px; }
+        .section-block { margin-bottom: 60px; scroll-margin-top: 20px; }
         .sec-title { 
             font-size: 1.8em; font-weight: 900; text-transform: uppercase; 
             margin-bottom: 20px; display: flex; align-items: center; gap: 15px;
@@ -102,20 +129,21 @@
 
         .protocol-line { font-weight: bold; color: #fff; background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 4px; display: inline-block; }
 
-        /* --- THE RED ZONE --- */
+        /* --- THEMES --- */
         .red-zone { border-color: var(--danger-red); }
         .red-zone .sec-title { border-left-color: var(--danger-red); color: var(--danger-red); }
         .banned-card { border: 1px solid var(--danger-red); background: rgba(40, 10, 10, 0.9); }
         .banned-card .item-name { color: var(--danger-red); }
         .danger-label { color: var(--danger-red); font-weight: bold; text-transform: uppercase; }
 
-        /* --- RESPIRATORY THEME --- */
         .lung-theme .sec-title { border-left-color: var(--rx-purple); }
         .rx-card { border-top: 3px solid var(--rx-purple); }
 
-        /* --- FOOD THEME --- */
         .food-theme .sec-title { border-left-color: var(--safe-green); }
         
+        .emergency-theme .sec-title { border-left-color: var(--emergency-orange); color: var(--emergency-orange); }
+        .emergency-card { border-top: 3px solid var(--emergency-orange); background: rgba(211, 84, 0, 0.1); }
+
         /* Footer */
         .footer { text-align: center; margin-top: 50px; color: #666; font-size: 0.8em; border-top: 1px solid #333; padding-top: 20px; }
 
@@ -141,7 +169,39 @@
     <div class="main-header">
         <h1>The "Why" Intelligence Briefing</h1>
         <div class="subtitle">Fuel vs. Medicine vs. Poison</div>
-        <div class="meta-info">Version 10.3 | 🟢 Active Protocol</div>
+        <div class="meta-info">Version 10.5 | 🟢 Active Protocol</div>
+    </div>
+
+    <div class="index-container">
+        <a href="#emergency-hardware" class="index-link idx-alert">🚑 Emergency</a>
+        <a href="#respiratory-stack" class="index-link">🫁 Respiratory</a>
+        <a href="#performance-stack" class="index-link">🔋 Performance</a>
+        <a href="#medical-foods" class="index-link">🥔 Medical Foods</a>
+        <a href="#red-zone" class="index-link idx-alert">⚠️ Red Zone</a>
+    </div>
+
+    <div id="emergency-hardware" class="section-block emergency-theme">
+        <div class="sec-title">🚑 Emergency Hardware (Crisis Management)</div>
+
+        <div id="epinephrine" class="item-card emergency-card">
+            <div class="item-header">
+                <span class="item-name">Epinephrine (EpiPen 0.3mg)</span>
+                <span class="item-icon">💉</span>
+            </div>
+            <span class="job-tag">The Job: "The Ejection Seat"</span>
+            <div class="job-desc">The life-saving intervention for anaphylaxis (Nut/Fish allergy).</div>
+            <div class="protocol-line">Protocol: Must be in the bag at all times.</div>
+        </div>
+
+        <div id="albuterol" class="item-card emergency-card">
+            <div class="item-header">
+                <span class="item-name">Albuterol Inhaler</span>
+                <span class="item-icon">💨</span>
+            </div>
+            <span class="job-tag">The Job: "The Backup Chute"</span>
+            <div class="job-desc">Used ONLY if Atrovent fails to clear the airway during an attack. It is the secondary rescue line.</div>
+            <div class="protocol-line">Protocol: Carry as backup. Use Atrovent first.</div>
+        </div>
     </div>
 
     <div id="respiratory-stack" class="section-block lung-theme">
@@ -154,10 +214,9 @@
             </div>
             <span class="job-tag">The Job: "The Shield"</span>
             <div class="job-desc">Reduces inflammation so the airway doesn't swell shut during the day.</div>
-            
             <div class="science-box">
                 <span class="science-label">🔬 Research Insight</span>
-                <span class="science-text">Inhaled Corticosteroids prevent "airway remodeling" (scarring) in endurance athletes who breathe cold, dry air.</span>
+                <span class="science-text">Prevents "airway remodeling" (scarring) in endurance athletes who breathe cold, dry air.</span>
             </div>
             <div class="protocol-line">Protocol: 2 Puffs / 2 Sprays (Every Morning)</div>
         </div>
@@ -168,12 +227,7 @@
                 <span class="item-icon">🏃</span>
             </div>
             <span class="job-tag">The Job: "The Door Opener"</span>
-            <div class="job-desc">Forces the bronchioles open 15–30 minutes before the gun goes off.</div>
-            
-            <div class="science-box">
-                <span class="science-label">🔬 Research Insight</span>
-                <span class="science-text">Targets the parasympathetic nervous system, making it uniquely effective for "Cold Air" asthma compared to Albuterol.</span>
-            </div>
+            <div class="job-desc">Forces bronchioles open. <strong>Using this 15 mins before a run is not optional</strong>; it prevents the asthma attack.</div>
             <div class="protocol-line">Protocol: 2 Puffs (15-30 mins Pre-Practice)</div>
         </div>
 
@@ -183,13 +237,8 @@
                 <span class="item-icon">🌙</span>
             </div>
             <span class="job-tag">The Job: "The 24-Hour Guard"</span>
-            <div class="job-desc">While Pulmicort shields you during the day, Spiriva keeps lungs relaxed for 24 hours. Zyrtec blocks histamine triggers (dust/pets).</div>
-            
-            <div class="science-box">
-                <span class="science-label">🔬 Research Insight</span>
-                <span class="science-text">Nocturnal bronchoconstriction peaks at 4:00 AM. Preventing this ensures oxygen-rich deep sleep, required for Growth Hormone release.</span>
-            </div>
-            <div class="protocol-line">Protocol: 2 Puffs (Spiriva) + 1 Tablet (Zyrtec) at Bedtime</div>
+            <div class="job-desc">Spiriva keeps lungs relaxed for 24 hours. Zyrtec blocks histamine triggers while you sleep.</div>
+            <div class="protocol-line">Protocol: 2 Puffs + 1 Tablet at Bedtime</div>
         </div>
     </div>
 
@@ -202,11 +251,10 @@
                 <span class="item-icon">⚡</span>
             </div>
             <span class="job-tag">The Job: "The Snap"</span>
-            <div class="job-desc">Regenerates ATP (energy) instantly. Gives explosive power for a takedown in the 3rd period when opponents are tired.</div>
-            
+            <div class="job-desc">Regenerates ATP (energy) instantly. Gives explosive power for a takedown in the 3rd period.</div>
             <div class="science-box">
                 <span class="science-label">🔬 Research Insight</span>
-                <span class="science-text">Increases Intermittent Power Output (surge ability). Acts as a "Cellular Hydrator," protecting muscles from heat stress.</span>
+                <span class="science-text">Increases Intermittent Power Output. Acts as a "Cellular Hydrator," protecting muscles from heat stress.</span>
             </div>
             <div class="protocol-line">Protocol: 1 Scoop Daily (Morning) + 16oz Water</div>
         </div>
@@ -217,12 +265,7 @@
                 <span class="item-icon">🛢️</span>
             </div>
             <span class="job-tag">The Job: "The Engine Oil"</span>
-            <div class="job-desc">Helps mitochondria burn fuel cleanly without "overheating" (oxidative stress) during high-mileage weeks.</div>
-            
-            <div class="science-box">
-                <span class="science-label">🔬 Research Insight</span>
-                <span class="science-text">Reduces serum CK (Creatine Kinase) levels—a marker of muscle damage—helping athletes bounce back faster.</span>
-            </div>
+            <div class="job-desc">Helps mitochondria burn fuel cleanly without "overheating" (oxidative stress).</div>
             <div class="protocol-line">Protocol: 1 Capsule Daily (Morning)</div>
         </div>
 
@@ -240,6 +283,30 @@
     <div id="medical-foods" class="section-block food-theme">
         <div class="sec-title">🥔 Medical Foods (Kitchen Pharmacy)</div>
 
+        <div id="liverwurst" class="item-card">
+            <div class="item-header">
+                <span class="item-name">Liverwurst & Steak</span>
+                <span class="item-icon">🥩</span>
+            </div>
+            <span class="job-tag">The Job: "The Oxygen Carrier"</span>
+            <div class="job-desc">Red blood cells need Iron to carry oxygen. Since you cannot take pills, this meat is your <strong>only source</strong>.</div>
+            <div class="science-box">
+                <span class="science-label">🔬 The Chemical Key</span>
+                <span class="science-text">Must be consumed with ORANGE JUICE. Vitamin C triples absorption.</span>
+            </div>
+            <div class="protocol-line">Protocol: Blood Days Only (NO DAIRY)</div>
+        </div>
+
+        <div id="chocolate-milk" class="item-card">
+            <div class="item-header">
+                <span class="item-name">Chocolate Milk</span>
+                <span class="item-icon">🍫</span>
+            </div>
+            <span class="job-tag">The Job: "The Calcium Load"</span>
+            <div class="job-desc">Provides the heavy Calcium and Protein load required on days when you don't eat steak.</div>
+            <div class="protocol-line">Protocol: "Bone Day" Breakfasts</div>
+        </div>
+
         <div id="potato" class="item-card">
             <div class="item-header">
                 <span class="item-name">Russet Potato</span>
@@ -247,66 +314,47 @@
             </div>
             <span class="job-tag">The Job: "The Cramp Killer"</span>
             <div class="job-desc">Potassium pills are capped at 99mg. You need 2,500mg. The potato provides 900mg. It is a <strong>Medical Requirement</strong>.</div>
-            
-            <div class="science-box">
-                <span class="science-label">🔬 Research Insight</span>
-                <span class="science-text">Potassium is critical for intracellular rehydration. Deficits lead to neuromuscular fatigue long before a full cramp sets in.</span>
-            </div>
             <div class="protocol-line">Protocol: Eat Daily (Skin-On)</div>
         </div>
 
-        <div id="coconut-water" class="item-card">
+        <div id="beet-root" class="item-card">
             <div class="item-header">
-                <span class="item-name">Coconut Water</span>
-                <span class="item-icon">🥥</span>
+                <span class="item-name">Beet Root Juice</span>
+                <span class="item-icon">🍷</span>
             </div>
-            <span class="job-tag">The Job: "The Gap Closer"</span>
-            <div class="job-desc">Covers the rest of the potassium deficit that the potato misses.</div>
-            <div class="protocol-line">Protocol: Drink Daily</div>
+            <span class="job-tag">The Job: "The Turbo"</span>
+            <div class="job-desc">Increases Nitric Oxide, opening blood vessels to deliver oxygen during the 3:30 PM practice.</div>
+            <div class="protocol-line">Protocol: 4 oz at Lunch. NO Mouthwash.</div>
         </div>
 
-        <div id="liverwurst" class="item-card">
+        <div id="tart-cherry" class="item-card">
             <div class="item-header">
-                <span class="item-name">Liverwurst & Steak</span>
-                <span class="item-icon">🥩</span>
+                <span class="item-name">Tart Cherry Juice</span>
+                <span class="item-icon">🍒</span>
             </div>
-            <span class="job-tag">The Job: "The Iron Core"</span>
-            <div class="job-desc">Red blood cells need Iron to carry oxygen. Since you cannot take pills, this meat is your <strong>only source</strong>.</div>
-            <div class="protocol-line">Protocol: Blood Days Only (NO DAIRY)</div>
+            <span class="job-tag">The Job: "The Sleep System"</span>
+            <div class="job-desc">Natural Melatonin to clear inflammation and reset the nervous system.</div>
+            <div class="protocol-line">Protocol: Drink at Bedtime</div>
         </div>
 
-        <div id="pretzels" class="item-card">
+        <div id="applesauce" class="item-card">
             <div class="item-header">
-                <span class="item-name">Salted Pretzels</span>
-                <span class="item-icon">🥨</span>
+                <span class="item-name">Applesauce Pouches</span>
+                <span class="item-icon">🍎</span>
             </div>
-            <span class="job-tag">The Job: "The Bridge Fuel"</span>
-            <div class="job-desc">Simple carbs for energy without the fiber/fat that causes "Running Gut." Salt holds hydration.</div>
-            <div class="protocol-line">Protocol: 2:00 PM (Pre-Practice)</div>
-        </div>
-    </div>
-
-    <div id="structural" class="section-block">
-        <div class="sec-title">🏗️ Structural Support</div>
-
-        <div id="cal-mag" class="item-card">
-            <div class="item-header">
-                <span class="item-name">Cal-Mag-Phos (Country Life)</span>
-                <span class="item-icon">🧱</span>
-            </div>
-            <span class="job-tag">The Job: "The Structural Repair"</span>
-            <div class="job-desc">Calcium for bone density; Magnesium for muscle relaxation.</div>
-            <div class="protocol-line" style="background:var(--danger-red);">⚠️ SPLIT DOSE (1 AM / 1 PM). Never take 2 at once.</div>
+            <span class="job-tag">The Job: "The Gut-Safe Sugar"</span>
+            <div class="job-desc">An alternative to pretzels. Provides fast glycogen without dryness.</div>
+            <div class="protocol-line">Protocol: 2:00 PM Bridge Snack</div>
         </div>
 
-        <div id="multi" class="item-card">
+        <div id="protein-shake" class="item-card">
             <div class="item-header">
-                <span class="item-name">Klean Athlete Multivitamin</span>
-                <span class="item-icon">🛡️</span>
+                <span class="item-name">Protein Shake</span>
+                <span class="item-icon">🥤</span>
             </div>
-            <span class="job-tag">The Job: "The Insurance Policy"</span>
-            <div class="job-desc">Covers micro-gaps (Zinc, B-Vitamins).</div>
-            <div class="protocol-line">Protocol: Dinner (Bone Days) / Bedtime (Blood Days)</div>
+            <span class="job-tag">The Job: "The Rapid Repair"</span>
+            <div class="job-desc">Stops muscle breakdown immediately after practice.</div>
+            <div class="protocol-line">Protocol: Evening (Post-Run). Never immediately before running.</div>
         </div>
     </div>
 
@@ -329,7 +377,7 @@
                 <span class="item-icon">🧪</span>
             </div>
             <span class="job-tag" style="color:var(--safe-green)">The Status: "The Safe Top-Off"</span>
-            <div class="job-desc">This is SAFE. It helps the potato keep muscles functioning. <strong>Verify it is Vykee, not 21st Century.</strong></div>
+            <div class="job-desc">This is SAFE. Helps the potato keep muscles functioning. <strong>Verify it is Vykee, not 21st Century.</strong></div>
         </div>
 
         <div id="ag1" class="item-card banned-card">
