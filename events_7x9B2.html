@@ -80,6 +80,7 @@
         .type-party { border-left-color: #f1c40f; } 
         .type-sports { border-left-color: #e67e22; }
         .type-alert { border-left-color: var(--accent-red); }
+        .type-info { border-left-color: var(--accent-blue); }
 
         /* HEADER LAYOUT */
         .card-top-flex {
@@ -180,31 +181,6 @@
 
         .logistics-box { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 4px; border-left: 3px solid #34495e; font-size: 0.9em; margin-bottom: 15px; color:#ccc; }
 
-        /* TEAMS BOX */
-        .teams-box {
-            background: rgba(46, 204, 113, 0.1); 
-            border: 1px solid #2ecc71; 
-            padding: 10px; 
-            border-radius: 4px; 
-            margin-bottom: 15px;
-            font-size: 0.85em;
-            color: #ddd;
-        }
-        .teams-title { font-weight: bold; color: #2ecc71; text-transform: uppercase; display: block; margin-bottom: 5px; }
-
-        /* Alert Box */
-        .alert-box {
-            background: rgba(231, 76, 60, 0.15);
-            color: #ffadad;
-            padding: 10px;
-            font-size: 0.9em;
-            font-weight: bold;
-            border-radius: 4px;
-            border: 1px solid var(--accent-red);
-            margin-bottom: 15px;
-            display: flex; align-items: center; gap: 10px;
-        }
-
         /* CALENDAR SECTION */
         .cal-cta {
             font-size: 0.8em;
@@ -222,11 +198,10 @@
         .btn-rsvp { background: #3b5998; }
         .btn-google { background: #db4437; }
         .btn-outlook { background: #0078d4; }
-        .btn-apple { background: #333; border:1px solid #555; }
-        .btn-apple:hover { background: #000; }
         
-        .btn-bracket { background: #27ae60; border: 1px solid #2ecc71; width: 100%; text-align: center; box-sizing: border-box; margin-bottom: 10px; display: block; }
-        .btn-bracket:hover { background: #2ecc71; }
+        /* Guide Content */
+        .guide-text { font-size: 0.9em; color: #ccc; }
+        .guide-text strong { color: var(--accent-blue); }
 
         /* Footer */
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
@@ -242,51 +217,6 @@
         <div class="subtitle">Official Family Schedule</div>
         
         <a href="history_8kL9m.html" class="archive-btn">📂 View Past Events Archive</a>
-    </div>
-
-    <div class="event-card type-alert">
-        <div class="card-top-flex">
-            <div class="header-left">
-                <div class="title-badge-row">
-                    <h2>🤼 Marathon Multi-Team Meet</h2>
-                    <a href="tacie_6nQ1s.html" class="member-btn btn-tacie" target="_blank">👤 Tacie</a>
-                </div>
-            </div>
-            <div class="header-right">
-                <div class="day-badge">Mon</div>
-                <div class="date-badge"><span class="month">Jan</span><span class="day">26</span></div>
-            </div>
-        </div>
-
-        <div class="card-body">
-            <div class="alert-box">
-                <span>📢 LOGISTICS ALERT: Venue changed to Elementary School per Zach Urquhart.</span>
-            </div>
-
-            <div class="time-loc-wrapper">
-                <a href="https://maps.google.com/?q=100+Spring+Valley+Drive,+Marathon,+WI+54448" target="_blank" class="map-link">📍 100 Spring Valley Drive, Marathon</a>
-                <span class="separator">|</span>
-                <span class="time-nowrap">🕟 4:15 PM - 8:00 PM</span>
-            </div>
-
-            <div class="teams-box">
-                <span class="teams-title">Participating Teams</span>
-                Stevens Point, Marathon, Crandon, Merrill, Phillips, Stratford, Tomahawk, Tri-County.
-            </div>
-            
-            <a href="https://www.usabracketing.com/events/cbff1f3a-864f-4793-ab89-479c5d89e876" target="_blank" class="action-btn btn-bracket">
-                🏆 View Brackets (USA Bracketing)
-            </a>
-
-            <div class="logistics-box"><strong>Logistics:</strong> Ben Release 2:00 | PJ Release 2:15 | Bus 2:30</div>
-            
-            <div class="cal-cta">📅 Add to your calendar:</div>
-            <div class="btn-container">
-                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Tacie+-+MS+Wrestling+@+Marathon+(Elementary)&dates=20260126T161500/20260126T200000&location=100+Spring+Valley+Drive,+Marathon,+WI+54448&details=Venue+Change:+Marathon+Elementary+School.+Teams:+SPASH,+Marathon,+Crandon,+Merrill,+Phillips,+Stratford,+Tomahawk,+Tri-County." target="_blank" class="action-btn btn-google">Google</a>
-                <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-01-26T16:15:00&enddt=2026-01-26T20:00:00&subject=Tacie+-+MS+Wrestling+@+Marathon+(Elementary)&location=100+Spring+Valley+Drive,+Marathon,+WI+54448&body=Venue+Change:+Marathon+Elementary+School.+Teams:+SPASH,+Marathon,+Crandon,+Merrill,+Phillips,+Stratford,+Tomahawk,+Tri-County." target="_blank" class="action-btn btn-outlook">Outlook</a>
-                <a href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ATacie - MS Wrestling @ Marathon (Elementary)%0ADTSTART%3A20260126T161500%0ADTEND%3A20260126T200000%0ALOCATION%3A100 Spring Valley Drive\, Marathon\, WI 54448%0ADESCRIPTION%3AVenue Change: Marathon Elementary School. Teams: SPASH, Marathon, Crandon, Merrill, Phillips, Stratford, Tomahawk, Tri-County.%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="event.ics" class="action-btn btn-apple">Apple/iOS</a>
-            </div>
-        </div>
     </div>
 
     <div class="event-card type-sports">
@@ -506,6 +436,25 @@
                 <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Donald+-+Grad+Party&dates=20260627T120000/20260627T220000&location=Our+Home" target="_blank" class="action-btn btn-google">Google</a>
                 <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&startdt=2026-06-27T12:00:00&enddt=2026-06-27T22:00:00&subject=Donald+-+Grad+Party&location=Our+Home" target="_blank" class="action-btn btn-outlook">Outlook</a>
             </div>
+        </div>
+    </div>
+
+    <div class="event-card type-info">
+        <div class="card-top-flex" style="background:rgba(52, 152, 219, 0.1);">
+            <div class="header-left">
+                <div class="title-badge-row">
+                    <h2 style="color:var(--accent-blue);">ℹ️ Wrestling 101: Event Format Guide</h2>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="guide-text">
+                <strong>Multi-Team Meet (Scramble):</strong> No fixed brackets. Wrestlers are paired up based on weight/skill for 2-3 matches. Often used when team sizes vary.
+                <br><br>
+                <strong>Dual Meet:</strong> Head-to-head team battle (e.g., Point vs. Marshfield). One match per weight class. Team score is kept.
+                <br><br>
+                <strong>Invitational (Tournament):</strong> Traditional brackets. Wrestlers compete to advance (Quarters -> Semis -> Finals) to win a medal. Longest duration event.
+            </p>
         </div>
     </div>
 
