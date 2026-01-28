@@ -52,15 +52,14 @@
             height: 100%;
             z-index: -10;
             overflow: hidden;
+            background: #000; /* Fallback color to prevent white flash */
         }
         .hero-video {
             min-width: 100%;
             min-height: 100%;
             object-fit: cover;
-            /* FIX: Shifts the focus point. 
-               center = horizontal center
-               35% = 35% from the top (Moves the image "down" relative to the frame) */
-            object-position: center 35%; 
+            /* FIX: Drastically lowers the focus point to show the bottom of the video */
+            object-position: center 75%; 
             opacity: 0.6; 
         }
         .bg-overlay {
@@ -349,7 +348,7 @@
 <body>
 
     <div class="bg-video-wrap">
-        <video class="hero-video" autoplay muted loop playsinline poster="images/tacie_take_on_weights.jpg">
+        <video class="hero-video" autoplay muted loop playsinline>
             <source src="images/tacie_grok_journey.mp4" type="video/mp4">
         </video>
         <div class="bg-overlay"></div>
