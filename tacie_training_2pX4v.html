@@ -57,12 +57,16 @@
             min-width: 100%;
             min-height: 100%;
             object-fit: cover;
-            opacity: 0.6; /* Dim video to make text readable */
+            /* FIX: Shifts the focus point. 
+               center = horizontal center
+               35% = 35% from the top (Moves the image "down" relative to the frame) */
+            object-position: center 35%; 
+            opacity: 0.6; 
         }
         .bg-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 10, 10, 0.7); /* Darkens the video */
+            background: rgba(10, 10, 10, 0.7); 
             z-index: -5;
         }
 
@@ -137,8 +141,8 @@
         
         /* --- ROADMAP & LIBRARY (LEFT COL) --- */
         .roadmap-container {
-            background: rgba(30, 30, 30, 0.6); /* High transparency */
-            backdrop-filter: blur(10px); /* Glass Effect */
+            background: rgba(30, 30, 30, 0.6); 
+            backdrop-filter: blur(10px); 
             -webkit-backdrop-filter: blur(10px);
             border-radius: 8px;
             padding: 20px;
@@ -195,7 +199,7 @@
         /* Day Cards - GLASSMOPHISM UPDATE */
         .day-card {
             background: var(--card-glass);
-            backdrop-filter: blur(8px); /* Blur behind the card */
+            backdrop-filter: blur(8px); 
             -webkit-backdrop-filter: blur(8px);
             border-radius: 6px;
             padding: 0; 
@@ -511,7 +515,7 @@
                             <a href="tacie_supplements_3mX9z.html" target="_blank" class="phase-badge badge-blood">BLOOD</a>
                             <div class="nutri-content">
                                 <span class="meal-name">Chipotle Bowls</span>
-                                <div class="cook-note">❌ NO CHEESE. Double Beans. 🍊 Drink OJ.</div>
+                                <div class="cook-note">✅ NO CHEESE. Double Beans. 🍊 Drink OJ.</div>
                             </div>
                         </div>
                     </div>
