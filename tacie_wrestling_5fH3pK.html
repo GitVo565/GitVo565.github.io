@@ -7,22 +7,20 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
         /* Theme Variables */
         :root {
             --bg-dark: #0a0a0a;
-            --card-bg: #1c1c1c;
+            --card-bg: rgba(28, 28, 28, 0.95);
             --text-light: #ecf0f1;
             --accent-gold: #f39c12;
             --accent-blue: #3498db;
             --accent-red: #e74c3c;
             --success: #27ae60;
             --danger: #c0392b;
-            --table-border: #444;
         }
 
         body { 
@@ -32,18 +30,17 @@
             max-width: 1200px; 
             margin: 0 auto; 
             color: var(--text-light); 
-            
-            /* GLOBAL BATTLEZONE BACKGROUND */
-            background: var(--bg-dark) url('images/tacie_wrestling_down.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: var(--bg-dark);
         }
-        
-        /* Overlay to ensure readability */
-        body::before {
-            content: "";
+
+        /* --- VIDEO BACKGROUND --- */
+        .bg-video {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.75); /* Strong darkening overlay */
-            z-index: -1;
+            object-fit: cover; z-index: -2;
+        }
+        .bg-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75); z-index: -1;
         }
         
         /* Navigation */
@@ -58,7 +55,7 @@
 
         /* Header Branding */
         .profile-header { 
-            background: rgba(28, 28, 28, 0.95); 
+            background: var(--card-bg); 
             padding: 25px; 
             border-radius: 12px; 
             border-left: 6px solid var(--accent-red);
@@ -89,22 +86,12 @@
         .nickname { color: var(--accent-gold); font-style: italic; }
         .header-content p { margin: 5px 0 0 0; color: #aaa; font-size: 0.95em; }
 
-        /* --- TACTICAL UPLINK (KEY LINKS) --- */
-        .uplink-section {
-            margin-bottom: 40px;
-        }
-
+        /* --- TACTICAL UPLINK --- */
+        .uplink-section { margin-bottom: 40px; }
         .uplink-title {
-            margin: 0 0 20px 0;
-            color: white;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.4em;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-            border-bottom: 3px solid var(--accent-red);
-            padding-bottom: 10px;
-            display: inline-block;
+            margin: 0 0 20px 0; color: white; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 2px; font-size: 1.4em; text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            border-bottom: 3px solid var(--accent-red); padding-bottom: 10px; display: inline-block;
         }
 
         .battle-grid { 
@@ -114,13 +101,12 @@
         }
 
         .action-btn {
-            background: rgba(28, 28, 28, 0.9); /* Opaque for readability */
+            background: rgba(28, 28, 28, 0.9);
             color: white; padding: 15px; 
             border-radius: 8px; text-decoration: none; 
             font-weight: bold; border: 1px solid #555;
             display: flex; align-items: center; gap: 10px;
-            transition: all 0.2s;
-            font-size: 0.95em;
+            transition: all 0.2s; font-size: 0.95em;
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
@@ -132,21 +118,13 @@
         }
 
         /* Section Headers */
-        .section-header { 
-            display: flex; align-items: center; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid #444; padding-bottom: 10px; 
-        }
+        .section-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid #444; padding-bottom: 10px; }
         .section-title { font-size: 1.4em; color: var(--accent-blue); margin: 0; font-weight: bold; text-shadow: 0 2px 4px black; }
-        
-        .record-badge { 
-            background: var(--accent-gold); color: #1a1a1a; 
-            padding: 4px 12px; border-radius: 12px; 
-            font-weight: bold; font-size: 0.85em;
-        }
+        .record-badge { background: var(--accent-gold); color: #1a1a1a; padding: 4px 12px; border-radius: 12px; font-weight: bold; font-size: 0.85em; }
 
         /* Match Table */
-        .table-container { overflow-x: auto; background: rgba(28, 28, 28, 0.95); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .table-container { overflow-x: auto; background: var(--card-bg); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
         table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        
         th { text-align: left; padding: 15px; background: #333; color: #ccc; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #444; }
         td { padding: 15px; border-bottom: 1px solid #444; color: #eee; font-size: 0.95em; }
         tr:last-child td { border-bottom: none; }
@@ -158,9 +136,7 @@
         
         /* Links in Table */
         .analysis-link { 
-            color: #aaa; text-decoration: none; 
-            border-bottom: 1px dotted #666; font-size: 0.85em; transition: all 0.2s;
-            margin-right: 10px;
+            color: #aaa; text-decoration: none; border-bottom: 1px dotted #666; font-size: 0.85em; transition: all 0.2s; margin-right: 10px;
         }
         .analysis-link:hover { color: var(--text-light); border-bottom: 1px solid white; }
 
@@ -176,28 +152,19 @@
             background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
             padding: 20px; border-radius: 8px; border: 1px solid #444;
             display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
         .up-date { font-weight: bold; color: var(--accent-gold); display: block; margin-bottom: 5px; }
         .up-title { font-size: 1.2em; font-weight: bold; color: white; text-decoration: none; border-bottom: 1px dashed #666; transition: all 0.2s; }
         .up-title:hover { color: var(--accent-gold); border-bottom-style: solid; }
-        
         .up-desc { color: #ccc; font-size: 0.9em; }
         .weather-warning { font-size: 0.8em; color: var(--accent-red); font-weight: bold; margin-top: 5px; text-transform: uppercase; display: block; }
 
         /* Motto Box */
         .motto-box {
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(28, 28, 28, 0.9); /* Opaque for readability */
-            border: 1px solid var(--accent-gold);
-            border-radius: 8px;
-            text-align: center;
-            color: var(--accent-gold);
-            font-size: 1.2em;
-            font-weight: bold;
-            font-style: italic;
+            margin-top: 40px; padding: 20px; background: rgba(28, 28, 28, 0.9);
+            border: 1px solid var(--accent-gold); border-radius: 8px; text-align: center;
+            color: var(--accent-gold); font-size: 1.2em; font-weight: bold; font-style: italic;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
@@ -212,6 +179,11 @@
     </style>
 </head>
 <body>
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="images/Tacie_Pins_hero.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
 
     <div class="nav-bar">
         <a href="tacie_6nQ1s.html" class="back-btn">← Back to Profile</a>
@@ -228,39 +200,21 @@
     <div class="uplink-section">
         <h3 class="uplink-title">TACTICAL UPLINK</h3>
         <div class="battle-grid">
-            <a href="tacie_training_2pX4v.html" class="action-btn" target="_blank">
-                🏋️‍♀️ Training Directives
-            </a>
-            <a href="supplement_intel_5kM9p.html" class="action-btn" target="_blank" style="border-color:var(--accent-gold); color:var(--accent-gold);">
-                🧠 Intel Briefing
-            </a>
-            <a href="wrestling_notes_3jX9s.html" class="action-btn" target="_blank">
-                📝 Coach's Notebook
-            </a>
-            <a href="tacie_wrestling_videos_7kX9q.html" class="action-btn" target="_blank" style="border-color:var(--accent-red);">
-                🎥 Film Room
-            </a>
-            <a href="wrestling_library_7hG4d.html" class="action-btn" target="_blank">
-                📚 Technique Library
-            </a>
-            <a href="https://www.trackwrestling.com" target="_blank" class="action-btn">
-                🏆 TrackWrestling
-            </a>
-            <a href="https://www.usabracketing.com/athletes/d88a4b77-3960-4e86-8fda-9b3221b6f1a2" target="_blank" class="action-btn">
-                📊 USA Bracketing
-            </a>
-            <a href="https://www.sportsyou.com" target="_blank" class="action-btn">
-                💬 SportsYou
-            </a>
+            <a href="tacie_training_2pX4v.html" class="action-btn" target="_blank">🏋️‍♀️ Training Directives</a>
+            <a href="supplement_intel_5kM9p.html" class="action-btn" target="_blank" style="border-color:var(--accent-gold); color:var(--accent-gold);">🧠 Intel Briefing</a>
+            <a href="wrestling_notes_3jX9s.html" class="action-btn" target="_blank">📝 Coach's Notebook</a>
+            <a href="tacie_wrestling_videos_7kX9q.html" class="action-btn" target="_blank">🎥 Video Study</a>
+            <a href="wrestling_library_7hG4d.html" class="action-btn" target="_blank">📚 Technique Library</a>
+            <a href="https://www.trackwrestling.com" target="_blank" class="action-btn">🏆 TrackWrestling</a>
+            <a href="https://www.usabracketing.com/athletes/d88a4b77-3960-4e86-8fda-9b3221b6f1a2" target="_blank" class="action-btn">📊 USA Bracketing</a>
+            <a href="https://www.sportsyou.com" target="_blank" class="action-btn">💬 SportsYou</a>
         </div>
     </div>
 
     <div class="upcoming-card">
         <div>
             <span class="up-date">NEXT UP: Jan 30, 2026 (Friday)</span>
-            <a href="events_7x9B2.html" class="up-title" target="_blank">
-                Merrill Invitational 📍
-            </a>
+            <a href="events_7x9B2.html" class="up-title" target="_blank">Merrill Invitational 📍</a>
             <div class="up-desc">Merrill High School • 4:15 PM Start</div>
             <span class="weather-warning">⚠️ Weather Watch: Indoor Mandatory</span>
         </div>
@@ -326,7 +280,7 @@
                     <td class="loss">L (0-18)</td>
                     <td>
                         <a href="wrestling_notes_3jX9s.html#jan17-match2" class="analysis-link">Notes</a>
-                        <span style="opacity:0.5; font-size:0.8em;">(No Video)</span>
+                        <a href="https://youtu.be/NZSCD3sX3Ls" target="_blank" class="video-link">🎥 Watch</a>
                     </td>
                 </tr>
                 <tr>
@@ -337,7 +291,7 @@
                     <td class="win">W (7-0)</td>
                     <td>
                         <a href="wrestling_notes_3jX9s.html#jan17-match1" class="analysis-link">Notes</a>
-                        <span style="opacity:0.5; font-size:0.8em;">(No Video)</span>
+                        <a href="https://youtu.be/q4lP3baxRkY" target="_blank" class="video-link">🎥 Watch</a>
                     </td>
                 </tr>
             </tbody>
@@ -349,14 +303,7 @@
         <span style="font-size:0.8em; font-weight:normal; color:#ccc;">- Buck15 2026</span>
     </div>
 
-    <div class="footer-info">
-        <span id="lastUpdated"></span>
-    </div>
-
-    <script>
-        var date = new Date(document.lastModified);
-        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    </script>
-
+    <div class="footer-info"><span id="lastUpdated"></span></div>
+    <script>var date = new Date(document.lastModified); document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});</script>
 </body>
 </html>
