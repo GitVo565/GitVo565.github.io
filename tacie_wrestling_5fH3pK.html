@@ -34,7 +34,6 @@
             color: var(--text-light); 
             
             /* GLOBAL BATTLEZONE BACKGROUND */
-            /* Fixed: Path updated to images/ directory */
             background: var(--bg-dark) url('images/tacie_wrestling_down.jpg') no-repeat center center fixed;
             background-size: cover;
         }
@@ -159,11 +158,18 @@
         
         /* Links in Table */
         .analysis-link { 
-            color: var(--accent-blue); text-decoration: none; font-weight: bold; 
-            border: 1px solid var(--accent-blue); padding: 4px 10px; border-radius: 4px; 
-            font-size: 0.85em; transition: all 0.2s;
+            color: #aaa; text-decoration: none; 
+            border-bottom: 1px dotted #666; font-size: 0.85em; transition: all 0.2s;
+            margin-right: 10px;
         }
-        .analysis-link:hover { background: var(--accent-blue); color: white; }
+        .analysis-link:hover { color: var(--text-light); border-bottom: 1px solid white; }
+
+        .video-link {
+            color: var(--accent-red); text-decoration: none; font-weight: bold; 
+            border: 1px solid var(--accent-red); padding: 2px 8px; border-radius: 4px; 
+            font-size: 0.8em; transition: all 0.2s; display: inline-block;
+        }
+        .video-link:hover { background: var(--accent-red); color: white; }
 
         /* Upcoming Event Card */
         .upcoming-card { 
@@ -225,6 +231,9 @@
             <a href="tacie_training_2pX4v.html" class="action-btn" target="_blank">
                 🏋️‍♀️ Training Directives
             </a>
+            <a href="supplement_intel_5kM9p.html" class="action-btn" target="_blank" style="border-color:var(--accent-gold); color:var(--accent-gold);">
+                🧠 Intel Briefing
+            </a>
             <a href="wrestling_notes_3jX9s.html" class="action-btn" target="_blank">
                 📝 Coach's Notebook
             </a>
@@ -248,19 +257,19 @@
 
     <div class="upcoming-card">
         <div>
-            <span class="up-date">NEXT UP: Jan 23, 2026 (Friday)</span>
+            <span class="up-date">NEXT UP: Jan 30, 2026 (Friday)</span>
             <a href="events_7x9B2.html" class="up-title" target="_blank">
-                D.C. Everest Invite 📍
+                Merrill Invitational 📍
             </a>
-            <div class="up-desc">Greenheck Field House • 4:15 PM Start</div>
-            <span class="weather-warning">⚠️ Weather Watch: -24°F Forecast</span>
+            <div class="up-desc">Merrill High School • 4:15 PM Start</div>
+            <span class="weather-warning">⚠️ Weather Watch: Indoor Mandatory</span>
         </div>
         <div style="font-size:2em;">🤼‍♀️</div>
     </div>
 
     <div class="section-header">
         <h2 class="section-title">Season Match Log</h2>
-        <span class="record-badge">Season Record: 1-1</span>
+        <span class="record-badge">Season Record: 2-3</span>
     </div>
 
     <div class="table-container">
@@ -277,12 +286,37 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>Jan 17</td>
-                    <td>Battle by the River</td>
-                    <td>Taylor Gurney (Antigo)</td>
-                    <td class="win">W (7-0)</td>
-                    <td><a href="wrestling_notes_3jX9s.html#jan17-match1" class="analysis-link">View Notes</a></td>
+                    <td>5</td>
+                    <td>Jan 26</td>
+                    <td>Marathon Meet</td>
+                    <td>Alma Ninabuck (Marathon)</td>
+                    <td class="win">W (Fall 1:48)</td>
+                    <td>
+                        <a href="wrestling_notes_3jX9s.html#match005" class="analysis-link">Notes</a>
+                        <a href="https://youtu.be/rn_Cq630JEk" target="_blank" class="video-link">🎥 Watch</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Jan 26</td>
+                    <td>Marathon Meet</td>
+                    <td>Dalton McGeshick (Crandon)</td>
+                    <td class="loss">L (Dec 6-5)</td>
+                    <td>
+                        <a href="wrestling_notes_3jX9s.html#match004" class="analysis-link">Notes</a>
+                        <a href="https://youtu.be/laZQbUCYrK4" target="_blank" class="video-link">🎥 Watch</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Jan 26</td>
+                    <td>Marathon Meet</td>
+                    <td>Ryan Quesinberry (Tomahawk)</td>
+                    <td class="loss">L (Fall 0:31)</td>
+                    <td>
+                        <a href="wrestling_notes_3jX9s.html#match003" class="analysis-link">Notes</a>
+                        <a href="https://youtu.be/GbaUiTm5Kx8" target="_blank" class="video-link">🎥 Watch</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -290,7 +324,21 @@
                     <td>Battle by the River</td>
                     <td>Serina Pattridge (Neenah)</td>
                     <td class="loss">L (0-18)</td>
-                    <td><a href="wrestling_notes_3jX9s.html#jan17-match2" class="analysis-link">View Notes</a></td>
+                    <td>
+                        <a href="wrestling_notes_3jX9s.html#jan17-match2" class="analysis-link">Notes</a>
+                        <span style="opacity:0.5; font-size:0.8em;">(No Video)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Jan 17</td>
+                    <td>Battle by the River</td>
+                    <td>Taylor Gurney (Antigo)</td>
+                    <td class="win">W (7-0)</td>
+                    <td>
+                        <a href="wrestling_notes_3jX9s.html#jan17-match1" class="analysis-link">Notes</a>
+                        <span style="opacity:0.5; font-size:0.8em;">(No Video)</span>
+                    </td>
                 </tr>
             </tbody>
         </table>
