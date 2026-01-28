@@ -14,7 +14,7 @@
         /* Theme Variables */
         :root {
             --bg-dark: #1a1a1a;
-            --card-bg: #2c2c2c;
+            --card-glass: rgba(44, 44, 44, 0.85); /* Semi-transparent for glass effect */
             --text-light: #ecf0f1;
             --accent-gold: #f39c12;
             --accent-blue: #3498db;
@@ -43,6 +43,29 @@
             scroll-behavior: smooth;
         }
 
+        /* --- BACKGROUND ENGINE (Fixed Video) --- */
+        .bg-video-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            overflow: hidden;
+        }
+        .hero-video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            opacity: 0.6; /* Dim video to make text readable */
+        }
+        .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 10, 10, 0.7); /* Darkens the video */
+            z-index: -5;
+        }
+
         /* Main Content Container */
         .container {
             max-width: 1200px;
@@ -51,16 +74,16 @@
         }
         
         /* Navigation */
-        .nav-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;}
+        .nav-bar { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
         
         .back-btn { 
-            display: inline-block; background: rgba(44, 44, 44, 0.8); padding: 8px 15px; 
+            display: inline-block; background: rgba(0, 0, 0, 0.6); padding: 8px 15px; 
             text-decoration: none; color: var(--text-light); border-radius: 20px; 
-            border: 1px solid #444; font-size: 0.9em; 
+            border: 1px solid #555; font-size: 0.9em; 
             transition: all 0.2s; 
             backdrop-filter: blur(5px);
         }
-        .back-btn:hover { background: #444; }
+        .back-btn:hover { background: var(--accent-gold); color: #000; border-color: var(--accent-gold); }
         
         .jump-btn {
             background: var(--accent-gold);
@@ -78,66 +101,21 @@
         }
         .strat-btn:hover { background: var(--accent-gold); color: black; }
 
-        /* --- VIDEO HERO BANNER (Spec 3.1) --- */
-        .hero-banner {
-            position: relative;
-            height: 450px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            overflow: hidden;
-        }
-
-        /* The Video Element */
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: 0;
-            transform: translateX(-50%) translateY(-50%);
-            object-fit: cover;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            /* Standard Dark Overlay for readability */
-            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.3) 0%, rgba(26, 26, 26, 0.9) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .hero-title-block {
+        /* --- COMPACT HEADER (The "HUD") --- */
+        .main-header {
             text-align: center;
-            margin-top: auto; 
-            padding-bottom: 30px;
+            padding: 30px 20px 20px 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            margin-bottom: 20px;
         }
 
-        h1 { margin: 0; font-size: 2.5em; letter-spacing: 2px; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        h1 { margin: 0; font-size: 2.2em; letter-spacing: 2px; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
         .subtitle { 
             color: var(--accent-gold); 
             font-weight: bold; 
-            font-size: 1.2em; 
+            font-size: 1.1em; 
             font-style: italic; 
-            margin-top: 10px; 
+            margin-top: 5px; 
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
@@ -152,17 +130,20 @@
         /* Column Specifics */
         .col-header {
             font-size: 1.4em; font-weight: bold; color: var(--accent-blue);
-            margin-bottom: 15px; border-bottom: 2px solid #444; padding-bottom: 5px;
+            margin-bottom: 15px; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 5px;
             display: flex; justify-content: space-between; align-items: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
         
         /* --- ROADMAP & LIBRARY (LEFT COL) --- */
         .roadmap-container {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(30, 30, 30, 0.6); /* High transparency */
+            backdrop-filter: blur(10px); /* Glass Effect */
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 30px;
-            border: 1px solid #444;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .roadmap-title { 
             color: var(--accent-gold); font-weight: 800; text-transform: uppercase; 
@@ -174,22 +155,22 @@
             border-radius: 4px; align-items: center;
         }
         .phase-item.done { opacity: 0.5; }
-        .phase-item.active { background: rgba(52, 152, 219, 0.15); border: 1px solid var(--accent-blue); }
+        .phase-item.active { background: rgba(52, 152, 219, 0.2); border: 1px solid var(--accent-blue); }
         .phase-date { font-weight: bold; color: #aaa; font-size: 0.85em; }
         .phase-desc { color: #eee; font-size: 0.9em; }
         
         /* LIBRARY LINKS */
-        .lib-section-title { font-size:0.8em; color:#888; text-transform:uppercase; margin-bottom:8px; margin-top:20px; letter-spacing: 1px;}
+        .lib-section-title { font-size:0.8em; color:#bbb; text-transform:uppercase; margin-bottom:8px; margin-top:20px; letter-spacing: 1px; font-weight: bold;}
         .lib-section-title:first-child { margin-top: 0; }
 
         .lib-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
         .lib-btn {
-            background: #333; padding: 10px; border-radius: 6px; text-align: center;
+            background: rgba(0,0,0,0.4); padding: 10px; border-radius: 6px; text-align: center;
             text-decoration: none; color: #ccc; font-size: 0.85em; border: 1px solid #444;
             transition: all 0.2s; display: flex; align-items: center; justify-content: center; min-height: 40px;
         }
         .lib-btn.active { 
-            background: linear-gradient(135deg, var(--accent-blue), #2980b9); 
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8)); 
             color: white; border-color: var(--accent-blue); font-weight: bold;
         }
         .strategy-link {
@@ -203,38 +184,42 @@
         /* --- WEEKLY CARDS (RIGHT COL) --- */
         .week-group { margin-bottom: 40px; }
         .week-header { 
-            background: linear-gradient(90deg, #333, #1a1a1a);
+            background: rgba(0,0,0,0.8);
             padding: 10px 15px; border-left: 5px solid var(--accent-gold);
             margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;
+            border-radius: 4px;
         }
         .week-title { font-weight: bold; color: white; font-size: 1em; text-transform: uppercase; }
         .week-theme { color: var(--accent-gold); font-size: 0.85em; font-style: italic; }
 
-        /* Day Cards */
+        /* Day Cards - GLASSMOPHISM UPDATE */
         .day-card {
-            background: var(--card-bg);
+            background: var(--card-glass);
+            backdrop-filter: blur(8px); /* Blur behind the card */
+            -webkit-backdrop-filter: blur(8px);
             border-radius: 6px;
             padding: 0; 
             margin-bottom: 15px;
             border-left: 5px solid #555;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
             scroll-margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
         /* BLOOD & BONE MODES */
         .blood-bg {
-            background: linear-gradient(120deg, var(--card-bg) 60%, rgba(231, 76, 60, 0.15) 100%);
+            background: linear-gradient(120deg, var(--card-glass) 60%, rgba(231, 76, 60, 0.25) 100%);
             border-right: 3px solid var(--run-red);
         }
         .bone-bg {
-            background: linear-gradient(120deg, var(--card-bg) 60%, rgba(189, 195, 199, 0.15) 100%);
+            background: linear-gradient(120deg, var(--card-glass) 60%, rgba(189, 195, 199, 0.25) 100%);
             border-right: 3px solid var(--bone-white);
         }
 
         .nutri-footer {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             border-top: 1px solid rgba(255,255,255,0.05);
             padding: 10px 12px;
             display: flex;
@@ -277,8 +262,8 @@
 
         /* DYNAMIC TODAY HIGHLIGHT */
         .today-active {
-            box-shadow: 0 0 15px rgba(243, 156, 18, 0.4) !important;
-            background: linear-gradient(90deg, rgba(243, 156, 18, 0.1), var(--card-bg)) !important;
+            box-shadow: 0 0 20px rgba(243, 156, 18, 0.5) !important;
+            background: linear-gradient(90deg, rgba(243, 156, 18, 0.15), var(--card-glass)) !important;
             border: 1px solid var(--accent-gold) !important;
             border-left-width: 5px !important;
         }
@@ -298,8 +283,8 @@
         
         .day-top-bar {
             padding: 8px 12px;
-            background: rgba(0,0,0,0.2);
-            border-bottom: 1px solid #444;
+            background: rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             display: flex; justify-content: space-between; align-items: center;
         }
         .day-name { font-weight: 800; font-size: 1em; color: white; }
@@ -307,7 +292,7 @@
 
         /* AM/PM Grid */
         .day-split { display: grid; grid-template-columns: 1fr; } 
-        .time-col { padding: 10px 12px; border-bottom: 1px solid #333; }
+        .time-col { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .time-col:last-child { border-bottom: none; }
         
         .time-label { 
@@ -320,7 +305,7 @@
         /* Activity Content */
         .activity { margin-bottom: 6px; font-size: 0.9em; line-height: 1.4; }
         .activity strong { color: white; }
-        .activity-note { display: block; font-size: 0.85em; color: #888; font-style: italic; margin-top: 2px; }
+        .activity-note { display: block; font-size: 0.85em; color: #bbb; font-style: italic; margin-top: 2px; }
         .alert-text { color: var(--alert-red); font-weight: bold; text-transform: uppercase; }
         
         /* Links */
@@ -331,12 +316,12 @@
         }
         .workout-link:hover { background: var(--accent-gold); color: #000; box-shadow: 0 0 10px rgba(243, 156, 18, 0.6); }
 
-        /* Intel Links */
+        /* Intel Links (Deep Links v3.2) */
         .intel-link {
             color: var(--accent-gold); text-decoration: none; border-bottom: 1px dotted #777;
         }
         .intel-link:hover {
-            color: white; border-bottom: 1px solid white;
+            color: white; border-bottom: 1px solid white; cursor: help;
         }
 
         /* Borders */
@@ -348,11 +333,10 @@
         .empty-slot { color: #555; font-style: italic; font-size: 0.9em; }
         
         /* Footer */
-        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; }
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #aaa; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 6px; }
 
         @media (max-width: 900px) {
             .dashboard-grid { grid-template-columns: 1fr; }
-            .hero-banner { height: 300px; }
             h1 { font-size: 1.8em; }
             .nutri-footer { gap: 10px; }
         }
@@ -360,23 +344,22 @@
 </head>
 <body>
 
-    <div class="hero-banner">
+    <div class="bg-video-wrap">
         <video class="hero-video" autoplay muted loop playsinline poster="images/tacie_take_on_weights.jpg">
             <source src="images/tacie_grok_journey.mp4" type="video/mp4">
         </video>
-        <div class="hero-overlay"></div>
+        <div class="bg-overlay"></div>
+    </div>
+    
+    <div class="main-header">
+        <h1>Buck15 Training Directives (v8.8)</h1>
+        <div class="subtitle">"Status: Yellow Light (Post-Viral). Seek Separation."</div>
         
-        <div class="hero-content">
-            <div class="nav-bar">
-                <a href="#today-target" class="back-btn jump-btn">📍 JUMP TO TODAY</a>
-                <a href="tacie_6nQ1s.html" class="back-btn">← Tacie's Profile</a>
-                <a href="tacie_wrestling_5fH3pK.html" class="back-btn">🤼 Wrestling Hub</a>
-                <a href="supplement_intel_5kM9p.html" class="back-btn strat-btn">🧠 INTEL BRIEFING</a>
-            </div>
-            <div class="hero-title-block">
-                <h1>Buck15 Training Directives (v8.8)</h1>
-                <div class="subtitle">"Status: Yellow Light (Post-Viral). Seek Separation."</div>
-            </div>
+        <div class="nav-bar">
+            <a href="#today-target" class="back-btn jump-btn">📍 JUMP TO TODAY</a>
+            <a href="tacie_6nQ1s.html" class="back-btn">← Tacie's Profile</a>
+            <a href="tacie_wrestling_5fH3pK.html" class="back-btn">🤼 Wrestling Hub</a>
+            <a href="supplement_intel_5kM9p.html" class="back-btn strat-btn">🧠 INTEL BRIEFING</a>
         </div>
     </div>
     
@@ -464,7 +447,7 @@
                 </div>
 
                 <div class="week-group">
-                    <div class="week-header" style="background: linear-gradient(90deg, #333, #1a1a1a); border-left-color: var(--accent-gold);">
+                    <div class="week-header">
                         <span class="week-title">Week 1: Jan 26 - Feb 1</span>
                         <span class="week-theme">Theme: The Gauntlet (Survival Mode)</span>
                     </div>
@@ -615,7 +598,7 @@
                 </div>
 
                 <div class="week-group" style="opacity: 0.95;">
-                    <div class="week-header" style="background: linear-gradient(90deg, #2c3e50, #1a1a1a); border-left-color: var(--accent-blue);">
+                    <div class="week-header" style="background: rgba(0,0,0,0.8); border-left-color: var(--accent-blue);">
                         <span class="week-title">Week 2: Feb 2 - Feb 8</span>
                         <span class="week-theme" style="color:var(--accent-blue);">Theme: The Reload (Strength Focus)</span>
                     </div>
