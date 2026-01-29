@@ -12,71 +12,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; background: #2c3e50; color: #ecf0f1; }
+        /* Theme Variables */
+        :root {
+            --bg-dark: #0f0f0f;
+            --card-bg: rgba(31, 31, 31, 0.85); /* Glassmorphism */
+            --text-light: #ecf0f1;
+            --accent-gold: #f39c12;
+            --accent-red: #c0392b;
+            --accent-blue: #3498db;
+            --accent-green: #27ae60;
+            --accent-purple: #8e44ad;
+            --accent-orange: #d35400;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: var(--bg-dark); 
+            color: var(--text-light); 
+        }
+
+        /* --- VIDEO BACKGROUND ENGINE (v3.3 Standard) --- */
+        .bg-video-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            overflow: hidden;
+            background: #000;
+        }
+        .hero-video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            object-position: center center;
+            opacity: 0.5; /* Dimmed for readability */
+        }
+        .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            z-index: -5;
+        }
         
         /* Navigation */
-        .back-btn { display: inline-block; background: #34495e; padding: 8px 15px; text-decoration: none; color: #ecf0f1; border-radius: 20px; border: 1px solid #465c71; font-size: 0.9em; margin-bottom: 20px; transition: 0.2s; }
+        .back-btn { 
+            display: inline-block; background: rgba(52, 73, 94, 0.8); padding: 8px 15px; 
+            text-decoration: none; color: #ecf0f1; border-radius: 20px; 
+            border: 1px solid #465c71; font-size: 0.9em; margin-bottom: 20px; 
+            transition: all 0.2s; backdrop-filter: blur(5px);
+        }
         .back-btn:hover { background: #465c71; }
 
         /* Header */
-        .hq-header { text-align: center; border-bottom: 2px solid #e74c3c; padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #ecf0f1; }
+        .hq-header { 
+            text-align: center; 
+            border-bottom: 2px solid var(--accent-red); 
+            padding-bottom: 20px; margin-bottom: 30px; 
+        }
+        h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #ecf0f1; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .subtitle { color: #bdc3c7; font-size: 0.9em; text-transform: uppercase; margin-top: 5px; }
 
-        /* Cards */
-        .card { background: #ecf0f1; color: #333; padding: 20px; border-radius: 4px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border-left: 6px solid #e74c3c; }
-        .card h3 { margin-top: 0; color: #2c3e50; border-bottom: 1px solid #bdc3c7; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        /* Cards - Glassmorphism Update */
+        .card { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #e0e0e0; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+            border-left: 6px solid var(--accent-red); 
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .card h3 { 
+            margin-top: 0; color: #fff; 
+            border-bottom: 1px solid #555; 
+            padding-bottom: 10px; 
+            display: flex; justify-content: space-between; align-items: center; 
+        }
         
         /* Task List */
         .task-list { list-style: none; padding: 0; margin: 0; }
-        .task-item { padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: flex-start; }
-        .assignee { font-weight: bold; background: #34495e; color: #fff; padding: 2px 6px; border-radius: 3px; font-size: 0.75em; margin-right: 10px; min-width: 65px; text-align: center; }
-        .task-desc { flex-grow: 1; }
-        .priority { color: #c0392b; font-weight: bold; font-size: 0.8em; margin-left: 10px; white-space: nowrap; }
-        .task-divider { border: 0; height: 3px; background: #bdc3c7; margin: 0; }
+        .task-item { padding: 10px 0; border-bottom: 1px solid #444; display: flex; align-items: flex-start; }
+        
+        /* Assignee Badges */
+        .assignee { font-weight: bold; padding: 2px 6px; border-radius: 3px; font-size: 0.75em; margin-right: 10px; min-width: 65px; text-align: center; color: #fff; }
+        .assign-all { background: var(--accent-red); }
+        .assign-brian { background: #34495e; }
+        .assign-donald { background: var(--accent-orange); }
+        .assign-tacie { background: var(--accent-purple); }
+
+        .task-desc { flex-grow: 1; color: #ddd; font-size: 0.95em; }
+        .priority { color: var(--accent-red); font-weight: bold; font-size: 0.8em; margin-left: 10px; white-space: nowrap; }
+        .priority-new { color: var(--accent-green); }
+        .priority-hold { color: #7f8c8d; }
+        .priority-log { color: var(--accent-blue); }
+
+        .task-divider { border: 0; height: 1px; background: #555; margin: 10px 0; }
         
         /* Links inside tasks */
-        .task-link { color: #2980b9; text-decoration: underline; font-weight: normal; } 
-        .task-link:hover { text-decoration: none; color: #e74c3c; }
+        .task-link { color: var(--accent-blue); text-decoration: underline; font-weight: normal; } 
+        .task-link:hover { text-decoration: none; color: #fff; }
 
         /* Update Link (Subtle) */
         .update-link { 
             display: block; text-align: center; margin-top: 20px; padding-top: 15px; 
-            border-top: 1px solid #ddd; font-size: 0.9em; color: #7f8c8d; 
+            border-top: 1px solid #444; font-size: 0.9em; color: #999; 
             text-decoration: none; transition: color 0.2s;
         }
-        .update-link:hover { color: #27ae60; text-decoration: underline; }
+        .update-link:hover { color: var(--accent-green); text-decoration: underline; }
 
         /* Tool Grid */
         .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px; }
         .tool-btn {
             display: block; text-align: center; padding: 10px; border-radius: 4px;
             text-decoration: none; color: white; font-size: 0.85em; font-weight: bold;
-            transition: all 0.2s;
+            transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
         .tool-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
         /* Message Board Button */
         .msg-btn {
             display: flex; align-items: center; justify-content: center; width: 100%;
-            background: #27ae60; color: #fff; text-decoration: none; padding: 15px;
+            background: var(--accent-green); color: #fff; text-decoration: none; padding: 15px;
             border-radius: 4px; font-weight: bold; text-transform: uppercase;
-            margin-top: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             transition: all 0.2s; box-sizing: border-box;
         }
         .msg-btn:hover { background: #219150; transform: translateY(-2px); }
 
         /* Brand Colors for Tools */
-        .btn-ms { background: #2b88d8; } /* Microsoft Blue */
-        .btn-apple { background: #333; } /* Apple Dark */
-        .btn-google { background: #4285f4; } /* Google Blue */
+        .btn-ms { background: #2b88d8; } 
+        .btn-apple { background: #444; border: 1px solid #555; } 
+        .btn-google { background: #4285f4; } 
 
         /* Footer Info */
-        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.75em; color: #888; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 6px; }
 
     </style>
 </head>
 <body>
+
+    <div class="bg-video-wrap">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="images/grok_mountain.mp4" type="video/mp4">
+        </video>
+        <div class="bg-overlay"></div>
+    </div>
 
     <a href="Pointers99.html" class="back-btn">← Return to Hub</a>
     
@@ -87,13 +178,24 @@
 
     <div class="card">
         <h3>📋 Active Directives</h3>
-        <p style="margin:0 0 10px 0; font-size:0.85em; color:#666; font-style:italic;">
+        <p style="margin:0 0 15px 0; font-size:0.85em; color:#aaa; font-style:italic;">
             Please update the Message Board below with progress & completion notes.
         </p>
         <ul class="task-list">
             
             <li class="task-item">
-                <span class="assignee">Brian</span>
+                <span class="assignee assign-all">ALL</span>
+                <span class="task-desc">
+                    <strong>Insurance Card Update:</strong> Replace your Anthem Health Insurance Card. 
+                    <a href="https://docs.google.com/document/d/1lcUVfAKbo-JDe7-N5hlTX3M8L0RMa9XNE-24-aA1q_8/edit?tab=t.0" target="_blank" class="task-link">Electronic version available here</a> until physical cards arrive.
+                </span>
+                <span class="priority">HIGH</span>
+            </li>
+
+            <hr class="task-divider">
+
+            <li class="task-item">
+                <span class="assignee assign-brian">Brian</span>
                 <span class="task-desc">Prepare Taxes & Coordinate with Dad.</span>
                 <span class="priority">HIGH</span>
             </li>
@@ -101,57 +203,57 @@
             <hr class="task-divider">
             
             <li class="task-item">
-                <span class="assignee">Donald</span>
+                <span class="assignee assign-donald">Donald</span>
                 <span class="task-desc"><strong>7th-Semester Transcript:</strong> Ask SPASH to email to <em>transcript@msubillings.edu</em> immediately (Key to March Reg).</span>
                 <span class="priority">HIGH</span>
             </li>
             <li class="task-item">
-                <span class="assignee">Donald</span>
+                <span class="assignee assign-donald">Donald</span>
                 <span class="task-desc"><strong>NCAA Eligibility:</strong> Verify email (post-HS) & sports history <em>this week</em>. Set April 1 reminder for "Final Amateurism Certification".</span>
                 <span class="priority">HIGH</span>
             </li>
             <li class="task-item">
-                <span class="assignee">Donald</span>
+                <span class="assignee assign-donald">Donald</span>
                 <span class="task-desc"><strong>AP Scores:</strong> Order Past Scores (Code 4298) now. Set MSUB as "Free Recipient" for Senior exams by June 20.</span>
                 <span class="priority">HIGH</span>
             </li>
             <li class="task-item">
-                <span class="assignee">Donald</span>
+                <span class="assignee assign-donald">Donald</span>
                 <span class="task-desc"><strong>Scholarship Sprint:</strong> "Community Foundation of Central Wisconsin" (Feb 15) & Monitor MyInfo for Financial Aid Offer.</span>
                 <span class="priority">HIGH</span>
             </li>
             <li class="task-item">
-                <span class="assignee">Donald</span>
+                <span class="assignee assign-donald">Donald</span>
                 <span class="task-desc"><strong>Advising Setup:</strong> Email <em>advising@msubillings.edu</em> for March WebEx. Mention Athlete status for scheduling.</span>
-                <span class="priority">NEW</span>
+                <span class="priority-new">NEW</span>
             </li>
             <li class="task-item">
-                <span class="assignee">Donald</span>
+                <span class="assignee assign-donald">Donald</span>
                 <span class="task-desc"><strong>Housing Hold:</strong> Do not finalize StarRez/Roommate yet. Wait for Coach Woehl's guidance (Petro vs Rimrock).</span>
-                <span class="priority" style="color:#7f8c8d;">HOLD</span>
+                <span class="priority-hold">HOLD</span>
             </li>
             <li class="task-item">
-                <span class="assignee">Donald</span>
+                <span class="assignee assign-donald">Donald</span>
                 <span class="task-desc"><strong>Portal Check:</strong> Verify Spanish CLEP (73) in Transfer Credits. Ignore "Re-Registration" flag.</span>
-                <span class="priority" style="color:#2980b9;">LOGISTICS</span>
+                <span class="priority-log">LOGISTICS</span>
             </li>
 
             <hr class="task-divider">
             
             <li class="task-item">
-                <span class="assignee">Tacie</span>
+                <span class="assignee assign-tacie">Tacie</span>
                 <span class="task-desc">
                     Execute <a href="tacie_training_2pX4v.html" class="task-link">Training Plan</a> ➔
                 </span>
                 <span class="priority">DAILY</span>
             </li>
             <li class="task-item">
-                <span class="assignee">Tacie</span>
+                <span class="assignee assign-tacie">Tacie</span>
                 <span class="task-desc">Plan Courses (coordinate w/ Parents & Advisors).</span>
                 <span class="priority">HIGH</span>
             </li>
             <li class="task-item">
-                <span class="assignee">Tacie</span>
+                <span class="assignee assign-tacie">Tacie</span>
                 <span class="task-desc">Develop a Violin Music Binder.</span>
             </li>
         </ul>
@@ -163,20 +265,20 @@
 
     <div class="card" style="border-left-color: #27ae60;">
         <h3>📢 Family Message Board</h3>
-        <p style="margin-top:0; font-size:0.9em; color:#333;">
+        <p style="margin-top:0; font-size:0.9em; color:#ddd;">
             Interact, share notes, provide updates, and give feedback.
         </p>
         <a href="https://docs.google.com/document/d/1lcUVfAKbo-JDe7-N5hlTX3M8L0RMa9XNE-24-aA1q_8/edit?usp=sharing" target="_blank" class="msg-btn">
             OPEN MESSAGE BOARD ➔
         </a>
-        <div style="margin-top:15px; font-size:0.85em; color:#7f8c8d; border-top:1px solid #ddd; padding-top:10px;">
+        <div style="margin-top:15px; font-size:0.85em; color:#7f8c8d; border-top:1px solid #555; padding-top:10px;">
             🔒 <strong>Access Restricted:</strong> Family only. Contact Dan if you need access.
         </div>
     </div>
 
     <div class="card" style="border-left-color: #9b59b6;">
         <h3>🗂️ Get Organized</h3>
-        <p style="margin:0; font-size:0.9em; color:#666;">Quick access to cloud task managers.</p>
+        <p style="margin:0; font-size:0.9em; color:#aaa;">Quick access to cloud task managers.</p>
         
         <div class="tool-grid">
             <a href="https://to-do.office.com/tasks/" target="_blank" class="tool-btn btn-ms">
