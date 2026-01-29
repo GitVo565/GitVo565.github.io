@@ -144,9 +144,22 @@
             font-style: italic;
         }
 
+        /* Ratings Grid */
+        .ratings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .rating-item { font-size: 0.9em; color: #ddd; }
+        .rating-score { font-weight: bold; color: var(--accent-gold); float: right; }
+
         /* Timestamp List */
         .timestamp-list { list-style: none; padding: 0; margin-top: 10px; background: rgba(0,0,0,0.2); border-radius: 6px; padding: 10px; }
-        .timestamp-list li { margin-bottom: 8px; font-size: 0.9em; color: #bbb; border-bottom: 1px solid #333; padding-bottom: 4px; }
+        .timestamp-list li { margin-bottom: 10px; font-size: 0.9em; color: #bbb; border-bottom: 1px solid #333; padding-bottom: 8px; line-height: 1.5; }
         .timestamp-list li:last-child { border-bottom: none; }
         
         /* Timestamp Links */
@@ -242,18 +255,21 @@
                     <span class="score-badge bg-win">WIN (PIN 1:58)</span>
                 </div>
                 
-                <div class="note-section good-stuff">
-                    <span class="note-label">✅ Brian's Rating: Intensity 10/10</span>
-                    <p class="note-text">Buck-15 ran her over like a freight train. No quit and no backing down. <strong>Sportsmanship 10/10:</strong> Great job not grandstanding. You made your family very proud.</p>
-                </div>
-
-                <div class="note-section needs-work">
-                    <span class="note-label">⚠️ Brian's Rating: Technique 6.5/10</span>
-                    <p class="note-text"><strong>#1 Mistake:</strong> Working the Half Nelson without pressure on hips. You need to be behind her hips breaking her down before moving to the side. Also: <strong>NEVER</strong> reach back when she is behind you (Cardinal Sin).</p>
+                <div class="note-section">
+                    <span class="note-label">📋 Coach Brian's Report Card:</span>
+                    <div class="ratings-grid">
+                        <div class="rating-item">Intensity <span class="rating-score">10/10</span></div>
+                        <div class="rating-item">Sportsmanship <span class="rating-score">10/10</span></div>
+                        <div class="rating-item">Technique <span class="rating-score">6.5/10</span></div>
+                        <div class="rating-item">Intelligence <span class="rating-score">5/10</span></div>
+                    </div>
+                    <p class="note-text" style="font-size:0.9em; font-style:italic; border-left:2px solid var(--accent-gold); padding-left:10px;">
+                        "Buck-15 ran her over like a freight train. No quit and no backing down. I love it. Great job not grandstanding or being a dick. No one likes to be pinned, once you do it, don't celebrate it. You made your family very proud with how you carried yourself."
+                    </p>
                 </div>
 
                 <div class="note-section">
-                    <span class="note-label">⏱️ Brian's Full Tape Breakdown:</span>
+                    <span class="note-label">⏱️ Full Breakdown (Do not skip):</span>
                     <ul class="timestamp-list">
                         <li><span class="ts">0:08</span> First Takedown, good go-behind to secure the 3, straight to a strong ride. Nice work.</li>
                         <li><span class="ts">0:09</span> Failure to get behind her hips allows Alma to secure a single-leg, threatening the position. This is a mistake you made that allowed her to get back into the match.</li>
@@ -264,34 +280,34 @@
                         <li><span class="ts">0:31</span> Good head pressure prevents her from stepping up, this is a good move.</li>
                         <li><span class="ts">0:33</span> <strong>!!! First cradle opportunity presents itself !!!</strong>, you can lock up the leg from below and go above the head to secure a nearside cradle, and roll to your left side to secure a pin.</li>
                         <li><span class="ts">0:34</span> You opt for brute force, and fully break her down. This is a good move as well.</li>
-                        <li><span class="ts">0:36</span> You shoot in the half nelson, but do not have any pressure holding her hips down. This is a mistake. Stay behind her hips, work in the half from there, and then start to run it.</li>
-                        <li><span class="ts">0:44</span> <strong>Critical Error:</strong> Your full weight is on your right hip, allowing Alma to drive up. Drive hard forward pushing on her left shoulder and holding her right ankle instead.</li>
-                        <li><span class="ts">0:47</span> Your mistake costs you a reversal, Alma has now gained life in this match.</li>
-                        <li><span class="ts">0:48</span> Alma makes the same mistake you do. You turn into her and secure a reversal. Alma lets go of your head, which saves her.</li>
+                        <li><span class="ts">0:36</span> You shoot in the half nelson, but do not have any pressure holding her hips down. This is a mistake. Stay behind her hips, work in the half from there, and then start to run it. My prediction for what is going to happen next is that she is going to posture her hips up and prevent you from turning her.</li>
+                        <li><span class="ts">0:44</span> Missed some film due to camera work, you are in an excellent position here. A critical mistake keeps you from securing the pin. Your full weight is on your right hip, allowing Alma to drive up and turn into you, threatening a reversal. What you needed to have done was drive hard forward while pushing on her left shoulder and holding her right ankle. This would have forced her straight back, where you could have then sunk in a half and won the match. Critical error.</li>
+                        <li><span class="ts">0:47</span> Your mistake costs you a reversal, Alma has now gained life in this match and it is anyones game at 3-2.</li>
+                        <li><span class="ts">0:48</span> Alma makes the same mistake you do, and works the head before covering the hips. You are able to stand up and create space. You turn into her and secure a reversal. Alma lets go of your head, which saves her from losing the match.</li>
                         <li><span class="ts">0:51</span> Excellent side-changing technique, fully vaulting your body is incredible for speed. Nice job.</li>
-                        <li><span class="ts">0:52</span> Despite agility, this is a big mistake. You once again get off of her hips and have allowed her to posture up.</li>
-                        <li><span class="ts">0:59</span> Buck-15 power works to get her down, but you accomplished this by having her reach back.</li>
-                        <li><span class="ts">1:01</span> First attempt at using the snowplow to turn, and she gives it to you. This is a good move.</li>
+                        <li><span class="ts">0:52</span> Despite your ninja-like agility, this is a big mistake. You once again get off of her hips and have allowed her to posture up. She will not be pinned by a half from here, you need to stay behind her hips and break her down first.</li>
+                        <li><span class="ts">0:59</span> Buck-15 power works to get her down, but you accomplished this by having her reach back. On a superior wrestler, you would not be able to pull this move off.</li>
+                        <li><span class="ts">1:01</span> First attempt at using the snowplow to turn, and she gives it to you. This is a good move. You do not get your head in her side fast enough, which would have allowed you to lock up a snowplow cradle and pin her.</li>
                         <li><span class="ts">1:07</span> First Period ends, good work.</li>
-                        <li><span class="ts">1:12</span> You start by running into her and forcing a collar-tie. Reach out and grab her neck <em>before</em> you advance. On a superior wrestler, this decision would cost you 3 points every time.</li>
-                        <li><span class="ts">1:16</span> <strong>NEVER REACH YOUR HANDS UP!!!</strong> If her arm is going into the sky, let it go and shoot on that side.</li>
-                        <li><span class="ts">1:19</span> She shoots for your legs and you do not sprawl, you were lucky that your physical power held her.</li>
+                        <li><span class="ts">1:12</span> You immediately start the period by running into her and forcing a collar-tie. I would have advised you to reach out and grab her neck before you advance, so that you can prevent her from shooting on you. On a superior wrestler, this decision would cost you 3 points every time. As soon as you run forward, they will shoot a double or firemans on you and take you to the mat. You got lucky here.</li>
+                        <li><span class="ts">1:16</span> <strong>NEVER REACH YOUR HANDS UP!!!</strong> If her arm is going into the sky, let it go and shoot on that side, she is giving you a window. By moving with her like that, you prevent yourself from gaining 3 points.</li>
+                        <li><span class="ts">1:19</span> She shoots for your legs and you do not sprawl, you were lucky that your physical power held her. In the future, you need to aggressively sprawl out of there.</li>
                         <li><span class="ts">1:21</span> Dominant head pressure forces her down. This is good.</li>
-                        <li><span class="ts">1:23</span> You should have been up on your toes and working to clear her arm from your leg.</li>
-                        <li><span class="ts">1:28</span> She runs out of grip strength and you are able to get behind her. This is good, but could have been 5 seconds earlier.</li>
+                        <li><span class="ts">1:23</span> You should have been up on your toes and working to clear her arm from your leg. In this position you have not secured a takedown yet, and are in danger of being reversed unless you are behind her hips.</li>
+                        <li><span class="ts">1:28</span> She runs out of grip strength and you are able to get behind her for the takedown. This is good, but you could have the takedown 5 seconds earlier with more emphasis on securing the hips, this may cost you precious time at the end of the period if you are working for a pin. Remember, it takes 3 seconds to pin, so that 5 second delay cost you 1.6 pins (in pure time).</li>
                         <li><span class="ts">1:31</span> You let her hips completely free and she is able to posture back and try to scoot away. This is a big mistake.</li>
-                        <li><span class="ts">1:32</span> <strong>Cardinal Sin:</strong> You reach back while she is behind you. NEVER DO THIS.</li>
-                        <li><span class="ts">1:33</span> Good work getting to your feet, but you need to let go of her head and work to face her.</li>
-                        <li><span class="ts">1:38</span> <strong>LET GO OF THE DAMN HEAD.</strong> A good wrestler would pin you by putting in a reverse half nelson.</li>
-                        <li><span class="ts">1:40</span> You let go of the head and spin into her, this is a great position for you. A <a href="wrestling_library_7hG4d.html#vid-cow-catcher" class="move-link">Cow Catcher</a> here would win the match.</li>
-                        <li><span class="ts">1:42</span> You take her down and immediately start running the half. Good intensity.</li>
-                        <li><span class="ts">1:46</span> <strong>Visual for #1 Mistake:</strong> She is broken down, but you are working the half without any pressure on her hips.</li>
-                        <li><span class="ts">1:50</span> She looks the wrong way, and you take advantage. Tremendous power drives her back. Nice work.</li>
+                        <li><span class="ts">1:32</span> You commit a cardinal sin of wrestling by reaching back while she is behind you. <strong>NEVER DO THIS.</strong></li>
+                        <li><span class="ts">1:33</span> Good work getting to your feet, but you need to let go of her head and work to face her. Never wrestle with your back to someone.</li>
+                        <li><span class="ts">1:38</span> <strong>LET GO OF THE DAMN HEAD.</strong> I tried to stay pretty impassive throughout this, but jesus Tacie. A good wrestler would pin you by raising their left arm around your chin, pulling you back, and then putting in a reverse half nelson. You are surviving here because Alma doesn't see this opportunity.</li>
+                        <li><span class="ts">1:40</span> You let go of the head and spin into her, this is a great position for you. Nice job creating space. A cow catcher here would send her straight to her back and win you the match.</li>
+                        <li><span class="ts">1:42</span> You take her down and immediately start running the half. Good intensity, it is working to wear her down. The mistake you make is leaving those hips open.</li>
+                        <li><span class="ts">1:46</span> This position is a perfect visual for the #1 mistake that you have made this whole match. She is fully broken down, her arms are tight to her body, and you are working the half without any pressure on her hips whatsoever. She hasn't begun to turn yet, so there is no reason to be out on a side. You need to at the very least have one leg between hers so you can stop her from scooting back to her base.</li>
+                        <li><span class="ts">1:50</span> She makes a critical error of looking the wrong way, and you take advantage. Tremendous power drives her back, and the half is sunk deep. Nice work.</li>
                         <li><span class="ts">1:51</span> Great work sucking up that leg for a cradle. Watch out that you don't get too high.</li>
                         <li><span class="ts">1:53</span> Amazing position. Lift your head high to put your full chest weight on her.</li>
-                        <li><span class="ts">1:55</span> When she rotates, you can spin to counter that rotation. You stay straight, but cradle loses efficacy.</li>
-                        <li><span class="ts">1:56</span> She runs out of juice and goes flat, you are still in an amazing position.</li>
-                        <li><span class="ts">1:58</span> <strong>PIN!!!!</strong> Nice job. You were the better wrestler by a large margin.</li>
+                        <li><span class="ts">1:55</span> When she rotates, you can spin to counter that rotation. You stay perfectly straight, but your cradle loses efficacy due to the rotation of her body. Work on moving with the cradle so that it doesn't matter how she wiggles, you're already flanking her.</li>
+                        <li><span class="ts">1:56</span> She runs out of juice and goes flat, you are still in an amazing position. Good job holding the cradle lock.</li>
+                        <li><span class="ts">1:58</span> <strong>PIN!!!!</strong> Nice job. There were some ugly moments, but you did the job and were the better wrestler by a large margin. Work on securing those hips and you would have put her away much earlier.</li>
                     </ul>
                 </div>
                 
