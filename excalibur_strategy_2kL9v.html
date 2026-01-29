@@ -28,7 +28,7 @@
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            padding: 0; /* Reset for Banner */
+            padding: 20px; 
             line-height: 1.6; 
             max-width: 1000px; 
             margin: 0 auto; 
@@ -36,26 +36,7 @@
             background: transparent; 
         }
 
-        /* --- GLOBAL ALERT BANNER (Req A) --- */
-        .traffic-light-banner {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: linear-gradient(90deg, #c0392b, #8e44ad);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-weight: bold;
-            font-size: 0.9em;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            line-height: 1.4;
-        }
-        .traffic-light-banner a { color: white; text-decoration: underline; }
-
-        .main-content-wrapper { padding: 20px; }
+        .main-content-wrapper { padding: 0; /* Reset padding since body handles it */ }
 
         /* --- VIDEO BACKGROUND --- */
         .bg-video {
@@ -219,10 +200,6 @@
 </head>
 <body>
 
-    <div class="traffic-light-banner">
-        ⚠️ PROTOCOL OVERRIDE: The Daily Log provides the Tactical Order. If the Log says 'SCRUB' or 'RED LIGHT,' that instruction supersedes the Index below.
-    </div>
-
     <video autoplay muted loop playsinline class="bg-video">
         <source src="images/tacie_grok_journey.mp4" type="video/mp4">
     </video>
@@ -283,7 +260,6 @@
             <p style="margin-top:0; color:#ccc; font-style:italic; margin-bottom:20px;">
                 From Middle School Foundation to NCAA Division 1 Recruitment.
             </p>
-
             <div class="phase-header" style="background:rgba(34,34,34,0.8); border-left:4px solid var(--accent-prep); padding:10px; margin-bottom:10px;">
                 <h3 style="margin:0; color:white;">PHASE 1: THE FOUNDATION (Middle School)</h3>
                 <span style="font-size:0.85em; color:#aaa;">Goal: Build the "Chassis"—durable tendons, aerobic floor, and race experience.</span>
@@ -604,7 +580,6 @@
                         <h4>🛡️ THE ARMOR</h4>
                         <p class="proto-desc">
                             <strong>Focus:</strong> Heavy Carries / Rows / Grip.<br>
-                            <strong>Role:</strong> Wrestling-Specific Durability.<br>
                             <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Weekly)</span>
                         </p>
                     </div>
@@ -616,7 +591,6 @@
                         <h4>🧱 CORE (A, B, C)</h4>
                         <p class="proto-desc">
                             <strong>Focus:</strong> Trunk Stability / Anti-Rotation.<br>
-                            <strong>Role:</strong> Force Transfer.<br>
                             <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Post-Run)</span>
                         </p>
                     </div>
