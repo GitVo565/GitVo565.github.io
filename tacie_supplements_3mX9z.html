@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blood & Bone Protocol v9.0</title>
+    <title>Blood & Bone Protocol v9.1</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -210,6 +210,13 @@
         /* Rx Highlight */
         .rx-tag { color: var(--rx-purple); font-weight: bold; font-size: 0.85em; text-transform: uppercase; margin-right: 5px; }
 
+        /* SUB HEADERS IN TIMELINE */
+        .stack-label {
+            display: block; font-size: 0.75em; text-transform: uppercase; 
+            color: #888; margin-bottom: 4px; font-weight: bold; letter-spacing: 1px;
+        }
+        .stack-label.conditional { color: var(--accent-gold); margin-top: 8px; border-top: 1px dashed #444; padding-top: 4px; }
+
         /* --- SAFETY & BANNED --- */
         .safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
         
@@ -258,8 +265,8 @@
 
     <div class="header-section">
         <h1>Blood vs Bone Protocol</h1>
-        <div class="version-tag">VERSION 9.0 | 🟢 ACTIVE</div>
-        <div class="update-note">Updates: Logic Gate Enforced (Blood Day Pushes Calcium).</div>
+        <div class="version-tag">VERSION 9.1 | 🟢 ACTIVE</div>
+        <div class="update-note">Updates: Bedtime "Conditional Stack" logic simplified.</div>
     </div>
 
     <div class="mode-selector">
@@ -320,19 +327,22 @@
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
                 <div class="t-action" style="color:#777; text-decoration:line-through;">NO Multi / NO Calcium</div>
-                <div class="t-logic" style="color:var(--blood-red); font-weight:bold;">IRON ISOLATION. Pushed to 9PM.</div>
+                <div class="t-logic" style="color:var(--blood-red); font-weight:bold;">Taking pills here blocks the iron.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">09:00 PM</div>
                 <div class="t-action">
+                    <span class="stack-label">Standard Stack</span>
                     <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> + <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Zyrtec</a><br>
                     <span style="font-size:0.9em; opacity:0.8;">+ <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry</a></span>
-                    <hr style="border:0; border-top:1px dashed #555; margin:5px 0;">
-                    <span style="font-size:0.9em; display:block; color:var(--blood-red); font-weight:bold;">
-                        [CATCH UP] <span class="cb"></span><a href="supplement_intel_5kM9p.html#multi" class="intel-link">Klean Multi</a> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab)</a>
+                    
+                    <span class="stack-label conditional">Conditional Stack</span>
+                    <span style="font-size:0.9em; display:block; opacity:0.9;">
+                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#multi" class="intel-link">Klean Multi</a> (2 Tabs)<br>
+                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag</a> (1 Tab)
                     </span>
                 </div>
-                <div class="t-logic">Take the pills you skipped at dinner.</div>
+                <div class="t-logic">Safe to take now that dinner iron has absorbed.</div>
             </div>
         </div>
     </div>
@@ -387,6 +397,7 @@
             <div class="time-row">
                 <div class="t-time">09:00 PM</div>
                 <div class="t-action">
+                    <span class="stack-label">Standard Stack</span>
                     <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> + <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Zyrtec</a><br>
                     <span style="font-size:0.9em; opacity:0.8;">+ <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry</a></span>
                 </div>
@@ -398,7 +409,7 @@
     <div class="safety-grid">
         <div class="info-box red-light-box">
             <span class="info-title banned-title">🚦 Red Light Protocol (Sickness Override)</span>
-            <div style="font-size:0.9em; margin-bottom:10px;"><strong>Trigger:</strong> Fever > 99.5°F OR Extreme Fatigue.</div>
+            <div style="font-size:0.9em; margin-bottom:10px;"><strong>Trigger:</strong> Fever > 99.5°F OR "Zonked" Fatigue.</div>
             <ul class="list-clean">
                 <li>❌ <strong>STOP:</strong> Klean Multi, Cal/Mag, Beet Juice (Iron feeds bacteria).</li>
                 <li>✅ <strong>START:</strong> Immune Stack (Zinc Lozenge + Vit C).</li>
