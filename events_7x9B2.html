@@ -14,7 +14,7 @@
         /* Theme Variables */
         :root {
             --bg-dark: #0f0f0f;
-            /* UPDATED: Increased transparency for Glassmorphism */
+            /* Glassmorphism Base */
             --card-bg: rgba(31, 31, 31, 0.85); 
             --text-light: #e0e0e0;
             --accent-gold: #f1c40f;
@@ -51,6 +51,8 @@
             width: auto;
             height: auto;
             object-fit: cover;
+            /* Standard center focus works best for this montage */
+            object-position: center center;
             opacity: 0.5; /* Dimmed for readability */
         }
         .bg-overlay {
@@ -262,7 +264,7 @@
 
     <div class="bg-video-wrap">
         <video class="hero-video" autoplay muted loop playsinline>
-            <source src="images/grok_mountain.mp4" type="video/mp4">
+            <source src="images/Many_Events.mp4" type="video/mp4">
         </video>
         <div class="bg-overlay"></div>
     </div>
