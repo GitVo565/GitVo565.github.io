@@ -28,13 +28,34 @@
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            padding: 20px; 
+            padding: 0; /* Reset for Banner */
             line-height: 1.6; 
             max-width: 1000px; 
             margin: 0 auto; 
             color: var(--text-light); 
             background: transparent; 
         }
+
+        /* --- GLOBAL ALERT BANNER (Req A) --- */
+        .traffic-light-banner {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(90deg, #c0392b, #8e44ad);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+        .traffic-light-banner a { color: white; text-decoration: underline; }
+
+        .main-content-wrapper { padding: 20px; }
 
         /* --- VIDEO BACKGROUND --- */
         .bg-video {
@@ -151,6 +172,20 @@
         }
         .proto-link:hover { background: var(--accent-gold); color: black; border-color: var(--accent-gold); }
 
+        /* DECOUPLING DIVIDER (Req C) */
+        .grid-divider {
+            grid-column: 1 / -1;
+            margin: 20px 0;
+            border-top: 1px dashed #555;
+            text-align: center;
+            color: var(--accent-gold);
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-top: 10px;
+        }
+
         /* APPENDIX STYLES */
         .def-list { list-style: none; padding: 0; }
         .def-list li { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #333; }
@@ -184,471 +219,477 @@
 </head>
 <body>
 
+    <div class="traffic-light-banner">
+        ⚠️ PROTOCOL OVERRIDE: The Daily Log provides the Tactical Order. If the Log says 'SCRUB' or 'RED LIGHT,' that instruction supersedes the Index below.
+    </div>
+
     <video autoplay muted loop playsinline class="bg-video">
         <source src="images/tacie_grok_journey.mp4" type="video/mp4">
     </video>
     <div class="bg-overlay"></div>
 
-    <div class="nav-bar">
-        <a href="Pointers99.html" class="back-btn">🏠 Family Hub</a>
-        <a href="tacie_training_2pX4v.html" class="back-btn">← Training HQ</a>
-    </div>
-
-    <div class="header-section">
-        <h1>Excalibur Athletics</h1>
-        <div class="subtitle">Strategic Vision & Master Protocols</div>
-    </div>
-
-    <div class="section-title">1. The Vision: "The Excalibur Athlete"</div>
-    <div class="strat-card">
-        <p><strong>Objective:</strong> Engineer a 7th-grade Hybrid Athlete who is unbreakable in combat (wrestling) and elite in endurance (running).</p>
-        
-        <div class="vision-grid">
-            <div class="vision-item">
-                <span class="vision-icon">🫀</span>
-                <span class="vision-head">The Engine (Aerobic)</span>
-                Capable of a sub-5:30 mile.
-            </div>
-            <div class="vision-item">
-                <span class="vision-icon">🛡️</span>
-                <span class="vision-head">The Armor (Structural)</span>
-                Capable of dominating 3-5 wrestling matches in a single day.
-            </div>
-            <div class="vision-item">
-                <span class="vision-icon">⚡</span>
-                <span class="vision-head">The Spark (Neuro)</span>
-                Explosive "Rate of Force Development" (RFD) for takedowns.
-            </div>
+    <div class="main-content-wrapper">
+        <div class="nav-bar">
+            <a href="Pointers99.html" class="back-btn">🏠 Family Hub</a>
+            <a href="tacie_training_2pX4v.html" class="back-btn">← Training HQ</a>
         </div>
 
-        <div class="olympic-badge">
-            <span style="font-size:2em;">🥇</span>
-            <div>
-                <strong style="color:var(--accent-gold); text-transform:uppercase;">The Long Game (Strategic Targets)</strong><br>
-                <span style="color:#ccc; font-size:0.9em;">
-                    1. <strong>NCAA D1 Athletics:</strong> Build the chassis for a scholarship-level Mid-Distance/XC runner.<br>
-                    2. <strong>Olympic Aspiration:</strong> 2032 / 2036. Every rep today is a brick in that foundation.
-                </span>
-            </div>
+        <div class="header-section">
+            <h1>Excalibur Athletics</h1>
+            <div class="subtitle">Strategic Vision & Master Protocols</div>
         </div>
 
-        <div class="hybrid-tax">
-            <span class="tax-title">⚠️ The "Hybrid Tax" Rule</span>
-            Wrestling practice is Anaerobic Interval Training. Therefore, during Cycle 1, running volume must be <strong>"Medicinal" (Aerobic Flush)</strong> to clear waste, not to add fatigue. We do not burn the candle at both ends; we alternate the flame.
-        </div>
-    </div>
-
-    <div class="section-title">2. The Long-Term Roadmap (2026 - 2031)</div>
-    <div class="strat-card">
-        <p style="margin-top:0; color:#ccc; font-style:italic; margin-bottom:20px;">
-            From Middle School Foundation to NCAA Division 1 Recruitment.
-        </p>
-
-        <div class="phase-header" style="background:rgba(34,34,34,0.8); border-left:4px solid var(--accent-prep); padding:10px; margin-bottom:10px;">
-            <h3 style="margin:0; color:white;">PHASE 1: THE FOUNDATION (Middle School)</h3>
-            <span style="font-size:0.85em; color:#aaa;">Goal: Build the "Chassis"—durable tendons, aerobic floor, and race experience.</span>
-        </div>
-        <table style="width:100%; border-collapse:collapse; margin-bottom:30px; font-size:0.9em;">
-            <tr style="border-bottom:1px solid #444;">
-                <th style="text-align:left; padding:8px; color:var(--accent-gold);">PERIOD</th>
-                <th style="text-align:left; padding:8px; color:white;">EVENT / SEASON</th>
-                <th style="text-align:left; padding:8px; color:#ccc;">STRATEGIC FOCUS</th>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">JAN 5 - FEB 23, 2026</td>
-                <td style="padding:8px; font-weight:bold;">7th Gr Wrestling</td>
-                <td style="padding:8px;">The Gauntlet. Survival Mode. Maintain aerobic base.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">FEB 24 - MAR 29, 2026</td>
-                <td style="padding:8px; font-weight:bold; color:var(--accent-green);">The "Golden Gap"</td>
-                <td style="padding:8px;">Re-Base. Volume Injection. Re-introduce Squats & Threshold runs.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">MAR 30 - MAY 22, 2026</td>
-                <td style="padding:8px; font-weight:bold;">7th Gr Track</td>
-                <td style="padding:8px;">Speed. 800m/1600m PR attempts. First taste of track speed.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">JUNE 1 - AUG 19, 2026</td>
-                <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">SUMMER BASE I</td>
-                <td style="padding:8px;">⚠️ THE BIG BUILD. 11 Weeks of unstructured aerobic volume. Includes Nike XC Camp.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">AUG 20 - OCT 24, 2026</td>
-                <td style="padding:8px; font-weight:bold;">8th Gr XC</td>
-                <td style="padding:8px;">Dominance. Top 5 Scorer target.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">NOV 1 - DEC 31, 2026</td>
-                <td style="padding:8px; font-weight:bold; color:var(--accent-blue);">WINTER BASE (Armor)</td>
-                <td style="padding:8px;">The "Lost" Gap. Only exists in MS. Heavy lifting focus before Wrestling.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">JAN 4 - FEB 26, 2027</td>
-                <td style="padding:8px; font-weight:bold;">8th Gr Wrestling</td>
-                <td style="padding:8px;">Hybrid Phase II. (Decision Point: Last guaranteed wrestling season?).</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">MAR 1 - MAY 22, 2027</td>
-                <td style="padding:8px; font-weight:bold;">8th Gr Track</td>
-                <td style="padding:8px;">The Send-Off. Target: Sub-5:30 Mile context.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">JUNE 1 - AUG 15, 2027</td>
-                <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">SUMMER BASE II</td>
-                <td style="padding:8px;">PRE-HIGH SCHOOL BUILD. 10 Weeks to prep for 5k distance.</td>
-            </tr>
-        </table>
-
-        <div class="phase-header" style="background:rgba(34,34,34,0.8); border-left:4px solid var(--accent-blue); padding:10px; margin-bottom:10px;">
-            <h3 style="margin:0; color:white;">PHASE 2: THE CHASSIS (HS Underclassman)</h3>
-            <span style="font-size:0.85em; color:#aaa;">Goal: Performance escalation. Transition to 5k distance. The "Winter Shift."</span>
-        </div>
-        <table style="width:100%; border-collapse:collapse; margin-bottom:30px; font-size:0.9em;">
-             <tr style="border-bottom:1px solid #444;">
-                <th style="text-align:left; padding:8px; color:var(--accent-gold);">PERIOD</th>
-                <th style="text-align:left; padding:8px; color:white;">EVENT / SEASON</th>
-                <th style="text-align:left; padding:8px; color:#ccc;">STRATEGIC FOCUS</th>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">AUG 16 - OCT 30, 2027</td>
-                <td style="padding:8px; font-weight:bold;">9th Gr XC</td>
-                <td style="padding:8px;">The Jump. 5k Race Distance. Top 5 Conference Goal.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">DEC 2027</td>
-                <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">MAYO CLINIC CHECKPOINT</td>
-                <td style="padding:8px;">⚠️ STRATEGIC TARGET: Formal dismissal of LQTS diagnosis. Critical for future Military/NCAA clearance.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">NOV 15 - FEB 26, 2028</td>
-                <td style="padding:8px; font-weight:bold; color:var(--accent-red);">9th Gr Wrestling</td>
-                <td style="padding:8px;">⚠️ THE SHIFT. Season starts immediately after XC. No "Winter Base" gap.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">MAR 6 - JUN 3, 2028</td>
-                <td style="padding:8px; font-weight:bold;">9th Gr Track</td>
-                <td style="padding:8px;">Varsity Experience. 1600m/3200m focus.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">JUNE 4 - AUG 15, 2028</td>
-                <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">SUMMER BASE III</td>
-                <td style="padding:8px;">The Sophomore Leap. High volume aerobic block.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">AUG 16 - OCT 28, 2028</td>
-                <td style="padding:8px; font-weight:bold;">10th Gr XC</td>
-                <td style="padding:8px;">State Contender. Establishing recruitment metrics.</td>
-            </tr>
-        </table>
-
-        <div class="phase-header" style="background:rgba(34,34,34,0.8); border-left:4px solid var(--accent-gold); padding:10px; margin-bottom:10px;">
-            <h3 style="margin:0; color:white;">PHASE 3: THE LAUNCH (Recruitment Window)</h3>
-            <span style="font-size:0.85em; color:#aaa;">Goal: Elite Performance. "The Junior Year is the Money Year."</span>
-        </div>
-        <table style="width:100%; border-collapse:collapse; margin-bottom:0px; font-size:0.9em;">
-             <tr style="border-bottom:1px solid #444;">
-                <th style="text-align:left; padding:8px; color:var(--accent-gold);">PERIOD</th>
-                <th style="text-align:left; padding:8px; color:white;">EVENT / SEASON</th>
-                <th style="text-align:left; padding:8px; color:#ccc;">STRATEGIC FOCUS</th>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">AUG 20, 2029</td>
-                <td style="padding:8px; font-weight:bold;">11th Gr XC</td>
-                <td style="padding:8px;">⚠️ RECRUITMENT KEY. Peak performance required for Junior Day invites.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">APR 20, 2030</td>
-                <td style="padding:8px; font-weight:bold;">11th Gr Track</td>
-                <td style="padding:8px;">The Times. Hitting standard D1 recruiting marks (Sub-5:10 1600m?).</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">JUNE 2 - AUG 19, 2030</td>
-                <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">SUMMER BASE V</td>
-                <td style="padding:8px;">The Victory Lap Build.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">AUG 20, 2030</td>
-                <td style="padding:8px; font-weight:bold;">12th Gr XC</td>
-                <td style="padding:8px;">Victory Lap. State Podium Goal. Commit to University.</td>
-            </tr>
-            <tr style="border-bottom:1px solid #333;">
-                <td style="padding:8px; color:#888;">SEPT 1, 2031</td>
-                <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">COLLEGIATE START</td>
-                <td style="padding:8px;">The Dream. Start D1 Running (Goal: Stanford/Elite).</td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="section-title">3. Periodization Cycles</div>
-    <div class="strat-card" style="background:transparent; border:none; padding:0; box-shadow:none;">
-        <div class="cycle-grid">
-            <div class="cycle-card cycle-active">
-                <span class="status-badge">Current Status</span>
-                <span class="cycle-header">CYCLE 1: THE COMBAT PHASE</span>
-                <span class="cycle-dates">Jan 5 - Feb 23</span>
-                <ul style="padding-left:20px; font-size:0.9em; color:#ccc;">
-                    <li><strong>Sport:</strong> Wrestling Focus.</li>
-                    <li><strong>Goal:</strong> CNS Management & Aerobic Floor.</li>
-                    <li><strong>Strategy:</strong> "Augment Only." Zone 1/2 Runs. Front-loaded Heavy Lifts.</li>
-                </ul>
-            </div>
-
-            <div class="cycle-card">
-                <span class="cycle-header">CYCLE 2: THE AEROBIC RE-BASE</span>
-                <span class="cycle-dates">Mar 2 - Mar 29</span>
-                <ul style="padding-left:20px; font-size:0.9em; color:#ccc;">
-                    <li><strong>Sport:</strong> Running Prep (The "Golden Gap").</li>
-                    <li><strong>Goal:</strong> Aggressive Volume Injection.</li>
-                    <li><strong>Strategy:</strong> Re-introduce Lift B & Threshold Runs. The "Saturday Stack".</li>
-                </ul>
-            </div>
-
-            <div class="cycle-card">
-                <span class="cycle-header">CYCLE 3: TRACK SPEED PHASE</span>
-                <span class="cycle-dates">Mar 30 - May</span>
-                <ul style="padding-left:20px; font-size:0.9em; color:#ccc;">
-                    <li><strong>Sport:</strong> Track & Field (800m/1600m).</li>
-                    <li><strong>Goal:</strong> Specificity & Speed.</li>
-                    <li><strong>Strategy:</strong> Lifts to "Maintenance" (Lift D). Runs to Vo2/Repetition Pace.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="section-title">4. Field Operations SOP</div>
-    <div class="strat-card">
-        <div class="sop-grid">
-            <div>
-                <h3 style="color:white; margin-top:0;">The Command Loop</h3>
-                <div class="role-box">
-                    <span class="role-title">Sunday Reset</span><br>
-                    Generate "Weekly Tactical Plan" based on constraints.
-                </div>
-                <div class="role-box">
-                    <span class="role-title">Daily Log</span><br>
-                    You provide "Ground Truth" (RPE, Mood).
-                </div>
-                <div class="role-box">
-                    <span class="role-title">The Adjust</span><br>
-                    I provide specific workout text for the website.
-                </div>
-            </div>
-            <div>
-                <h3 style="color:white; margin-top:0;">Decision Matrix (The Veto)</h3>
-                <div class="role-box">
-                    <span class="role-title">Strategist (Me)</span><br>
-                    I determine <em>what</em> physiological system to train.
-                </div>
-                <div class="role-box">
-                    <span class="role-title">Field General (You)</span><br>
-                    You have tactical override.
-                </div>
-                <div class="hybrid-tax" style="margin:0; padding:10px; font-size:0.9em;">
-                    <strong>RULE:</strong> If RPE > 8 on an "Easy Day," scrub the mission immediately.
-                </div>
-            </div>
-        </div>
-        
-        <div style="margin-top:20px; border-top:1px solid #444; padding-top:15px;">
-            <strong>🧪 Fueling Vector (v7.4):</strong> 
-            Magnesium Split. "Blood & Bone" Protocol (Iron/Calcium Segregation). Food-First Gap Fillers.
-        </div>
-    </div>
-
-    <div class="section-title">5. Master Protocol Index</div>
-    <div class="strat-card">
-        <p style="margin-top:0; color:#888; font-size:0.9em; margin-bottom:20px;">
-            Detailed definitions of the "Excalibur Arsenal." Click any protocol to view specific sets, reps, and cues.
-        </p>
-        
-        <div class="proto-grid">
+        <div class="section-title">1. The Vision: "The Excalibur Athlete"</div>
+        <div class="strat-card">
+            <p><strong>Objective:</strong> Engineer a 7th-grade Hybrid Athlete who is unbreakable in combat (wrestling) and elite in endurance (running).</p>
             
-            <div class="proto-card status-nutrition">
-                <div class="proto-info">
-                    <h4>💊 NUTRITION (v7.4)</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> "Blood & Bone" Logic, Gut Defense.<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-purple);">DEPLOYED (v7.4)</span>
-                    </p>
+            <div class="vision-grid">
+                <div class="vision-item">
+                    <span class="vision-icon">🫀</span>
+                    <span class="vision-head">The Engine (Aerobic)</span>
+                    Capable of a sub-5:30 mile.
                 </div>
-                <a href="tacie_supplements_3mX9z.html" class="proto-link">VIEW ➔</a>
+                <div class="vision-item">
+                    <span class="vision-icon">🛡️</span>
+                    <span class="vision-head">The Armor (Structural)</span>
+                    Capable of dominating 3-5 wrestling matches in a single day.
+                </div>
+                <div class="vision-item">
+                    <span class="vision-icon">⚡</span>
+                    <span class="vision-head">The Spark (Neuro)</span>
+                    Explosive "Rate of Force Development" (RFD) for takedowns.
+                </div>
             </div>
 
-            <div class="proto-card status-nutrition">
-                <div class="proto-info">
-                    <h4>🛒 PANTRY RESTOCK</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> Gap Closers (Food-Only).<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE</span>
-                    </p>
+            <div class="olympic-badge">
+                <span style="font-size:2em;">🥇</span>
+                <div>
+                    <strong style="color:var(--accent-gold); text-transform:uppercase;">The Long Game (Strategic Targets)</strong><br>
+                    <span style="color:#ccc; font-size:0.9em;">
+                        1. <strong>NCAA D1 Athletics:</strong> Build the chassis for a scholarship-level Mid-Distance/XC runner.<br>
+                        2. <strong>Olympic Aspiration:</strong> 2032 / 2036. Every rep today is a brick in that foundation.
+                    </span>
                 </div>
-                <a href="pantry_restock_8kL2m.html" class="proto-link">VIEW ➔</a>
             </div>
 
-            <div class="proto-card status-deployed">
-                <div class="proto-info">
-                    <h4>🏋️ LIFT A (Posterior)</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> Deadlift / Hinge / Pull.<br>
-                        <strong>Role:</strong> Absolute Strength.<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Mon/Tue)</span>
-                    </p>
-                </div>
-                <a href="tacie_lifta_8zK3m.html" class="proto-link">VIEW ➔</a>
+            <div class="hybrid-tax">
+                <span class="tax-title">⚠️ The "Hybrid Tax" Rule</span>
+                Wrestling practice is Anaerobic Interval Training. Therefore, during Cycle 1, running volume must be <strong>"Medicinal" (Aerobic Flush)</strong> to clear waste, not to add fatigue. We do not burn the candle at both ends; we alternate the flame.
             </div>
-
-            <div class="proto-card status-deployed" style="border-left-color: var(--accent-prep);">
-                <div class="proto-info">
-                    <h4>🏗️ CIRCUIT A (Hip Health)</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> Hip mobility & lateral stability (Mini-Bands).<br>
-                        <strong>Role:</strong> Pre-Hab / Fix "Energy Leaks."<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Pair with Lift A)</span>
-                    </p>
-                </div>
-                <a href="tacie_circuit_a_4jK9m.html" class="proto-link">VIEW ➔</a>
-            </div>
-
-            <div class="proto-card status-deployed" style="border-left-color: var(--accent-prep);">
-                <div class="proto-info">
-                    <h4>🏗️ CIRCUIT B (Glute Dynamics)</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> Power & dynamic control.<br>
-                        <strong>Role:</strong> Glute activation & explosive recovery.<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Pair with Lift B or Saturday)</span>
-                    </p>
-                </div>
-                <a href="tacie_circuit_b_5mL3k.html" class="proto-link">VIEW ➔</a>
-            </div>
-
-            <div class="proto-card status-suspended">
-                <div class="proto-info">
-                    <h4>🏋️ LIFT B (Anterior)</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> Squat / Quad / Push.<br>
-                        <strong>Role:</strong> Impact Armor & Leg Power.<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-red);">SUSPENDED (Knee Preservation)</span>
-                    </p>
-                </div>
-                <a href="tacie_liftb_9sL4k.html" class="proto-link">VIEW ➔</a>
-            </div>
-
-            <div class="proto-card status-maint">
-                <div class="proto-info">
-                    <h4>🏋️ LIFT C (Structural)</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> Unilateral / Symmetry.<br>
-                        <strong>Role:</strong> Injury Prevention / Balance.<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-blue);">MAINTENANCE (Weekends)</span>
-                    </p>
-                </div>
-                <a href="tacie_liftc_7jK2n.html" class="proto-link">VIEW ➔</a>
-            </div>
-
-            <div class="proto-card status-power">
-                <div class="proto-info">
-                    <h4>🏋️ LIFT D (Power)</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> Velocity / Jumps / Cleans.<br>
-                        <strong>Role:</strong> Rate of Force Development (RFD).<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-gold);">RESERVE (Track Season)</span>
-                    </p>
-                </div>
-                <a href="tacie_liftd_3mP9q.html" class="proto-link">VIEW ➔</a>
-            </div>
-
-            <div class="proto-card status-deployed">
-                <div class="proto-info">
-                    <h4>🛡️ THE ARMOR</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> Heavy Carries / Rows / Grip.<br>
-                        <strong>Role:</strong> Wrestling-Specific Durability.<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Weekly)</span>
-                    </p>
-                </div>
-                <a href="tacie_armor_9kL2p.html" class="proto-link">VIEW ➔</a>
-            </div>
-
-            <div class="proto-card status-deployed" style="border-left-color: #34495e;">
-                <div class="proto-info">
-                    <h4>🧱 CORE (A, B, C)</h4>
-                    <p class="proto-desc">
-                        <strong>Focus:</strong> Trunk Stability / Anti-Rotation.<br>
-                        <strong>Role:</strong> Force Transfer.<br>
-                        <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Post-Run)</span>
-                    </p>
-                </div>
-                <a href="tacie_core_2jX9s.html" class="proto-link">VIEW ➔</a>
-            </div>
-
         </div>
-    </div>
 
-    <div class="section-title">Appendix E: Definitions & Algorithms</div>
-    
-    <div class="euro-model">
-        <span class="euro-quote">"Consistency > Intensity."</span>
-        <p style="margin:0; font-size:0.95em; color:#ccc;">
-            We do not chase "Hero Workouts." A "B+" workout done 50 weeks a year beats an "A+" workout done for 3 weeks before burnout. <br>
-            <strong>The "Check the Box" Rule:</strong> If tired, reduce intensity to Zone 1, get the work done, keep the rhythm alive.
-        </p>
-    </div>
+        <div class="section-title">2. The Long-Term Roadmap (2026 - 2031)</div>
+        <div class="strat-card">
+            <p style="margin-top:0; color:#ccc; font-style:italic; margin-bottom:20px;">
+                From Middle School Foundation to NCAA Division 1 Recruitment.
+            </p>
 
-    <div class="strat-card">
-        <h3>🏃 The Running Menu</h3>
-        <ul class="def-list">
-            <li><span class="def-term">Zone 1 (Flush):</span> <span class="def-desc">"Guiltily Slow" / Medicinal. Mouth closed.</span></li>
-            <li><span class="def-term">Zone 2 (Base):</span> <span class="def-desc">Conversational. The engine builder.</span></li>
-            <li><span class="def-term">Threshold (T):</span> <span class="def-desc">"Comfortably Hard." 2-3 word sentences.</span></li>
-            <li><span class="def-term">Strides (ST):</span> <span class="def-desc">100m accelerations. 90% speed, relaxed form.</span></li>
-            <li><span class="def-term">Hills (Short):</span> <span class="def-desc">8-10s max effort sprints. Power output. Full recovery.</span></li>
-            <li><span class="def-term">Flying 30s:</span> <span class="def-desc">Build 30m, Sprint Max 30m, Float out. Max Velocity.</span></li>
-        </ul>
-    </div>
+            <div class="phase-header" style="background:rgba(34,34,34,0.8); border-left:4px solid var(--accent-prep); padding:10px; margin-bottom:10px;">
+                <h3 style="margin:0; color:white;">PHASE 1: THE FOUNDATION (Middle School)</h3>
+                <span style="font-size:0.85em; color:#aaa;">Goal: Build the "Chassis"—durable tendons, aerobic floor, and race experience.</span>
+            </div>
+            <table style="width:100%; border-collapse:collapse; margin-bottom:30px; font-size:0.9em;">
+                <tr style="border-bottom:1px solid #444;">
+                    <th style="text-align:left; padding:8px; color:var(--accent-gold);">PERIOD</th>
+                    <th style="text-align:left; padding:8px; color:white;">EVENT / SEASON</th>
+                    <th style="text-align:left; padding:8px; color:#ccc;">STRATEGIC FOCUS</th>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">JAN 5 - FEB 23, 2026</td>
+                    <td style="padding:8px; font-weight:bold;">7th Gr Wrestling</td>
+                    <td style="padding:8px;">The Gauntlet. Survival Mode. Maintain aerobic base.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">FEB 24 - MAR 29, 2026</td>
+                    <td style="padding:8px; font-weight:bold; color:var(--accent-green);">The "Golden Gap"</td>
+                    <td style="padding:8px;">Re-Base. Volume Injection. Re-introduce Squats & Threshold runs.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">MAR 30 - MAY 22, 2026</td>
+                    <td style="padding:8px; font-weight:bold;">7th Gr Track</td>
+                    <td style="padding:8px;">Speed. 800m/1600m PR attempts. First taste of track speed.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">JUNE 1 - AUG 19, 2026</td>
+                    <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">SUMMER BASE I</td>
+                    <td style="padding:8px;">⚠️ THE BIG BUILD. 11 Weeks of unstructured aerobic volume. Includes Nike XC Camp.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">AUG 20 - OCT 24, 2026</td>
+                    <td style="padding:8px; font-weight:bold;">8th Gr XC</td>
+                    <td style="padding:8px;">Dominance. Top 5 Scorer target.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">NOV 1 - DEC 31, 2026</td>
+                    <td style="padding:8px; font-weight:bold; color:var(--accent-blue);">WINTER BASE (Armor)</td>
+                    <td style="padding:8px;">The "Lost" Gap. Only exists in MS. Heavy lifting focus before Wrestling.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">JAN 4 - FEB 26, 2027</td>
+                    <td style="padding:8px; font-weight:bold;">8th Gr Wrestling</td>
+                    <td style="padding:8px;">Hybrid Phase II. (Decision Point: Last guaranteed wrestling season?).</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">MAR 1 - MAY 22, 2027</td>
+                    <td style="padding:8px; font-weight:bold;">8th Gr Track</td>
+                    <td style="padding:8px;">The Send-Off. Target: Sub-5:30 Mile context.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">JUNE 1 - AUG 15, 2027</td>
+                    <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">SUMMER BASE II</td>
+                    <td style="padding:8px;">PRE-HIGH SCHOOL BUILD. 10 Weeks to prep for 5k distance.</td>
+                </tr>
+            </table>
 
-    <div class="strat-card">
-        <h3>🛑 The "Wrestling Filter" (Adjustment Logic)</h3>
-        <div class="logic-row">
-            <span class="logic-scenario">Scenario A: "The Grinder" (Hard Practice)</span>
-            <span class="logic-action action-red">CANCEL Run &gt; 3mi. Switch to Flush/Off.</span>
+            <div class="phase-header" style="background:rgba(34,34,34,0.8); border-left:4px solid var(--accent-blue); padding:10px; margin-bottom:10px;">
+                <h3 style="margin:0; color:white;">PHASE 2: THE CHASSIS (HS Underclassman)</h3>
+                <span style="font-size:0.85em; color:#aaa;">Goal: Performance escalation. Transition to 5k distance. The "Winter Shift."</span>
+            </div>
+            <table style="width:100%; border-collapse:collapse; margin-bottom:30px; font-size:0.9em;">
+                 <tr style="border-bottom:1px solid #444;">
+                    <th style="text-align:left; padding:8px; color:var(--accent-gold);">PERIOD</th>
+                    <th style="text-align:left; padding:8px; color:white;">EVENT / SEASON</th>
+                    <th style="text-align:left; padding:8px; color:#ccc;">STRATEGIC FOCUS</th>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">AUG 16 - OCT 30, 2027</td>
+                    <td style="padding:8px; font-weight:bold;">9th Gr XC</td>
+                    <td style="padding:8px;">The Jump. 5k Race Distance. Top 5 Conference Goal.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">DEC 2027</td>
+                    <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">MAYO CLINIC CHECKPOINT</td>
+                    <td style="padding:8px;">⚠️ STRATEGIC TARGET: Formal dismissal of LQTS diagnosis. Critical for future Military/NCAA clearance.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">NOV 15 - FEB 26, 2028</td>
+                    <td style="padding:8px; font-weight:bold; color:var(--accent-red);">9th Gr Wrestling</td>
+                    <td style="padding:8px;">⚠️ THE SHIFT. Season starts immediately after XC. No "Winter Base" gap.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">MAR 6 - JUN 3, 2028</td>
+                    <td style="padding:8px; font-weight:bold;">9th Gr Track</td>
+                    <td style="padding:8px;">Varsity Experience. 1600m/3200m focus.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">JUNE 4 - AUG 15, 2028</td>
+                    <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">SUMMER BASE III</td>
+                    <td style="padding:8px;">The Sophomore Leap. High volume aerobic block.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">AUG 16 - OCT 28, 2028</td>
+                    <td style="padding:8px; font-weight:bold;">10th Gr XC</td>
+                    <td style="padding:8px;">State Contender. Establishing recruitment metrics.</td>
+                </tr>
+            </table>
+
+            <div class="phase-header" style="background:rgba(34,34,34,0.8); border-left:4px solid var(--accent-gold); padding:10px; margin-bottom:10px;">
+                <h3 style="margin:0; color:white;">PHASE 3: THE LAUNCH (Recruitment Window)</h3>
+                <span style="font-size:0.85em; color:#aaa;">Goal: Elite Performance. "The Junior Year is the Money Year."</span>
+            </div>
+            <table style="width:100%; border-collapse:collapse; margin-bottom:0px; font-size:0.9em;">
+                 <tr style="border-bottom:1px solid #444;">
+                    <th style="text-align:left; padding:8px; color:var(--accent-gold);">PERIOD</th>
+                    <th style="text-align:left; padding:8px; color:white;">EVENT / SEASON</th>
+                    <th style="text-align:left; padding:8px; color:#ccc;">STRATEGIC FOCUS</th>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">AUG 20, 2029</td>
+                    <td style="padding:8px; font-weight:bold;">11th Gr XC</td>
+                    <td style="padding:8px;">⚠️ RECRUITMENT KEY. Peak performance required for Junior Day invites.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">APR 20, 2030</td>
+                    <td style="padding:8px; font-weight:bold;">11th Gr Track</td>
+                    <td style="padding:8px;">The Times. Hitting standard D1 recruiting marks (Sub-5:10 1600m?).</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">JUNE 2 - AUG 19, 2030</td>
+                    <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">SUMMER BASE V</td>
+                    <td style="padding:8px;">The Victory Lap Build.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">AUG 20, 2030</td>
+                    <td style="padding:8px; font-weight:bold;">12th Gr XC</td>
+                    <td style="padding:8px;">Victory Lap. State Podium Goal. Commit to University.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #333;">
+                    <td style="padding:8px; color:#888;">SEPT 1, 2031</td>
+                    <td style="padding:8px; font-weight:bold; color:var(--accent-gold);">COLLEGIATE START</td>
+                    <td style="padding:8px;">The Dream. Start D1 Running (Goal: Stanford/Elite).</td>
+                </tr>
+            </table>
         </div>
-        <div class="logic-row">
-            <span class="logic-scenario">Scenario B: "The Drill" (Tech Practice)</span>
-            <span class="logic-action action-green">GREEN LIGHT for scheduled work.</span>
-        </div>
-        <div class="logic-row">
-            <span class="logic-scenario">Scenario C: "The Bump" (Minor Pain &lt; 3/10)</span>
-            <span class="logic-action action-yellow">MODIFY (Bike).</span>
-        </div>
-        <div class="logic-row" style="border-bottom:none;">
-            <span class="logic-scenario">Scenario D: "The Injury" (Pain &gt; 3/10)</span>
-            <span class="logic-action action-red">FULL STOP. Immune Protocol.</span>
-        </div>
-    </div>
 
-    <div class="strat-card">
-        <h3>⚖️ Scheduling Constraints</h3>
-        <ul class="def-list" style="margin-bottom:0;">
-            <li><strong>SUNDAY IS SACRED (The Sunday Law):</strong> OFF. No lifting. No running. No "Active Recovery" flushes. Absolute CNS Reset.</li>
-            <li><strong>48-Hour Rule:</strong> No heavy leg lifting (Lift A/B) within 48 hours of Competition.</li>
-            <li><strong>WINTER PROTOCOL:</strong> NO MORNING RUNS. All runs occur PM at 212 Fitness (post-practice) or on weekends. Sleep is the priority.</li>
-        </ul>
-    </div>
+        <div class="section-title">3. Periodization Cycles</div>
+        <div class="strat-card" style="background:transparent; border:none; padding:0; box-shadow:none;">
+            <div class="cycle-grid">
+                <div class="cycle-card cycle-active">
+                    <span class="status-badge">Current Status</span>
+                    <span class="cycle-header">CYCLE 1: THE COMBAT PHASE</span>
+                    <span class="cycle-dates">Jan 5 - Feb 23</span>
+                    <ul style="padding-left:20px; font-size:0.9em; color:#ccc;">
+                        <li><strong>Sport:</strong> Wrestling Focus.</li>
+                        <li><strong>Goal:</strong> CNS Management & Aerobic Floor.</li>
+                        <li><strong>Strategy:</strong> "Augment Only." Zone 1/2 Runs. Front-loaded Heavy Lifts.</li>
+                    </ul>
+                </div>
 
-    <div class="strat-card">
-        <h3>🌊 Load Management (The Wave)</h3>
-        <ul class="def-list" style="margin-bottom:0;">
-            <li><span class="def-term">The Concept:</span> <span class="def-desc">We do not grind linearly. We utilize a "Stress Wave."</span></li>
-            <li><span class="def-term">The Reload (Deload):</span> <span class="def-desc">Occurs every 3-4 weeks (e.g., Feb 2-8).</span></li>
-            <li><span class="def-term">The Trigger:</span> <span class="def-desc">Usually scheduled after a multi-meet week ("The Gauntlet").</span></li>
-            <li><span class="def-term">The Protocol:</span> <span class="def-desc">Reduce competition/sprint stress. Re-introduce structural lifting (Lift B). Allow supercompensation.</span></li>
-        </ul>
-    </div>
+                <div class="cycle-card">
+                    <span class="cycle-header">CYCLE 2: THE AEROBIC RE-BASE</span>
+                    <span class="cycle-dates">Mar 2 - Mar 29</span>
+                    <ul style="padding-left:20px; font-size:0.9em; color:#ccc;">
+                        <li><strong>Sport:</strong> Running Prep (The "Golden Gap").</li>
+                        <li><strong>Goal:</strong> Aggressive Volume Injection.</li>
+                        <li><strong>Strategy:</strong> Re-introduce Lift B & Threshold Runs. The "Saturday Stack".</li>
+                    </ul>
+                </div>
 
-    <div class="footer-info">
-        <span id="lastUpdated">Loading...</span>
+                <div class="cycle-card">
+                    <span class="cycle-header">CYCLE 3: TRACK SPEED PHASE</span>
+                    <span class="cycle-dates">Mar 30 - May</span>
+                    <ul style="padding-left:20px; font-size:0.9em; color:#ccc;">
+                        <li><strong>Sport:</strong> Track & Field (800m/1600m).</li>
+                        <li><strong>Goal:</strong> Specificity & Speed.</li>
+                        <li><strong>Strategy:</strong> Lifts to "Maintenance" (Lift D). Runs to Vo2/Repetition Pace.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">4. Field Operations SOP</div>
+        <div class="strat-card">
+            <div class="sop-grid">
+                <div>
+                    <h3 style="color:white; margin-top:0;">The Command Loop</h3>
+                    <div class="role-box">
+                        <span class="role-title">Sunday Reset</span><br>
+                        Generate "Weekly Tactical Plan" based on constraints.
+                    </div>
+                    <div class="role-box">
+                        <span class="role-title">Daily Log</span><br>
+                        You provide "Ground Truth" (RPE, Mood).
+                    </div>
+                    <div class="role-box">
+                        <span class="role-title">The Adjust</span><br>
+                        I provide specific workout text for the website.
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color:white; margin-top:0;">Decision Matrix (The Veto)</h3>
+                    <div class="role-box">
+                        <span class="role-title">Strategist (Me)</span><br>
+                        I determine <em>what</em> physiological system to train.
+                    </div>
+                    <div class="role-box">
+                        <span class="role-title">Field General (You)</span><br>
+                        You have tactical override.
+                    </div>
+                    <div class="hybrid-tax" style="margin:0; padding:10px; font-size:0.9em;">
+                        <strong>RULE:</strong> If RPE > 8 on an "Easy Day," scrub the mission immediately.
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top:20px; border-top:1px solid #444; padding-top:15px;">
+                <strong>🧪 Fueling Vector (v7.4):</strong> 
+                Magnesium Split. "Blood & Bone" Protocol (Iron/Calcium Segregation). Food-First Gap Fillers.
+            </div>
+        </div>
+
+        <div class="section-title">5. Master Protocol Index</div>
+        <div class="strat-card">
+            <p style="margin-top:0; color:#888; font-size:0.9em; margin-bottom:20px;">
+                Detailed definitions of the "Excalibur Arsenal." Click any protocol to view specific sets, reps, and cues.
+            </p>
+            
+            <div class="proto-grid">
+                
+                <div class="proto-card status-nutrition">
+                    <div class="proto-info">
+                        <h4>💊 NUTRITION (v7.4)</h4>
+                        <p class="proto-desc">
+                            <strong>Focus:</strong> "Blood & Bone" Logic, Gut Defense.<br>
+                            <strong>Status:</strong> <span style="color:var(--accent-purple);">DEPLOYED (v7.4)</span>
+                        </p>
+                    </div>
+                    <a href="tacie_supplements_3mX9z.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+                <div class="proto-card status-nutrition">
+                    <div class="proto-info">
+                        <h4>🛒 PANTRY RESTOCK</h4>
+                        <p class="proto-desc">
+                            <strong>Focus:</strong> Gap Closers (Food-Only).<br>
+                            <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE</span>
+                        </p>
+                    </div>
+                    <a href="pantry_restock_8kL2m.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+                <div class="proto-card status-deployed">
+                    <div class="proto-info">
+                        <h4>🏋️ LIFT A (Posterior)</h4>
+                        <p class="proto-desc">
+                            <strong>Standard Pairing:</strong> Circuit A.<br>
+                            <strong>Role:</strong> Absolute Strength.<br>
+                            <span style="color:var(--accent-red); font-weight:bold; font-size:0.9em;">⚠️ PHASE CONSTRAINT (Cycle 1): DECOUPLED. Under Rule #6 (Law of Separation), do not pair with Circuits on practice days. Move Circuit A to Aerobic slots. See <a href="#wrestling-filter" style="color:inherit; text-decoration:underline;">Wrestling Filter</a>.</span>
+                        </p>
+                    </div>
+                    <a href="tacie_lifta_8zK3m.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+                <div class="proto-card status-suspended">
+                    <div class="proto-info">
+                        <h4>🏋️ LIFT B (Anterior)</h4>
+                        <p class="proto-desc">
+                            <strong>Status:</strong> <span style="color:var(--accent-red);">SUSPENDED (Knee Preservation)</span>.<br>
+                            <strong>Unlocks:</strong> March 2 (Cycle 2).
+                        </p>
+                    </div>
+                    <a href="tacie_liftb_9sL4k.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+                <div class="proto-card status-maint">
+                    <div class="proto-info">
+                        <h4>🏋️ LIFT C (Structural)</h4>
+                        <p class="proto-desc">
+                            <strong>Role:</strong> Injury Prevention / Balance.<br>
+                            <strong>Status:</strong> <span style="color:var(--accent-blue);">MAINTENANCE (Weekends)</span>
+                        </p>
+                    </div>
+                    <a href="tacie_liftc_7jK2n.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+                <div class="proto-card status-power">
+                    <div class="proto-info">
+                        <h4>🏋️ LIFT D (Power)</h4>
+                        <p class="proto-desc">
+                            <strong>Focus:</strong> Velocity / Jumps / Cleans.<br>
+                            <strong>Role:</strong> Rate of Force Development (RFD).<br>
+                            <strong>Status:</strong> <span style="color:var(--accent-gold);">RESERVE (Track Season)</span>
+                        </p>
+                    </div>
+                    <a href="tacie_liftd_3mP9q.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+                <div class="grid-divider">
+                    ↓ Accessory Work (Schedule Independently via Daily Log) ↓
+                </div>
+
+                <div class="proto-card status-deployed" style="border-left-color: var(--accent-prep);">
+                    <div class="proto-info">
+                        <h4>🏗️ CIRCUIT A (Hip Health)</h4>
+                        <p class="proto-desc">
+                            <strong>Focus:</strong> Hip mobility & lateral stability.<br>
+                            <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Separate from Lift A)</span>
+                        </p>
+                    </div>
+                    <a href="tacie_circuit_a_4jK9m.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+                <div class="proto-card status-deployed" style="border-left-color: var(--accent-prep);">
+                    <div class="proto-info">
+                        <h4>🏗️ CIRCUIT B (Glute Dynamics)</h4>
+                        <p class="proto-desc">
+                            <strong>Focus:</strong> Power & dynamic control.<br>
+                            <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Weekend Stack)</span>
+                        </p>
+                    </div>
+                    <a href="tacie_circuit_b_5mL3k.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+                <div class="proto-card status-deployed">
+                    <div class="proto-info">
+                        <h4>🛡️ THE ARMOR</h4>
+                        <p class="proto-desc">
+                            <strong>Focus:</strong> Heavy Carries / Rows / Grip.<br>
+                            <strong>Role:</strong> Wrestling-Specific Durability.<br>
+                            <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Weekly)</span>
+                        </p>
+                    </div>
+                    <a href="tacie_armor_9kL2p.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+                <div class="proto-card status-deployed" style="border-left-color: #34495e;">
+                    <div class="proto-info">
+                        <h4>🧱 CORE (A, B, C)</h4>
+                        <p class="proto-desc">
+                            <strong>Focus:</strong> Trunk Stability / Anti-Rotation.<br>
+                            <strong>Role:</strong> Force Transfer.<br>
+                            <strong>Status:</strong> <span style="color:var(--accent-green);">ACTIVE (Post-Run)</span>
+                        </p>
+                    </div>
+                    <a href="tacie_core_2jX9s.html" class="proto-link">VIEW ➔</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="wrestling-filter" class="section-title">Appendix E: Definitions & Algorithms</div>
+        
+        <div class="euro-model">
+            <span class="euro-quote">"Consistency > Intensity."</span>
+            <p style="margin:0; font-size:0.95em; color:#ccc;">
+                We do not chase "Hero Workouts." A "B+" workout done 50 weeks a year beats an "A+" workout done for 3 weeks before burnout. <br>
+                <strong>The "Check the Box" Rule:</strong> If tired, reduce intensity to Zone 1, get the work done, keep the rhythm alive.
+            </p>
+        </div>
+
+        <div class="strat-card">
+            <h3>🏃 The Running Menu</h3>
+            <ul class="def-list">
+                <li><span class="def-term">Zone 1 (Flush):</span> <span class="def-desc">"Guiltily Slow" / Medicinal. Mouth closed.</span></li>
+                <li><span class="def-term">Zone 2 (Base):</span> <span class="def-desc">Conversational. The engine builder.</span></li>
+                <li><span class="def-term">Threshold (T):</span> <span class="def-desc">"Comfortably Hard." 2-3 word sentences.</span></li>
+                <li><span class="def-term">Strides (ST):</span> <span class="def-desc">100m accelerations. 90% speed, relaxed form.</span></li>
+                <li><span class="def-term">Hills (Short):</span> <span class="def-desc">8-10s max effort sprints. Power output. Full recovery.</span></li>
+                <li><span class="def-term">Flying 30s:</span> <span class="def-desc">Build 30m, Sprint Max 30m, Float out. Max Velocity.</span></li>
+            </ul>
+        </div>
+
+        <div class="strat-card">
+            <h3>🛑 The "Wrestling Filter" (Adjustment Logic)</h3>
+            <div class="logic-row">
+                <span class="logic-scenario">Scenario A: "The Grinder" (Hard Practice)</span>
+                <span class="logic-action action-red">CANCEL Run &gt; 3mi. Switch to Flush/Off.</span>
+            </div>
+            <div class="logic-row">
+                <span class="logic-scenario">Scenario B: "The Drill" (Tech Practice)</span>
+                <span class="logic-action action-green">GREEN LIGHT for scheduled work.</span>
+            </div>
+            <div class="logic-row">
+                <span class="logic-scenario">Scenario C: "The Bump" (Minor Pain &lt; 3/10)</span>
+                <span class="logic-action action-yellow">MODIFY (Bike).</span>
+            </div>
+            <div class="logic-row" style="border-bottom:none;">
+                <span class="logic-scenario">Scenario D: "The Injury" (Pain &gt; 3/10)</span>
+                <span class="logic-action action-red">FULL STOP. Immune Protocol.</span>
+            </div>
+        </div>
+
+        <div class="strat-card">
+            <h3>⚖️ Scheduling Constraints</h3>
+            <ul class="def-list" style="margin-bottom:0;">
+                <li><strong>SUNDAY IS SACRED (The Sunday Law):</strong> OFF. No lifting. No running. No "Active Recovery" flushes. Absolute CNS Reset.</li>
+                <li><strong>48-Hour Rule:</strong> No heavy leg lifting (Lift A/B) within 48 hours of Competition.</li>
+                <li><strong>WINTER PROTOCOL:</strong> NO MORNING RUNS. All runs occur PM at 212 Fitness (post-practice) or on weekends. Sleep is the priority.</li>
+            </ul>
+        </div>
+
+        <div class="strat-card">
+            <h3>🌊 Load Management (The Wave)</h3>
+            <ul class="def-list" style="margin-bottom:0;">
+                <li><span class="def-term">The Concept:</span> <span class="def-desc">We do not grind linearly. We utilize a "Stress Wave."</span></li>
+                <li><span class="def-term">The Reload (Deload):</span> <span class="def-desc">Occurs every 3-4 weeks (e.g., Feb 2-8).</span></li>
+                <li><span class="def-term">The Trigger:</span> <span class="def-desc">Usually scheduled after a multi-meet week ("The Gauntlet").</span></li>
+                <li><span class="def-term">The Protocol:</span> <span class="def-desc">Reduce competition/sprint stress. Re-introduce structural lifting (Lift B). Allow supercompensation.</span></li>
+            </ul>
+        </div>
+
+        <div class="footer-info">
+            <span id="lastUpdated">Loading...</span>
+        </div>
     </div>
 
     <script>
