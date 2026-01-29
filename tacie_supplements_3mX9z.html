@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blood & Bone Protocol v9.3</title>
+    <title>Blood & Bone Protocol v9.0</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -48,7 +48,7 @@
         }
         
         /* Navigation */
-        .nav-container { display: flex; gap: 10px; margin-bottom: 20px; }
+        .nav-container { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
         .back-btn { 
             background: #34495e; padding: 8px 15px; text-decoration: none; 
             color: #ecf0f1; border-radius: 20px; border: 1px solid #555; 
@@ -222,6 +222,13 @@
         .banned-box { border-color: var(--alert-red); }
         .banned-title { color: var(--alert-red); }
         
+        .red-light-box {
+            border: 2px solid var(--alert-red);
+            background: rgba(192, 57, 43, 0.1);
+            grid-column: span 2;
+            margin-bottom: 20px;
+        }
+
         .list-clean { list-style: none; padding: 0; margin: 0; }
         .list-clean li { margin-bottom: 8px; font-size: 0.9em; display: flex; gap: 10px;}
 
@@ -232,6 +239,7 @@
             .t-action { padding: 0; font-size: 1.1em; margin-bottom: 5px; }
             .t-logic { padding: 0; border-left: none; }
             .safety-grid { grid-template-columns: 1fr; }
+            .red-light-box { grid-column: span 1; }
         }
     </style>
 </head>
@@ -250,8 +258,8 @@
 
     <div class="header-section">
         <h1>Blood vs Bone Protocol</h1>
-        <div class="version-tag">VERSION 9.3 | 🟢 ACTIVE</div>
-        <div class="update-note">Updates: Fixed Links (Ryaltris, Zyrtec, Liverwurst).</div>
+        <div class="version-tag">VERSION 9.0 | 🟢 ACTIVE</div>
+        <div class="update-note">Updates: Logic Gate Enforced (Blood Day Pushes Calcium).</div>
     </div>
 
     <div class="mode-selector">
@@ -273,65 +281,58 @@
         </div>
         
         <div class="trigger-box">
-            <div><span class="trigger-label">Trigger:</span> <span class="trigger-val">Red Meat Dinner</span></div>
-            <div><span class="trigger-label">Goal:</span> <span class="trigger-val">Max Absorption</span></div>
-            <div><span class="trigger-label" style="color:var(--alert-red)">Rule:</span> <span class="trigger-val">NO CALCIUM PILLS till 9 PM</span></div>
+            <div><span class="trigger-label">Trigger:</span> <span class="trigger-val">Steak, Liverwurst, Burger</span></div>
+            <div><span class="trigger-label">Goal:</span> <span class="trigger-val">Max Iron Absorption</span></div>
+            <div><span class="trigger-label" style="color:var(--alert-red)">Rule:</span> <span class="trigger-val">NO DAIRY / NO CALCIUM at Dinner</span></div>
         </div>
 
         <div class="timeline-grid">
             <div class="time-row">
                 <div class="t-time">07:00 AM</div>
                 <div class="t-action">
-                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link" title="View Lung Intel">Pulmicort</a> + <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link" title="View Ryaltris Intel">Ryaltris</a><br>
+                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Pulmicort</a> + <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Ryaltris</a><br>
                     <span style="font-size:0.9em; opacity:0.8; display:block; margin-top:5px;">
-                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#creatine" class="intel-link" title="View Creatine Intel">Creatine</a> + <a href="supplement_intel_5kM9p.html#d3" class="intel-link" title="View D3 Intel">D3/K2</a> + <a href="supplement_intel_5kM9p.html#coq10" class="intel-link" title="View CoQ10 Intel">CoQ10</a> + <a href="supplement_intel_5kM9p.html#vykee-lock" class="intel-link" title="Verify Vykee Bottle">Vykee (K+)</a> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link" title="View Cal-Mag Intel">Cal-Mag (1 Tab)</a>
+                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#creatine" class="intel-link">Creatine</a> + <a href="supplement_intel_5kM9p.html#d3" class="intel-link">D3/K2</a> + <a href="supplement_intel_5kM9p.html#coq10" class="intel-link">CoQ10</a><br>
+                        <span class="cb"></span><strong><a href="supplement_intel_5kM9p.html#vykee-lock" class="intel-link">Vykee (2 Caps)</a></strong> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab Only)</a>
                     </span>
+                    <span style="font-size:0.85em; color:var(--accent-gold); display:block; margin-top:5px;">🍳 Menu: Cream of Wheat (Water) + OJ</span>
                 </div>
-                <div class="t-logic">Maintenance + AM Structure.</div>
+                <div class="t-logic">Foundation Stack. Split Magnesium.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">11:30 AM</div>
-                <div class="t-action"><span class="cb"></span><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link" title="View Beet Intel">Beet Juice</a> + Beef Stick</div>
-                <div class="t-logic">Nitric Oxide + Heme Iron.</div>
-            </div>
-            <div class="time-row">
-                <div class="t-time">11:30 AM</div>
-                <div class="t-action"><span class="cb"></span>Potassium Fill: <a href="supplement_intel_5kM9p.html#potato" class="intel-link" title="View Potato Intel">Cold Potato (Skin)</a></div>
-                <div class="t-logic">Gap Closer (~900mg K+).</div>
+                <div class="t-action"><span class="cb"></span><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link">Beet Juice</a> + Beef Stick + <a href="supplement_intel_5kM9p.html#coconut-water" class="intel-link">Coconut Water</a></div>
+                <div class="t-logic">Oxygen + Iron + Hydration.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">02:00 PM</div>
                 <div class="t-action">
-                    <span class="rx-tag">Pre-Run</span> <a href="supplement_intel_5kM9p.html#atrovent" class="intel-link" title="View Atrovent Intel">Atrovent HFA</a><br>
-                    <span style="font-size:0.9em;">+ <a href="supplement_intel_5kM9p.html#pretzels" class="intel-link">Snack</a> + Water</span>
+                    <span class="rx-tag">Pre-Run</span> <a href="supplement_intel_5kM9p.html#atrovent" class="intel-link">Atrovent HFA</a><br>
+                    <span style="font-size:0.9em;">+ <a href="supplement_intel_5kM9p.html#potato" class="intel-link">Potato (Skin On)</a> + Pretzels</span>
                 </div>
-                <div class="t-logic">Rescue Med + Fuel.</div>
-            </div>
-            <div class="time-row">
-                <div class="t-time">05:15 PM</div>
-                <div class="t-action"><span class="cb"></span>Gatorade OR <a href="supplement_intel_5kM9p.html#coconut-water" class="intel-link">Coconut Water</a></div>
-                <div class="t-logic">Transition Fuel / Potassium Load.</div>
+                <div class="t-logic">Rescue Med + K+ Requirement.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
-                <div class="t-action"><span class="cb"></span>MENU: <a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Steak/Burger + Liverwurst</a></div>
-                <div class="t-logic">Iron Source 2. Drink OJ/Water.</div>
+                <div class="t-action"><span class="cb"></span>MENU: <a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Steak/Burger + Veggies + OJ</a></div>
+                <div class="t-logic">Vitamin C boosts Iron. NO MILK.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
                 <div class="t-action" style="color:#777; text-decoration:line-through;">NO Multi / NO Calcium</div>
-                <div class="t-logic" style="color:var(--blood-red); font-weight:bold;">AUTO-PUSHED TO 9PM.</div>
+                <div class="t-logic" style="color:var(--blood-red); font-weight:bold;">IRON ISOLATION. Pushed to 9PM.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">09:00 PM</div>
                 <div class="t-action">
-                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> + <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link" title="View Zyrtec Intel">Zyrtec</a><br>
-                    <span style="font-size:0.9em; opacity:0.8; display:block; margin-top:5px; color:var(--blood-red); font-weight:bold;">
-                        [PUSHED] <span class="cb"></span><a href="supplement_intel_5kM9p.html#multi" class="intel-link">Klean Multi</a> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab)</a>
+                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> + <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Zyrtec</a><br>
+                    <span style="font-size:0.9em; opacity:0.8;">+ <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry</a></span>
+                    <hr style="border:0; border-top:1px dashed #555; margin:5px 0;">
+                    <span style="font-size:0.9em; display:block; color:var(--blood-red); font-weight:bold;">
+                        [CATCH UP] <span class="cb"></span><a href="supplement_intel_5kM9p.html#multi" class="intel-link">Klean Multi</a> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab)</a>
                     </span>
-                    <span style="font-size:0.9em; opacity:0.8;">+ <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry (4oz)</a></span>
                 </div>
-                <div class="t-logic">Night Stack + Pushed Meds.</div>
+                <div class="t-logic">Take the pills you skipped at dinner.</div>
             </div>
         </div>
     </div>
@@ -342,69 +343,76 @@
         </div>
 
         <div class="trigger-box">
-            <div><span class="trigger-label">Trigger:</span> <span class="trigger-val">Pasta/Pizza Dinner</span></div>
+            <div><span class="trigger-label">Trigger:</span> <span class="trigger-val">Pasta, Pizza, Chicken</span></div>
             <div><span class="trigger-label">Goal:</span> <span class="trigger-val">Bone Density</span></div>
-            <div><span class="trigger-label" style="color:var(--success-green)">Rule:</span> <span class="trigger-val">Dairy & Calcium Encouraged</span></div>
+            <div><span class="trigger-label" style="color:var(--success-green)">Rule:</span> <span class="trigger-val">Dairy Encouraged</span></div>
         </div>
 
         <div class="timeline-grid">
             <div class="time-row">
                 <div class="t-time">07:00 AM</div>
                 <div class="t-action">
-                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Pulmicort</a> + <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link" title="View Ryaltris Intel">Ryaltris</a><br>
+                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Pulmicort</a> + <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Ryaltris</a><br>
                     <span style="font-size:0.9em; opacity:0.8; display:block; margin-top:5px;">
-                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#creatine" class="intel-link">Creatine</a> + <a href="supplement_intel_5kM9p.html#d3" class="intel-link">D3/K2</a> + <a href="supplement_intel_5kM9p.html#vykee-lock" class="intel-link">Vykee (K+)</a> + <a href="supplement_intel_5kM9p.html#coq10" class="intel-link">CoQ10</a> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab)</a>
+                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#creatine" class="intel-link">Creatine</a> + <a href="supplement_intel_5kM9p.html#d3" class="intel-link">D3/K2</a> + <a href="supplement_intel_5kM9p.html#coq10" class="intel-link">CoQ10</a><br>
+                        <span class="cb"></span><strong><a href="supplement_intel_5kM9p.html#vykee-lock" class="intel-link">Vykee (2 Caps)</a></strong> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab Only)</a>
                     </span>
+                    <span style="font-size:0.85em; color:var(--bone-blue); display:block; margin-top:5px;">🍳 Menu: Cereal/Oats + Choc Milk</span>
                 </div>
-                <div class="t-logic">Maintenance + AM Structure.</div>
-            </div>
-            <div class="time-row">
-                <div class="t-time">07:00 AM</div>
-                <div class="t-action"><span class="cb"></span>MENU: <a href="supplement_intel_5kM9p.html#chocolate-milk" class="intel-link">Chocolate Milk</a></div>
-                <div class="t-logic">Calcium/Protein Load.</div>
+                <div class="t-logic">Foundation Stack. Split Magnesium.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">11:30 AM</div>
-                <div class="t-action"><span class="cb"></span><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link">Beet Juice</a> + Potato + Cheese</div>
-                <div class="t-logic">Nitric Oxide + K+ + Calcium Fill.</div>
+                <div class="t-action"><span class="cb"></span><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link">Beet Juice</a> + Beef Stick + <a href="supplement_intel_5kM9p.html#coconut-water" class="intel-link">Coconut Water</a></div>
+                <div class="t-logic">Standard Load.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">02:00 PM</div>
                 <div class="t-action">
                     <span class="rx-tag">Pre-Run</span> <a href="supplement_intel_5kM9p.html#atrovent" class="intel-link">Atrovent HFA</a><br>
-                    <span style="font-size:0.9em;">+ <a href="supplement_intel_5kM9p.html#pretzels" class="intel-link">Snack</a> + Water</span>
+                    <span style="font-size:0.9em;">+ <a href="supplement_intel_5kM9p.html#potato" class="intel-link">Potato (Skin On)</a> + Pretzels</span>
                 </div>
-                <div class="t-logic">Rescue Med + Fuel.</div>
+                <div class="t-logic">Rescue Med + K+ Requirement.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
-                <div class="t-action"><span class="cb"></span>MENU: Pasta/Pizza + <a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Liverwurst</a></div>
-                <div class="t-logic">Calcium Window. Drink Milk.</div>
+                <div class="t-action"><span class="cb"></span>MENU: Pasta/Pizza + Milk</div>
+                <div class="t-logic">Calcium Loading.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
                 <div class="t-action"><span class="cb"></span><a href="supplement_intel_5kM9p.html#multi" class="intel-link">Klean Multi</a> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab)</a></div>
-                <div class="t-logic">Taken with full meal.</div>
+                <div class="t-logic" style="color:var(--success-green); font-weight:bold;">TAKE WITH FOOD.</div>
             </div>
             <div class="time-row">
                 <div class="t-time">09:00 PM</div>
                 <div class="t-action">
-                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> + <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link" title="View Zyrtec Intel">Zyrtec</a><br>
-                    <span style="font-size:0.9em; opacity:0.8;">+ <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry (4oz)</a> <span title="Toggle: SCRUB if loose stools.">[Conditional]</span></span>
+                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> + <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Zyrtec</a><br>
+                    <span style="font-size:0.9em; opacity:0.8;">+ <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry</a></span>
                 </div>
-                <div class="t-logic">Night Stack (No extra supps).</div>
+                <div class="t-logic">Night Stack (No extra pills).</div>
             </div>
         </div>
     </div>
 
     <div class="safety-grid">
+        <div class="info-box red-light-box">
+            <span class="info-title banned-title">🚦 Red Light Protocol (Sickness Override)</span>
+            <div style="font-size:0.9em; margin-bottom:10px;"><strong>Trigger:</strong> Fever > 99.5°F OR Extreme Fatigue.</div>
+            <ul class="list-clean">
+                <li>❌ <strong>STOP:</strong> Klean Multi, Cal/Mag, Beet Juice (Iron feeds bacteria).</li>
+                <li>✅ <strong>START:</strong> Immune Stack (Zinc Lozenge + Vit C).</li>
+                <li>✅ <strong>CONTINUE:</strong> Creatine (Water), Potassium (Heart), Rx Meds.</li>
+            </ul>
+        </div>
+
         <div class="info-box">
             <span class="info-title" style="color:var(--accent-gold)">🚑 Safety & Nutrients</span>
             <ul class="list-clean">
                 <li><a href="supplement_intel_5kM9p.html#epinephrine" class="intel-link">💊 <strong>PRN:</strong> Epinephrine (0.3mg)</a> for Anaphylaxis.</li>
-                <li><a href="supplement_intel_5kM9p.html#potato" class="intel-link">🍌 <strong>Potassium Mandate:</strong></a> Pills don't cover the gap. Potato/Coconut Water are MEDICAL REQUIREMENTS.</li>
-                <li><a href="supplement_intel_5kM9p.html#vykee-lock" class="intel-link">⚠️ <strong>Vykee Lock:</strong></a> The Vykee bottle is Potassium (Safe). The 21st Century bottle is Iron (BANNED).</li>
-                <li><a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">⚠️ <strong>Magnesium Warning:</strong></a> NEVER take 2 Cal-Mag pills at once. Osmotic Diarrhea risk.</li>
+                <li><a href="supplement_intel_5kM9p.html#potato" class="intel-link">🍌 <strong>Potassium Rule:</strong></a> Potato/Coconut Water are MEDICAL REQUIREMENTS. Pills aren't enough.</li>
+                <li><a href="supplement_intel_5kM9p.html#vykee-lock" class="intel-link">⚠️ <strong>Vykee Lock:</strong></a> The Vykee bottle is Potassium. 21st Century is Iron (BANNED).</li>
+                <li><a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">⚠️ <strong>Magnesium Rule:</strong></a> NEVER STACK doses. Must split AM/PM.</li>
             </ul>
         </div>
 
