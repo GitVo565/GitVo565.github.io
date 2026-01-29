@@ -20,6 +20,7 @@
             --accent-blue: #3498db;
             --success: #27ae60;
             --danger: #c0392b;
+            --pending: #7f8c8d;
         }
 
         body { 
@@ -103,6 +104,7 @@
         /* Dynamic Border Colors based on Outcome */
         .outcome-win { border-top-color: var(--success); }
         .outcome-loss { border-top-color: var(--danger); }
+        .outcome-pending { border-top-color: var(--pending); border-style: dashed; }
 
         .match-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #444; padding-bottom: 10px; }
         .match-title { font-size: 1.2em; font-weight: bold; color: white; margin: 0; }
@@ -119,6 +121,7 @@
         }
         .bg-win { background: rgba(39, 174, 96, 0.2); color: var(--success); border: 1px solid var(--success); }
         .bg-loss { background: rgba(192, 57, 43, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+        .bg-pending { background: rgba(127, 140, 141, 0.2); color: var(--pending); border: 1px solid var(--pending); }
 
         /* Notes Sections */
         .note-section { margin-bottom: 15px; }
@@ -233,7 +236,7 @@
                     <div>
                         <h3 class="match-title">vs. Alma Ninabuck (Marathon)</h3>
                         <div class="match-meta">
-                            Match 005 | <a href="#" class="header-vid-link">🎥 Video Pending</a>
+                            Match 005 | <a href="https://www.youtube.com/watch?v=rn_Cq630JEk" target="_blank" class="header-vid-link">🎥 Watch Match</a>
                         </div>
                     </div>
                     <span class="score-badge bg-win">WIN (PIN 1:58)</span>
@@ -250,67 +253,75 @@
                 </div>
 
                 <div class="note-section">
-                    <span class="note-label">⏱️ Brian's Tape Breakdown:</span>
+                    <span class="note-label">⏱️ Brian's Full Tape Breakdown:</span>
                     <ul class="timestamp-list">
-                        <li><span class="ts">0:08</span> <strong>First Takedown:</strong> Good go-behind to secure the 3. Straight to strong ride.</li>
-                        <li><span class="ts">0:09</span> <strong>Mistake:</strong> Failed to get behind hips. Allowed her to secure single-leg.</li>
-                        <li><span class="ts">0:33</span> <strong>Opportunity:</strong> <a href="wrestling_library_7hG4d.html#vid-cradle" class="move-link">Nearside Cradle</a> was there! Lock leg from below, go above head.</li>
-                        <li><span class="ts">0:36</span> <strong>Technique Fix:</strong> You shot the Half but had zero hip pressure. Stay behind hips first.</li>
-                        <li><span class="ts">0:44</span> <strong>Critical Error:</strong> Weight was on your hip, allowing reversal. Drive forward on toes + push shoulder.</li>
-                        <li><span class="ts">0:51</span> <strong>Agility:</strong> Excellent side-changing vault. Ninja-like speed.</li>
-                        <li><span class="ts">1:01</span> <strong>Snowplow:</strong> First attempt worked! If you got head in side faster -> <a href="wrestling_library_7hG4d.html#vid-snowplow" class="move-link">Snowplow Cradle</a>.</li>
-                        <li><span class="ts">1:12</span> <strong>Neutral Danger:</strong> You ran into a collar tie. A good wrestler would shoot a Fireman's here. Grab neck <em>before</em> advancing.</li>
-                        <li><span class="ts">1:32</span> <strong>Cardinal Sin:</strong> You reached back while she was behind you. Never do this.</li>
-                        <li><span class="ts">1:38</span> <strong>Head Control:</strong> LET GO OF THE HEAD. A good wrestler puts you in a reverse half here.</li>
-                        <li><span class="ts">1:51</span> <strong>The Finish:</strong> Great job sucking up leg for <a href="wrestling_library_7hG4d.html#vid-cradle" class="move-link">Cradle</a>.</li>
-                        <li><span class="ts">1:58</span> <strong>PIN!!!!</strong> Ugly moments, but you were the better wrestler by a large margin.</li>
+                        <li><span class="ts">0:08</span> First Takedown, good go-behind to secure the 3, straight to a strong ride. Nice work.</li>
+                        <li><span class="ts">0:09</span> Failure to get behind her hips allows Alma to secure a single-leg, threatening the position. This is a mistake you made that allowed her to get back into the match.</li>
+                        <li><span class="ts">0:14</span> You are off-balance, focus on grabbing her far left ankle and driving into her (which would get your weight onto her back) rather than using your left arm to steady yourself.</li>
+                        <li><span class="ts">0:16</span> Bail out of position into a more scramble-esque scenario. This a good move.</li>
+                        <li><span class="ts">0:20</span> You are back into the same position as 0:09. Forget about working the half nelson here, you need to get your hips directly behind her ASAP before you are in any position to try for a pin.</li>
+                        <li><span class="ts">0:26</span> You get behind her, only to immediately jump out to her left side, threatening to get caught in the exact same position as 0:09. This is a mistake. You should have stayed behind her hips and worked on breaking her down from a position of full advantage.</li>
+                        <li><span class="ts">0:31</span> Good head pressure prevents her from stepping up, this is a good move.</li>
+                        <li><span class="ts">0:33</span> <strong>!!! First cradle opportunity presents itself !!!</strong>, you can lock up the leg from below and go above the head to secure a nearside cradle, and roll to your left side to secure a pin.</li>
+                        <li><span class="ts">0:34</span> You opt for brute force, and fully break her down. This is a good move as well.</li>
+                        <li><span class="ts">0:36</span> You shoot in the half nelson, but do not have any pressure holding her hips down. This is a mistake. Stay behind her hips, work in the half from there, and then start to run it.</li>
+                        <li><span class="ts">0:44</span> <strong>Critical Error:</strong> Your full weight is on your right hip, allowing Alma to drive up. Drive hard forward pushing on her left shoulder and holding her right ankle instead.</li>
+                        <li><span class="ts">0:47</span> Your mistake costs you a reversal, Alma has now gained life in this match.</li>
+                        <li><span class="ts">0:48</span> Alma makes the same mistake you do. You turn into her and secure a reversal. Alma lets go of your head, which saves her.</li>
+                        <li><span class="ts">0:51</span> Excellent side-changing technique, fully vaulting your body is incredible for speed. Nice job.</li>
+                        <li><span class="ts">0:52</span> Despite agility, this is a big mistake. You once again get off of her hips and have allowed her to posture up.</li>
+                        <li><span class="ts">0:59</span> Buck-15 power works to get her down, but you accomplished this by having her reach back.</li>
+                        <li><span class="ts">1:01</span> First attempt at using the snowplow to turn, and she gives it to you. This is a good move.</li>
+                        <li><span class="ts">1:07</span> First Period ends, good work.</li>
+                        <li><span class="ts">1:12</span> You start by running into her and forcing a collar-tie. Reach out and grab her neck <em>before</em> you advance. On a superior wrestler, this decision would cost you 3 points every time.</li>
+                        <li><span class="ts">1:16</span> <strong>NEVER REACH YOUR HANDS UP!!!</strong> If her arm is going into the sky, let it go and shoot on that side.</li>
+                        <li><span class="ts">1:19</span> She shoots for your legs and you do not sprawl, you were lucky that your physical power held her.</li>
+                        <li><span class="ts">1:21</span> Dominant head pressure forces her down. This is good.</li>
+                        <li><span class="ts">1:23</span> You should have been up on your toes and working to clear her arm from your leg.</li>
+                        <li><span class="ts">1:28</span> She runs out of grip strength and you are able to get behind her. This is good, but could have been 5 seconds earlier.</li>
+                        <li><span class="ts">1:31</span> You let her hips completely free and she is able to posture back and try to scoot away. This is a big mistake.</li>
+                        <li><span class="ts">1:32</span> <strong>Cardinal Sin:</strong> You reach back while she is behind you. NEVER DO THIS.</li>
+                        <li><span class="ts">1:33</span> Good work getting to your feet, but you need to let go of her head and work to face her.</li>
+                        <li><span class="ts">1:38</span> <strong>LET GO OF THE DAMN HEAD.</strong> A good wrestler would pin you by putting in a reverse half nelson.</li>
+                        <li><span class="ts">1:40</span> You let go of the head and spin into her, this is a great position for you. A <a href="wrestling_library_7hG4d.html#vid-cow-catcher" class="move-link">Cow Catcher</a> here would win the match.</li>
+                        <li><span class="ts">1:42</span> You take her down and immediately start running the half. Good intensity.</li>
+                        <li><span class="ts">1:46</span> <strong>Visual for #1 Mistake:</strong> She is broken down, but you are working the half without any pressure on her hips.</li>
+                        <li><span class="ts">1:50</span> She looks the wrong way, and you take advantage. Tremendous power drives her back. Nice work.</li>
+                        <li><span class="ts">1:51</span> Great work sucking up that leg for a cradle. Watch out that you don't get too high.</li>
+                        <li><span class="ts">1:53</span> Amazing position. Lift your head high to put your full chest weight on her.</li>
+                        <li><span class="ts">1:55</span> When she rotates, you can spin to counter that rotation. You stay straight, but cradle loses efficacy.</li>
+                        <li><span class="ts">1:56</span> She runs out of juice and goes flat, you are still in an amazing position.</li>
+                        <li><span class="ts">1:58</span> <strong>PIN!!!!</strong> Nice job. You were the better wrestler by a large margin.</li>
                     </ul>
                 </div>
                 
                 <div class="mobile-jump"><a href="#" style="color:#666; font-size:0.8em;">^ Top</a></div>
             </div>
 
-            <div id="jan17-match1" class="match-card outcome-win">
+            <div id="match4-placeholder" class="match-card outcome-pending">
                 <div class="match-header">
                     <div>
-                        <h3 class="match-title">vs. Taylor Gurney (Antigo)</h3>
-                        <div class="match-meta">
-                            Jan 17 | Battle by the River 
-                            <a href="https://youtu.be/q4lP3baxRkY" target="_blank" class="header-vid-link">🎥 Watch Match</a>
-                        </div>
+                        <h3 class="match-title" style="color:#aaa;">Match 004</h3>
+                        <div class="match-meta">Status: Feedback Pending</div>
                     </div>
-                    <span class="score-badge bg-win">WIN 7-0</span>
+                    <span class="score-badge bg-pending">WAITING</span>
                 </div>
-                
-                <div class="note-section good-stuff">
-                    <span class="note-label">✅ Coach's Take:</span>
-                    <p class="note-text">Relentless aggression and solid top control carried the day. You shut her out with smart positioning. <strong>Great job!</strong></p>
-                </div>
-
-                <div class="note-section needs-work">
-                    <span class="note-label">🔧 To Improve:</span>
-                    <p class="note-text">Sharpen the <a href="wrestling_library_7hG4d.html#vid-snowplow" class="move-link" target="_blank">Cradles</a> and <a href="wrestling_library_7hG4d.html#vid-crossface-cradle" class="move-link" target="_blank">Crossfaces</a>. On top, hugging the upper body risks reversal—drive forward with <a href="wrestling_library_7hG4d.html#vid-tight-waist" class="move-link" target="_blank">ankle/wrist control</a> instead.</p>
-                </div>
-
                 <div class="note-section">
-                    <span class="note-label">⏱️ Video Breakdown (Click time to watch):</span>
-                    <ul class="timestamp-list">
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=0" target="_blank" class="ts">0:00</a> Match start: Strong aggression right off the whistle.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=18" target="_blank" class="ts">0:18</a> Early headlock: Good disruption. Use this to <a href="wrestling_library_7hG4d.html#vid-chain-wrestling" class="move-link" target="_blank">chain</a> into a leg ride or single-leg.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=95" target="_blank" class="ts">1:35</a> Top Position: Stop hugging upper body! Grab an <a href="wrestling_library_7hG4d.html#vid-tight-waist" class="move-link" target="_blank">Ankle/Wrist</a> and <a href="wrestling_library_7hG4d.html#vid-toe-pressure" class="move-link" target="_blank">drive forward</a>.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=122" target="_blank" class="ts">2:02</a> Breakdown Opportunity: Perfect for <a href="wrestling_library_7hG4d.html#vid-tight-waist" class="move-link" target="_blank">Ankle-Wrist Combo</a> into snowplow.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=125" target="_blank" class="ts">2:05</a> Exposed Position: Circle behind hips and plow to her back next time.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=152" target="_blank" class="ts">2:32</a> <strong><a href="wrestling_library_7hG4d.html#vid-snowplow" class="move-link" target="_blank">Snowplow Cradle Setup</a>:</strong> Half nelson is there—bury head in ribs, scoop leg, explode.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=187" target="_blank" class="ts">3:07</a> Ankle Grab: Pair with wrist or arm pressure to collapse her.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=194" target="_blank" class="ts">3:14</a> Crossface Window: Arm across face, snag far arm, drive to roll her.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=203" target="_blank" class="ts">3:23</a> Ankle Opportunity: Lift one, drive knee in, dismantle the post.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=217" target="_blank" class="ts">3:37</a> Prime Crossface: Avoid <a href="wrestling_library_7hG4d.html#vid-half-nelson" class="move-link" target="_blank">Half Nelsons</a> on strong bases; torque sideways instead.</li>
-                        <li><a href="https://youtu.be/q4lP3baxRkY?t=285" target="_blank" class="ts">4:45</a> <strong>Rule Check:</strong> You CAN lock hands around waist while <em>standing</em>. If opponent is <em>down</em> (on mat), you MUST release or trap an arm/leg.</li>
-                        <li><span class="ts-label">Post-Match:</span> Excellent sportsmanship.</li>
-                    </ul>
+                    <p class="note-text" style="font-style: italic; color: #777;">Waiting for coach's breakdown...</p>
                 </div>
-                
-                <div class="mobile-jump"><a href="#" style="color:#666; font-size:0.8em;">^ Top</a></div>
+            </div>
+
+            <div id="match3-placeholder" class="match-card outcome-pending">
+                <div class="match-header">
+                    <div>
+                        <h3 class="match-title" style="color:#aaa;">Match 003</h3>
+                        <div class="match-meta">Status: Feedback Pending</div>
+                    </div>
+                    <span class="score-badge bg-pending">WAITING</span>
+                </div>
+                <div class="note-section">
+                    <p class="note-text" style="font-style: italic; color: #777;">Waiting for coach's breakdown...</p>
+                </div>
             </div>
 
             <div id="jan17-match2" class="match-card outcome-loss">
@@ -359,6 +370,49 @@
                         <li><a href="https://youtu.be/NZSCD3sX3Ls?t=231" target="_blank" class="ts">3:51</a> <strong>Cradle Again:</strong> On stand-up, she collapses. Post far foot, donkey kick, and break early.</li>
                         <li><a href="https://youtu.be/NZSCD3sX3Ls?t=260" target="_blank" class="ts">4:20</a> <strong>Half Nelson Turn:</strong> Sunk and rolled. Use <a href="wrestling_library_7hG4d.html#vid-wing-down" class="move-link" target="_blank">Wing Down</a> counter: clamp elbow tight and look away.</li>
                         <li><span class="ts-label">Match End:</span> Survive full bout! <strong>Heart won respect.</strong> Polish counters and drill cradle breaks this week.</li>
+                    </ul>
+                </div>
+                
+                <div class="mobile-jump"><a href="#" style="color:#666; font-size:0.8em;">^ Top</a></div>
+            </div>
+
+            <div id="jan17-match1" class="match-card outcome-win">
+                <div class="match-header">
+                    <div>
+                        <h3 class="match-title">vs. Taylor Gurney (Antigo)</h3>
+                        <div class="match-meta">
+                            Jan 17 | Battle by the River 
+                            <a href="https://youtu.be/q4lP3baxRkY" target="_blank" class="header-vid-link">🎥 Watch Match</a>
+                        </div>
+                    </div>
+                    <span class="score-badge bg-win">WIN 7-0</span>
+                </div>
+                
+                <div class="note-section good-stuff">
+                    <span class="note-label">✅ Coach's Take:</span>
+                    <p class="note-text">Relentless aggression and solid top control carried the day. You shut her out with smart positioning. <strong>Great job!</strong></p>
+                </div>
+
+                <div class="note-section needs-work">
+                    <span class="note-label">🔧 To Improve:</span>
+                    <p class="note-text">Sharpen the <a href="wrestling_library_7hG4d.html#vid-snowplow" class="move-link" target="_blank">Cradles</a> and <a href="wrestling_library_7hG4d.html#vid-crossface-cradle" class="move-link" target="_blank">Crossfaces</a>. On top, hugging the upper body risks reversal—drive forward with <a href="wrestling_library_7hG4d.html#vid-tight-waist" class="move-link" target="_blank">ankle/wrist control</a> instead.</p>
+                </div>
+
+                <div class="note-section">
+                    <span class="note-label">⏱️ Video Breakdown (Click time to watch):</span>
+                    <ul class="timestamp-list">
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=0" target="_blank" class="ts">0:00</a> Match start: Strong aggression right off the whistle.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=18" target="_blank" class="ts">0:18</a> Early headlock: Good disruption. Use this to <a href="wrestling_library_7hG4d.html#vid-chain-wrestling" class="move-link" target="_blank">chain</a> into a leg ride or single-leg.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=95" target="_blank" class="ts">1:35</a> Top Position: Stop hugging upper body! Grab an <a href="wrestling_library_7hG4d.html#vid-tight-waist" class="move-link" target="_blank">Ankle/Wrist</a> and <a href="wrestling_library_7hG4d.html#vid-toe-pressure" class="move-link" target="_blank">drive forward</a>.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=122" target="_blank" class="ts">2:02</a> Breakdown Opportunity: Perfect for <a href="wrestling_library_7hG4d.html#vid-tight-waist" class="move-link" target="_blank">Ankle-Wrist Combo</a> into snowplow.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=125" target="_blank" class="ts">2:05</a> Exposed Position: Circle behind hips and plow to her back next time.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=152" target="_blank" class="ts">2:32</a> <strong><a href="wrestling_library_7hG4d.html#vid-snowplow" class="move-link" target="_blank">Snowplow Cradle Setup</a>:</strong> Half nelson is there—bury head in ribs, scoop leg, explode.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=187" target="_blank" class="ts">3:07</a> Ankle Grab: Pair with wrist or arm pressure to collapse her.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=194" target="_blank" class="ts">3:14</a> Crossface Window: Arm across face, snag far arm, drive to roll her.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=203" target="_blank" class="ts">3:23</a> Ankle Opportunity: Lift one, drive knee in, dismantle the post.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=217" target="_blank" class="ts">3:37</a> Prime Crossface: Avoid <a href="wrestling_library_7hG4d.html#vid-half-nelson" class="move-link" target="_blank">Half Nelsons</a> on strong bases; torque sideways instead.</li>
+                        <li><a href="https://youtu.be/q4lP3baxRkY?t=285" target="_blank" class="ts">4:45</a> <strong>Rule Check:</strong> You CAN lock hands around waist while <em>standing</em>. If opponent is <em>down</em> (on mat), you MUST release or trap an arm/leg.</li>
+                        <li><span class="ts-label">Post-Match:</span> Excellent sportsmanship.</li>
                     </ul>
                 </div>
                 
