@@ -14,7 +14,8 @@
         /* Theme Variables */
         :root {
             --bg-dark: #0f0f0f;
-            --card-bg: #1f1f1f;
+            /* UPDATED: Increased transparency for Glassmorphism */
+            --card-bg: rgba(31, 31, 31, 0.85); 
             --text-light: #e0e0e0;
             --accent-gold: #f1c40f;
             --accent-blue: #3498db;
@@ -32,13 +33,39 @@
             background: var(--bg-dark); 
             color: var(--text-light); 
         }
+
+        /* --- VIDEO BACKGROUND ENGINE (v3.3) --- */
+        .bg-video-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            overflow: hidden;
+            background: #000;
+        }
+        .hero-video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            opacity: 0.5; /* Dimmed for readability */
+        }
+        .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            z-index: -5;
+        }
         
         /* Navigation */
         .back-btn { 
-            display: inline-block; background: #34495e; padding: 8px 15px; 
+            display: inline-block; background: rgba(52, 73, 94, 0.8); padding: 8px 15px; 
             text-decoration: none; color: #ecf0f1; border-radius: 20px; 
             border: 1px solid #465c71; font-size: 0.9em; margin-bottom: 20px; 
-            transition: all 0.2s; 
+            transition: all 0.2s; backdrop-filter: blur(5px);
         }
         .back-btn:hover { background: #465c71; }
 
@@ -47,7 +74,7 @@
             text-align: center; margin-bottom: 40px; 
             border-bottom: 2px solid var(--accent-gold); padding-bottom: 20px; 
         }
-        h1 { margin: 10px 0 5px 0; color: #ecf0f1; text-transform: uppercase; letter-spacing: 1px;}
+        h1 { margin: 10px 0 5px 0; color: #ecf0f1; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .subtitle { color: #bdc3c7; font-style: italic; margin-bottom: 15px; }
 
         /* Archive Link Button */
@@ -61,19 +88,23 @@
             font-size: 0.85em; 
             border: 1px solid #7f8c8d;
             transition: all 0.2s;
+            backdrop-filter: blur(5px);
         }
         .archive-btn:hover { background: rgba(255, 255, 255, 0.2); color: #fff; border-color: #fff; }
 
-        /* Event Cards */
+        /* Event Cards - Glassmorphism Update */
         .event-card { 
             background: var(--card-bg); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             color: var(--text-light); 
             padding: 0; 
             border-radius: 8px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
             margin-bottom: 25px; 
             border-left: 6px solid #ccc; 
             overflow: hidden; 
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         /* Border Colors */
@@ -89,7 +120,7 @@
             align-items: flex-start;
             gap: 15px;
             padding: 15px 20px 5px 20px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.05);
         }
 
         .header-left { flex: 1; }
@@ -147,7 +178,7 @@
 
         /* Date Badges */
         .date-badge { 
-            text-align: center; background: #333; 
+            text-align: center; background: rgba(0,0,0,0.5); 
             padding: 5px 10px; border-radius: 8px; border: 1px solid #555; 
             font-weight: bold; color: #fff;
             min-width: 45px;
@@ -156,7 +187,7 @@
         .date-badge .day { font-size: 1.3em; line-height: 1; }
         
         .day-badge {
-            text-align: center; background: #34495e;
+            text-align: center; background: rgba(52, 73, 94, 0.8);
             padding: 6px 10px; border-radius: 20px;
             font-weight: bold; color: #fff; font-size: 0.8em; text-transform: uppercase;
             height: fit-content;
@@ -183,7 +214,7 @@
         
         /* ALERT BOX */
         .alert-box {
-            background: rgba(231, 76, 60, 0.1);
+            background: rgba(231, 76, 60, 0.2);
             border-left: 3px solid var(--accent-red);
             padding: 10px;
             border-radius: 4px;
@@ -223,11 +254,18 @@
         }
 
         /* Footer */
-        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 6px; }
 
     </style>
 </head>
 <body>
+
+    <div class="bg-video-wrap">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="images/grok_mountain.mp4" type="video/mp4">
+        </video>
+        <div class="bg-overlay"></div>
+    </div>
 
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
