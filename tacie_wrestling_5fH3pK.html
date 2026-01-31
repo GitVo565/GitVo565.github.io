@@ -133,6 +133,7 @@
         /* Outcome Styles */
         .win { color: var(--success); font-weight: bold; }
         .loss { color: var(--danger); font-weight: bold; }
+        .pending { color: #aaa; font-style: italic; }
         
         /* Links in Table */
         .analysis-link { 
@@ -223,7 +224,7 @@
 
     <div class="section-header">
         <h2 class="section-title">Season Match Log</h2>
-        <span class="record-badge">Season Record: 2-3</span>
+        <span class="record-badge">Season Record: 2-3 (Pending)</span>
     </div>
 
     <div class="table-container">
@@ -239,6 +240,38 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>8</td>
+                    <td>Jan 30</td>
+                    <td>Merrill Invite (Rd 3)</td>
+                    <td>Taylor Gurney (Antigo)</td>
+                    <td class="pending">Pending</td>
+                    <td>
+                        <span style="font-size:0.85em; color:#aaa; display:block;">Bout 6102</span>
+                        <span style="font-size:0.85em; color:var(--accent-gold); font-weight:bold;">⚠️ Rematch! (See Match #1)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Jan 30</td>
+                    <td>Merrill Invite (Rd 2)</td>
+                    <td>Ellie Borchardt (Athens)</td>
+                    <td class="pending">Pending</td>
+                    <td>
+                        <span style="font-size:0.85em; color:#aaa;">Bout 6066</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Jan 30</td>
+                    <td>Merrill Invite (Rd 1)</td>
+                    <td>Danica Jerabek (Wis. Rapids)</td>
+                    <td class="pending">Pending</td>
+                    <td>
+                        <span style="font-size:0.85em; color:#aaa;">Bout 6032</span>
+                    </td>
+                </tr>
+
                 <tr>
                     <td>5</td>
                     <td>Jan 26</td>
@@ -304,6 +337,16 @@
     </div>
 
     <div class="footer-info"><span id="lastUpdated"></span></div>
-    <script>var date = new Date(document.lastModified); document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});</script>
+    
+    <script>
+        // Back-Button Fix (Spec 3.2)
+        window.onpageshow = function(event) {
+            if (event.persisted) { window.location.reload(); }
+        };
+
+        // Timestamp
+        var date = new Date(document.lastModified); 
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
 </body>
 </html>
