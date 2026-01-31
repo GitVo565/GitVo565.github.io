@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match 008: Tactical Breakdown</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        /* Theme Variables */
+        :root {
+            --bg-dark: #0f0f0f;
+            --card-glass: rgba(20, 20, 20, 0.9);
+            --text-light: #ecf0f1;
+            --accent-gold: #f39c12;
+            --accent-red: #c0392b;
+            --accent-blue: #3498db;
+            --accent-green: #27ae60;
+            --section-border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            background: var(--bg-dark); 
+            color: var(--text-light); 
+        }
+
+        /* --- BACKGROUND ENGINE --- */
+        .bg-video-wrap {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -10; overflow: hidden; background: #000;
+        }
+        .hero-video {
+            min-width: 100%; min-height: 100%; width: auto; height: auto;
+            object-fit: cover; opacity: 0.4;
+        }
+        .bg-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8); z-index: -5;
+        }
+
+        /* Navigation */
+        .nav-bar { margin-bottom: 20px; }
+        .back-btn { 
+            display: inline-block; background: rgba(52, 73, 94, 0.8); padding: 8px 15px; 
+            text-decoration: none; color: #ecf0f1; border-radius: 20px; 
+            border: 1px solid #465c71; font-size: 0.9em; backdrop-filter: blur(5px);
+            transition: all 0.2s;
+        }
+        .back-btn:hover { background: var(--accent-red); border-color: var(--accent-red); }
+
+        /* Header */
+        .header-section { 
+            border-left: 6px solid var(--accent-red); 
+            padding: 20px; background: var(--card-glass); 
+            border-radius: 0 8px 8px 0; margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; font-size: 1.8em; }
+        .subtitle { color: var(--accent-gold); font-weight: bold; font-style: italic; margin-top: 5px; }
+
+        /* Match Embed Container */
+        .video-container {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            border-radius: 8px; border: 2px solid #333; margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .video-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        /* Analysis Cards */
+        .phase-card {
+            background: var(--card-glass);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: var(--section-border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phase-header {
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px; margin-bottom: 15px;
+        }
+        
+        .phase-title { font-size: 1.4em; font-weight: 900; color: white; text-transform: uppercase; }
+        .phase-icon { font-size: 1.5em; }
+
+        .diagnosis-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .diagnosis-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .issue-box { border-left: 3px solid var(--accent-red); padding-left: 15px; }
+        .fix-box { border-left: 3px solid var(--accent-green); padding-left: 15px; }
+        
+        h4 { margin: 0 0 5px 0; color: #aaa; text-transform: uppercase; font-size: 0.8em; }
+        p { margin: 0; font-size: 0.95em; color: #ddd; }
+
+        /* Action Steps */
+        .drill-section {
+            background: rgba(0,0,0,0.3);
+            padding: 15px; border-radius: 6px;
+            margin-top: 15px;
+        }
+        .drill-header { color: var(--accent-gold); font-weight: bold; margin-bottom: 10px; display: block; }
+
+        /* Video Links */
+        .video-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: bold;
+            border: 1px solid var(--accent-blue);
+            transition: all 0.2s;
+            margin-top: 5px; margin-right: 10px;
+        }
+        .video-link:hover { background: var(--accent-blue); color: white; transform: translateY(-2px); }
+
+        /* Internal Links */
+        .internal-link { color: var(--accent-gold); text-decoration: none; border-bottom: 1px dotted var(--accent-gold); }
+        .internal-link:hover { color: white; border-bottom: 1px solid white; }
+
+        /* Footer */
+        .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-video-wrap">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="images/Tacie_Pins_hero.mp4" type="video/mp4">
+        </video>
+        <div class="bg-overlay"></div>
+    </div>
+
+    <div class="nav-bar">
+        <a href="tacie_wrestling_5fH3pK.html" class="back-btn">← Return to Battlezone</a>
+    </div>
+
+    <div class="header-section">
+        <h1>Match 008 Analysis</h1>
+        <div class="subtitle">Merrill Invite vs. Taylor Gurney (Antigo)</div>
+        <div style="margin-top:10px; font-size:0.9em; color:#ccc;">
+            <strong>Result:</strong> Loss (Fall 0:24) | <strong>Key Issue:</strong> Shot Hesitation & Posture.
+        </div>
+    </div>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/lqGtQeVpu9k?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="phase-card">
+        <div class="phase-header">
+            <span class="phase-title">Phase 1: The Shot (Single Leg)</span>
+            <span class="phase-icon">🦵</span>
+        </div>
+        
+        <div class="diagnosis-grid">
+            <div class="issue-box">
+                <h4>What Happened</h4>
+                <p>You dropped low and secured the leg (Great initiative!), but the drive stalled. Your torso went <strong>parallel to the mat</strong>, killing your leverage.</p>
+            </div>
+            <div class="fix-box">
+                <h4>The Fix</h4>
+                <p>Explode hips forward/up. "Run the pipe" immediately. Self-cue: <strong>"Head Up, Chest Up."</strong> Do not bury your head.</p>
+            </div>
+        </div>
+
+        <div class="drill-section">
+            <span class="drill-header">🛠️ DRILL DIRECTIVES (10-15 Reps)</span>
+            <p style="margin-bottom:10px;">If the leg slips, switch to a <a href="wrestling_library_7hG4d.html#body-lock" class="internal-link">Body Lock</a> (Gable Grip) immediately. Do not reset to neutral.</p>
+            
+            <a href="https://www.youtube.com/watch?v=eElwaCkzB6E" target="_blank" class="video-link">▶ Finish Single Leg</a>
+            <a href="https://www.youtube.com/watch?v=FYs8bJ4Olc4" target="_blank" class="video-link">▶ Recover Failed Single</a>
+        </div>
+    </div>
+
+    <div class="phase-card">
+        <div class="phase-header">
+            <span class="phase-title">Phase 2: The Counter (Front Headlock)</span>
+            <span class="phase-icon">🔒</span>
+        </div>
+        
+        <div class="diagnosis-grid">
+            <div class="issue-box">
+                <h4>What Happened</h4>
+                <p>Once she locked your head, your parallel torso gave you no base. You delayed the reaction, allowing her to secure the throw leverage.</p>
+            </div>
+            <div class="fix-box">
+                <h4>The Fix</h4>
+                <p><strong>Act Immediately.</strong> Drop hips lower (bend knees). Circle hard to the outside to turn her lock into a vulnerable "Reach Back" position.</p>
+            </div>
+        </div>
+
+        <div class="drill-section">
+            <span class="drill-header">🛠️ DRILL DIRECTIVES (10-15 Reps)</span>
+            <p style="margin-bottom:10px;">
+                <strong>Emergency Exit:</strong> Drop controlled to <a href="wrestling_library_7hG4d.html#turtle" class="internal-link">Turtle</a> if needed, then hit a stand-up. Do not hang out in the lock.
+            </p>
+            
+            <a href="https://www.youtube.com/watch?v=j_c5E2KtDcM" target="_blank" class="video-link">▶ Front Headlock Counter</a>
+            <a href="https://www.youtube.com/watch?v=zuBatZkjm1M" target="_blank" class="video-link">▶ Deep Arm Counter</a>
+        </div>
+    </div>
+
+    <div class="phase-card">
+        <div class="phase-header">
+            <span class="phase-title">Phase 3: The Pin (Recovery)</span>
+            <span class="phase-icon">🧲</span>
+        </div>
+        
+        <div class="diagnosis-grid">
+            <div class="issue-box">
+                <h4>What Happened</h4>
+                <p>The throw flattened you. There was no immediate bridge or grip fight, allowing her to settle into the pin.</p>
+            </div>
+            <div class="fix-box">
+                <h4>The Fix</h4>
+                <p><strong>Bridge & Roll:</strong> Explode hips up immediately to stop the pin clock. Trap her arm and roll toward her.</p>
+            </div>
+        </div>
+
+        <div class="drill-section">
+            <span class="drill-header">🛠️ DRILL DIRECTIVES (10-15 Reps)</span>
+            <p style="margin-bottom:10px;">
+                If bridging fails, use the <strong>Hip Heist</strong>: Shrimp hips sideways, post on elbow, whip legs through to belly out.
+            </p>
+            
+            <a href="https://www.youtube.com/watch?v=VJJIzxNsylw" target="_blank" class="video-link">▶ Pin Escapes (Bridge)</a>
+            <a href="https://www.youtube.com/watch?v=CX_wLBsPyzU" target="_blank" class="video-link">▶ Hip Heist Escape</a>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated">Loading...</span>
+    </div>
+
+    <script>
+        // Back-Button Fix (Spec 3.2)
+        window.onpageshow = function(event) {
+            if (event.persisted) { window.location.reload(); }
+        };
+
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
+
+</body>
+</html>
