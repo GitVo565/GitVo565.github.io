@@ -13,7 +13,7 @@
     <style>
         /* Theme Variables */
         :root {
-            --bg-dark: #0f0f0f;
+            --bg-dark: #000000; /* Solid Black */
             --card-glass: rgba(20, 20, 20, 0.95);
             --text-light: #ecf0f1;
             --accent-gold: #f39c12;
@@ -33,7 +33,8 @@
             color: var(--text-light); 
         }
 
-        /* --- BACKGROUND ENGINE --- */
+        /* --- BACKGROUND ENGINE (Disabled for Solid Black) --- */
+        /*
         .bg-video-wrap {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -10; overflow: hidden; background: #000;
@@ -46,6 +47,7 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.8); z-index: -5;
         }
+        */
 
         /* Navigation */
         .nav-bar { margin-bottom: 20px; }
@@ -116,7 +118,7 @@
 
         /* Action Steps */
         .drill-section {
-            background: rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.05); /* Lighter contrast for black bg */
             padding: 15px; border-radius: 6px;
             margin-top: 15px;
         }
@@ -149,13 +151,6 @@
     </style>
 </head>
 <body>
-
-    <div class="bg-video-wrap">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="../images/Tacie_Pins_hero.mp4" type="video/mp4">
-        </video>
-        <div class="bg-overlay"></div>
-    </div>
 
     <div class="nav-bar">
         <a href="../tacie_wrestling_5fH3pK.html" class="back-btn">← Return to Battlezone</a>
