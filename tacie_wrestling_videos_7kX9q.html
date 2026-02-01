@@ -156,6 +156,22 @@
         .video-info { padding: 15px; }
         .video-title { font-weight: bold; font-size: 1.1em; color: white; margin-bottom: 5px; display: block; }
         .video-desc { font-size: 0.85em; color: #aaa; }
+        
+        /* Feature Video Highlight */
+        .feature-highlight {
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 0 15px rgba(243, 156, 18, 0.3);
+        }
+        .feature-badge {
+            background: var(--accent-gold);
+            color: black;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
 
         /* Footer Spec */
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; padding-bottom: 20px;}
@@ -184,12 +200,35 @@
         
         <div class="sidebar">
             <span class="index-title">CHANNEL GUIDE</span>
+            <a href="#feature" class="index-link active">⭐ Feature Presentation</a>
             <a href="#ncaa" class="index-link">🏆 NCAA Championships</a>
             <a href="#international" class="index-link">🌍 International / Youth</a>
             <a href="#shorts" class="index-link">⚡ Quick Hits (Shorts)</a>
         </div>
 
         <div class="content-area">
+
+            <div id="feature" class="video-category">
+                <div class="category-title">⭐ Feature Presentation</div>
+                <div class="video-grid">
+                    <div class="video-card feature-highlight">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/89uAbcGI0iE" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-title"><span class="feature-badge">ESSENTIAL</span>Blue vs Red: Clinic on Control</span>
+                            <span class="video-desc">
+                                <strong>Target Analysis:</strong> You have wrestled both these girls. Watch <strong>Blue</strong>. She puts on an absolute clinic:
+                                <ul style="margin: 5px 0 0 20px; padding: 0; color: #ccc;">
+                                    <li>Dominant Far Arm Rolls (The move we are drilling).</li>
+                                    <li>Tight Cradles (Snowplow).</li>
+                                    <li>Perfect Defense against Throws ( hips down, circle front).</li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div id="ncaa" class="video-category">
                 <div class="category-title">🏆 NCAA Championships</div>
@@ -266,7 +305,10 @@
                 <span id="lastUpdated">Loading...</span>
             </div>
 
-        </div> </div> <script>
+        </div> 
+    </div>
+
+    <script>
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     </script>
