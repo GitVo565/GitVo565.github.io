@@ -33,22 +33,6 @@
             color: var(--text-light); 
         }
 
-        /* --- BACKGROUND ENGINE (Disabled for Solid Black) --- */
-        /*
-        .bg-video-wrap {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -10; overflow: hidden; background: #000;
-        }
-        .hero-video {
-            min-width: 100%; min-height: 100%; width: auto; height: auto;
-            object-fit: cover; opacity: 0.4;
-        }
-        .bg-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8); z-index: -5;
-        }
-        */
-
         /* Navigation */
         .nav-bar { margin-bottom: 20px; }
         .back-btn { 
@@ -219,3 +203,117 @@
             <div class="video-group">
                 <a href="https://www.youtube.com/watch?v=pZbZJbmSa1w" target="_blank" class="video-link">▶ How to Shoot (Mechanics)</a>
                 <span class="video-desc">Proper level change: Head up, back planked.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="phase-card">
+        <div class="phase-header">
+            <span class="phase-title">Phase 2: The Counter (Front Headlock)</span>
+            <span class="phase-icon">🔒</span>
+        </div>
+        
+        <div class="diagnosis-grid">
+            <div class="issue-box">
+                <h4>What Happened</h4>
+                <p>Once locked, your parallel torso gave no base. You delayed reaction, allowing her to secure throw leverage.</p>
+            </div>
+            <div class="fix-box">
+                <h4>The Fix</h4>
+                <p><strong>Chin Tuck:</strong> Protect neck immediately. Drop hips lower. Circle hard outside to create "Reach Back" vulnerability.</p>
+            </div>
+        </div>
+
+        <div class="drill-section">
+            <span class="drill-header">🛠️ DRILL DIRECTIVES (10-15 Reps)</span>
+            <p style="margin-bottom:10px;">
+                <strong>Emergency Exit:</strong> Drop controlled to <a href="https://www.youtube.com/watch?v=dU5Lv_PQeQM?t=33" target="_blank" class="internal-link">Turtle (Build Base)</a> if needed, then hit a stand-up.
+            </p>
+            
+            <div class="video-group">
+                <a href="https://youtu.be/-70kic2RBl8?t=41" target="_blank" class="video-link">▶ Standing Front Headlock Escape</a>
+                <span class="video-desc">Focus: Fight hands, head up, control the elbows.</span>
+            </div>
+            <div class="video-group">
+                <a href="https://youtu.be/rtoxQ4t9O8M?t=126" target="_blank" class="video-link">▶ 3 Counter Takedowns</a>
+                <span class="video-desc">Circle & drag when she over-extends.</span>
+            </div>
+            <div class="video-group">
+                <a href="https://www.youtube.com/watch?v=mv1d8edGRbU?t=66" target="_blank" class="video-link">▶ Slide-By Counter</a>
+                <span class="video-desc">Clear the head, take the back.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="phase-card">
+        <div class="phase-header">
+            <span class="phase-title">Phase 3: The Pin (Recovery)</span>
+            <span class="phase-icon">🧲</span>
+        </div>
+        
+        <div class="diagnosis-grid">
+            <div class="issue-box">
+                <h4>What Happened</h4>
+                <p>The throw flattened you. No immediate bridge or grip fight allowed her to settle.</p>
+            </div>
+            <div class="fix-box">
+                <h4>The Fix</h4>
+                <p><strong>Bridge & Roll:</strong> Explode hips up immediately to stop pin clock. <strong>Fight Hands:</strong> Peel grips before big moves.</p>
+            </div>
+        </div>
+
+        <div class="drill-section">
+            <span class="drill-header">🛠️ DRILL DIRECTIVES (10-15 Reps)</span>
+            <p style="margin-bottom:10px;">
+                Constant movement. Bridge high to off-balance (The "Lockdown" technique).
+            </p>
+            
+            <div class="video-group">
+                <a href="https://youtu.be/ALTcSu_Szt0?t=97" target="_blank" class="video-link">▶ 5 Secrets: The Lockdown Bridge</a>
+                <span class="video-desc">Specific technique for breaking the hold from bottom (1:37).</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="phase-card" style="border-left-color: var(--accent-gold);">
+        <div class="phase-header">
+            <span class="phase-title" style="color:var(--accent-gold);">General Defense: Head & Arm Throw</span>
+            <span class="phase-icon">🛑</span>
+        </div>
+        
+        <div class="diagnosis-grid">
+            <div class="issue-box" style="border-color: var(--accent-gold);">
+                <h4>The Risk</h4>
+                <p>Recognize when an opponent reaches around your head/arm. If you stay static, you will be thrown.</p>
+            </div>
+            <div class="fix-box">
+                <h4>The Counter</h4>
+                <p><strong>Proactive:</strong> Change levels & circle to their front. <br> <strong>Reactive:</strong> If thrown, roll <em>with</em> momentum to scramble on top.</p>
+            </div>
+        </div>
+
+        <div class="drill-section">
+            <span class="drill-header">🛠️ DRILL DIRECTIVES (Roll Through)</span>
+            <div class="video-group">
+                <a href="https://www.youtube.com/watch?v=8gmkKaZPbUY" target="_blank" class="video-link" style="border-color:var(--accent-gold); color:var(--accent-gold);">▶ Head & Arm Defense</a>
+                <span class="video-desc">Drill the "Roll Through" response.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated">Loading...</span>
+    </div>
+
+    <script>
+        // Back-Button Fix (Spec 3.2)
+        window.onpageshow = function(event) {
+            if (event.persisted) { window.location.reload(); }
+        };
+
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
+
+</body>
+</html>
