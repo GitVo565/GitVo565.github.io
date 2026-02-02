@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Donald — Daily Meds & Supplements</title>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /* Theme: Black background, no video. Matches portal design system. */
+        :root {
+            --bg-black: #0a0a0a;
+            --card-bg: rgba(28, 28, 28, 0.95);
+            --card-border: #333;
+            --text-light: #ecf0f1;
+            --text-muted: #bdc3c7;
+            --accent-gold: #f39c12;
+            --accent-dim: rgba(243, 156, 18, 0.15);
+            --rx-purple: #9b59b6;
+            --success-green: #27ae60;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: var(--bg-black);
+            color: var(--text-light);
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-container { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+        .back-btn {
+            background: var(--card-bg);
+            padding: 10px 18px;
+            text-decoration: none;
+            color: var(--text-light);
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            font-size: 0.9em;
+            transition: 0.2s;
+        }
+        .back-btn:hover { background: #333; border-color: var(--accent-gold); color: var(--accent-gold); }
+
+        .header-section { text-align: center; margin-bottom: 28px; }
+        h1 { margin: 0; font-size: 1.6em; text-transform: uppercase; letter-spacing: 1px; color: #fff; }
+        .subtitle { color: var(--text-muted); font-size: 0.9em; margin-top: 6px; }
+        .date-bar {
+            margin-top: 12px;
+            font-size: 0.85em;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Time blocks */
+        .block {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-gold);
+        }
+        .block-title {
+            font-size: 1em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .block-sub { font-size: 0.8em; color: var(--text-muted); margin-top: 2px; }
+
+        /* Checkbox rows */
+        .check-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            min-height: 44px;
+        }
+        .check-row:last-child { border-bottom: none; }
+        .check-row input[type="checkbox"],
+        .check-row input[type="radio"] {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--accent-gold);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .check-row input[type="radio"] { margin-right: 0; }
+        .check-row label {
+            cursor: pointer;
+            font-size: 1em;
+            color: var(--text-light);
+            flex: 1;
+            user-select: none;
+        }
+        .check-row input:checked + label { color: var(--text-muted); text-decoration: line-through; }
+        .check-row input[type="radio"]:checked + label { color: var(--text-light); text-decoration: none; }
+        .check-row .dosage { color: var(--text-muted); font-weight: normal; font-size: 0.9em; }
+        .rx-tag { color: var(--rx-purple); font-weight: 700; font-size: 0.75em; text-transform: uppercase; margin-right: 6px; }
+
+        .intel-link {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+        .intel-link:hover { color: var(--accent-gold); border-bottom-color: var(--accent-gold); }
+
+        .footer-info { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--card-border); text-align: center; font-size: 0.8em; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <div class="nav-container">
+        <a href="Pointers99.html" class="back-btn">← Hub</a>
+        <a href="donald_2yR5j.html" class="back-btn">Donald</a>
+        <a href="supplement_intel_5kM9p.html" class="back-btn" style="border-color:var(--accent-gold);">Intel</a>
+    </div>
+
+    <div class="header-section">
+        <h1>Donald — Daily Tracker</h1>
+        <div class="subtitle">Meds &amp; supplements · Standard plan</div>
+        <div class="date-bar" id="dateBar">Loading…</div>
+    </div>
+
+    <div class="block" data-block="morning">
+        <div class="block-title">☀️ Morning (The Foundation)</div>
+        <div class="block-sub">First of two daily controller doses.</div>
+        <div class="check-row">
+            <input type="checkbox" id="m1" aria-label="Brush teeth">
+            <label for="m1">Brush Teeth · <span class="dosage">DO NOT brush tongue; standard toothpaste, avoid anti-bacterial</span></label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="m2" aria-label="Nasacort">
+            <label for="m2"><span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Nasacort</a> (2 puffs per nostril)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="m3" aria-label="Astelin morning">
+            <label for="m3"><span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Astelin</a> (1–2 sprays per nostril, first of two daily doses)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="m4" aria-label="Symbicort morning">
+            <label for="m4"><span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Symbicort</a> (2 puffs, first of two controller doses)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="m5" aria-label="AG1">
+            <label for="m5"><a href="supplement_intel_5kM9p.html#ag1" class="intel-link">AG1 (Athletic Greens)</a> — 1 scoop in 8–10 oz water</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="m6" aria-label="Cal-Mag">
+            <label for="m6"><a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Country Life Calcium-Magnesium-Phosphorus</a> (2 tablets)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="m7" aria-label="Vykee">
+            <label for="m7"><a href="supplement_intel_5kM9p.html#potato" class="intel-link">Vykee Potassium Citrate</a> (2 capsules, 500 mg total)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="m8" aria-label="Vitamin D3 K2">
+            <label for="m8"><a href="supplement_intel_5kM9p.html#d3" class="intel-link">Nature Made Vitamin D3 + K2</a> (5,000 IU D3 / 100 mcg K2)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="m9" aria-label="CoQ10">
+            <label for="m9"><a href="supplement_intel_5kM9p.html#coq10" class="intel-link">Coenzyme Q10</a> (200 mg)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="m10" aria-label="Beef liver">
+            <label for="m10"><a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Beef Liver Pills</a> (2 capsules) · <span class="dosage">Take 15 mins after AG1 if possible</span></label>
+        </div>
+    </div>
+
+    <div class="block" data-block="lunch">
+        <div class="block-title">🌤️ Lunch (School)</div>
+        <div class="block-sub">Take with food. No mouthwash or brush 2 hrs before/after beet juice.</div>
+        <div class="check-row">
+            <input type="checkbox" id="l1" aria-label="Montelukast">
+            <label for="l1"><span class="rx-tag">Rx</span> Montelukast (10 mg) · <span class="dosage">Take with food</span></label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="l2" aria-label="Creatine">
+            <label for="l2"><a href="supplement_intel_5kM9p.html#creatine" class="intel-link">Creatine</a> (3–5 g) · <span class="dosage">Take with milk or mix into morning AG1 if preferred</span></label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="l3" aria-label="Beet juice lunch">
+            <label for="l3"><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link">Beet Root Juice</a> (½ cup / 4 oz) · <span class="dosage">Nitric Oxide load</span></label>
+        </div>
+    </div>
+
+    <div class="block" data-block="prepractice">
+        <div class="block-title">🏃 Pre-Practice / Afternoon</div>
+        <div class="block-sub">Easy stomach carbs; hydrate.</div>
+        <div class="check-row">
+            <input type="checkbox" id="p1" aria-label="Hydration">
+            <label for="p1">BCAA Energy Drink / Gatorade / <a href="supplement_intel_5kM9p.html#coconut-water" class="intel-link">Coconut Water</a></label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="p2" aria-label="Carbs">
+            <label for="p2">Easy Stomach Carbs — <a href="supplement_intel_5kM9p.html#pretzels" class="intel-link">Pretzels</a>, <a href="supplement_intel_5kM9p.html#applesauce" class="intel-link">Applesauce</a>, Rice Crispy Treat</label>
+        </div>
+    </div>
+
+    <div class="block" data-block="dinner">
+        <div class="block-title">🍽️ Dinner (Nitric Oxide &amp; Fuel Block)</div>
+        <div class="block-sub">Maximizes NO conversion; protects teeth from bedtime sugar.</div>
+        <div class="check-row">
+            <input type="checkbox" id="d1" aria-label="Liverwurst dinner">
+            <label for="d1"><a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Liverwurst</a> (1 slice) · <span class="dosage">Natural heme iron source</span></label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="d2" aria-label="Beet juice dinner">
+            <label for="d2"><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link">Beet Root Juice</a> (½ cup / 4 oz) · <span class="dosage">Take with meal</span></label>
+        </div>
+    </div>
+
+    <div class="block" data-block="postrun">
+        <div class="block-title">💪 Post-Run / Workout</div>
+        <div class="block-sub">Liquid options best for fast re-absorption.</div>
+        <div class="check-row">
+            <input type="checkbox" id="r1" aria-label="Protein">
+            <label for="r1"><a href="supplement_intel_5kM9p.html#protein-shake" class="intel-link">Replenish Protein</a> (liquid options best for fast re-absorption)</label>
+        </div>
+    </div>
+
+    <div class="block" data-block="bedtime">
+        <div class="block-title">🛏️ Bedtime (Performance &amp; Iron Block)</div>
+        <div class="block-sub">Final controller dose; iron on alternating nights.</div>
+        <div class="check-row">
+            <input type="checkbox" id="b1" aria-label="Symbicort bedtime">
+            <label for="b1"><span class="rx-tag">Rx</span> Symbicort (2 puffs, final controller dose)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="b2" aria-label="Astelin bedtime">
+            <label for="b2"><span class="rx-tag">Rx</span> Astelin (1–2 sprays per nostril, second daily dose)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="b3" aria-label="Allegra">
+            <label for="b3"><span class="rx-tag">Rx</span> Allegra (180 mg)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="b4" aria-label="Ashwagandha">
+            <label for="b4">Klean Athlete Ashwagandha (1 capsule) · <span class="dosage">2 weeks on, 1 week off</span></label>
+        </div>
+        <div class="iron-choice block-sub" style="margin-bottom:8px;">Pick one night only (alternate nights):</div>
+        <div class="check-row">
+            <input type="radio" name="iron_night" id="b5" value="a" aria-label="Iron Night A">
+            <label for="b5"><a href="supplement_intel_5kM9p.html#iron-ban" class="intel-link">IRON — Night A</a>: NaturesPlus Hema-Plex (1 tablet) ONLY</label>
+        </div>
+        <div class="check-row">
+            <input type="radio" name="iron_night" id="b6" value="b" aria-label="Iron Night B">
+            <label for="b6"><a href="supplement_intel_5kM9p.html#iron-ban" class="intel-link">IRON — Night B</a>: NaturesPlus Hema-Plex (1 tab) + Nature Made Iron (1 tab)</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="b7" aria-label="Liverwurst bedtime">
+            <label for="b7"><a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Liverwurst</a></label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="b8" aria-label="OJ or tart cherry">
+            <label for="b8">Orange Juice <em>or</em> <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry Juice</a> (4 oz) + Vitamin C pill</label>
+        </div>
+        <div class="check-row">
+            <input type="checkbox" id="b9" aria-label="Rinse mouth">
+            <label for="b9">Rinse mouth with water (no sugars on teeth overnight)</label>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <span id="lastUpdated">—</span> · Checks reset at midnight (saved for today only).
+    </div>
+
+    <script>
+        (function () {
+            var DATE_KEY = 'donald_supplements_date';
+            var CHECK_KEY = 'donald_supplements_checks';
+            var today = new Date().toDateString();
+
+            function getStoredDate() { return localStorage.getItem(DATE_KEY) || ''; }
+            function setStoredDate(v) { localStorage.setItem(DATE_KEY, v); }
+            function getChecks() {
+                try { return JSON.parse(localStorage.getItem(CHECK_KEY) || '{}'); }
+                catch (e) { return {}; }
+            }
+            function setChecks(o) { localStorage.setItem(CHECK_KEY, JSON.stringify(o)); }
+
+            function loadChecks() {
+                var stored = getStoredDate();
+                var checks = getChecks();
+                if (stored !== today) {
+                    setStoredDate(today);
+                    setChecks({});
+                    return;
+                }
+                var inputs = document.querySelectorAll('.block input[type="checkbox"]');
+                inputs.forEach(function (el) {
+                    if (el.id && checks[el.id] === true) el.checked = true;
+                });
+                var iron = checks.iron_night;
+                if (iron === 'a') document.getElementById('b5').checked = true;
+                if (iron === 'b') document.getElementById('b6').checked = true;
+            }
+
+            function saveChecks() {
+                var o = {};
+                document.querySelectorAll('.block input[type="checkbox"]').forEach(function (el) {
+                    if (el.id) o[el.id] = el.checked;
+                });
+                var iron = document.querySelector('.block input[name="iron_night"]:checked');
+                if (iron) o.iron_night = iron.value;
+                setChecks(o);
+                setStoredDate(today);
+            }
+
+            document.querySelectorAll('.block input[type="checkbox"]').forEach(function (cb) {
+                cb.addEventListener('change', saveChecks);
+            });
+            document.querySelectorAll('.block input[name="iron_night"]').forEach(function (rb) {
+                rb.addEventListener('change', saveChecks);
+            });
+
+            loadChecks();
+            document.getElementById('dateBar').textContent = new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' });
+            document.getElementById('lastUpdated').textContent = 'Last saved: ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        })();
+
+        window.onpageshow = function (event) {
+            if (event.persisted) window.location.reload();
+        };
+    </script>
+
+</body>
+</html>
