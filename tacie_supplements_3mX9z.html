@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blood & Bone Protocol v9.1</title>
+    <title>Blood & Bone Protocol v11.0</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -24,12 +24,13 @@
             --success-green: #27ae60;
             --alert-red: #e74c3c;
             --rx-purple: #9b59b6;
+            --dim-gray: #888;
         }
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             padding: 20px; 
-            line-height: 1.5; 
+            line-height: 1.6; 
             max-width: 1000px; 
             margin: 0 auto; 
             background: transparent; 
@@ -44,7 +45,7 @@
         }
         .bg-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8); z-index: -1;
+            background: rgba(0, 0, 0, 0.85); z-index: -1;
         }
         
         /* Navigation */
@@ -156,66 +157,71 @@
             border-radius: 6px;
             overflow: hidden;
             border-left: 3px solid #555;
+            min-height: 80px; /* Ensure visual balance */
         }
         
         .blood-theme .time-row { border-left-color: var(--blood-red); }
         .bone-theme .time-row { border-left-color: var(--bone-blue); }
 
         .t-time {
-            padding: 12px;
+            padding: 15px;
             font-weight: bold;
             color: var(--accent-gold);
-            font-size: 0.85em;
+            font-size: 0.9em;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Align top for long lists */
             border-right: 1px solid rgba(255,255,255,0.05);
         }
         .t-action {
-            padding: 12px;
-            font-weight: bold;
-            color: white;
-            font-size: 0.95em;
+            padding: 15px;
+            font-size: 1em; /* Unified Font Size */
+            color: #ecf0f1;
         }
         .t-logic {
-            padding: 12px;
+            padding: 15px;
             color: #aaa;
-            font-size: 0.85em;
+            font-size: 0.9em;
             font-style: italic;
             border-left: 1px solid rgba(255,255,255,0.05);
             display: flex;
             align-items: center;
         }
 
-        /* Checkbox Mockup */
-        .cb { 
-            display: inline-block; width: 14px; height: 14px; 
-            border: 1px solid #777; margin-right: 8px; border-radius: 2px; 
-            vertical-align: middle;
-        }
+        /* Clean List Formatting */
+        .item-row { display: block; margin-bottom: 6px; }
+        .brand-name { font-weight: bold; color: #fff; }
+        .dosage { color: #ccc; font-weight: normal; }
+        .separator { color: #555; margin: 0 5px; }
         
         /* INTELLIGENCE LINKS */
         .intel-link {
             color: inherit;
             text-decoration: none;
-            border-bottom: 1px dotted #888;
+            border-bottom: 1px dotted #666; /* Subtle underline */
             transition: all 0.2s;
-            cursor: pointer;
         }
         .intel-link:hover {
             color: var(--accent-gold);
             border-bottom: 1px solid var(--accent-gold);
-            background: rgba(243, 156, 18, 0.1);
         }
         
-        /* Rx Highlight */
-        .rx-tag { color: var(--rx-purple); font-weight: bold; font-size: 0.85em; text-transform: uppercase; margin-right: 5px; }
-
-        /* SUB HEADERS IN TIMELINE */
-        .stack-label {
-            display: block; font-size: 0.75em; text-transform: uppercase; 
-            color: #888; margin-bottom: 4px; font-weight: bold; letter-spacing: 1px;
+        /* Special Tags */
+        .rx-tag { 
+            color: var(--rx-purple); 
+            font-weight: bold; 
+            font-size: 0.85em; 
+            text-transform: uppercase; 
+            margin-right: 5px;
+            display: inline-block;
         }
-        .stack-label.conditional { color: var(--accent-gold); margin-top: 8px; border-top: 1px dashed #444; padding-top: 4px; }
+        .menu-tag {
+            color: var(--accent-gold);
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .alert-text { color: var(--alert-red); font-weight: bold; }
+        .lunch-only { color: var(--blood-red); font-weight: bold; text-transform: uppercase; font-size: 0.8em; margin-left: 5px; letter-spacing: 0.5px; }
 
         /* --- SAFETY & BANNED --- */
         .safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
@@ -237,14 +243,14 @@
         }
 
         .list-clean { list-style: none; padding: 0; margin: 0; }
-        .list-clean li { margin-bottom: 8px; font-size: 0.9em; display: flex; gap: 10px;}
+        .list-clean li { margin-bottom: 8px; font-size: 0.95em; display: flex; gap: 10px;}
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .time-row { grid-template-columns: 1fr; padding: 10px; gap: 5px; }
-            .t-time { border-right: none; padding: 0; margin-bottom: 5px; }
-            .t-action { padding: 0; font-size: 1.1em; margin-bottom: 5px; }
-            .t-logic { padding: 0; border-left: none; }
+            .t-time { border-right: none; padding: 0; margin-bottom: 5px; color: var(--accent-gold); border-bottom: 1px solid #333; width: 100%;}
+            .t-action { padding: 5px 0; margin-bottom: 5px; }
+            .t-logic { padding: 5px 0; border-left: none; color: #777; font-size: 0.85em;}
             .safety-grid { grid-template-columns: 1fr; }
             .red-light-box { grid-column: span 1; }
         }
@@ -265,8 +271,8 @@
 
     <div class="header-section">
         <h1>Blood vs Bone Protocol</h1>
-        <div class="version-tag">VERSION 9.1 | 🟢 ACTIVE</div>
-        <div class="update-note">Updates: Bedtime "Conditional Stack" logic simplified.</div>
+        <div class="version-tag">VERSION 11.0 | 🟢 ACTIVE</div>
+        <div class="update-note">Safety Update: Unified Dosages & Brand Mandates.</div>
     </div>
 
     <div class="mode-selector">
@@ -297,50 +303,83 @@
             <div class="time-row">
                 <div class="t-time">07:00 AM</div>
                 <div class="t-action">
-                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Pulmicort</a> + <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Ryaltris</a><br>
-                    <span style="font-size:0.9em; opacity:0.8; display:block; margin-top:5px;">
-                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#creatine" class="intel-link">Creatine</a> + <a href="supplement_intel_5kM9p.html#d3" class="intel-link">D3/K2</a> + <a href="supplement_intel_5kM9p.html#coq10" class="intel-link">CoQ10</a><br>
-                        <span class="cb"></span><strong><a href="supplement_intel_5kM9p.html#vykee-lock" class="intel-link">Vykee (2 Caps)</a></strong> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab Only)</a>
-                    </span>
-                    <span style="font-size:0.85em; color:var(--accent-gold); display:block; margin-top:5px;">🍳 Menu: Cream of Wheat (Water) + OJ</span>
+                    <div class="item-row">
+                        <span class="rx-tag">Rx</span> 
+                        <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Pulmicort</a> <span class="separator">+</span> 
+                        <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Ryaltris</a>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#creatine" class="intel-link"><span class="brand-name">Thorne Creatine:</span> <span class="dosage">1 Scoop (5g)</span></a> <span class="separator">|</span>
+                        <a href="supplement_intel_5kM9p.html#d3" class="intel-link"><span class="brand-name">ForestLeaf D3/K2:</span> <span class="dosage">1 Cap</span></a> <span class="separator">|</span>
+                        <a href="supplement_intel_5kM9p.html#coq10" class="intel-link"><span class="brand-name">CoQ10:</span> <span class="dosage">1 Cap</span></a>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#vykee" class="intel-link"><span class="brand-name">Vykee Potassium Citrate:</span> <span class="dosage">2 Caps (Total 500mg)</span></a> <span class="separator">|</span>
+                        <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link"><span class="brand-name">Country Life Cal-Mag:</span> <span class="dosage">1 Tab ONLY</span></a>
+                    </div>
+                    <div class="item-row" style="margin-top: 8px; padding-top: 5px; border-top: 1px dashed #444;">
+                        <span class="menu-tag">🍳 Menu:</span> Cream of Wheat (Water) + OJ
+                    </div>
                 </div>
                 <div class="t-logic">Foundation Stack. Split Magnesium.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">11:30 AM</div>
-                <div class="t-action"><span class="cb"></span><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link">Beet Juice</a> + Beef Stick + <a href="supplement_intel_5kM9p.html#coconut-water" class="intel-link">Coconut Water</a></div>
+                <div class="t-action">
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#beet-root" class="intel-link"><span class="brand-name">Beet Juice</span> <span class="dosage">(4oz)</span></a> <span class="lunch-only">[LUNCH ONLY]</span>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#beef-stick" class="intel-link"><span class="brand-name">Unseasoned Beef Stick</span> <span class="dosage">(1 Stick)</span></a> <span class="separator">+</span> 
+                        <a href="supplement_intel_5kM9p.html#coconut-water" class="intel-link"><span class="brand-name">Coconut Water</span></a>
+                    </div>
+                </div>
                 <div class="t-logic">Oxygen + Iron + Hydration.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">02:00 PM</div>
                 <div class="t-action">
-                    <span class="rx-tag">Pre-Run</span> <a href="supplement_intel_5kM9p.html#atrovent" class="intel-link">Atrovent HFA</a><br>
-                    <span style="font-size:0.9em;">+ <a href="supplement_intel_5kM9p.html#potato" class="intel-link">Potato (Skin On)</a> + Pretzels</span>
+                    <div class="item-row">
+                        <span class="rx-tag">Pre-Run</span> <a href="supplement_intel_5kM9p.html#atrovent" class="intel-link">Atrovent HFA</a>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#potato" class="intel-link"><span class="brand-name">Potato (Skin On)</span></a> <span class="separator">+</span> Pretzels
+                    </div>
                 </div>
                 <div class="t-logic">Rescue Med + K+ Requirement.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
-                <div class="t-action"><span class="cb"></span>MENU: <a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Steak/Burger + Veggies + OJ</a></div>
+                <div class="t-action">
+                    <span class="menu-tag">🥩 Menu:</span> <a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Steak/Burger + Veggies + OJ</a>
+                </div>
                 <div class="t-logic">Vitamin C boosts Iron. NO MILK.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
-                <div class="t-action" style="color:#777; text-decoration:line-through;">NO Multi / NO Calcium</div>
+                <div class="t-action" style="color:#666; text-decoration:line-through;">
+                    NO Multi / NO Calcium
+                </div>
                 <div class="t-logic" style="color:var(--blood-red); font-weight:bold;">Taking pills here blocks the iron.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">09:00 PM</div>
                 <div class="t-action">
-                    <span class="stack-label">Standard Stack</span>
-                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> + <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Zyrtec</a><br>
-                    <span style="font-size:0.9em; opacity:0.8;">+ <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry</a></span>
-                    
-                    <span class="stack-label conditional">Conditional Stack</span>
-                    <span style="font-size:0.9em; display:block; opacity:0.9;">
-                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#multi" class="intel-link">Klean Multi</a> (2 Tabs)<br>
-                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag</a> (1 Tab)
-                    </span>
+                    <div class="item-row">
+                        <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> <span class="separator">+</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Zyrtec</a>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#multi" class="intel-link"><span class="brand-name">Klean Athlete Multi:</span> <span class="dosage">2 Tabs</span></a> <span class="separator">|</span>
+                        <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link"><span class="brand-name">Cal-Mag:</span> <span class="dosage">Tab 2</span></a>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link"><span class="brand-name">Tart Cherry:</span> <span class="dosage">4oz</span></a>
+                    </div>
                 </div>
                 <div class="t-logic">Safe to take now that dinner iron has absorbed.</div>
             </div>
@@ -362,44 +401,84 @@
             <div class="time-row">
                 <div class="t-time">07:00 AM</div>
                 <div class="t-action">
-                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Pulmicort</a> + <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Ryaltris</a><br>
-                    <span style="font-size:0.9em; opacity:0.8; display:block; margin-top:5px;">
-                        <span class="cb"></span><a href="supplement_intel_5kM9p.html#creatine" class="intel-link">Creatine</a> + <a href="supplement_intel_5kM9p.html#d3" class="intel-link">D3/K2</a> + <a href="supplement_intel_5kM9p.html#coq10" class="intel-link">CoQ10</a><br>
-                        <span class="cb"></span><strong><a href="supplement_intel_5kM9p.html#vykee-lock" class="intel-link">Vykee (2 Caps)</a></strong> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab Only)</a>
-                    </span>
-                    <span style="font-size:0.85em; color:var(--bone-blue); display:block; margin-top:5px;">🍳 Menu: Cereal/Oats + Choc Milk</span>
+                    <div class="item-row">
+                        <span class="rx-tag">Rx</span> 
+                        <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Pulmicort</a> <span class="separator">+</span> 
+                        <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Ryaltris</a>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#creatine" class="intel-link"><span class="brand-name">Thorne Creatine:</span> <span class="dosage">1 Scoop (5g)</span></a> <span class="separator">|</span>
+                        <a href="supplement_intel_5kM9p.html#d3" class="intel-link"><span class="brand-name">ForestLeaf D3/K2:</span> <span class="dosage">1 Cap</span></a> <span class="separator">|</span>
+                        <a href="supplement_intel_5kM9p.html#coq10" class="intel-link"><span class="brand-name">CoQ10:</span> <span class="dosage">1 Cap</span></a>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#vykee" class="intel-link"><span class="brand-name">Vykee Potassium Citrate:</span> <span class="dosage">2 Caps (Total 500mg)</span></a> <span class="separator">|</span>
+                        <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link"><span class="brand-name">Country Life Cal-Mag:</span> <span class="dosage">1 Tab ONLY</span></a>
+                    </div>
+                    <div class="item-row" style="margin-top: 8px; padding-top: 5px; border-top: 1px dashed #444;">
+                        <span class="menu-tag">🍳 Menu:</span> Cream of Wheat (Water) + OJ
+                    </div>
                 </div>
                 <div class="t-logic">Foundation Stack. Split Magnesium.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">11:30 AM</div>
-                <div class="t-action"><span class="cb"></span><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link">Beet Juice</a> + Beef Stick + <a href="supplement_intel_5kM9p.html#coconut-water" class="intel-link">Coconut Water</a></div>
+                <div class="t-action">
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#beet-root" class="intel-link"><span class="brand-name">Beet Juice</span> <span class="dosage">(4oz)</span></a> <span class="lunch-only">[LUNCH ONLY]</span>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#beef-stick" class="intel-link"><span class="brand-name">Unseasoned Beef Stick</span> <span class="dosage">(1 Stick)</span></a> <span class="separator">+</span> 
+                        <a href="supplement_intel_5kM9p.html#coconut-water" class="intel-link"><span class="brand-name">Coconut Water</span></a>
+                    </div>
+                </div>
                 <div class="t-logic">Standard Load.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">02:00 PM</div>
                 <div class="t-action">
-                    <span class="rx-tag">Pre-Run</span> <a href="supplement_intel_5kM9p.html#atrovent" class="intel-link">Atrovent HFA</a><br>
-                    <span style="font-size:0.9em;">+ <a href="supplement_intel_5kM9p.html#potato" class="intel-link">Potato (Skin On)</a> + Pretzels</span>
+                    <div class="item-row">
+                        <span class="rx-tag">Pre-Run</span> <a href="supplement_intel_5kM9p.html#atrovent" class="intel-link">Atrovent HFA</a>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#potato" class="intel-link"><span class="brand-name">Potato (Skin On)</span></a> <span class="separator">+</span> Pretzels
+                    </div>
                 </div>
                 <div class="t-logic">Rescue Med + K+ Requirement.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
-                <div class="t-action"><span class="cb"></span>MENU: Pasta/Pizza + Milk</div>
+                <div class="t-action">
+                    <div class="item-row">
+                        <span class="menu-tag">🍝 Menu:</span> Pasta/Pizza + Milk
+                    </div>
+                </div>
                 <div class="t-logic">Calcium Loading.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">06:00 PM</div>
-                <div class="t-action"><span class="cb"></span><a href="supplement_intel_5kM9p.html#multi" class="intel-link">Klean Multi</a> + <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link">Cal-Mag (1 Tab)</a></div>
+                <div class="t-action">
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#multi" class="intel-link"><span class="brand-name">💊 Klean Athlete Multi:</span> <span class="dosage">2 Tabs</span></a> <span class="separator">|</span>
+                        <a href="supplement_intel_5kM9p.html#cal-mag" class="intel-link"><span class="brand-name">Cal-Mag:</span> <span class="dosage">Tab 2</span></a>
+                    </div>
+                </div>
                 <div class="t-logic" style="color:var(--success-green); font-weight:bold;">TAKE WITH FOOD.</div>
             </div>
+
             <div class="time-row">
                 <div class="t-time">09:00 PM</div>
                 <div class="t-action">
-                    <span class="stack-label">Standard Stack</span>
-                    <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> + <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Zyrtec</a><br>
-                    <span style="font-size:0.9em; opacity:0.8;">+ <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry</a></span>
+                    <div class="item-row">
+                        <span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Spiriva</a> <span class="separator">+</span> <a href="supplement_intel_5kM9p.html#spiriva" class="intel-link">Zyrtec</a>
+                    </div>
+                    <div class="item-row">
+                        <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link"><span class="brand-name">Tart Cherry:</span> <span class="dosage">4oz</span></a>
+                    </div>
                 </div>
                 <div class="t-logic">Night Stack (No extra pills).</div>
             </div>
@@ -409,11 +488,11 @@
     <div class="safety-grid">
         <div class="info-box red-light-box">
             <span class="info-title banned-title">🚦 Red Light Protocol (Sickness Override)</span>
-            <div style="font-size:0.9em; margin-bottom:10px;"><strong>Trigger:</strong> Fever > 99.5°F OR "Zonked" Fatigue.</div>
+            <div style="font-size:0.95em; margin-bottom:10px;"><strong>Trigger:</strong> Fever > 99.5°F OR "Zonked" Fatigue.</div>
             <ul class="list-clean">
-                <li>❌ <strong>STOP:</strong> Klean Multi, Cal/Mag, Beet Juice (Iron feeds bacteria).</li>
+                <li>❌ <strong>STOP:</strong> Klean Athlete Multivitamin, Country Life Calcium-Magnesium, Lakewood Organic Beet Juice (Iron feeds bacteria).</li>
                 <li>✅ <strong>START:</strong> Immune Stack (Zinc Lozenge + Vit C).</li>
-                <li>✅ <strong>CONTINUE:</strong> Creatine (Water), Potassium (Heart), Rx Meds.</li>
+                <li>✅ <strong>CONTINUE:</strong> Thorne Creatine (Water), Vykee Potassium Citrate (Heart), Rx Meds.</li>
             </ul>
         </div>
 
@@ -428,12 +507,11 @@
         </div>
 
         <div class="info-box banned-box">
-            <span class="info-title banned-title">🚨 Red Zone (Banned Items)</span>
+            <span class="info-title banned-title">⚠️ BANNED INVENTORY (WARNING)</span>
             <ul class="list-clean">
-                <li>⛔ <a href="supplement_intel_5kM9p.html#iron-ban" class="intel-link" style="color:inherit;"><strong>Iron Pills (21st Century):</strong></a> Medical Ban.</li>
-                <li>⛔ <a href="supplement_intel_5kM9p.html#ag1" class="intel-link" style="color:inherit;"><strong>AG1 (Athletic Greens):</strong></a> Contains Inulin (IBS Trigger).</li>
-                <li>⛔ <a href="supplement_intel_5kM9p.html#natures-bounty" class="intel-link" style="color:inherit;"><strong>Nature's Bounty Multi:</strong></a> Sickness Only.</li>
-                <li>⛔ <strong>Ashwagandha:</strong> Hormonal precaution.</li>
+                <li>❌ 21st Century Slow Release Iron (BANNED - Toxicity Risk)</li>
+                <li>❌ Athletic Greens (AG1) (BANNED - Inulin/IBS Risk)</li>
+                <li>❌ Nature's Bounty Cal-Mag-Zinc (RED LIGHT USE ONLY - Do not mix with Klean Athlete)</li>
             </ul>
         </div>
     </div>
