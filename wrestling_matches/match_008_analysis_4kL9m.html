@@ -129,6 +129,20 @@
         .internal-link { color: var(--accent-gold); text-decoration: none; border-bottom: 1px dotted var(--accent-gold); }
         .internal-link:hover { color: white; border-bottom: 1px solid white; }
 
+        /* Coach Brian: Timestamp list (same methodology as wrestling_notes) */
+        .timestamp-list { list-style: none; padding: 0; margin-top: 10px; background: rgba(0,0,0,0.3); border-radius: 6px; padding: 12px; }
+        .timestamp-list li { margin-bottom: 10px; font-size: 0.9em; color: #ccc; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; line-height: 1.5; }
+        .timestamp-list li:last-child { border-bottom: none; }
+        .ts {
+            display: inline-block; color: var(--accent-gold); font-weight: bold; margin-right: 8px;
+            font-family: monospace; text-decoration: none; border: 1px solid var(--accent-gold);
+            padding: 2px 6px; border-radius: 4px; font-size: 0.85em; transition: all 0.2s;
+        }
+        .ts:hover { background: var(--accent-gold); color: #000; }
+        .coach-ratings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
+        .coach-rating-item { font-size: 0.9em; color: #ddd; }
+        .coach-rating-score { font-weight: bold; color: var(--accent-gold); float: right; }
+
         /* Footer */
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #444; text-align: right; font-size: 0.8em; color: #666; }
 
@@ -150,6 +164,37 @@
 
     <div class="video-container">
         <iframe src="https://www.youtube.com/embed/lqGtQeVpu9k?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="phase-card" style="border-left: 5px solid var(--accent-blue);">
+        <div class="phase-header">
+            <span class="phase-title" style="color: var(--accent-blue);">Coach Brian's Breakdown</span>
+            <span class="phase-icon">📋</span>
+        </div>
+        <p style="color: #bbb; margin-bottom: 12px; font-size: 0.95em;">Timestamp links jump to that moment in the video above.</p>
+        <ul class="timestamp-list">
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=7" target="_blank" class="ts">0:07</a> Match opens with handfighting. You take a shot but she has an underhook on your right shoulder—that’s the setup for the hip toss.</li>
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=9" target="_blank" class="ts">0:09</a> You reach deeper for the leg and she starts the throw. <strong>Bail to your base and swivel to front headlock</strong>; don’t let her throw you off center.</li>
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=10" target="_blank" class="ts">0:10</a> You create distance—good. Her left arm (the one throwing you) is high and not pinched. <strong>Scoot your hips back and shove that arm off with your left</strong>; you clear the headlock from there.</li>
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=11" target="_blank" class="ts">0:11</a> The window’s gone. Fighting forward put your weight high; she only had to lean right to throw. <strong>Counter:</strong> roll hard to your left as soon as you land.</li>
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=11" target="_blank" class="ts">0:11</a> You land and turn into her—you needed to <strong>continue the roll</strong> to break free. She’s high; drive your legs into the mat and power into her and you bowl her over.</li>
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=12" target="_blank" class="ts">0:12</a> You’re not fighting with your legs at all. Critical mistake.</li>
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=15" target="_blank" class="ts">0:15</a> At this point the only out is <strong>bridge up hard and rip on that hand</strong>. Your legs still aren’t driving; you have no power from this position.</li>
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=18" target="_blank" class="ts">0:18</a> You’re pushing into her hip—that helps her lower her center and put more weight on you. <strong>Instead:</strong> slot your left arm under your body, forearm/elbow wedge to block the pin, then work to spin to base (hook her leg if you can) to break the hold.</li>
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=21" target="_blank" class="ts">0:21</a> You stop fighting here—both legs in the air, arm not even on her. <strong>Scramble like a wild dog when you go down; never both feet off the mat.</strong></li>
+            <li><a href="https://youtu.be/lqGtQeVpu9k?t=29" target="_blank" class="ts">0:29</a> Pin. This wasn’t because she was better—you made one mistake and got caught. You beat her handily the first time; you can do it again.</li>
+        </ul>
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <span class="drill-header">Match ratings</span>
+            <div class="coach-ratings-grid">
+                <div class="coach-rating-item">Intensity <span class="coach-rating-score">5/10</span></div>
+                <div class="coach-rating-item">Technique <span class="coach-rating-score">3/10</span></div>
+                <div class="coach-rating-item">Intelligence <span class="coach-rating-score">1/10</span></div>
+                <div class="coach-rating-item">Sportsmanship <span class="coach-rating-score">10/10</span></div>
+            </div>
+            <p style="font-size: 0.9em; color: #aaa; margin: 8px 0;">Some fight, but not the slam-into-you effort we’ve seen. You could’ve broken that headlock with power if you’d fought harder and not panicked. No setup before the shot; you shot across your body with your arm trapped—a debilitating technical mistake. No opening for that shot; head-and-arm defense wasn’t thought out. Panic and instinct took over.</p>
+            <p style="font-size: 0.95em; color: #ddd; border-left: 3px solid var(--accent-gold); padding-left: 12px; margin-top: 12px;"><strong>Bottom line:</strong> One correctable mistake. You don’t lose to this position again. You’ll rematch her—when you do, bring the throw. She wrestles high and is in perfect position for a bear hug; give her a taste of her own medicine.</p>
+        </div>
     </div>
 
     <div class="phase-card" style="border-color: var(--accent-gold); background: rgba(243, 156, 18, 0.1);">

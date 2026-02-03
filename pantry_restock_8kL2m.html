@@ -100,6 +100,9 @@
         .item-note { font-size: 0.85em; color: #aaa; display: block; margin-top: 2px; line-height: 1.3; }
         .brand-tag { color: var(--accent-green); font-weight: bold; font-size: 0.9em; }
         .warn-tag { color: var(--alert-red); font-weight: bold; font-size: 0.9em; }
+        .item-name a { color: inherit; text-decoration: underline; }
+        .item-name a:hover { color: var(--accent-gold); }
+        .item-name a:active, .item-name a:focus { outline: none; }
 
         /* Footer */
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
@@ -124,46 +127,74 @@
             <span>🚨 1. The "Gap Closers" (Critical)</span>
         </div>
         <ul class="checklist">
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="russet-potatoes">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Russet Potatoes (Bag)</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#potato">Russet Potatoes (Bag)</a></span>
                     <span class="item-note">The "Superfood." Must be eaten skin-on for ~900mg Potassium.</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="cream-of-wheat">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Instant Cream of Wheat</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#cream-of-wheat">Instant Cream of Wheat</a></span>
                     <span class="item-note">Primary Iron Source (~50% DV). <span class="warn-tag">DO NOT SUB OATMEAL</span> (Blocks iron).</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="chomps-beef-sticks">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Chomps Beef Sticks</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#beef-stick">Chomps Beef Sticks</a></span>
                     <span class="item-note">Original Flavor only. Heme Iron for lunch. <span class="warn-tag">NO CHEESE/JALAPEÑO.</span></span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="liverwurst">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Liverwurst</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#liverwurst">Liverwurst</a></span>
                     <span class="item-note">Deli or Package. High-density Heme Iron for "Iron Nights."</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="coconut-water">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Coconut Water</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#coconut-water">Coconut Water</a></span>
                     <span class="item-note">Cases/Cartons. Critical Potassium (~600mg/cup) for school.</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="bananas">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Bananas</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#banana">Bananas</a></span>
                     <span class="item-note">2-3 Bunches. Digestible carbs + Potassium.</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="eggs">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#eggs">Eggs</a></span>
+                    <span class="item-note">For hard-boiled. Bone Day protein; on Blood Days do not pair with beef/iron.</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="sliced-ham">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#ham">Sliced Ham (Lean)</a></span>
+                    <span class="item-note">Blood Day breakfast protein with Cream of Wheat. No cheese.</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="malt-o-meal">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#malt-o-meal">Malt-O-Meal</a></span>
+                    <span class="item-note">Farina-based iron cereal alternative to Cream of Wheat. No phytates.</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="white-beans">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#white-beans">White Beans (Canned or Dry)</a></span>
+                    <span class="item-note">Add to Beef Chili on Blood Days. ~1,000mg Potassium + 8mg Iron per cup. Rinse if canned. <span class="warn-tag">No beans &lt;24h before race.</span></span>
                 </div>
             </li>
         </ul>
@@ -174,32 +205,39 @@
             <span>🥤 2. Liquid Performance</span>
         </div>
         <ul class="checklist">
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="beet-root-juice">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Beet Root Juice</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#beet-root">Beet Root Juice</a></span>
                     <span class="item-note"><span class="brand-tag">Lakewood Organic</span> (32oz). Nitric Oxide booster for 3:30 PM practice.</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="tart-cherry-juice">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Tart Cherry Juice</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#tart-cherry">Tart Cherry Juice</a></span>
                     <span class="item-note">Concentrate or Juice. For Bedtime Recovery (Sleep/Inflammation).</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="orange-juice">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Orange Juice</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#orange-juice">Orange Juice</a></span>
                     <span class="item-note">Small bottles/carton. <span class="warn-tag">REQUIRED</span> to pair w/ Steak/Cream of Wheat.</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="gatorade">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Gatorade / Gatorlyte</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#gatorade">Gatorade / Gatorlyte</a></span>
                     <span class="item-note">Powder or Bottles. For "The Transition" (5:15 PM) Post-Wrestle/Pre-Run.</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="chocolate-milk">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#chocolate-milk">Chocolate Milk</a></span>
+                    <span class="item-note">Bone Day recovery/calcium. 8–12 oz. <span class="warn-tag">Banned on Blood Nights.</span></span>
                 </div>
             </li>
         </ul>
@@ -210,32 +248,74 @@
             <span>🥨 3. The "Bridge" (Gut Safe)</span>
         </div>
         <ul class="checklist">
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="pretzels">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Pretzels (Salted)</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#pretzels">Pretzels (Salted)</a></span>
                     <span class="item-note">Sodium replacement + simple carbs. Zero fat.</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="applesauce">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Applesauce Pouches</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#applesauce">Applesauce Pouches</a></span>
                     <span class="item-note">Fast energy, zero fiber issues for 2:00 PM.</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="white-bread">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">White Bread</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#white-bread">White Bread</a></span>
                     <span class="item-note">For "Iron Night" toast or pre-run fueling. Low fiber.</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="white-rice">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">White Rice</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#white-rice">White Rice</a></span>
                     <span class="item-note">Standard Night carb source. Easy digestion.</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="rice-crispy-treats">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#rice-crispy-treat">Rice Crispy Treats</a></span>
+                    <span class="item-note">Bone Day bridge snack. Verify peanut/tree nut free. Avoid on Blood Days near iron dinner.</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="oatmeal">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#oatmeal">Oatmeal</a></span>
+                    <span class="item-note"><span class="warn-tag">Bone Days only.</span> Do not substitute for Cream of Wheat on Iron Days (phytates block iron).</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="bell-peppers">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#bell-peppers">Bell Peppers (Red/Yellow/Orange)</a></span>
+                    <span class="item-note">Raw strips for Iron Nights. Vitamin C unlocks heme iron if she skips OJ. No hummus (sesame).</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="strawberries">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#strawberries">Strawberries</a></span>
+                    <span class="item-note">Iron catalyst for Blood Days. Pair with steak/liverwurst or in Cream of Wheat. Freeze-dried OK for cereal.</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="arugula">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#arugula">Arugula</a></span>
+                    <span class="item-note">Blood Day salad base (nitrate booster). Lemon + olive oil dressing. <span class="warn-tag">No nuts/seeds. No Parmesan on Iron Nights.</span></span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="broccoli-sprouts">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#broccoli-sprouts">Broccoli Sprouts</a></span>
+                    <span class="item-note">Lactate buffer for 9/10–10/10 days (Double Threshold, Live Wrestling). Chew fresh for myrosinase; ~3 hours before session. <span class="warn-tag">Not on Recovery days.</span></span>
                 </div>
             </li>
         </ul>
@@ -246,25 +326,32 @@
             <span>🥛 4. Dairy (Bone Phase)</span>
         </div>
         <ul class="checklist">
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="greek-yogurt">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Greek Yogurt Cups</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#greek-yogurt">Greek Yogurt Cups</a></span>
                     <span class="item-note">High protein/calcium for "Scenario B" breakfasts.</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="string-cheese">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">String Cheese</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#string-cheese">String Cheese</a></span>
                     <span class="item-note">The "Bedtime Catch-up" if dairy missed at dinner.</span>
                 </div>
             </li>
-            <li class="item-row">
+            <li class="item-row" data-pantry-id="milk">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name">Milk (Cow)</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#chocolate-milk">Milk (Cow)</a></span>
                     <span class="item-note">For "Standard Nights" only. Do not serve on Iron Nights.</span>
+                </div>
+            </li>
+            <li class="item-row" data-pantry-id="chocolate-milk">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#chocolate-milk">Chocolate Milk</a></span>
+                    <span class="item-note">Bone Day recovery/calcium. 8–12 oz. <span class="warn-tag">Banned on Blood Nights.</span></span>
                 </div>
             </li>
         </ul>
@@ -281,28 +368,64 @@
 
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        
-        // Simple Interaction for Checkboxes
-        document.querySelectorAll('.item-row').forEach(row => {
-            row.addEventListener('click', function() {
-                const checkbox = this.querySelector('.check-box');
-                const name = this.querySelector('.item-name');
-                
-                if (checkbox.style.backgroundColor === 'var(--accent-green)') {
-                    checkbox.style.backgroundColor = 'rgba(0,0,0,0.2)';
-                    checkbox.innerHTML = '';
-                    name.style.textDecoration = 'none';
-                    name.style.opacity = '1';
-                } else {
-                    checkbox.style.backgroundColor = 'var(--accent-green)';
-                    checkbox.innerHTML = '✓';
-                    checkbox.style.color = 'white';
-                    checkbox.style.textAlign = 'center';
-                    checkbox.style.lineHeight = '24px';
-                    checkbox.style.fontWeight = 'bold';
-                    name.style.textDecoration = 'line-through';
-                    name.style.opacity = '0.5';
+
+        var STORAGE_KEY = 'pantry_restock_checks';
+
+        function applyChecked(checkbox, name, checked) {
+            if (checked) {
+                checkbox.style.backgroundColor = 'var(--accent-green)';
+                checkbox.innerHTML = '✓';
+                checkbox.style.color = 'white';
+                checkbox.style.textAlign = 'center';
+                checkbox.style.lineHeight = '24px';
+                checkbox.style.fontWeight = 'bold';
+                name.style.textDecoration = 'line-through';
+                name.style.opacity = '0.5';
+            } else {
+                checkbox.style.backgroundColor = 'rgba(0,0,0,0.2)';
+                checkbox.innerHTML = '';
+                name.style.textDecoration = 'none';
+                name.style.opacity = '1';
+            }
+        }
+
+        function loadPersisted() {
+            var saved = {};
+            try {
+                saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            } catch (e) {}
+            document.querySelectorAll('.item-row[data-pantry-id]').forEach(function(row) {
+                var id = row.getAttribute('data-pantry-id');
+                var checkbox = row.querySelector('.check-box');
+                var name = row.querySelector('.item-name');
+                if (id && checkbox && name) {
+                    applyChecked(checkbox, name, !!saved[id]);
                 }
+            });
+        }
+
+        function savePersisted(id, checked) {
+            var saved = {};
+            try {
+                saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            } catch (e) {}
+            saved[id] = checked;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+        }
+
+        loadPersisted();
+
+        document.querySelectorAll('.item-row[data-pantry-id]').forEach(function(row) {
+            row.addEventListener('click', function(event) {
+                if (event.target.closest('a')) return;
+                var id = this.getAttribute('data-pantry-id');
+                var checkbox = this.querySelector('.check-box');
+                var name = this.querySelector('.item-name');
+                if (!id || !checkbox || !name) return;
+                var isChecked = checkbox.style.backgroundColor === 'var(--accent-green)';
+                var newChecked = !isChecked;
+                applyChecked(checkbox, name, newChecked);
+                savePersisted(id, newChecked);
             });
         });
     </script>
