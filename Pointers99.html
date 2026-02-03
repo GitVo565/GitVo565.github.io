@@ -301,7 +301,15 @@
             <a href="index.html" class="footer-link" style="color:var(--accent-red);">🔒 Logout</a>
         </div>
 
+        <div class="footer-info" style="margin-top:20px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);text-align:center;font-size:0.8em;color:var(--text-muted);">
+            <span id="lastUpdated"></span>
+        </div>
+
     </div>
 
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
 </body>
 </html>

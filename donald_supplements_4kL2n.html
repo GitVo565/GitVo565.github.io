@@ -275,7 +275,7 @@
     </div>
 
     <div class="footer-info">
-        <span id="lastUpdated">—</span> · Checks reset at midnight (saved for today only).
+        <span id="lastUpdated">—</span> · Checks reset at midnight (saved for today only). <!-- Updated 2026-02-01 -->
     </div>
 
     <script>
@@ -329,7 +329,8 @@
 
             loadChecks();
             document.getElementById('dateBar').textContent = new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' });
-            document.getElementById('lastUpdated').textContent = 'Last saved: ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            var date = new Date(document.lastModified);
+            document.getElementById('lastUpdated').textContent = 'Last Updated: ' + date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         })();
 
         window.onpageshow = function (event) {
