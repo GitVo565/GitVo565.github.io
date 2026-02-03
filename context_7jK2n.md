@@ -48,3 +48,14 @@ Project Context (this file): context_7jK2n.md
 Visuals: Dark Glass UI overlaid on looping .mp4 video backgrounds.
 Video Backgrounds: Must be muted, loop, playsinline, and have a dark CSS overlay (rgba 0,0,0, 0.3 to 0.7).
 Mobile First: All layouts must use Flexbox/Grid for phone screens.
+
+6. Checkboxes, Checklist CSS & Copy-Paste Behaviour
+
+Checklist pattern (e.g. Tacie/Donald supplement pages):
+- One checkbox per line; use a wrapper class (e.g. `.check-row`) with `display: flex; align-items: center; gap: 12px`.
+- Bind each checkbox with a unique `id` and pair it with a `<label for="id">` so clicking the label toggles the box.
+- Do **not** set `user-select: none` on checklist labels. That blocks text selection and prevents users from copying label text; leave labels selectable so copy-paste works.
+- Use `accent-color` (e.g. `var(--accent-gold)`) for checkbox colour; give inputs a consistent size (e.g. 22px) and `flex-shrink: 0` so the box doesn’t collapse.
+- Optional: when `input:checked`, style the label (e.g. `color: var(--text-muted); text-decoration: line-through`) for visual feedback.
+- Persist state in `localStorage` keyed by page + date; reset checks when the date changes so each day gets a fresh list.
+- Use unique, stable `id`s (e.g. `bl_07_1`, `bn_11_2`) so persistence and any future scripting remain reliable.
