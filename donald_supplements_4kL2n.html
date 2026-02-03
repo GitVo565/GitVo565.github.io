@@ -104,7 +104,6 @@
             font-size: 1em;
             color: var(--text-light);
             flex: 1;
-            user-select: none;
         }
         .check-row input:checked + label { color: var(--text-muted); text-decoration: line-through; }
         .check-row input[type="radio"]:checked + label { color: var(--text-light); text-decoration: none; }
@@ -142,6 +141,18 @@
         }
         .intel-link:hover { color: var(--accent-gold); border-bottom-color: var(--accent-gold); }
 
+        .food-ideas {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
+        .food-ideas-label { font-weight: 700; color: var(--accent-gold); margin-right: 4px; }
+        .food-ideas-text { font-style: italic; }
+        .food-ideas ul { margin: 8px 0 0 0; padding-left: 20px; font-size: 0.9em; color: var(--text-muted); }
+        .food-ideas ul li { margin-bottom: 4px; }
+
         .footer-info { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--card-border); text-align: center; font-size: 0.8em; color: var(--text-muted); }
     </style>
 </head>
@@ -151,6 +162,7 @@
         <a href="Pointers99.html" class="back-btn">← Hub</a>
         <a href="donald_2yR5j.html" class="back-btn">Donald</a>
         <a href="supplement_intel_5kM9p.html" class="back-btn" style="border-color:var(--accent-gold);">Intel</a>
+        <a href="pantry_restock_8kL2m.html" class="back-btn">🛒 Pantry Check</a>
     </div>
 
     <div class="header-section">
@@ -198,6 +210,10 @@
             <input type="checkbox" id="m10" aria-label="Beef liver">
             <label for="m10"><a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Beef Liver Pills</a> (2 capsules) · <span class="dosage">Take 15 mins after AG1 if possible</span></label>
         </div>
+        <div class="food-ideas">
+            <span class="food-ideas-label">Food Ideas:</span>
+            <span class="food-ideas-text">(Oatmeal with berries/nuts or chocolate milk for sustained carbs/protein/omegas; banana with peanut butter or beef stick for potassium/satiety/heme iron)</span>
+        </div>
     </div>
 
     <div class="block" data-block="lunch">
@@ -215,6 +231,10 @@
             <input type="checkbox" id="l3" aria-label="Beet juice lunch">
             <label for="l3"><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link">Beet Root Juice</a> (½ cup / 4 oz) · <span class="dosage">Nitric Oxide load</span></label>
         </div>
+        <div class="food-ideas">
+            <span class="food-ideas-label">Food Ideas:</span>
+            <span class="food-ideas-text">(Beet salad with chicken/quinoa/arugula/bell peppers for nitrates/protein/carbs/folate/vitamin C; avocado toast with eggs or ham for fats/potassium/protein/iron absorption)</span>
+        </div>
     </div>
 
     <div class="block" data-block="prepractice">
@@ -228,6 +248,10 @@
             <input type="checkbox" id="p2" aria-label="Carbs">
             <label for="p2">Easy Stomach Carbs — <a href="supplement_intel_5kM9p.html#pretzels" class="intel-link">Pretzels</a>, <a href="supplement_intel_5kM9p.html#applesauce" class="intel-link">Applesauce</a>, Rice Crispy Treat</label>
         </div>
+        <div class="food-ideas">
+            <span class="food-ideas-label">Food Ideas:</span>
+            <span class="food-ideas-text">(Greek yogurt parfait with banana/chia or salted pretzels for probiotics/protein/potassium/omegas/rapid carbs; apple with cheese/nuts or rice crispy treat for carbs/antioxidants/calcium/glycogen top-off)</span>
+        </div>
     </div>
 
     <div class="block" data-block="postrun">
@@ -236,6 +260,28 @@
         <div class="check-row">
             <input type="checkbox" id="r1" aria-label="Protein">
             <label for="r1"><a href="supplement_intel_5kM9p.html#protein-shake" class="intel-link">Replenish Protein</a> (liquid options best for fast re-absorption)</label>
+        </div>
+        <div class="food-ideas">
+            <span class="food-ideas-label">Food Ideas:</span>
+            <span class="food-ideas-text">(Sweet potato or russet potato with turkey/greens/white beans for potassium/protein/carbs/Vit A/iron; berry smoothie with yogurt/spinach or chocolate milk for antioxidants/hydration/protein/glycogen refill)</span>
+        </div>
+    </div>
+
+    <div class="block" data-block="supper">
+        <div class="block-title">🍽️ Supper</div>
+        <div class="block-sub">Main evening meal.</div>
+        <div class="check-row">
+            <input type="checkbox" id="s1" aria-label="Supper">
+            <label for="s1">Supper / main meal</label>
+        </div>
+        <div class="food-ideas">
+            <span class="food-ideas-label">Food Ideas:</span>
+            <ul>
+                <li><strong>High-Carb Staples:</strong> Loaded baked potatoes for glycogen/potassium; pasta with cheese/meat sauce for energy; quinoa with beans for fiber/protein.</li>
+                <li><strong>Potassium-Rich Vegetables:</strong> Banana-squash mash for electrolytes; spinach/beet salad with dressing for micros; roasted sweet potatoes for recovery/carbs.</li>
+                <li><strong>Protein-Boosting Fats:</strong> Avocado on whole-grain toast for satiety/omegas; nut-butter dips for protein; cheese-topped sides for calcium/protein.</li>
+                <li><strong>Carb-Heavy Sides:</strong> Rice pilaf with veggies for sustain; bread rolls with butter for quick energy; fruit/yogurt mix for potassium/protein.</li>
+            </ul>
         </div>
     </div>
 
@@ -289,6 +335,10 @@
         <div class="check-row">
             <input type="checkbox" id="b9" aria-label="Rinse mouth">
             <label for="b9">Rinse mouth with water (no sugars on teeth overnight)</label>
+        </div>
+        <div class="food-ideas">
+            <span class="food-ideas-label">Food Ideas:</span>
+            <span class="food-ideas-text">(Tart cherry yogurt with nuts or tart cherry juice for melatonin/antioxidants/magnesium; liverwurst on crackers with carrots or strawberries for iron/micronutrients/Vit A/vitamin C)</span>
         </div>
     </div>
 
