@@ -108,6 +108,30 @@
         }
         .check-row input:checked + label { color: var(--text-muted); text-decoration: line-through; }
         .check-row input[type="radio"]:checked + label { color: var(--text-light); text-decoration: none; }
+        .iron-group, .choice-group {
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 8px 14px 10px;
+            margin: 8px 0 10px 0;
+            background: rgba(0,0,0,0.2);
+        }
+        .iron-group .check-row, .choice-group .check-row {
+            padding: 4px 0;
+            min-height: 38px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .iron-group .check-row:last-child, .choice-group .check-row:last-child { border-bottom: none; }
+        .iron-or, .choice-or {
+            text-align: center;
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin: 4px 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .iron-group .iron-choice, .choice-group .choice-label {
+            margin-bottom: 4px;
+        }
         .check-row .dosage { color: var(--text-muted); font-weight: normal; font-size: 0.9em; }
         .rx-tag { color: var(--rx-purple); font-weight: 700; font-size: 0.75em; text-transform: uppercase; margin-right: 6px; }
 
@@ -139,16 +163,12 @@
         <div class="block-title">☀️ Morning (The Foundation)</div>
         <div class="block-sub">First of two daily controller doses.</div>
         <div class="check-row">
-            <input type="checkbox" id="m1" aria-label="Brush teeth">
-            <label for="m1">Brush Teeth · <span class="dosage">DO NOT brush tongue; standard toothpaste, avoid anti-bacterial</span></label>
-        </div>
-        <div class="check-row">
             <input type="checkbox" id="m2" aria-label="Nasacort">
             <label for="m2"><span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Nasacort</a> (2 puffs per nostril)</label>
         </div>
         <div class="check-row">
             <input type="checkbox" id="m3" aria-label="Astelin morning">
-            <label for="m3"><span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Astelin</a> (1–2 sprays per nostril, first of two daily doses)</label>
+            <label for="m3"><span class="rx-tag">Rx</span> <a href="supplement_intel_5kM9p.html#pulmicort" class="intel-link">Azelastine/Astelin</a> (1–2 sprays per nostril, first of two daily doses)</label>
         </div>
         <div class="check-row">
             <input type="checkbox" id="m4" aria-label="Symbicort morning">
@@ -168,7 +188,7 @@
         </div>
         <div class="check-row">
             <input type="checkbox" id="m8" aria-label="Vitamin D3 K2">
-            <label for="m8"><a href="supplement_intel_5kM9p.html#d3" class="intel-link">Nature Made Vitamin D3 + K2</a> (5,000 IU D3 / 100 mcg K2)</label>
+            <label for="m8"><a href="supplement_intel_5kM9p.html#d3" class="intel-link">Nature Made Vitamin D3 + K2</a> (1 capsule)</label>
         </div>
         <div class="check-row">
             <input type="checkbox" id="m9" aria-label="CoQ10">
@@ -210,19 +230,6 @@
         </div>
     </div>
 
-    <div class="block" data-block="dinner">
-        <div class="block-title">🍽️ Dinner (Nitric Oxide &amp; Fuel Block)</div>
-        <div class="block-sub">Maximizes NO conversion; protects teeth from bedtime sugar.</div>
-        <div class="check-row">
-            <input type="checkbox" id="d1" aria-label="Liverwurst dinner">
-            <label for="d1"><a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Liverwurst</a> (1 slice) · <span class="dosage">Natural heme iron source</span></label>
-        </div>
-        <div class="check-row">
-            <input type="checkbox" id="d2" aria-label="Beet juice dinner">
-            <label for="d2"><a href="supplement_intel_5kM9p.html#beet-root" class="intel-link">Beet Root Juice</a> (½ cup / 4 oz) · <span class="dosage">Take with meal</span></label>
-        </div>
-    </div>
-
     <div class="block" data-block="postrun">
         <div class="block-title">💪 Post-Run / Workout</div>
         <div class="block-sub">Liquid options best for fast re-absorption.</div>
@@ -241,7 +248,7 @@
         </div>
         <div class="check-row">
             <input type="checkbox" id="b2" aria-label="Astelin bedtime">
-            <label for="b2"><span class="rx-tag">Rx</span> Astelin (1–2 sprays per nostril, second daily dose)</label>
+            <label for="b2"><span class="rx-tag">Rx</span> Azelastine/Astelin (1–2 sprays per nostril, second daily dose)</label>
         </div>
         <div class="check-row">
             <input type="checkbox" id="b3" aria-label="Allegra">
@@ -251,22 +258,33 @@
             <input type="checkbox" id="b4" aria-label="Ashwagandha">
             <label for="b4">Klean Athlete Ashwagandha (1 capsule) · <span class="dosage">2 weeks on, 1 week off</span></label>
         </div>
-        <div class="iron-choice block-sub" style="margin-bottom:8px;">Pick one night only (alternate nights):</div>
-        <div class="check-row">
-            <input type="radio" name="iron_night" id="b5" value="a" aria-label="Iron Night A">
-            <label for="b5"><a href="supplement_intel_5kM9p.html#iron-ban" class="intel-link">IRON — Night A</a>: NaturesPlus Hema-Plex (1 tablet) ONLY</label>
-        </div>
-        <div class="check-row">
-            <input type="radio" name="iron_night" id="b6" value="b" aria-label="Iron Night B">
-            <label for="b6"><a href="supplement_intel_5kM9p.html#iron-ban" class="intel-link">IRON — Night B</a>: NaturesPlus Hema-Plex (1 tab) + Nature Made Iron (1 tab)</label>
+        <div class="iron-group">
+            <div class="iron-choice block-sub">Pick one night only, or neither (alternate nights):</div>
+            <div class="check-row">
+                <input type="checkbox" id="b5" aria-label="Iron Night A">
+                <label for="b5"><a href="supplement_intel_5kM9p.html#iron-ban" class="intel-link">IRON — Night A</a>: NaturesPlus Hema-Plex (1 tablet) ONLY</label>
+            </div>
+            <div class="iron-or">— OR —</div>
+            <div class="check-row">
+                <input type="checkbox" id="b6" aria-label="Iron Night B">
+                <label for="b6"><a href="supplement_intel_5kM9p.html#iron-ban" class="intel-link">IRON — Night B</a>: NaturesPlus Hema-Plex (1 tab) + Nature Made Iron (1 tab)</label>
+            </div>
         </div>
         <div class="check-row">
             <input type="checkbox" id="b7" aria-label="Liverwurst bedtime">
             <label for="b7"><a href="supplement_intel_5kM9p.html#liverwurst" class="intel-link">Liverwurst</a></label>
         </div>
-        <div class="check-row">
-            <input type="checkbox" id="b8" aria-label="OJ or tart cherry">
-            <label for="b8">Orange Juice <em>or</em> <a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry Juice</a> (4 oz) + Vitamin C pill</label>
+        <div class="choice-group">
+            <div class="choice-label block-sub">Pick one, or neither:</div>
+            <div class="check-row">
+                <input type="checkbox" id="b8" aria-label="Orange Juice">
+                <label for="b8">Orange Juice</label>
+            </div>
+            <div class="choice-or">— OR —</div>
+            <div class="check-row">
+                <input type="checkbox" id="b10" aria-label="Tart cherry and Vitamin C">
+                <label for="b10"><a href="supplement_intel_5kM9p.html#tart-cherry" class="intel-link">Tart Cherry Juice</a> (4 oz) + Vitamin C pill</label>
+            </div>
         </div>
         <div class="check-row">
             <input type="checkbox" id="b9" aria-label="Rinse mouth">
@@ -304,9 +322,12 @@
                 inputs.forEach(function (el) {
                     if (el.id && checks[el.id] === true) el.checked = true;
                 });
-                var iron = checks.iron_night;
-                if (iron === 'a') document.getElementById('b5').checked = true;
-                if (iron === 'b') document.getElementById('b6').checked = true;
+                var b5 = document.getElementById('b5');
+                var b6 = document.getElementById('b6');
+                var b8 = document.getElementById('b8');
+                var b10 = document.getElementById('b10');
+                if (b5 && b6 && b5.checked && b6.checked) b6.checked = false;
+                if (b8 && b10 && b8.checked && b10.checked) b10.checked = false;
             }
 
             function saveChecks() {
@@ -314,17 +335,18 @@
                 document.querySelectorAll('.block input[type="checkbox"]').forEach(function (el) {
                     if (el.id) o[el.id] = el.checked;
                 });
-                var iron = document.querySelector('.block input[name="iron_night"]:checked');
-                if (iron) o.iron_night = iron.value;
                 setChecks(o);
                 setStoredDate(today);
             }
 
             document.querySelectorAll('.block input[type="checkbox"]').forEach(function (cb) {
-                cb.addEventListener('change', saveChecks);
-            });
-            document.querySelectorAll('.block input[name="iron_night"]').forEach(function (rb) {
-                rb.addEventListener('change', saveChecks);
+                cb.addEventListener('change', function () {
+                    if (cb.id === 'b5' && cb.checked) document.getElementById('b6').checked = false;
+                    if (cb.id === 'b6' && cb.checked) document.getElementById('b5').checked = false;
+                    if (cb.id === 'b8' && cb.checked) document.getElementById('b10').checked = false;
+                    if (cb.id === 'b10' && cb.checked) document.getElementById('b8').checked = false;
+                    saveChecks();
+                });
             });
 
             loadChecks();
