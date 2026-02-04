@@ -39,6 +39,9 @@ Orders/Tasks: orders_9sL2k.html
 Pantry: pantry_restock_8kL2m.html
 Intel Briefing: supplement_intel_5kM9p.html
 Tacie Wrestling Hub: tacie_wrestling_5fH3pK.html
+Coach's Notebook (match notes): wrestling_notes_3jX9s.html
+Technique Library: wrestling_library_7hG4d.html
+Wrestling match analyses: wrestling_matches/ (e.g. match_008_analysis_4kL9m.html)
 Daily Log: tacie_training_2pX4v.html
 Donald Supplements: donald_supplements_4kL2n.html
 Project Context (this file): context_7jK2n.md
@@ -59,3 +62,21 @@ Checklist pattern (e.g. Tacie/Donald supplement pages):
 - Optional: when `input:checked`, style the label (e.g. `color: var(--text-muted); text-decoration: line-through`) for visual feedback.
 - Persist state in `localStorage` keyed by page + date; reset checks when the date changes so each day gets a fresh list.
 - Use unique, stable `id`s (e.g. `bl_07_1`, `bn_11_2`) so persistence and any future scripting remain reliable.
+
+7. Wrestling Subsystem (Notes ↔ Library)
+
+- **Linking preference:** In commentary (wrestling_notes_3jX9s.html), favor links to the technique library over external URLs when the concept is the same. Use fragment IDs (e.g. `wrestling_library_7hG4d.html#vid-snowplow`, `#top-base`). Technique links use class `move-link`; Buck15-specific links use class `buck15-text`.
+- **Library structure:** wrestling_library_7hG4d.html has Top / Bottom / Neutral / Specific Counters; a sticky index in the sidebar; video cards with stable `id`s (e.g. `vid-snowplow`, `vid-tight-waist`); Buck15 cards use class `buck15-card` and badge. At the end, a **Reference list** (no preview boxes): techniques mentioned in the notebook that don’t yet have a library card, each with a short description and “Referenced from: Match XXX, timestamp.”
+- **Notes structure:** Cheat sheet (e.g. Grandpa’s 3 Focus Areas) in a sticky sidebar; match cards with `outcome-win` / `outcome-loss` / `outcome-pending`; timestamp lists (`.timestamp-list`, `.ts` for time links); match IDs for deep links (e.g. `id="match009"`).
+- **When adding notebook commentary:** Add inline library links where a technique has a card. If a technique is mentioned but has no library card, add an entry to the library’s Reference list with description and “Referenced from” so it can be added to the library later.
+- **When adding a library card:** Consider adding or updating links from wrestling_notes where that technique is discussed.
+
+8. Quality & Cross-Page Checks (Wide View)
+
+Before making changes that affect links or structure, run these checks so updates stay consistent across the site:
+
+- **Link and ID stability:** Before renaming a file or changing a fragment `id` used in links (e.g. library card IDs, match section IDs), search the repo for that filename or `#fragment` so all references (notes, library, hub, events, history, etc.) can be updated or confirmed.
+- **Notes ↔ Library interplay:** When adding or editing match notes, ask: (1) Which techniques are named? (2) Do they have a library card? If yes, add a `move-link` to it. If no, add a Reference list entry with “Referenced from: Match N, timestamp.” When adding a library card, ask: is this technique referenced in the notebook? If yes, add or fix the inline link there.
+- **Nav and hub consistency:** Wrestling hub (tacie_wrestling_5fH3pK.html) should link to both Notebook and Library. Library and Notebook should link to each other (nav + Reference section intro) and back to the hub. Events and history recaps that mention matches should link to the hub or notebook where appropriate.
+- **CSS and class conventions:** Use existing classes for consistency: `.move-link` (technique/library links in notes), `.buck15-text` (Buck15 callouts), `.ts` (timestamp links), `.timestamp-list`, `.match-card`, `.outcome-win` / `.outcome-loss` / `.outcome-pending`. Don’t introduce duplicate patterns for the same purpose.
+- **New wrestling pages:** If adding a new wrestling-related page (e.g. another analysis or drill list), add it to this context’s Key File Map and ensure the hub (and any relevant nav) links to it; consider whether it should link to the library or notebook for techniques.

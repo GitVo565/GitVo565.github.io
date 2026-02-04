@@ -116,6 +116,7 @@
         
         /* Topic Groups */
         .topic-group { margin-bottom: 30px; }
+        .topic-group[id] { scroll-margin-top: 20px; }
         .topic-title { 
             color: var(--accent-blue); font-size: 1.1em; font-weight: bold; 
             text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px;
@@ -150,6 +151,21 @@
             scroll-margin-top: 30px;
         }
         .vid-card:hover { transform: translateY(-3px); border-color: #666; }
+        .vid-card.buck15-card { border-color: rgba(243, 156, 18, 0.5); }
+        .vid-card.buck15-card:hover { border-color: var(--accent-gold); }
+        .buck15-badge {
+            display: inline-block;
+            background: rgba(243, 156, 18, 0.25);
+            color: var(--accent-gold);
+            font-size: 0.7em;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--accent-gold);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
         /* TARGET LOCK ANIMATION */
         @keyframes pulseGold {
@@ -190,6 +206,8 @@
             border-radius: 0 4px 4px 0;
         }
         .coach-note strong { color: var(--accent-gold); }
+        .move-link { color: var(--accent-blue); text-decoration: none; border-bottom: 1px dashed var(--accent-blue); }
+        .move-link:hover { color: #fff; border-bottom-color: #fff; }
 
         /* SPECIALS SECTION STYLE */
         #specials .pos-title { color: var(--accent-gold); text-shadow: 0 0 10px rgba(243, 156, 18, 0.3); }
@@ -211,10 +229,10 @@
         <a href="tacie_wrestling_5fH3pK.html" class="nav-btn nav-primary">← Season Hub</a>
         <a href="wrestling_notes_3jX9s.html" class="nav-btn nav-primary">📝 Coach's Notebook</a>
         <div style="flex-grow:1;"></div>
-        <a href="#buck15" class="nav-btn active">★ Buck 15 Specials</a>
         <a href="#bottom-position" class="nav-btn">Defense</a>
         <a href="#neutral-position" class="nav-btn">Neutral</a>
         <a href="#top-position" class="nav-btn">Top</a>
+        <a href="#reference-list" class="nav-btn">Reference</a>
     </div>
     
     <div class="header-section">
@@ -226,10 +244,24 @@
         
         <aside class="sticky-index">
             <span class="index-title">📚 Index</span>
-            <a href="#top-position" class="index-link">🤼 Top / Offense</a>
-            <a href="#bottom-position" class="index-link">🛡️ Defense / Bottom</a>
+            <span class="index-title" style="font-size:0.75em; color:#888; margin-top:8px;">OFFENSE</span>
             <a href="#neutral-position" class="index-link">⚔️ Neutral</a>
-            <a href="#buck15" class="index-link buck15">🦌 Buck15 Specials</a>
+            <a href="#neutral-setups" class="index-link" style="padding-left:18px;">Setups & Chains</a>
+            <a href="#neutral-finishes" class="index-link" style="padding-left:18px;">Finishing Takedowns</a>
+            <a href="#neutral-defense" class="index-link" style="padding-left:18px;">Neutral Defense</a>
+            <a href="#top-position" class="index-link">🤼 Top</a>
+            <a href="#top-base" class="index-link" style="padding-left:18px;">Bottom at Base (Breakdowns)</a>
+            <a href="#top-standing" class="index-link" style="padding-left:18px;">Bottom Standing (Mat Returns)</a>
+            <a href="#top-prone" class="index-link" style="padding-left:18px;">Bottom Prone (Turns)</a>
+            <a href="#top-side" class="index-link" style="padding-left:18px;">Bottom on Side / Pins</a>
+            <span class="index-title" style="font-size:0.75em; color:#888; margin-top:12px;">DEFENSE</span>
+            <a href="#bottom-position" class="index-link">🛡️ Bottom</a>
+            <a href="#bottom-base" class="index-link" style="padding-left:18px;">Defending the Base (Escapes)</a>
+            <a href="#bottom-flat" class="index-link" style="padding-left:18px;">When Flat (Pin Escapes)</a>
+            <a href="#bottom-counters" class="index-link" style="padding-left:18px;">Countering Turns</a>
+            <a href="#bottom-scrambles" class="index-link" style="padding-left:18px;">Scrambles & Rolls</a>
+            <a href="#counters" class="index-link">🔄 Specific Counters</a>
+            <a href="#reference-list" class="index-link" style="margin-top:12px;">📎 Reference List</a>
         </aside>
 
         <main class="library-content">
@@ -240,9 +272,38 @@
                     <h2 class="pos-title">Top Position (Offense)</h2>
                 </div>
 
-                <div class="topic-group">
-                    <div class="topic-title">1. Breakdowns & Control</div>
+                <div class="topic-group" id="top-base">
+                    <div class="topic-title">Breakdowns & Base Control</div>
                     <div class="video-grid">
+                        <div class="vid-card" id="vid-basic-breakdowns">
+                            <a href="https://www.kolat.com/breakdowns1" target="_blank" class="vid-thumb" style="display:flex; align-items:center; justify-content:center; background:#333; color:#888; font-size:0.9em;">
+                                <span>📄 Kolat</span>
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.kolat.com/breakdowns1" target="_blank" class="vid-title">Basic Breakdowns</a>
+                                <div class="coach-note"><strong>Why:</strong> Core breakdown concepts to flatten and control the base.</div>
+                            </div>
+                        </div>
+                        <div class="vid-card" id="vid-riding-basics">
+                            <a href="https://youtu.be/Fw_G0b_0RQc" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/Fw_G0b_0RQc/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://youtu.be/Fw_G0b_0RQc" target="_blank" class="vid-title">Riding Basics</a>
+                                <div class="coach-note"><strong>Why:</strong> Foundational top control and riding position.</div>
+                            </div>
+                        </div>
+                        <div class="vid-card" id="vid-leg-hook">
+                            <a href="https://youtu.be/Fw_G0b_0RQc?t=116" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/Fw_G0b_0RQc/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://youtu.be/Fw_G0b_0RQc?t=116" target="_blank" class="vid-title">Leg Hook</a>
+                                <div class="coach-note"><strong>Why:</strong> Leg hook from the same Riding Basics series (starts at 1:56).</div>
+                            </div>
+                        </div>
                         <div class="vid-card" id="vid-toe-pressure">
                             <a href="https://www.youtube.com/watch?v=TdWic6rxhmI" target="_blank" class="vid-thumb">
                                 <span class="play-btn">▶</span>
@@ -276,8 +337,24 @@
                     </div>
                 </div>
 
-                <div class="topic-group">
-                    <div class="topic-title">2. Turns: Half Nelsons & Cradles</div>
+                <div class="topic-group" id="top-standing">
+                    <div class="topic-title">Mat Returns (Bottom Standing)</div>
+                    <div class="video-grid">
+                        <div class="vid-card" id="vid-mat-return">
+                            <a href="https://www.youtube.com/watch?v=hOtkAp7yLrQ&t=268" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/hOtkAp7yLrQ/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=hOtkAp7yLrQ&t=268" target="_blank" class="vid-title">Mat Return (Iron Faith Wrestling)</a>
+                                <div class="coach-note"><strong>Why:</strong> Bring them back to the mat safely from quad pod/stand-up. Core returns from 4:28; control without giving reversals.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-group" id="top-prone">
+                    <div class="topic-title">Turns: Half Nelsons & Cradles (Bottom Prone)</div>
                     <div class="video-grid">
                         <div class="vid-card" id="vid-far-arm-roll">
                             <a href="https://www.youtube.com/watch?v=sEwC8nA8_zc" target="_blank" class="vid-thumb">
@@ -309,11 +386,21 @@
                                 <div class="coach-note"><strong>Why:</strong> The killer transition. Suck up the leg and drive.</div>
                             </div>
                         </div>
+                        <div class="vid-card" id="vid-armbar-wrist">
+                            <a href="https://www.youtube.com/watch?v=KLYjpRARpfQ" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/KLYjpRARpfQ/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=KLYjpRARpfQ" target="_blank" class="vid-title">Arm Bar Wrist</a>
+                                <div class="coach-note"><strong>Why:</strong> Control the wrist from arm bar to turn or secure the position.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="topic-group">
-                    <div class="topic-title">3. Advanced Turns & Leg Riding</div>
+                <div class="topic-group" id="top-side">
+                    <div class="topic-title">Turns & Leg Riding (Bottom on Side / Pins)</div>
                     <div class="video-grid">
                         <div class="vid-card" id="vid-the-butcher">
                             <a href="https://www.youtube.com/watch?v=XNd81YSsnc0" target="_blank" class="vid-thumb">
@@ -375,6 +462,28 @@
                                 <div class="coach-note"><strong>Why:</strong> Alternative to just holding on. Throw the leg in and crank.</div>
                             </div>
                         </div>
+                        <div class="vid-card buck15-card" id="vid-ballchain-basic">
+                            <a href="https://www.youtube.com/watch?v=T1u93jpKflw" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/T1u93jpKflw/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <span class="buck15-badge">🦌 Buck15</span>
+                                <a href="https://www.youtube.com/watch?v=T1u93jpKflw" target="_blank" class="vid-title">Ball and Chain Series</a>
+                                <div class="coach-note"><strong>Why:</strong> Ties into the wrist/ankle breakdown. Perfect for turning opponents who flatten out.</div>
+                            </div>
+                        </div>
+                        <div class="vid-card buck15-card" id="vid-ballchain-adv">
+                            <a href="https://www.youtube.com/watch?v=QoZ8lLZ0GC8" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/QoZ8lLZ0GC8/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <span class="buck15-badge">🦌 Buck15</span>
+                                <a href="https://www.youtube.com/watch?v=QoZ8lLZ0GC8" target="_blank" class="vid-title">Advanced Ball & Chain Tilt</a>
+                                <div class="coach-note"><strong>Why:</strong> Step-by-step on arm/ankle control and hip pressure to rack up near-fall points.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -385,8 +494,8 @@
                     <h2 class="pos-title">Bottom Position (Defense)</h2>
                 </div>
 
-                <div class="topic-group">
-                    <div class="topic-title">1. Escapes & Stand Ups</div>
+                <div class="topic-group" id="bottom-base">
+                    <div class="topic-title">Escapes & Stand Ups (Defending the Base)</div>
                     <div class="video-grid">
                         
                         <div class="vid-card" id="vid-standing-grip-break">
@@ -465,8 +574,8 @@
                     </div>
                 </div>
                 
-                <div class="topic-group">
-                    <div class="topic-title">4. Pin Escapes (Survival)</div>
+                <div class="topic-group" id="bottom-flat">
+                    <div class="topic-title">Pin Escapes (When Flat)</div>
                     <div class="video-grid">
                         <div class="vid-card" id="vid-lockdown-bridge">
                             <a href="https://youtu.be/ALTcSu_Szt0?t=97" target="_blank" class="vid-thumb">
@@ -481,54 +590,13 @@
                     </div>
                 </div>
 
-                <div class="topic-group">
-                    <div class="topic-title">2. Countering Turns (Cradles/Halfs)</div>
-                    <div class="video-grid">
-                        <div class="vid-card" id="vid-cradle-base">
-                            <a href="https://www.youtube.com/watch?v=GUGTYfGzK_4" target="_blank" class="vid-thumb">
-                                <span class="play-btn">▶</span>
-                                <img src="https://img.youtube.com/vi/GUGTYfGzK_4/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                            </a>
-                            <div class="vid-content">
-                                <a href="https://www.youtube.com/watch?v=GUGTYfGzK_4" target="_blank" class="vid-title">Cradle Defense: Basing Out</a>
-                                <div class="coach-note"><strong>Why:</strong> Lift chest, base wide. Stop the roll before it starts.</div>
-                            </div>
-                        </div>
-                        <div class="vid-card" id="vid-wing-down">
-                            <a href="https://www.youtube.com/watch?v=v9XhIs6Cwd8" target="_blank" class="vid-thumb">
-                                <span class="play-btn">▶</span>
-                                <img src="https://img.youtube.com/vi/v9XhIs6Cwd8/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                            </a>
-                            <div class="vid-content">
-                                <a href="https://www.youtube.com/watch?v=v9XhIs6Cwd8" target="_blank" class="vid-title">Wing Down (Half Nelson Counter)</a>
-                                <div class="coach-note"><strong>Why:</strong> Clamp the elbow tight to root yourself to the mat.</div>
-                            </div>
-                        </div>
-                        <div class="vid-card" id="vid-chop-hop">
-                            <a href="https://www.youtube.com/watch?v=Ecj841yP8yQ" target="_blank" class="vid-thumb">
-                                <span class="play-btn">▶</span>
-                                <img src="https://img.youtube.com/vi/Ecj841yP8yQ/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                            </a>
-                            <div class="vid-content">
-                                <a href="https://www.youtube.com/watch?v=Ecj841yP8yQ" target="_blank" class="vid-title">Half Counter: Chop & Hop</a>
-                                <div class="coach-note"><strong>Why:</strong> Chop her arm and hop over for the reversal.</div>
-                            </div>
-                        </div>
-                        <div class="vid-card" id="vid-leg-counters">
-                            <a href="https://www.youtube.com/watch?v=836bISSoasg" target="_blank" class="vid-thumb">
-                                <span class="play-btn">▶</span>
-                                <img src="https://img.youtube.com/vi/836bISSoasg/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                            </a>
-                            <div class="vid-content">
-                                <a href="https://www.youtube.com/watch?v=836bISSoasg" target="_blank" class="vid-title">Leg Counters & Reversals</a>
-                                <div class="coach-note"><strong>Why:</strong> Jump to 3:00 for the "Hip Whip." Smash them down if they ride legs.</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="topic-group" id="bottom-counters">
+                    <div class="topic-title">Countering Turns (Cradles / Halfs)</div>
+                    <p class="coach-note" style="margin:0;">Cradle, half nelson, and leg counters → <a href="#counters" class="move-link">Specific Counters</a></p>
                 </div>
 
-                <div class="topic-group">
-                    <div class="topic-title">3. Scrambles & Rolls</div>
+                <div class="topic-group" id="bottom-scrambles">
+                    <div class="topic-title">Scrambles & Rolls</div>
                     <div class="video-grid">
                         <div class="vid-card" id="vid-return-defense">
                             <a href="https://www.youtube.com/watch?v=Arj_foTgq1c" target="_blank" class="vid-thumb">
@@ -574,14 +642,76 @@
                 </div>
             </div>
 
+            <div id="counters" class="position-section">
+                <div class="position-header">
+                    <span class="pos-icon">🔄</span>
+                    <h2 class="pos-title">Specific Counters</h2>
+                </div>
+                <div class="topic-group">
+                    <div class="topic-title">Counter to a specific attack</div>
+                    <div class="video-grid">
+                        <div class="vid-card" id="vid-head-arm-def">
+                            <a href="https://www.youtube.com/watch?v=8gmkKaZPbUY" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/8gmkKaZPbUY/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=8gmkKaZPbUY" target="_blank" class="vid-title">Head & Arm Defense (Roll Through)</a>
+                                <div class="coach-note"><strong>Why:</strong> When they lock head & arm, roll through or fight the lock. Never leave your head in.</div>
+                            </div>
+                        </div>
+                        <div class="vid-card" id="vid-cradle-base">
+                            <a href="https://www.youtube.com/watch?v=GUGTYfGzK_4" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/GUGTYfGzK_4/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=GUGTYfGzK_4" target="_blank" class="vid-title">Cradle Defense: Basing Out</a>
+                                <div class="coach-note"><strong>Why:</strong> Lift chest, base wide. Stop the roll before it starts.</div>
+                            </div>
+                        </div>
+                        <div class="vid-card" id="vid-wing-down">
+                            <a href="https://www.youtube.com/watch?v=v9XhIs6Cwd8" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/v9XhIs6Cwd8/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=v9XhIs6Cwd8" target="_blank" class="vid-title">Wing Down (Half Nelson Counter)</a>
+                                <div class="coach-note"><strong>Why:</strong> Clamp the elbow tight to root yourself to the mat.</div>
+                            </div>
+                        </div>
+                        <div class="vid-card" id="vid-chop-hop">
+                            <a href="https://www.youtube.com/watch?v=Ecj841yP8yQ" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/Ecj841yP8yQ/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=Ecj841yP8yQ" target="_blank" class="vid-title">Half Counter: Chop & Hop</a>
+                                <div class="coach-note"><strong>Why:</strong> Chop her arm and hop over for the reversal.</div>
+                            </div>
+                        </div>
+                        <div class="vid-card" id="vid-leg-counters">
+                            <a href="https://www.youtube.com/watch?v=836bISSoasg" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/836bISSoasg/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=836bISSoasg" target="_blank" class="vid-title">Leg Counters & Reversals</a>
+                                <div class="coach-note"><strong>Why:</strong> Jump to 3:00 for the "Hip Whip." Smash them down if they ride legs.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="neutral-position" class="position-section">
                 <div class="position-header">
                     <span class="pos-icon">⚔️</span>
                     <h2 class="pos-title">Neutral Position (Takedowns)</h2>
                 </div>
 
-                <div class="topic-group">
-                    <div class="topic-title">1. Setups & Chains</div>
+                <div class="topic-group" id="neutral-setups">
+                    <div class="topic-title">Setups & Chains</div>
                     <div class="video-grid">
                         <div class="vid-card" id="vid-snap-down">
                             <a href="https://www.youtube.com/watch?v=ilnAbmiW5hw" target="_blank" class="vid-thumb">
@@ -603,11 +733,21 @@
                                 <div class="coach-note"><strong>Why:</strong> High-crotch to double-leg. Never stop moving.</div>
                             </div>
                         </div>
+                        <div class="vid-card" id="vid-arm-drag">
+                            <a href="https://www.youtube.com/watch?v=MIT6QXzTPGA&t=61" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/MIT6QXzTPGA/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <a href="https://www.youtube.com/watch?v=MIT6QXzTPGA&t=61" target="_blank" class="vid-title">Arm Drag Techniques</a>
+                                <div class="coach-note"><strong>Why:</strong> Drag the arm to get to the side or behind; sets up go-behind and takedowns. (Starts 1:01)</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="topic-group">
-                    <div class="topic-title">2. Finishing Takedowns</div>
+                <div class="topic-group" id="neutral-finishes">
+                    <div class="topic-title">Finishing Takedowns</div>
                     <div class="video-grid">
                         <div class="vid-card" id="vid-single-finish-smith">
                             <a href="https://www.youtube.com/watch?v=2bEGb61bGpg" target="_blank" class="vid-thumb">
@@ -649,11 +789,33 @@
                                 <div class="coach-note"><strong>Why:</strong> Explode through the chest. Don't stop at the legs.</div>
                             </div>
                         </div>
+                        <div class="vid-card buck15-card" id="vid-bearhug-basic">
+                            <a href="https://www.youtube.com/watch?v=S__Aof7etYw" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/S__Aof7etYw/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <span class="buck15-badge">🦌 Buck15</span>
+                                <a href="https://www.youtube.com/watch?v=S__Aof7etYw" target="_blank" class="vid-title">Bear Hug Takedown (Basics)</a>
+                                <div class="coach-note"><strong>Why:</strong> Powerful bodylock for closing distance and dumping opponents.</div>
+                            </div>
+                        </div>
+                        <div class="vid-card buck15-card" id="vid-bearhug-kolat">
+                            <a href="https://www.youtube.com/watch?v=K8odU-naveA" target="_blank" class="vid-thumb">
+                                <span class="play-btn">▶</span>
+                                <img src="https://img.youtube.com/vi/K8odU-naveA/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+                            </a>
+                            <div class="vid-content">
+                                <span class="buck15-badge">🦌 Buck15</span>
+                                <a href="https://www.youtube.com/watch?v=K8odU-naveA" target="_blank" class="vid-title">High Duck to Bear Hug (Kolat)</a>
+                                <div class="coach-note"><strong>Why:</strong> Great chain wrestling. If the duck under works, finish with the Bear Hug.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="topic-group">
-                    <div class="topic-title">3. Defense & Counters</div>
+                <div class="topic-group" id="neutral-defense">
+                    <div class="topic-title">Neutral Defense & Counters</div>
                     <div class="video-grid">
                         <div class="vid-card" id="vid-fhl-escape">
                             <a href="https://youtu.be/-70kic2RBl8?t=41" target="_blank" class="vid-thumb">
@@ -675,84 +837,31 @@
                                 <div class="coach-note"><strong>Why:</strong> Clear the head and take the back immediately.</div>
                             </div>
                         </div>
-                        <div class="vid-card" id="vid-head-arm-def">
-                            <a href="https://www.youtube.com/watch?v=8gmkKaZPbUY" target="_blank" class="vid-thumb">
-                                <span class="play-btn">▶</span>
-                                <img src="https://img.youtube.com/vi/8gmkKaZPbUY/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                            </a>
-                            <div class="vid-content">
-                                <a href="https://www.youtube.com/watch?v=8gmkKaZPbUY" target="_blank" class="vid-title">Head & Arm Defense (Roll Through)</a>
-                                <div class="coach-note"><strong>Why:</strong> Don't stick on your back. Roll through to scramble.</div>
-                            </div>
-                        </div>
                     </div>
+                    <p class="coach-note" style="margin:10px 0 0 0;">Head & arm defense → <a href="#counters" class="move-link">Specific Counters</a></p>
                 </div>
             </div>
 
-            <div id="buck15" class="position-section">
+            <div id="reference-list" class="position-section" style="scroll-margin-top: 20px;">
                 <div class="position-header">
-                    <span class="pos-icon">🦌</span>
-                    <h2 class="pos-title" style="color:var(--accent-gold);">Buck15 Specials</h2>
+                    <span class="pos-icon">📎</span>
+                    <h2 class="pos-title">Reference List</h2>
                 </div>
-
-                <div class="buck15-desc">
-                    <strong>The 115lb Powerhouse Arsenal.</strong> Why "Buck15"? Because at 115lbs, you bring surprising muscle and a <strong>"crazy out-of-pocket"</strong> style that catches opponents off guard. These moves require explosive power and the willingness to go big.
-                </div>
-
-                <div class="topic-group">
-                    <div class="topic-title" style="color:var(--accent-gold);">1. The Bear Hug (Bodylock Throw)</div>
-                    <div class="video-grid">
-                        <div class="vid-card" id="vid-bearhug-basic">
-                            <a href="https://www.youtube.com/watch?v=S__Aof7etYw" target="_blank" class="vid-thumb">
-                                <span class="play-btn">▶</span>
-                                <img src="https://img.youtube.com/vi/S__Aof7etYw/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                            </a>
-                            <div class="vid-content">
-                                <a href="https://www.youtube.com/watch?v=S__Aof7etYw" target="_blank" class="vid-title">Bear Hug Takedown (Basics)</a>
-                                <div class="coach-note"><strong>Why:</strong> Powerful bodylock for closing distance and dumping opponents.</div>
-                            </div>
-                        </div>
-                        <div class="vid-card" id="vid-bearhug-kolat">
-                            <a href="https://www.youtube.com/watch?v=K8odU-naveA" target="_blank" class="vid-thumb">
-                                <span class="play-btn">▶</span>
-                                <img src="https://img.youtube.com/vi/K8odU-naveA/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                            </a>
-                            <div class="vid-content">
-                                <a href="https://www.youtube.com/watch?v=K8odU-naveA" target="_blank" class="vid-title">High Duck to Bear Hug (Kolat)</a>
-                                <div class="coach-note"><strong>Why:</strong> Great chain wrestling. If the duck under works, finish with the Bear Hug.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="topic-group">
-                    <div class="topic-title" style="color:var(--accent-gold);">2. The Ball & Chain (Pinning Combo)</div>
-                    <div class="video-grid">
-                        <div class="vid-card" id="vid-ballchain-basic">
-                            <a href="https://www.youtube.com/watch?v=T1u93jpKflw" target="_blank" class="vid-thumb">
-                                <span class="play-btn">▶</span>
-                                <img src="https://img.youtube.com/vi/T1u93jpKflw/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                            </a>
-                            <div class="vid-content">
-                                <a href="https://www.youtube.com/watch?v=T1u93jpKflw" target="_blank" class="vid-title">Ball and Chain Series</a>
-                                <div class="coach-note"><strong>Why:</strong> Ties into the wrist/ankle breakdown. Perfect for turning opponents who flatten out.</div>
-                            </div>
-                        </div>
-                        <div class="vid-card" id="vid-ballchain-adv">
-                            <a href="https://www.youtube.com/watch?v=QoZ8lLZ0GC8" target="_blank" class="vid-thumb">
-                                <span class="play-btn">▶</span>
-                                <img src="https://img.youtube.com/vi/QoZ8lLZ0GC8/hqdefault.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
-                            </a>
-                            <div class="vid-content">
-                                <a href="https://www.youtube.com/watch?v=QoZ8lLZ0GC8" target="_blank" class="vid-title">Advanced Ball & Chain Tilt</a>
-                                <div class="coach-note"><strong>Why:</strong> Step-by-step on arm/ankle control and hip pressure to rack up near-fall points.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p style="color:#999; font-size:0.95em; margin-bottom: 20px;">Techniques or concepts mentioned in the <a href="wrestling_notes_3jX9s.html" class="move-link">Coach's Notebook</a> that don’t yet have a library card. Consider adding them to the library with a good video link.</p>
+                <ul class="reference-list-ul" style="list-style:none; padding:0; margin:0;">
+                    <li class="ref-item" style="border-bottom:1px solid #333; padding:12px 0;">
+                        <strong style="color:#eee;">Cow catcher</strong> — Takedown from neutral: head/arm control to send opponent to their back. <span style="color:#888; font-size:0.9em;">Referenced from: Match 005 (Alma), 1:40.</span>
+                    </li>
+                    <li class="ref-item" style="border-bottom:1px solid #333; padding:12px 0;">
+                        <strong style="color:#eee;">Sprawl</strong> — Neutral defense when opponent shoots for legs; drive hips back and down. <span style="color:#888; font-size:0.9em;">Referenced from: Match 005 (Alma), 1:19.</span>
+                    </li>
+                    <li class="ref-item" style="border-bottom:1px solid #333; padding:12px 0;">
+                        <strong style="color:#eee;">Donkey kick</strong> — Cradle break from bottom (post far foot, kick to create space). <span style="color:#888; font-size:0.9em;">Referenced from: Match 002 (Serina), 3:51.</span>
+                    </li>
+                </ul>
             </div>
 
-        </main>
+            </main>
     </div>
 
     <div class="footer-info">
