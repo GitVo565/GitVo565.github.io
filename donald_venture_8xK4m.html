@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>00W38 — Donald's Venture</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <style>
+        :root {
+            --glass-bg: rgba(15, 15, 35, 0.7);
+            --glass-border: rgba(255, 100, 200, 0.25);
+            --text-main: #ffffff;
+            --text-muted: #b8b8d8;
+            --accent-pink: #ff2d92;
+            --accent-cyan: #00e5ff;
+            --accent-gold: #ffd700;
+            --accent-green: #00e676;
+            --neon-glow: 0 0 20px rgba(255, 45, 146, 0.4), 0 0 40px rgba(0, 229, 255, 0.2);
+            --blur: 16px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            background: #0a0a1a;
+            overflow-x: hidden;
+        }
+
+        .bg-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -2;
+        }
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(160deg, rgba(10, 10, 30, 0.85), rgba(80, 20, 60, 0.5), rgba(0, 30, 50, 0.6));
+            z-index: -1;
+        }
+
+        .nav-bar {
+            position: absolute;
+            top: 20px; left: 20px;
+            z-index: 10;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .back-btn {
+            display: inline-block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--accent-cyan);
+            border-radius: 999px;
+            font-weight: bold;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: all 0.25s;
+        }
+        .back-btn:hover {
+            background: var(--accent-cyan);
+            color: #0a0a1a;
+            box-shadow: var(--neon-glow);
+        }
+        .back-btn.profile { color: var(--accent-pink); }
+        .back-btn.profile:hover { background: var(--accent-pink); color: #fff; }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+            padding-top: 90px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 24px 40px;
+            margin-bottom: 36px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur));
+            -webkit-backdrop-filter: blur(var(--blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--neon-glow), 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink), var(--accent-gold));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 4s ease infinite;
+        }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+        .hero .tagline {
+            margin-top: 12px;
+            font-size: 1.2em;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+        }
+        .hero .badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, var(--accent-pink), #b81a6b);
+            border-radius: 999px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 20px rgba(255, 45, 146, 0.5);
+        }
+
+        .section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur));
+            -webkit-backdrop-filter: blur(var(--blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+        }
+        .section h2 {
+            margin: 0 0 20px;
+            font-size: 1.5em;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 2px solid rgba(0, 229, 255, 0.4);
+            padding-bottom: 10px;
+        }
+        .section h3 {
+            margin: 24px 0 12px;
+            font-size: 1.2em;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+        .section p { color: var(--text-muted); line-height: 1.6; margin: 0 0 12px; }
+        .section ul { color: var(--text-muted); line-height: 1.7; padding-left: 22px; margin: 0 0 16px; }
+        .section li { margin-bottom: 6px; }
+
+        .phase {
+            border-left: 4px solid var(--accent-pink);
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+        .phase.phase-2 { border-left-color: var(--accent-cyan); }
+        .phase.phase-3 { border-left-color: var(--accent-green); }
+        .phase-label {
+            display: inline-block;
+            font-size: 0.75em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-pink);
+            margin-bottom: 8px;
+        }
+        .phase-2 .phase-label { color: var(--accent-cyan); }
+        .phase-3 .phase-label { color: var(--accent-green); }
+        .phase-goal {
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        @media (min-width: 640px) { .pillar-grid { grid-template-columns: 1fr 1fr; } }
+        .pillar-card {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 18px;
+        }
+        .pillar-card h4 {
+            margin: 0 0 8px;
+            color: var(--accent-cyan);
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .pillar-card p { margin: 0; font-size: 0.95em; }
+
+        .step-list { list-style: none; padding-left: 0; margin: 16px 0; }
+        .step-list li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+            align-items: flex-start;
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--accent-pink), #b81a6b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85em;
+        }
+        .step-list .step-body { color: var(--text-muted); line-height: 1.5; }
+
+        table.plan-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.95em;
+        }
+        .plan-table th,
+        .plan-table td {
+            padding: 12px 14px;
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .plan-table th {
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--accent-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .plan-table td { color: var(--text-muted); }
+        .plan-table tr:hover td { background: rgba(255,255,255,0.05); }
+
+        .checklist-table { margin: 16px 0; }
+        .checklist-table th { color: var(--accent-gold); }
+        .checklist-table td:first-child { font-weight: 600; color: #fff; white-space: nowrap; }
+
+        .big-idea {
+            background: linear-gradient(135deg, rgba(255,45,146,0.15), rgba(0,229,255,0.1));
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 1.05em;
+        }
+        .big-idea strong { color: var(--accent-cyan); }
+
+        .hashtag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+        }
+        .hashtag-list span {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.85em;
+            color: var(--text-muted);
+        }
+
+        .social-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.25s;
+        }
+        .social-btn.insta {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        .social-btn.tiktok { background: #000; color: #00f2ea; }
+        .social-btn.tiktok:hover { box-shadow: 0 0 25px rgba(0, 242, 234, 0.5); }
+        .social-btn.insta:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 32px;
+            padding: 16px;
+            color: var(--text-muted);
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="images/don_moose_rider II.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+
+    <div class="nav-bar">
+        <a href="Pointers99.html" class="back-btn">← Hub</a>
+        <a href="donald_2yR5j.html" class="back-btn profile">Donald's Profile</a>
+    </div>
+
+    <div class="container">
+
+        <div class="hero">
+            <h1>Battle Plan</h1>
+            <p class="tagline">0 → 2,000 Engaged · Build the identity. Monetize later.</p>
+            <span class="badge">Step by step</span>
+        </div>
+
+        <div class="section">
+            <h2>The Big Idea</h2>
+            <p>You're not "building a brand." You're <strong>documenting the path</strong>: Wisconsin senior year → MSUB commit → Montana. Running, fishing, truck, mountains. That story already exists — your job is to capture it consistently so you can grow a real audience and later monetize (merch, partnerships, sponsors).</p>
+            <div class="big-idea">
+                <strong>No extra hobbies.</strong> Post what you're already doing. Consistency + authenticity = 2K engaged in 6–12 months.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Your Four Content Pillars</h2>
+            <p>Everything below is stuff you already do. Just point the phone at it.</p>
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <h4>🏃 Running</h4>
+                    <p>Practices, meets, PRs, team, MSUB prep. Short clips: track reps, finish line, watch splits, "race week," course previews.</p>
+                </div>
+                <div class="pillar-card">
+                    <h4>🎣 Fishing</h4>
+                    <p>River/lake clips, catches, gear in the truck. "One day in Montana" fly-fishing dreams. Blue-ribbon trout content when you're there.</p>
+                </div>
+                <div class="pillar-card">
+                    <h4>🛻 Adventure & Montana</h4>
+                    <p>Frontier at sunrise, road trips, Montana trips or countdown. Mountains. Altitude. The move.</p>
+                </div>
+                <div class="pillar-card">
+                    <h4>📖 Story Arc</h4>
+                    <p>Senior year → signing → Montana. "Last conference meet," "Moving week," "First run at altitude." Milestone posts.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Phase 1 — Foundation (Weeks 1–4)</h2>
+            <p><strong>Goal:</strong> 100–300 followers. Lock in your identity and a posting habit.</p>
+
+            <div class="phase">
+                <span class="phase-label">Setup</span>
+                <ul class="step-list">
+                    <li>
+                        <span class="step-num">1</span>
+                        <span class="step-body"><strong>Bio (Instagram / TikTok):</strong> e.g. "MSUB XC/Track ’26 · WI → Montana · Running 🏃 fishing 🎣 mountains"</span>
+                    </li>
+                    <li>
+                        <span class="step-num">2</span>
+                        <span class="step-body"><strong>Link in bio:</strong> This venture page or a Linktree with Venture + Athletic.net + MileSplit.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Cadence (sustainable)</h3>
+            <ul>
+                <li><strong>Reels or TikTok:</strong> 3–5 per week (30–60 sec). One from a run, one from life (fishing/truck), one from a meet or milestone.</li>
+                <li><strong>Stories:</strong> Daily or near-daily — one clip, one thought, or a repost from team/news.</li>
+                <li><strong>Feed:</strong> 2–4 posts per week — carousel of a meet, 3–5 fishing/running pics, one "chapter" caption.</li>
+            </ul>
+
+            <h3>First 4 weeks in practice</h3>
+            <ul>
+                <li>Post 2–3 Reels from <strong>track/XC</strong> (practice, cooldown, meet day, watch check).</li>
+                <li>Post 2–3 from <strong>fishing or truck/outdoors</strong> (local water or a quick trip).</li>
+                <li>One <strong>"who I am"</strong> post: MSUB commit, "Wisconsin → Montana," or a short story.</li>
+                <li><strong>Engage 10–15 min/day:</strong> Like/comment on MSUB XC, SPASH, Wisconsin/Montana running, fishing, college-athlete accounts. Follow a few. Reply to every comment on your posts.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Phase 2 — Growth (Months 2–4)</h2>
+            <p><strong>Goal:</strong> 500–1,000 followers. Algorithm starts pushing you; double down on what works.</p>
+
+            <div class="phase phase-2">
+                <span class="phase-label">Tactics</span>
+                <p class="phase-goal">Check Reels/Insights: which topics get more saves, shares, comments? Do more of that. Keep the rest so the feed stays "you."</p>
+                <p>Join conversations. Use hashtags (rotate; don't spam):</p>
+                <div class="hashtag-list">
+                    <span>#msubxc</span><span>#montanarunning</span><span>#collegerunner</span><span>#flyfishingmontana</span><span>#wisconsintrack</span><span>#spash</span><span>#xcrunner</span><span>#altitudetraining</span><span>#montanabound</span><span>#ncaad2</span>
+                </div>
+                <p>Comment on MSUB, Montana running, Montana fishing, D2 XC/track. Congratulate others' PRs. Reply to every comment on your posts.</p>
+            </div>
+
+            <h3>Optional recurring series (low effort)</h3>
+            <ul>
+                <li><strong>PR chase</strong> — building to a target time (800/1600), one short update per week.</li>
+                <li><strong>Fish of the week / River check</strong> — one fishing clip per week when you go.</li>
+                <li><strong>Montana countdown</strong> — "X days until Billings" with a short clip or caption.</li>
+            </ul>
+
+            <h3>Use the story you already have</h3>
+            <p>Repost or quote WAOW/Journal signing day (with credit). Tag SPASH, MSUB, Athletic.net when relevant. Teammates and families will find you.</p>
+
+            <p><strong>Cadence:</strong> 4–6 Reels/TikToks per week. Stories most days. 3–5 feed posts per week.</p>
+        </div>
+
+        <div class="section">
+            <h2>Phase 3 — Scale to 2K (Months 5–8)</h2>
+            <p><strong>Goal:</strong> 1,000 → 2,000+ engaged. The big narrative moment = move to Montana.</p>
+
+            <div class="phase phase-3">
+                <span class="phase-label">Story spine</span>
+                <ul>
+                    <li><strong>Before move:</strong> "Last Wisconsin season," "Last high school race," "Packing the truck."</li>
+                    <li><strong>Move:</strong> Road trip Reels — Frontier, states, "Montana state line."</li>
+                    <li><strong>After:</strong> "First run in Billings," "First altitude session," "First Montana river," "First MSUB practice."</li>
+                </ul>
+                <p>Tag MSUB, Montana running, Montana outdoors, fly-fishing pages. They reshare; their followers discover you. Optional: 1–2 longer YouTube videos ("First week at MSUB," "First fly fishing in Montana") then cut 30–60 sec for Reels and link to full video.</p>
+            </div>
+
+            <h3>Engagement discipline</h3>
+            <ul>
+                <li>Reply to <strong>every</strong> comment in the first 1–2 hours after posting (signals engagement to the algorithm).</li>
+                <li>Once or twice a week: DM or comment to 2–3 similar creators (Montana runners, college runners, fishing) — genuine, not salesy.</li>
+            </ul>
+            <p>Keep it real. Phone clips, one take, captions like "6am tempo" or "this river in 6 months" are enough. Authenticity beats polish.</p>
+        </div>
+
+        <div class="section">
+            <h2>Metrics That Matter</h2>
+            <p>More important than raw follower count:</p>
+            <ul>
+                <li><strong>Saves and shares</strong> on Reels → algorithm boost.</li>
+                <li><strong>Comments and DMs</strong> → real connection.</li>
+                <li><strong>Profile visits from non-followers</strong> → discovery.</li>
+            </ul>
+            <p>Target <strong>~5%+ engagement</strong> (likes + comments ÷ followers) and growth in profile visits. 2K engaged is doable in 6–12 months with consistency.</p>
+        </div>
+
+        <div class="section">
+            <h2>Weekly Checklist</h2>
+            <p>Keep this handy. Do it every week.</p>
+            <table class="plan-table checklist-table">
+                <thead>
+                    <tr><th>What</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Content</td><td>4–6 short videos (run + fishing/outdoors + story/milestone).</td></tr>
+                    <tr><td>Stories</td><td>5–7 days — one moment or thought.</td></tr>
+                    <tr><td>Feed</td><td>3–5 posts (meet recap, outdoors, one "chapter" caption).</td></tr>
+                    <tr><td>Engage</td><td>10–15 min/day: like/comment on MSUB, SPASH, Montana, running, fishing. Reply to every comment on your posts.</td></tr>
+                    <tr><td>Monthly</td><td>Check Insights: which Reels got most saves/shares? Do more of that.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>What Comes After 2K</h2>
+            <p>At 1K–2K engaged you can test <strong>merch</strong> (POD or pre-orders, low risk). At 5K–10K, a real product line and partnerships become realistic. This plan gets you to the first milestone by doing what you already love.</p>
+        </div>
+
+        <div class="section">
+            <h2>Connect</h2>
+            <p>Put the plan into action. Start posting.</p>
+            <div class="social-strip">
+                <a href="https://www.instagram.com/donald_voetberg" target="_blank" rel="noopener" class="social-btn insta">Instagram</a>
+                <a href="donald_2yR5j.html" class="social-btn profile">Athlete Profile</a>
+            </div>
+        </div>
+
+        <p class="footer-note">00W38 — Donald's Venture · Battle plan: 0 → 2K engaged.</p>
+    </div>
+
+</body>
+</html>

@@ -32,7 +32,7 @@ Add-to-calendar links must include a Backlink (🔗 CHECK UPDATES: [URL]) and em
 
 D. Page Title Prefix (PDF / LM consumption)
 
-Every HTML page `<title>` must be prefixed with a sortable code `00W1`, `00W2`, … `00WN` (zero-padded, no space between 00W and the number). This ensures saved/printed PDFs and exported documents sort together and are easy to find when consumed by LMs or in file lists. Format: `00Wn — Original Title` (e.g. `00W1 — Voetberg Family Login`). New pages get the next unused number. **Current sequence runs 00W1–00W37** (index → Pointers99 → events → strategy → orders → pantry → intel → wrestling hub → notebook → library → match 008 analysis → training → donald/tacie supplements → history → tacie profile → wrestling videos → lifts A–D → mobility → core → circuits A–B → armor → AIS → donald/tonya/brian/dan/wallace → stocks → fun → garage heater → albert st cinema → 404).
+Every HTML page `<title>` must be prefixed with a sortable code `00W1`, `00W2`, … `00WN` (zero-padded, no space between 00W and the number). This ensures saved/printed PDFs and exported documents sort together and are easy to find when consumed by LMs or in file lists. Format: `00Wn — Original Title` (e.g. `00W1 — Voetberg Family Login`). New pages get the next unused number. **Current sequence runs 00W1–00W38** (index → Pointers99 → events → strategy → orders → pantry → intel → wrestling hub → notebook → library → match 008 analysis → training → donald/tacie supplements → history → tacie profile → wrestling videos → lifts A–D → mobility → core → circuits A–B → armor → AIS → donald/tonya/brian/dan/wallace → donald venture → stocks → fun → garage heater → albert st cinema → 404).
 
 4. Key File Map (Do not guess filenames)
 
@@ -48,6 +48,7 @@ Technique Library: wrestling_library_7hG4d.html
 Wrestling match analyses: wrestling_matches/ (e.g. match_008_analysis_4kL9m.html)
 Daily Log: tacie_training_2pX4v.html
 Donald Supplements: donald_supplements_4kL2n.html
+Donald's Venture (social/merch): donald_venture_8xK4m.html
 Project Context (this file): context_7jK2n.md
 
 5. Design System
