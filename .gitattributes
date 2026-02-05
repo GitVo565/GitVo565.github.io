@@ -1,0 +1,6 @@
+# Normalize line endings: HTML and text files use CRLF on checkout (Windows).
+# Prevents "LF will be replaced by CRLF" warnings when Git touches files.
+*.html text eol=crlf
+*.md   text eol=crlf
+*.css  text eol=crlf
+*.js   text eol=crlf

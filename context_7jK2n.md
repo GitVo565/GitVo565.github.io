@@ -30,6 +30,10 @@ C. Calendar Standard
 
 Add-to-calendar links must include a Backlink (🔗 CHECK UPDATES: [URL]) and emojis for readability.
 
+D. Page Title Prefix (PDF / LM consumption)
+
+Every HTML page `<title>` must be prefixed with a sortable code `00W1`, `00W2`, … `00WN` (zero-padded, no space between 00W and the number). This ensures saved/printed PDFs and exported documents sort together and are easy to find when consumed by LMs or in file lists. Format: `00Wn — Original Title` (e.g. `00W1 — Voetberg Family Login`). New pages get the next unused number. **Current sequence runs 00W1–00W37** (index → Pointers99 → events → strategy → orders → pantry → intel → wrestling hub → notebook → library → match 008 analysis → training → donald/tacie supplements → history → tacie profile → wrestling videos → lifts A–D → mobility → core → circuits A–B → armor → AIS → donald/tonya/brian/dan/wallace → stocks → fun → garage heater → albert st cinema → 404).
+
 4. Key File Map (Do not guess filenames)
 
 Main Hub: Pointers99.html
@@ -80,3 +84,5 @@ Before making changes that affect links or structure, run these checks so update
 - **Nav and hub consistency:** Wrestling hub (tacie_wrestling_5fH3pK.html) should link to both Notebook and Library. Library and Notebook should link to each other (nav + Reference section intro) and back to the hub. Events and history recaps that mention matches should link to the hub or notebook where appropriate.
 - **CSS and class conventions:** Use existing classes for consistency: `.move-link` (technique/library links in notes), `.buck15-text` (Buck15 callouts), `.ts` (timestamp links), `.timestamp-list`, `.match-card`, `.outcome-win` / `.outcome-loss` / `.outcome-pending`. Don’t introduce duplicate patterns for the same purpose.
 - **New wrestling pages:** If adding a new wrestling-related page (e.g. another analysis or drill list), add it to this context’s Key File Map and ensure the hub (and any relevant nav) links to it; consider whether it should link to the library or notebook for techniques.
+
+- **Events ↔ Kids’ pages (avoid data rot):** events_7x9B2.html is the canonical schedule. Other pages that reference events (e.g. donald_2yR5j.html “What’s Happening,” tacie_6nQ1s.html, tacie_wrestling_5fH3pK.html “next event” or season summary) can drift out of date. **Maintenance checks:** (1) When adding or removing events, update the **What’s Happening?** box on the events page so the one-line summary for each kid (sport, season, key date) stays accurate. (2) When editing a kid’s profile or hub, confirm any event dates, “next up,” or season wording matches events_7x9B2.html—or replace inline dates with a link to the events page so the schedule lives in one place. (3) Prefer linking to events_7x9B2.html for “see full schedule” or “what’s next” rather than re-listing dates on multiple pages. (4) If a kid’s page has its own “What’s Happening” or timeline (e.g. Donald), keep it high-level and use events for authoritative dates; when seasons change, update both the events What’s Happening? and any timeline on the kid’s page so they don’t contradict.
