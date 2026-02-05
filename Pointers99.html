@@ -111,6 +111,17 @@
             display: block;
         }
 
+        .athlete-subtitle {
+            font-size: 0.8em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .athlete-subtitle:first-of-type { margin-top: 0; }
+
         /* --- ACTION GRID (Top Row) --- */
         .action-grid {
             display: grid;
@@ -148,8 +159,6 @@
         .btn-excalibur .action-icon { text-shadow: 0 0 15px rgba(243, 156, 18, 0.6); }
         
         .btn-events { border-bottom: 3px solid var(--accent-blue); }
-        .btn-orders { border-bottom: 3px solid var(--accent-green); }
-
         /* --- FAMILY GRID --- */
         .family-grid {
             display: grid;
@@ -219,7 +228,6 @@
         <div class="glass-panel">
             <span class="section-title">Logistics & Strategy</span>
             <div class="action-grid">
-                
                 <a href="events_7x9B2.html" class="action-btn btn-events">
                     <span class="action-icon">📅</span>
                     <div>
@@ -227,15 +235,19 @@
                         <div class="action-sub">Calendar & Schedules</div>
                     </div>
                 </a>
+            </div>
+        </div>
 
-                <a href="orders_9sL2k.html" class="action-btn btn-orders">
+        <div class="glass-panel">
+            <span class="section-title">Household Management</span>
+            <div class="action-grid">
+                <a href="orders_9sL2k.html" class="action-btn">
                     <span class="action-icon">📢</span>
                     <div>
                         <div class="action-label">Orders from HQ</div>
                         <div class="action-sub">Tasks & Directives</div>
                     </div>
                 </a>
-
                 <a href="pantry_restock_8kL2m.html" class="action-btn">
                     <span class="action-icon">🛒</span>
                     <div>
@@ -243,15 +255,6 @@
                         <div class="action-sub">Food Restock List</div>
                     </div>
                 </a>
-
-                <a href="excalibur_strategy_2kL9v.html" class="action-btn btn-excalibur">
-                    <span class="action-icon">⚔️</span>
-                    <div>
-                        <div class="action-label">Excalibur Athletics</div>
-                        <div class="action-sub">Training, Nutrition & Strategy</div>
-                    </div>
-                </a>
-
             </div>
         </div>
 
@@ -287,18 +290,38 @@
 
         <div class="glass-panel">
             <span class="section-title">Athlete Management</span>
+            <span class="athlete-subtitle">Tacie</span>
             <div class="family-grid">
                 <a href="tacie_training_2pX4v.html" class="member-card">
                     <span class="member-emoji">🏋️</span>
                     <span class="member-name">Tacie's Training</span>
                 </a>
+                <a href="tacie_duffel_4kL2p.html" class="member-card">
+                    <span class="member-emoji">👜</span>
+                    <span class="member-name">Tacie's Duffel</span>
+                </a>
                 <a href="tacie_supplements_3mX9z.html" class="member-card">
                     <span class="member-emoji">💊</span>
                     <span class="member-name">Tacie Supplement Plan</span>
                 </a>
+                <a href="tacie_supplements_3mX9z.html#blood-protocol" class="member-card">
+                    <span class="member-emoji">🩸</span>
+                    <span class="member-name">Blood</span>
+                </a>
+                <a href="tacie_supplements_3mX9z.html#bone-protocol" class="member-card">
+                    <span class="member-emoji">🦴</span>
+                    <span class="member-name">Bone</span>
+                </a>
+            </div>
+            <span class="athlete-subtitle">Donald</span>
+            <div class="family-grid">
                 <a href="donald_supplements_4kL2n.html" class="member-card">
                     <span class="member-emoji">📋</span>
                     <span class="member-name">Donald Supplement Plan</span>
+                </a>
+                <a href="donald_venture_8xK4m.html" class="member-card">
+                    <span class="member-emoji">📱</span>
+                    <span class="member-name">Social / Venture</span>
                 </a>
             </div>
         </div>

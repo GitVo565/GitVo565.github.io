@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>00W6 — Excalibur Pantry Restock</title>
+    <title>00W6 — Excalibur Pantry Restock · v001</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -69,6 +69,8 @@
         .cat-liquid { border-left-color: var(--accent-blue); }
         .cat-snack { border-left-color: var(--accent-gold); }
         .cat-dairy { border-left-color: var(--std-blue); }
+        .cat-amazon { border-left-color: #888; }
+        .cat-amazon .card-header { color: #bdc3c7; }
 
         .card-header { 
             font-size: 1.3em; font-weight: 800; margin-bottom: 15px; 
@@ -104,6 +106,26 @@
         .item-name a:hover { color: var(--accent-gold); }
         .item-name a:active, .item-name a:focus { outline: none; }
 
+        .item-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .duffel-tag {
+            display: inline-block;
+            font-size: 0.72em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.5), rgba(142, 68, 173, 0.6));
+            color: #e8daef;
+            border: 1px solid rgba(155, 89, 182, 0.7);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .duffel-tag:hover { background: rgba(155, 89, 182, 0.8); color: #fff; border-color: #fff; }
+        .priority-note { font-size: 0.9em; color: #bdc3c7; margin-top: 8px; }
+        .priority-note a { color: var(--med-purple); font-weight: 600; text-decoration: none; }
+        .priority-note a:hover { text-decoration: underline; }
+
         /* Footer */
         .footer-info { margin-top: 50px; padding-top: 10px; border-top: 1px solid #465c71; text-align: right; font-size: 0.75em; color: #bdc3c7; }
 
@@ -114,11 +136,13 @@
     <div class="nav-bar">
         <a href="excalibur_strategy_2kL9v.html" class="back-btn">← Back to Strategy</a>
         <a href="tacie_supplements_3mX9z.html" class="back-btn" style="border-color:var(--accent-green);">💊 View Protocol</a>
+        <a href="tacie_duffel_4kL2p.html" class="back-btn">👜 Tacie's Duffel</a>
     </div>
     
     <div class="header-section">
         <h1>🛒 Excalibur Pantry Restock</h1>
         <div class="subtitle">Food-Only Shopping List (No Pills)</div>
+        <p class="priority-note">Items tagged <a href="tacie_duffel_4kL2p.html">👜 Pack</a> are in Tacie's Duffel — keep these on hand for school.</p>
         <div class="print-hint">Designed for mobile use in-store.</div>
     </div>
 
@@ -134,17 +158,20 @@
                     <span class="item-note">The "Superfood." Must be eaten skin-on for ~900mg Potassium.</span>
                 </div>
             </li>
-            <li class="item-row" data-pantry-id="cream-of-wheat">
+            <li class="item-row" data-pantry-id="malt-o-meal">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#cream-of-wheat">Instant Cream of Wheat</a></span>
-                    <span class="item-note">Primary Iron Source (~50% DV). <span class="warn-tag">DO NOT SUB OATMEAL</span> (Blocks iron).</span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#malt-o-meal">Malt-O-Meal</a></span>
+                    <span class="item-note">Farina-based iron cereal. No phytates. <span class="warn-tag">DO NOT SUB OATMEAL</span> (blocks iron). To complete the meal you’ll also need: apple juice, brown sugar, and cinnamon.</span>
                 </div>
             </li>
             <li class="item-row" data-pantry-id="chomps-beef-sticks">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#beef-stick">Chomps Beef Sticks</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#beef-stick">Chomps Beef Sticks</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">Original Flavor only. Heme Iron for lunch. <span class="warn-tag">NO CHEESE/JALAPEÑO.</span></span>
                 </div>
             </li>
@@ -158,14 +185,20 @@
             <li class="item-row" data-pantry-id="coconut-water">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#coconut-water">Coconut Water</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#coconut-water">Coconut Water</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">Cases/Cartons. Critical Potassium (~600mg/cup) for school.</span>
                 </div>
             </li>
             <li class="item-row" data-pantry-id="bananas">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#banana">Bananas</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#banana">Bananas</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">2-3 Bunches. Digestible carbs + Potassium.</span>
                 </div>
             </li>
@@ -180,20 +213,13 @@
                 <div class="check-box"></div>
                 <div class="item-content">
                     <span class="item-name"><a href="supplement_intel_5kM9p.html#ham">Sliced Ham (Lean)</a></span>
-                    <span class="item-note">Blood Day breakfast protein with Cream of Wheat. No cheese.</span>
-                </div>
-            </li>
-            <li class="item-row" data-pantry-id="malt-o-meal">
-                <div class="check-box"></div>
-                <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#malt-o-meal">Malt-O-Meal</a></span>
-                    <span class="item-note">Farina-based iron cereal alternative to Cream of Wheat. No phytates.</span>
+                    <span class="item-note">Blood Day breakfast protein with Malt-O-Meal. No cheese.</span>
                 </div>
             </li>
             <li class="item-row" data-pantry-id="white-beans">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#white-beans">White Beans (Canned or Dry)</a></span>
+                    <span class="item-name"><a href="supplement_intel_5kM9p.html#white-beans">White Beans (Cannellini / White Kidney) (Canned or Dry)</a></span>
                     <span class="item-note">Add to Beef Chili on Blood Days. ~1,000mg Potassium + 8mg Iron per cup. Rinse if canned. <span class="warn-tag">No beans &lt;24h before race.</span></span>
                 </div>
             </li>
@@ -208,7 +234,10 @@
             <li class="item-row" data-pantry-id="beet-root-juice">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#beet-root">Beet Root Juice</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#beet-root">Beet Root Juice</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note"><span class="brand-tag">Lakewood Organic</span> (32oz). Nitric Oxide booster for 3:30 PM practice.</span>
                 </div>
             </li>
@@ -219,24 +248,27 @@
                     <span class="item-note">Concentrate or Juice. For Bedtime Recovery (Sleep/Inflammation).</span>
                 </div>
             </li>
+            <li class="item-row" data-pantry-id="apple-juice">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <span class="item-name">Apple Juice / Apple Cider</span>
+                    <span class="item-note">Essential for making <a href="supplement_intel_5kM9p.html#malt-o-meal">Malt-O-Meal</a> on Blood Days.</span>
+                </div>
+            </li>
             <li class="item-row" data-pantry-id="orange-juice">
                 <div class="check-box"></div>
                 <div class="item-content">
                     <span class="item-name"><a href="supplement_intel_5kM9p.html#orange-juice">Orange Juice</a></span>
-                    <span class="item-note">Small bottles/carton. <span class="warn-tag">REQUIRED</span> to pair w/ Steak/Cream of Wheat.</span>
-                </div>
-            </li>
-            <li class="item-row" data-pantry-id="gatorade">
-                <div class="check-box"></div>
-                <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#gatorade">Gatorade / Gatorlyte</a></span>
-                    <span class="item-note">Powder or Bottles. For "The Transition" (5:15 PM) Post-Wrestle/Pre-Run.</span>
+                    <span class="item-note">Small bottles/carton. <span class="warn-tag">REQUIRED</span> to pair w/ Steak/Malt-O-Meal.</span>
                 </div>
             </li>
             <li class="item-row" data-pantry-id="chocolate-milk">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#chocolate-milk">Chocolate Milk</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#chocolate-milk">Chocolate Milk</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">Bone Day recovery/calcium. 8–12 oz. <span class="warn-tag">Banned on Blood Nights.</span></span>
                 </div>
             </li>
@@ -251,14 +283,20 @@
             <li class="item-row" data-pantry-id="pretzels">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#pretzels">Pretzels (Salted)</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#pretzels">Pretzels (Salted)</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">Sodium replacement + simple carbs. Zero fat.</span>
                 </div>
             </li>
             <li class="item-row" data-pantry-id="applesauce">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#applesauce">Applesauce Pouches</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#applesauce">Applesauce Pouches</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">Fast energy, zero fiber issues for 2:00 PM.</span>
                 </div>
             </li>
@@ -279,7 +317,10 @@
             <li class="item-row" data-pantry-id="rice-crispy-treats">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#rice-crispy-treat">Rice Crispy Treats</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#rice-crispy-treat">Rice Crispy Treats</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">Bone Day bridge snack. Verify peanut/tree nut free. Avoid on Blood Days near iron dinner.</span>
                 </div>
             </li>
@@ -329,14 +370,20 @@
             <li class="item-row" data-pantry-id="greek-yogurt">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#greek-yogurt">Greek Yogurt Cups</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#greek-yogurt">Greek Yogurt Cups</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">High protein/calcium for "Scenario B" breakfasts.</span>
                 </div>
             </li>
             <li class="item-row" data-pantry-id="string-cheese">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#string-cheese">String Cheese</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#string-cheese">String Cheese</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">The "Bedtime Catch-up" if dairy missed at dinner.</span>
                 </div>
             </li>
@@ -350,8 +397,30 @@
             <li class="item-row" data-pantry-id="chocolate-milk">
                 <div class="check-box"></div>
                 <div class="item-content">
-                    <span class="item-name"><a href="supplement_intel_5kM9p.html#chocolate-milk">Chocolate Milk</a></span>
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#chocolate-milk">Chocolate Milk</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
                     <span class="item-note">Bone Day recovery/calcium. 8–12 oz. <span class="warn-tag">Banned on Blood Nights.</span></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="shop-card cat-amazon">
+        <div class="card-header">
+            <span>📦 Amazon Subscribe &amp; Save</span>
+        </div>
+        <p class="item-note" style="margin-bottom:12px;">Order separately — keep grocery runs focused.</p>
+        <ul class="checklist">
+            <li class="item-row" data-pantry-id="gatorade">
+                <div class="check-box"></div>
+                <div class="item-content">
+                    <div class="item-head">
+                        <span class="item-name"><a href="supplement_intel_5kM9p.html#gatorade-endurance">Gatorade Endurance</a> / <a href="supplement_intel_5kM9p.html#gatorlyte">Gatorlyte</a></span>
+                        <a href="tacie_duffel_4kL2p.html" class="duffel-tag" title="In Tacie's Duffel — pack priority">👜 Pack</a>
+                    </div>
+                    <span class="item-note">Powder or bottles. For "The Transition" (5:15 PM) Post-Wrestle/Pre-Run. LMNT may be used here. Stocked via Amazon Subscribe &amp; Save.</span>
                 </div>
             </li>
         </ul>

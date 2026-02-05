@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>00W7 — Protocol Intelligence v11.0</title>
+    <title>00W7 — Protocol Intelligence v11.0 · v001</title>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -139,6 +139,14 @@
         .pro-tip-text { font-size: 0.95em; color: #eee; }
 
         .protocol-line { font-weight: bold; color: #fff; background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 4px; display: inline-block; }
+
+        .intel-table { width: 100%; border-collapse: collapse; font-size: 0.9em; margin: 10px 0; color: #ccc; }
+        .intel-table th, .intel-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #444; }
+        .intel-table th { color: var(--accent-gold); font-weight: 700; text-transform: uppercase; font-size: 0.8em; }
+        .intel-table tr:hover { background: rgba(255,255,255,0.03); }
+        .intel-table .fav-row { background: rgba(39, 174, 96, 0.15); border-left: 3px solid var(--safe-green); }
+        .value-iron { background: rgba(192, 57, 43, 0.35); color: #ffb3a7; font-weight: 800; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(192, 57, 43, 0.6); }
+        .value-potassium { background: rgba(52, 152, 219, 0.35); color: #93d5ff; font-weight: 800; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(52, 152, 219, 0.6); }
 
         /* --- THEMES --- */
         .red-zone { border-color: var(--danger-red); }
@@ -385,7 +393,7 @@
             <div class="job-desc">Supplements are legally capped at 99mg of potassium, but Tacie needs ~2,300mg daily. The banana is a Medical Requirement, not a snack. It prevents neuromuscular fatigue ("heavy legs") and cardiac drift during wrestling practice.</div>
             <div class="science-box">
                 <span class="science-label">🔬 The Science</span>
-                <span class="science-text"><strong>The Potassium Payload:</strong> One medium banana provides ~420–450mg of potassium. This electrolyte is critical for intracellular rehydration and firing muscle contractions. <strong>Metabolic Match:</strong> Clinical studies show bananas support performance and blood glucose levels exactly as well as commercial sports drinks (Gatorade) during intense cycling, but with added antioxidants (Dopamine and Polyphenols). <strong>The Ripeness Index:</strong> Green/Yellow = High in Resistant Starch (gut health, slower to digest). Spotted/Brown = Starch converts to simple sugars (Glucose/Fructose/Sucrose)—fast fuel that clears the stomach quickly.</span>
+                <span class="science-text"><strong>The Potassium Payload:</strong> One medium banana provides ~420–450mg of potassium. This electrolyte is critical for intracellular rehydration and firing muscle contractions. <strong>Metabolic Match:</strong> Clinical studies show bananas support performance and blood glucose levels exactly as well as commercial sports drinks (<a href="#gatorade-endurance" class="intel-link">Gatorade Endurance</a>) during intense cycling, but with added antioxidants (Dopamine and Polyphenols). <strong>The Ripeness Index:</strong> Green/Yellow = High in Resistant Starch (gut health, slower to digest). Spotted/Brown = Starch converts to simple sugars (Glucose/Fructose/Sucrose)—fast fuel that clears the stomach quickly.</span>
             </div>
             <div class="pro-tip-box">
                 <span class="pro-tip-label">🚀 Max Impact</span>
@@ -517,21 +525,61 @@
             </div>
         </div>
 
-        <div id="gatorade" class="item-card">
+        <div id="gatorade-endurance" class="item-card">
             <div class="item-header">
-                <span class="item-name">Gatorade (The Transition Fuel)</span>
-                <span class="item-icon">🏃</span>
+                <span class="item-name">Gatorade Endurance Formula (The Glycogen Bridge &amp; Safe Fuel)</span>
+                <span class="item-icon">⚡</span>
             </div>
-            <span class="job-tag">The Job: "Liquid Glycogen"</span>
-            <div class="job-desc">Simple sugars (Dextrose/Sucrose) that require zero digestion time.</div>
+            <span class="job-tag">Status: ✅ GREEN LIGHT (Universal Use)</span>
+            <div class="job-desc">Primary fuel for The Bridge (5:15 PM) between Wrestling Practice and the Evening Run. Safe on Blood Days and gut-safe pre-run.</div>
             <div class="science-box">
-                <span class="science-label">🔬 The Science</span>
-                <span class="science-text">Rapidly refills glycogen without gut load.</span>
+                <span class="science-label">🔬 The Profile (Per 12 oz Serving) [Source 186]</span>
+                <span class="science-text">Carbohydrates: 22g (High). Magnesium: Negligible/None listed. Calcium: Negligible/None listed. Potassium: 140mg. Sodium: 300mg (2× standard Gatorade).</span>
+            </div>
+            <div class="science-box">
+                <span class="science-label">🔬 Tactical Application: "The Bridge" (5:15 PM)</span>
+                <span class="science-text"><strong>Glycogen Load:</strong> Provides 22g of simple sugars to stop muscle catabolism immediately after wrestling [Source 103]. <strong>Gut Safety:</strong> Lacks significant magnesium—does not trigger the "Osmotic Water Bomb" effect; safe to drink immediately before running without risking diarrhea [Source 42, 186]. <strong>Iron Safety:</strong> No Calcium—can be consumed on Blood Days without blocking iron absorption from her upcoming steak dinner [Source 153].</span>
             </div>
             <div class="pro-tip-box">
-                <span class="pro-tip-label">🚀 Max Impact</span>
-                <span class="pro-tip-text"><strong>The 5:15 PM Window.</strong> Drink immediately after wrestling practice to refill glycogen before the evening run. Prevents the body from burning muscle for fuel [Source 103, 185].</span>
+                <span class="pro-tip-label">✅ Tacie's Constraint Check</span>
+                <span class="pro-tip-text">Blood Day: ✅ Safe (No Calcium). Running Gut: ✅ Safe (No Magnesium load). Potassium Gap: ⚠️ Low (140mg; she still needs Potato/Banana earlier in the day).</span>
             </div>
+            <div class="protocol-line">Protocol: The Bridge (any day)—primary fuel. Post-Workout on Blood Days—<a href="#gatorade-endurance" class="intel-link">Gatorade Endurance</a> or <a href="#coconut-water" class="intel-link">Coconut Water</a>. See <a href="#gatorlyte">Gatorlyte</a> for Bone Day recovery.</div>
+        </div>
+
+        <div id="gatorlyte" class="item-card">
+            <div class="item-header">
+                <span class="item-name">Gatorlyte (The Heavy Electrolyte &amp; Bone Day Specialist)</span>
+                <span class="item-icon">💧</span>
+            </div>
+            <span class="job-tag">Status: ⚠️ CONDITIONAL / RESTRICTED</span>
+            <div class="job-desc">Post-workout rehydration specialist. High sodium/potassium; use only when timing and day type allow (Bone Day, after running is done).</div>
+            <div class="science-box">
+                <span class="science-label">🔬 The Profile (Per 16 oz Bottle/Packet) [Source 188, 189]</span>
+                <span class="science-text">Carbohydrates: 12g (Low). Magnesium: 95 mg (High). Calcium: 100 mg (High—from Calcium Lactate). Potassium: 300 mg (High). Sodium: 420 mg.</span>
+            </div>
+            <div class="science-box">
+                <span class="science-label">🔬 Tactical Application: Post-Workout Recovery</span>
+                <span class="science-text"><strong>Running Gut Risk:</strong> 95mg Magnesium adds a massive osmotic load. If Tacie drinks this before a run (on top of morning pills), risk of loose stools during the run increases [Source 42, 189]. <strong>Blood Day Conflict:</strong> 100mg Calcium violates the "No Dairy/Calcium" rule and will inhibit iron absorption from her liverwurst/steak dinner [Source 153, 176].</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">✅ Tacie's Constraint Check</span>
+                <span class="pro-tip-text">Blood Day: ⛔ BANNED Post-Workout (Calcium blocks Iron). Running Gut: ⛔ BANNED Pre-Run (Magnesium triggers diarrhea). Potassium Gap: ✅ Strong (300mg helps close the 1,500mg deficit).</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">📊 Decision Matrix: When to Use Which</span>
+                <table class="intel-table">
+                    <thead>
+                        <tr><th>Timing</th><th>Day Type</th><th>Select This</th><th>Why</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>The Bridge (Wrestling → Run)</td><td>Any Day</td><td><a href="#gatorade-endurance" class="intel-link">Gatorade Endurance</a></td><td>Gut Safety: Gatorlyte's Mg is a laxative risk pre-run. Endurance gives 22g carb without the gut bomb [Source 42, 186].</td></tr>
+                        <tr><td>Post-Workout (Recovery)</td><td>🩸 Blood Day</td><td><a href="#gatorade-endurance" class="intel-link">Gatorade Endurance</a> or <a href="#coconut-water" class="intel-link">Coconut Water</a></td><td>Iron Protection: Gatorlyte has Calcium; Endurance is calcium-free [Source 153, 176].</td></tr>
+                        <tr><td>Post-Workout (Recovery)</td><td>🦴 Bone Day</td><td>Gatorlyte</td><td>Potassium load; done running (gut safe) and Calcium allowed [Source 161, 188].</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="protocol-line">Protocol: Bone Days only, post-workout (no run after). Blood Days—use <a href="#gatorade-endurance" class="intel-link">Gatorade Endurance</a> or <a href="#coconut-water" class="intel-link">Coconut Water</a> instead.</div>
         </div>
 
         <div id="greek-yogurt" class="item-card">
@@ -799,14 +847,64 @@
                 <span class="item-icon">🫘</span>
             </div>
             <span class="job-tag">The Job: "The Potassium &amp; Iron Gap Closer"</span>
-            <div class="job-desc">White beans are the most chemically dense tool for closing Tacie's two major gaps. One cup provides nearly half of her daily Potassium deficit AND half of her daily Iron requirement. They are the "Secret Weapon" to be hidden in soups and chili.</div>
+            <div class="job-desc">White beans (Cannellini / White Kidney) are the most chemically dense tool for closing Tacie's two major gaps. One cup provides nearly half of her daily Potassium deficit AND a solid hit of Iron. They are the "Secret Weapon" to be hidden in soups and chili—but <strong>not all white beans are equal</strong>. Variety choice changes Iron, Potassium, and Fiber per cup; we favor <strong>Cannellini (White Kidney)</strong> for best iron density.</div>
+            <div class="science-box">
+                <span class="science-label">🫘 Variety comparison (1 cup cooked, boiled, no added salt)</span>
+                <table class="intel-table">
+                    <thead>
+                        <tr>
+                            <th>Bean variety</th>
+                            <th>Calories</th>
+                            <th>Protein</th>
+                            <th>Fiber</th>
+                            <th>Iron</th>
+                            <th>Potassium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="fav-row">
+                            <td><strong>Cannellini (White Kidney)</strong> ★</td>
+                            <td>~225</td>
+                            <td>15g</td>
+                            <td>11g</td>
+                            <td><span class="value-iron">~6.6 mg</span></td>
+                            <td>~600 mg</td>
+                        </tr>
+                        <tr>
+                            <td>Navy (Pea Beans)</td>
+                            <td>~255</td>
+                            <td>15g</td>
+                            <td>19g</td>
+                            <td>~4.3 mg</td>
+                            <td>~700 mg</td>
+                        </tr>
+                        <tr>
+                            <td>Great Northern</td>
+                            <td>~209</td>
+                            <td>15g</td>
+                            <td>12g</td>
+                            <td>~3.8 mg</td>
+                            <td>~690 mg</td>
+                        </tr>
+                        <tr>
+                            <td>Lima (Butter Beans)</td>
+                            <td>~216</td>
+                            <td>15g</td>
+                            <td>13g</td>
+                            <td>~4.5 mg</td>
+                            <td><span class="value-potassium">~955 mg</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <span class="science-text" style="display:block; margin-top:12px;"><strong>Nutritional summary:</strong> <strong>Iron:</strong> Cannellini is the superior choice for iron density (~6.6 mg/cup). <strong>Potassium:</strong> Lima beans offer the highest potassium (~955 mg), followed by Navy and Great Northern (~690–700 mg). <strong>Fiber:</strong> Navy beans are significantly higher in fiber (19g) than the others. <strong>Protein:</strong> All four provide roughly 15g per cup.</span>
+            </div>
             <div class="science-box">
                 <span class="science-label">🔬 The Science</span>
-                <span class="science-text"><strong>The Potassium Payload:</strong> A single cup of cooked white beans delivers ~1,000 mg of Potassium—more than a potato (900mg) and double the amount in two Vykee pills (500mg). <strong>The Iron Reserve:</strong> One cup provides ~8 mg of Iron (non-heme). While less absorbable than steak, absorption is significantly boosted by the "Meat Factor" (eating with beef) and Vitamin C. <strong>Glycemic Control:</strong> Low-glycemic, complex carbohydrate that provides sustained energy without spiking blood sugar, preventing the "crash" during long training blocks.</span>
+                <span class="science-text"><strong>The Potassium Payload:</strong> A cup of cooked white beans (Cannellini ~600 mg; Lima up to ~955 mg) helps close the gap—more than a potato (900mg) and double two Vykee pills (500mg). <strong>The Iron Reserve:</strong> Cannellini delivers ~6.6 mg Iron per cup (non-heme). Absorption is boosted by the "Meat Factor" (eating with beef) and Vitamin C. <strong>Glycemic Control:</strong> Low-glycemic, complex carbohydrate for sustained energy without spiking blood sugar during long training blocks.</span>
             </div>
             <div class="pro-tip-box">
                 <span class="pro-tip-label">🚀 Max Impact</span>
-                <span class="pro-tip-text"><strong>The "Chili Hack" (Blood Day):</strong> Tacie is already eating Beef Chili. Add white beans—the beef provides Heme Iron and the "Meat Factor" helps her body absorb the iron from the beans. <strong>The "Sodium Rinse":</strong> If using canned beans, rinse them to reduce sodium and gas-producing compounds (oligosaccharides), lowering bloating risk during practice. <strong>Gut Adaptation:</strong> Regular consumption improves tolerance. If they cause gas initially, start with half-cups.</span>
+                <span class="pro-tip-text"><strong>The "Chili Hack" (Blood Day):</strong> Tacie is already eating Beef Chili. Add white beans (Cannellini / White Kidney)—the beef provides Heme Iron and the "Meat Factor" helps her body absorb the iron from the beans. <strong>The "Sodium Rinse":</strong> If using canned beans, rinse them to reduce sodium and gas-producing compounds (oligosaccharides), lowering bloating risk during practice. <strong>Gut Adaptation:</strong> Regular consumption improves tolerance. If they cause gas initially, start with half-cups.</span>
             </div>
             <div class="pro-tip-box">
                 <span class="pro-tip-label">⚠️ Tactical Warnings</span>

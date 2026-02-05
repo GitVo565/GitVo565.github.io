@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>00W15 — Tacie's Duffel · v001</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --card-bg: rgba(30, 30, 30, 0.92);
+            --text-light: #ecf0f1;
+            --accent-gold: #f39c12;
+            --blood-red: #c0392b;
+            --blood-glow: rgba(192, 57, 43, 0.3);
+            --bone-blue: #2980b9;
+            --bone-glow: rgba(41, 128, 185, 0.3);
+            --success-green: #27ae60;
+            --text-muted: #aaa;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+        .nav-bar { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+        .back-btn {
+            display: inline-block;
+            background: #34495e;
+            padding: 10px 18px;
+            text-decoration: none;
+            color: #ecf0f1;
+            border-radius: 20px;
+            border: 1px solid #555;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .back-btn:hover { background: #465c71; }
+        .header-section { text-align: center; margin-bottom: 28px; }
+        h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #fff; font-size: 1.8em; }
+        .subtitle { color: var(--text-muted); font-size: 0.95em; margin-top: 8px; }
+        /* Day Toggle */
+        .day-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .day-btn {
+            padding: 18px 20px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .day-btn.blood {
+            background: linear-gradient(145deg, rgba(60, 10, 10, 0.95), rgba(192, 57, 43, 0.85));
+            border-color: var(--blood-red);
+            color: #fff;
+        }
+        .day-btn.blood:hover, .day-btn.blood.active {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--blood-glow);
+        }
+        .day-btn.bone {
+            background: linear-gradient(145deg, rgba(10, 20, 40, 0.95), rgba(41, 128, 185, 0.85));
+            border-color: var(--bone-blue);
+            color: #fff;
+        }
+        .day-btn.bone:hover, .day-btn.bone.active {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--bone-glow);
+        }
+        .day-btn .day-emoji { font-size: 1.8em; display: block; margin-bottom: 6px; }
+        /* Pack list */
+        .pack-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 22px;
+            border: 1px solid #444;
+        }
+        .pack-section h2 {
+            margin: 0 0 6px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            border-bottom: 1px solid #444;
+            padding-bottom: 8px;
+        }
+        .section-note {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin: 0 0 12px;
+        }
+        .pack-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .pack-item:last-child { border-bottom: none; }
+        .pack-item.hidden { display: none; }
+        .pack-item input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-top: 2px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .pack-item label { cursor: pointer; flex: 1; margin: 0; }
+        .pack-item .item-name { font-weight: 600; color: #fff; }
+        .pack-item .item-note { font-size: 0.85em; color: var(--text-muted); margin-top: 2px; }
+        .pack-item .item-tag {
+            font-size: 0.7em;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        .item-tag.both { background: rgba(39, 174, 96, 0.3); color: #7dcea0; }
+        .item-tag.blood { background: rgba(192, 57, 43, 0.35); color: #f5b7b1; }
+        .item-tag.bone { background: rgba(41, 128, 185, 0.35); color: #85c1e9; }
+        .pack-item a { color: var(--accent-gold); text-decoration: none; }
+        .pack-item a:hover { text-decoration: underline; }
+        .intro-note {
+            background: rgba(243, 156, 18, 0.12);
+            border-left: 4px solid var(--accent-gold);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 24px;
+            font-size: 0.95em;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="Pointers99.html" class="back-btn">← Hub</a>
+        <a href="tacie_supplements_3mX9z.html" class="back-btn">💊 Supplement Plan</a>
+        <a href="supplement_intel_5kM9p.html" class="back-btn">🧠 Intel Briefing</a>
+        <a href="pantry_restock_8kL2m.html" class="back-btn">🛒 Pantry Check</a>
+    </div>
+
+    <div class="header-section">
+        <h1>👜 Tacie's Duffel</h1>
+        <p class="subtitle">What to pack for school so your nutrition is covered</p>
+    </div>
+
+    <p class="intro-note">Snacks and drinks you won’t get from school lunch. Toggle <strong>Blood Day</strong> or <strong>Bone Day</strong> to see what to pack today. <strong>Back-to-back workouts?</strong> She may need 2× the fuel.</p>
+
+    <div class="day-toggle">
+        <button type="button" class="day-btn blood" id="btn-blood" aria-pressed="false">
+            <span class="day-emoji">🩸</span>
+            Blood Day
+        </button>
+        <button type="button" class="day-btn bone active" id="btn-bone" aria-pressed="true">
+            <span class="day-emoji">🦴</span>
+            Bone Day
+        </button>
+    </div>
+
+    <div class="pack-section">
+        <h2>🥤 Liquid Fuel</h2>
+        <p class="section-note">Before a workout / between workouts. Fast energy, zero fat.</p>
+        <div class="pack-item" data-day="both">
+            <input type="checkbox" id="d1" aria-label="Beet Root Juice">
+            <label for="d1">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#beet-root">Beet Root Juice</a></span>
+                <span class="item-tag both">Both</span>
+                <span class="item-note">~4 oz at lunch for nitrate load before practice.</span>
+            </label>
+        </div>
+        <div class="pack-item" data-day="both">
+            <input type="checkbox" id="d2" aria-label="Coconut Water">
+            <label for="d2">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#coconut-water">Coconut Water</a></span>
+                <span class="item-tag both">Both</span>
+                <span class="item-note">Hydration + electrolytes.</span>
+            </label>
+        </div>
+        <div class="pack-item" data-day="both">
+            <input type="checkbox" id="d3" aria-label="Gatorade">
+            <label for="d3">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#gatorade-endurance">Gatorade Endurance</a></span>
+                <span class="item-tag both">Both</span>
+                <span class="item-note">Liquid fuel for The Bridge.</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="pack-section">
+        <h2>🍎 Solid Fuel</h2>
+        <p class="section-note">Before a workout / between workouts. No fat, high carb.</p>
+        <div class="pack-item" data-day="both">
+            <input type="checkbox" id="s1" aria-label="Banana">
+            <label for="s1">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#banana">Banana</a></span>
+                <span class="item-tag both">Both</span>
+                <span class="item-note">Potassium. Spotted = fast fuel if eating close to run.</span>
+            </label>
+        </div>
+        <div class="pack-item" data-day="both">
+            <input type="checkbox" id="s3" aria-label="Salted Pretzels">
+            <label for="s3">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#pretzels">Salted Pretzels</a></span>
+                <span class="item-tag both">Both</span>
+                <span class="item-note">Easy stomach carbs.</span>
+            </label>
+        </div>
+        <div class="pack-item" data-day="both">
+            <input type="checkbox" id="s4" aria-label="Applesauce">
+            <label for="s4">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#applesauce">Applesauce Pouches</a></span>
+                <span class="item-tag both">Both</span>
+                <span class="item-note">Easy carbs, gut-friendly. Verify nut-free.</span>
+            </label>
+        </div>
+        <div class="pack-item" data-day="bone">
+            <input type="checkbox" id="s5" aria-label="Rice Crispy Treat">
+            <label for="s5">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#rice-crispy-treat">Rice Crispy Treat</a></span>
+                <span class="item-tag bone">Bone only</span>
+                <span class="item-note">Bone Day only. Nut-free. Avoid on Blood Days near iron dinner.</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="pack-section">
+        <h2>🥤 Liquid Recovery</h2>
+        <p class="section-note">After last workout. Rehydration + glycogen.</p>
+        <div class="pack-item" data-day="blood">
+            <input type="checkbox" id="d4" aria-label="Liquid Recovery Blood">
+            <label for="d4">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#gatorade-endurance">Gatorade Endurance</a> or <a href="supplement_intel_5kM9p.html#coconut-water">Coconut Water</a></span>
+                <span class="item-tag blood">Blood</span>
+                <span class="item-note">Rehydration.</span>
+            </label>
+        </div>
+        <div class="pack-item" data-day="bone">
+            <input type="checkbox" id="d5" aria-label="Chocolate Milk">
+            <label for="d5">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#chocolate-milk">Chocolate Milk</a> (8–12 oz) or <a href="supplement_intel_5kM9p.html#gatorlyte">Gatorlyte</a></span>
+                <span class="item-tag bone">Bone</span>
+                <span class="item-note">Gatorlyte ideal post-workout on Bone Days (K+, electrolytes; Mg safe when done running).</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="pack-section">
+        <h2>🍖 Solid Recovery</h2>
+        <p class="section-note">After last workout. Protein + refuel.</p>
+        <div class="pack-item" data-day="blood">
+            <input type="checkbox" id="s2" aria-label="Beef Stick">
+            <label for="s2">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#beef-stick">Beef Stick</a> (e.g. Chomps) + <a href="supplement_intel_5kM9p.html#banana">Banana</a>/Fruit</span>
+                <span class="item-tag blood">Blood</span>
+                <span class="item-note">Heme iron + Vitamin C from fruit.</span>
+            </label>
+        </div>
+        <div class="pack-item" data-day="bone">
+            <input type="checkbox" id="s6" aria-label="Beef Stick String Cheese">
+            <label for="s6">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#beef-stick">Beef Stick</a> + <a href="supplement_intel_5kM9p.html#string-cheese">String Cheese</a></span>
+                <span class="item-tag bone">Bone</span>
+                <span class="item-note">Protein + calcium.</span>
+            </label>
+        </div>
+        <div class="pack-item" data-day="bone">
+            <input type="checkbox" id="s7" aria-label="Greek Yogurt">
+            <label for="s7">
+                <span class="item-name"><a href="supplement_intel_5kM9p.html#greek-yogurt">Greek Yogurt</a></span>
+                <span class="item-tag bone">Bone</span>
+                <span class="item-note">Bone Day option.</span>
+            </label>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            var currentDay = 'bone';
+            var btnBlood = document.getElementById('btn-blood');
+            var btnBone = document.getElementById('btn-bone');
+            var items = document.querySelectorAll('.pack-item[data-day]');
+
+            function setDay(day) {
+                currentDay = day;
+                btnBlood.classList.toggle('active', day === 'blood');
+                btnBlood.setAttribute('aria-pressed', day === 'blood');
+                btnBone.classList.toggle('active', day === 'bone');
+                btnBone.setAttribute('aria-pressed', day === 'bone');
+                items.forEach(function(el) {
+                    var tag = el.getAttribute('data-day');
+                    var show = (tag === 'both' || tag === day);
+                    el.classList.toggle('hidden', !show);
+                });
+            }
+
+            btnBlood.addEventListener('click', function() { setDay('blood'); });
+            btnBone.addEventListener('click', function() { setDay('bone'); });
+        })();
+    </script>
+</body>
+</html>

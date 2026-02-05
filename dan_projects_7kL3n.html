@@ -58,6 +58,41 @@
         }
         .card h3 { margin: 0 0 12px; color: var(--primary-color); font-size: 1.2em; }
         .card p { margin: 0; color: var(--text-muted); font-size: 0.95em; }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .project-tile {
+            display: block;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 22px;
+            text-decoration: none;
+            color: inherit;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+        .project-tile:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+        .project-tile .tile-icon { font-size: 1.8em; margin-bottom: 10px; display: block; }
+        .project-tile .tile-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 8px;
+        }
+        .project-tile .tile-intro {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -65,10 +100,27 @@
         <a href="dan_3mP9L.html" class="back-btn">← Back to Dan</a>
         <h1 class="page-title">Dad Projects</h1>
         <p class="page-sub">Builds, systems, and side projects.</p>
-        <div class="card">
-            <h3>Projects</h3>
-            <p>Add project links and notes here as you build.</p>
-            <p style="margin-top:16px;"><a href="garage_heater_project.html" style="color:var(--primary-color); text-decoration:none; font-weight:600;">🔥 Garage Heater Install →</a></p>
+        <div class="project-grid">
+            <a href="garage_heater_project.html" class="project-tile">
+                <span class="tile-icon">🔥</span>
+                <h3 class="tile-title">Garage Heater Install</h3>
+                <p class="tile-intro">Dyna-Glo ceiling-mount heater install, wiring, and thermostat setup for the workshop.</p>
+            </a>
+            <a href="excalibur_strategy_2kL9v.html" class="project-tile">
+                <span class="tile-icon">⚔️</span>
+                <h3 class="tile-title">Excalibur Athletics</h3>
+                <p class="tile-intro">Training, nutrition, and strategy hub for the family athletes—protocols and live dashboards.</p>
+            </a>
+            <a href="albert_st_cinema_9kL2z.html" class="project-tile">
+                <span class="tile-icon">🎬</span>
+                <h3 class="tile-title">The Digital Cave</h3>
+                <p class="tile-intro">Albert St. Cinema—9.4.6 reference Dolby Atmos home theater build and setup.</p>
+            </a>
+            <a href="donald_venture_8xK4m.html" class="project-tile">
+                <span class="tile-icon">👟</span>
+                <h3 class="tile-title">Donald's Venture</h3>
+                <p class="tile-intro">Donald's athletic journey, commitments, and case studies from the Excalibur pipeline.</p>
+            </a>
         </div>
     </div>
 </body>
