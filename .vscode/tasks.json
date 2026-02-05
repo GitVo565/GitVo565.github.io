@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Git Pump",
+            "type": "shell",
+            "command": "git add .; git commit -m 'automated update'; git push",
+            "problemMatcher": []
+        }
+    ]
+}
