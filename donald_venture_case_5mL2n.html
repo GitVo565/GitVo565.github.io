@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>00W39 — Case Study: Nick Fox · v001</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <style>
+        :root {
+            --glass-bg: rgba(15, 15, 35, 0.7);
+            --glass-border: rgba(255, 100, 200, 0.25);
+            --text-main: #ffffff;
+            --text-muted: #b8b8d8;
+            --accent-pink: #ff2d92;
+            --accent-cyan: #00e5ff;
+            --accent-gold: #ffd700;
+            --accent-green: #00e676;
+            --neon-glow: 0 0 20px rgba(255, 45, 146, 0.4), 0 0 40px rgba(0, 229, 255, 0.2);
+            --blur: 16px;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 0;
+            color: var(--text-main);
+            background: #0a0a1a;
+            overflow-x: hidden;
+        }
+        .bg-video {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: center;
+            z-index: -2;
+        }
+        .bg-overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(160deg, rgba(10, 10, 30, 0.85), rgba(80, 20, 60, 0.5), rgba(0, 30, 50, 0.6));
+            z-index: -1;
+        }
+        .nav-bar {
+            position: absolute; top: 20px; left: 20px;
+            z-index: 10; display: flex; gap: 12px; flex-wrap: wrap;
+        }
+        .back-btn {
+            display: inline-block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--accent-cyan);
+            border-radius: 999px;
+            font-weight: bold;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: all 0.25s;
+        }
+        .back-btn:hover {
+            background: var(--accent-cyan);
+            color: #0a0a1a;
+            box-shadow: var(--neon-glow);
+        }
+        .back-btn.profile { color: var(--accent-pink); }
+        .back-btn.profile:hover { background: var(--accent-pink); color: #fff; }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+            padding-top: 90px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero {
+            text-align: center;
+            padding: 40px 24px 32px;
+            margin-bottom: 28px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur));
+            -webkit-backdrop-filter: blur(var(--blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--neon-glow), 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: var(--accent-cyan);
+        }
+        .hero .tagline {
+            margin-top: 10px;
+            font-size: 1.05em;
+            color: var(--text-muted);
+        }
+        .hero .badge {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, var(--accent-pink), #b81a6b);
+            border-radius: 999px;
+            font-weight: bold;
+            font-size: 0.85em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur));
+            -webkit-backdrop-filter: blur(var(--blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+        }
+        .section h2 {
+            margin: 0 0 16px;
+            font-size: 1.35em;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgba(0, 229, 255, 0.4);
+            padding-bottom: 8px;
+        }
+        .section h3 { margin: 20px 0 10px; font-size: 1.1em; color: var(--accent-gold); }
+        .section p { color: var(--text-muted); line-height: 1.6; margin: 0 0 12px; }
+        .section ul { color: var(--text-muted); line-height: 1.7; padding-left: 22px; margin: 0 0 14px; }
+        .section li { margin-bottom: 6px; }
+        .link-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 14px 0;
+        }
+        .link-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .link-list a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .link-list a:hover { text-decoration: underline; }
+        .link-list .desc { color: var(--text-muted); font-size: 0.95em; }
+        table.plan-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 0.95em;
+        }
+        .plan-table th, .plan-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .plan-table th {
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--accent-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .plan-table td { color: var(--text-muted); }
+        .plan-table a { color: var(--accent-cyan); text-decoration: none; }
+        .plan-table a:hover { text-decoration: underline; }
+        .takeaway-box {
+            background: linear-gradient(135deg, rgba(0, 230, 118, 0.12), rgba(0, 229, 255, 0.08));
+            border: 1px solid rgba(0, 230, 118, 0.35);
+            border-radius: 12px;
+            padding: 18px;
+            margin: 16px 0;
+        }
+        .takeaway-box strong { color: var(--accent-green); }
+        .footer-note { text-align: center; margin-top: 28px; padding: 14px; color: var(--text-muted); font-size: 0.85em; }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="images/don_moose_rider II.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+
+    <div class="nav-bar">
+        <a href="donald_venture_8xK4m.html" class="back-btn">← Battle Plan</a>
+        <a href="donald_2yR5j.html" class="back-btn profile">Donald's Profile</a>
+    </div>
+
+    <div class="container">
+
+        <div class="hero">
+            <h1>Case Study: Nick Fox</h1>
+            <p class="tagline">SPASH → UWSP · Recovery, basketball, 134K on Instagram</p>
+            <span class="badge">Learn from his path</span>
+        </div>
+
+        <div class="section">
+            <h2>Why This Case Study</h2>
+            <p>Nick Fox is a former SPASH student and current UWSP basketball player who built a large following by sharing his real story: a near-fatal car accident (Feb 2023), recovery, and return to college hoops. He didn't fake it — he documented the journey. His path from zero to six figures in about three years is a useful model for Donald: same local roots (SPASH), athlete journey, and authenticity-first content.</p>
+        </div>
+
+        <div class="section">
+            <h2>Background: Nick Fox</h2>
+            <p>As an 18-year-old SPASH senior in 2023, Nick survived a severe car accident (distracted driving; ejected from a rolling Jeep). Injuries included three crushed vertebrae (one shattered), two collapsed lungs, shoulder injury, concussion, blood clot near the spine. Six-hour surgery to fuse eight inches of spine, ICU, then months of recovery with PT, braces, and pain management.</p>
+            <p>He rebuilt through intensive training (5–6 hours daily) and returned to basketball, earning a spot at UWSP. He's now playing and studying to become a physical therapist. His content mixes that recovery story with basketball, faith, and motivational messaging — all of it grounded in what actually happened.</p>
+        </div>
+
+        <div class="section">
+            <h2>His Social Presence & Platforms</h2>
+            <table class="plan-table">
+                <thead>
+                    <tr><th>Platform</th><th>Reach / Notes</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><a href="https://www.instagram.com/nick.fox05" target="_blank" rel="noopener"><strong>Instagram</strong> @nick.fox05</a></td><td>134K followers, 245 posts. Bio: Creator of <a href="https://www.instagram.com/miraclecrafted" target="_blank" rel="noopener">@miraclecrafted</a> ™️ · College basketball player · All glory to God ✝️ · Business: <a href="mailto:nick@clementinegroup.co">nick@clementinegroup.co</a>. Mix of basketball, motivation, faith, brand (Miracle Crafted).</td></tr>
+                    <tr><td><a href="https://www.tiktok.com/@nick.fox05" target="_blank" rel="noopener"><strong>TikTok</strong> @nick.fox05</a></td><td>Active short-form: daily athlete life, recovery updates, stretches, pool workouts. Example hook: "Growth shows up the most in the hardest moments." Videos get hundreds to thousands of likes/views.</td></tr>
+                    <tr><td><a href="https://www.youtube.com/results?search_query=Nick+Fox+UWSP+recovery" target="_blank" rel="noopener"><strong>YouTube</strong></a></td><td>Longer-form content sharing his full journey and recovery story.</td></tr>
+                    <tr><td><a href="https://x.com/Nick_Fox24" target="_blank" rel="noopener"><strong>X (Twitter)</strong> @Nick_Fox24</a></td><td>Less active; tied to high school / earlier days.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>External Links — Study His Content</h2>
+            <ul class="link-list">
+                <li><a href="https://www.instagram.com/nick.fox05" target="_blank" rel="noopener">Instagram: @nick.fox05</a><span class="desc"> — Main feed, Reels, bio link</span></li>
+                <li><a href="https://www.tiktok.com/@nick.fox05" target="_blank" rel="noopener">TikTok: @nick.fox05</a><span class="desc"> — Short-form recovery & athlete life</span></li>
+                <li><a href="https://www.youtube.com/results?search_query=Nick+Fox+UWSP+recovery" target="_blank" rel="noopener">YouTube: Nick Fox UWSP recovery</a><span class="desc"> — Longer-form journey</span></li>
+                <li><a href="https://x.com/Nick_Fox24" target="_blank" rel="noopener">X (Twitter): @Nick_Fox24</a><span class="desc"> — Earlier / HS era</span></li>
+                <li><a href="https://www.instagram.com/miraclecrafted" target="_blank" rel="noopener">Miracle Crafted</a><span class="desc"> — His brand (apparel / motivational)</span></li>
+            </ul>
+            <p>Business / management: <a href="mailto:nick@clementinegroup.co" style="color: var(--accent-cyan);">nick@clementinegroup.co</a> (Clementine Group).</p>
+        </div>
+
+        <div class="section">
+            <h2>How He Grew: Likely Path & Drivers</h2>
+            <p>No direct interviews spell out his exact strategy; this is pieced from his story and public content.</p>
+            <h3>Starting point (2023, post-accident)</h3>
+            <p>He started posting on TikTok shortly after the accident despite saying he's "not a big fan of social media." Goal wasn't fame — it was to share the full story: inspire others, correct rumors (e.g. school gossip that he'd died), and avoid retelling the trauma in person. That honest vulnerability drew people in; they rallied around the comeback.</p>
+            <h3>Growth drivers</h3>
+            <ul>
+                <li><strong>Authentic storytelling:</strong> Real milestones — first steps post-surgery, rebuilding strength, return to basketball. Emotional narrative arc. Relatable > polished.</li>
+                <li><strong>Consistency + motivation:</strong> Regular posts about "hard moments = real growth." TikTok's algorithm favors short, uplifting clips — he leaned into that.</li>
+                <li><strong>Niche appeal:</strong> Athletes, recovery, faith. Hashtags like #motivation #athlete #fyp. Local ties (SPASH → UWSP) helped early shares in Stevens Point / Wisconsin.</li>
+                <li><strong>Monetization later:</strong> By 2026 he'd launched Miracle Crafted and signed with Clementine Group — partnerships, sponsored posts, or merch after audience was built.</li>
+                <li><strong>Engagement:</strong> High interaction (likes, comments on motivational and recovery content) feeds the algorithm; some clips likely went viral and pushed him toward 134K.</li>
+            </ul>
+            <h3>Rough timeline</h3>
+            <p>From starting in 2023 (post-accident) to 2026: zero to six figures on Instagram in about three years. TikTok first, then cross-promotion to Instagram and YouTube.</p>
+        </div>
+
+        <div class="section">
+            <h2>Lessons for Donald's Plan</h2>
+            <ul>
+                <li><strong>Start with your real story.</strong> Senior-year races, Montana transition, first altitude run, first trout — same idea as Nick's "first steps" and return to sport. Emotional beats > generic clips.</li>
+                <li><strong>Post consistently on TikTok and Instagram</strong> with clear hooks (motivation, challenge, milestone). Use niche hashtags (#athletelife, #collegerunner, #montanabound, etc.).</li>
+                <li><strong>Engage actively.</strong> Reply to comments; build community. Nick's growth came with relatability and response.</li>
+                <li><strong>Delay monetization until engagement is real.</strong> Nick built audience first, then brand (Miracle Crafted) and management (Clementine). Same play: hit 2K engaged, then pre-order merch / email list.</li>
+                <li><strong>Authenticity over perfection.</strong> Lows and highs — tangles in fly fishing, a bad race, then a PR. Document the curve; it resonates more than highlight reels only.</li>
+            </ul>
+            <div class="takeaway-box">
+                <strong>Bottom line:</strong> A clear personal narrative (recovery, Wisconsin → Montana, running + fishing + truck) plus consistency and real engagement can turn a niche audience into a monetizable opportunity. Nick is proof from the same town and same high school.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Back to Your Plan</h2>
+            <p>Use this case study when you need a concrete example of "how did someone like me do it?" Then return to your own battle plan and execute.</p>
+            <p><a href="donald_venture_8xK4m.html" class="back-btn" style="display:inline-block;">← Back to Battle Plan</a></p>
+        </div>
+
+        <p class="footer-note">00W39 — Case study: Nick Fox. SPASH / UWSP. For reference only; links go to external sites.</p>
+    </div>
+
+</body>
+</html>
