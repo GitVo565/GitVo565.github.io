@@ -33,7 +33,7 @@ Add-to-calendar links must include a Backlink (🔗 CHECK UPDATES: [URL]) and em
 
 D. Page Title Prefix (PDF / LM consumption)
 
-Every HTML page `<title>` must be prefixed with a sortable code `00W1`, `00W2`, … `00WN` (zero-padded, no space between 00W and the number). This ensures saved/printed PDFs and exported documents sort together and are easy to find when consumed by LMs or in file lists. Format: `00Wn — Original Title` (e.g. `00W1 — Voetberg Family Login`). New pages get the next unused number. **Current sequence runs 00W1–00W39** (index → Pointers99 → events → strategy → orders → pantry → intel → wrestling hub → notebook → library → match 008 analysis → training → donald/tacie supplements → history → tacie profile → wrestling videos → lifts A–D → mobility → core → circuits A–B → armor → AIS → donald/tonya/brian/dan/wallace → donald venture → donald venture case study → stocks → fun → garage heater → albert st cinema → 404).
+Every HTML page `<title>` must be prefixed with a sortable code `00W1`, `00W2`, … `00WN` (zero-padded, no space between 00W and the number). This ensures saved/printed PDFs and exported documents sort together and are easy to find when consumed by LMs or in file lists. Format: `00Wn — Original Title` (e.g. `00W1 — Voetberg Family Login`). New pages get the next unused number. **Current sequence runs 00W1–00W40** (index → Pointers99 → events → strategy → orders → pantry → intel → wrestling hub → notebook → library → match 008 analysis → training → donald/tacie supplements → history → tacie profile → wrestling videos → lifts A–D → mobility → core → circuits A–B → armor → AIS → donald/tonya/brian/dan/wallace → donald venture → donald venture case study → dan projects → stocks → fun → garage heater → albert st cinema → 404).
 
 E. Page Title Version Suffix (LM recency / sort order)
 
@@ -55,6 +55,7 @@ Daily Log: tacie_training_2pX4v.html
 Donald Supplements: donald_supplements_4kL2n.html
 Donald's Venture (social/merch): donald_venture_8xK4m.html — **planning/reference only**; his public link-in-bio hub is a separate site.
 Donald's Venture case study (Nick Fox): donald_venture_case_5mL2n.html
+Dad Projects: dan_projects_7kL3n.html
 Project Context (this file): context_7jK2n.md
 
 5. Design System

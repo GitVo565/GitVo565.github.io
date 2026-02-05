@@ -4,7 +4,11 @@
         {
             "label": "Git Pump",
             "type": "shell",
-            "command": "git add .; git commit -m 'automated update'; git push",
+            "command": "$date = Get-Date -Format 'yyyy-MM-dd HH:mm'; $msg = 'automated update: ' + $date; git add .; git commit -m $msg; git push",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
             "problemMatcher": []
         }
     ]
