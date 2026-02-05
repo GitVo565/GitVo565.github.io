@@ -12,6 +12,7 @@ Hosting: GitHub Pages.
 Philosophy: "Security by Obscurity" (No database, no login, hidden filenames).
 Core Truth: "Logs tell What, Intel tells Why."
 Asset Rule: ALL images/videos must reside in the /images/ directory.
+**Donald's public presence:** His link-in-bio and public hub live on a **separate public site** (his own domain), not this family portal. This repo stays for family/friends and obscurity; his venture site is meant to be discoverable and professional. **No path from public to family:** Donald’s public site must never link to Pointers99.html or any family URL; keep family pages noindex; host his site in a separate repo (and ideally separate GitHub account or different host) so external visitors and search never land on family content. See venture page section “Hosting Donald's Public Site — Options & Keeping Family Portal Private.”
 
 3. Mandatory Technical Standards (Strict)
 A. The "Nuclear" Cache Buster
@@ -52,7 +53,7 @@ Technique Library: wrestling_library_7hG4d.html
 Wrestling match analyses: wrestling_matches/ (e.g. match_008_analysis_4kL9m.html)
 Daily Log: tacie_training_2pX4v.html
 Donald Supplements: donald_supplements_4kL2n.html
-Donald's Venture (social/merch): donald_venture_8xK4m.html
+Donald's Venture (social/merch): donald_venture_8xK4m.html — **planning/reference only**; his public link-in-bio hub is a separate site.
 Donald's Venture case study (Nick Fox): donald_venture_case_5mL2n.html
 Project Context (this file): context_7jK2n.md
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>00W38 — Donald's Venture · v001</title>
+    <title>00W38 — Donald's Venture · v004</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
@@ -367,7 +367,7 @@
                 </li>
                 <li>
                     <span class="step-num">CFO</span>
-                    <span class="step-body"><strong>Dan (Producer / CFO):</strong> Back end. <strong>Metric tracking</strong> — spreadsheet for Engagement Rate (not just follower count). <strong>Asset management</strong> — save digital receipts for gas, gear, hosting (valid business purpose for tax). <strong>Tech stack</strong> — use this family website as "Link in Bio" (not generic Linktree) so you own traffic and can add a pixel for retargeting later.</span>
+                    <span class="step-body"><strong>Dan (Producer / CFO):</strong> Back end. <strong>Metric tracking</strong> — spreadsheet for Engagement Rate (not just follower count). <strong>Asset management</strong> — save digital receipts for gas, gear, hosting (valid business purpose for tax). <strong>Tech stack</strong> — Donald’s link-in-bio and public hub live on a <strong>separate public site</strong> (his own domain or hosted page), not the family portal. That way his presence is discoverable and professional; the family site stays private and obscure.</span>
                 </li>
             </ul>
         </div>
@@ -429,7 +429,7 @@
                     </li>
                     <li>
                         <span class="step-num">2</span>
-                        <span class="step-body"><strong>Link in bio:</strong> This family website (venture page). You own the traffic and can add email capture / pixel later — no generic Linktree.</span>
+                        <span class="step-body"><strong>Link in bio:</strong> A dedicated <strong>public site for Donald</strong> (his own URL), not the family portal. That site ties his social together, owns the traffic, and can add email capture / pixel. This family page is for planning only; his “out there” presence lives on his own site.</span>
                     </li>
                 </ul>
             </div>
@@ -563,9 +563,45 @@
                     <tr><td>Compliance</td><td><strong>IP check:</strong> Review footage so no school logos are prominent in "commercial" clips.</td><td class="owner-dan">Dan</td></tr>
                     <tr><td>Engagement</td><td><strong>Community:</strong> 15 min/day replying to comments and engaging with MSUB/Montana tags.</td><td class="owner-donald">Donald</td></tr>
                     <tr><td>Ops</td><td><strong>Metrics & finance:</strong> Log engagement rate in spreadsheet; save receipts for any gas/gear used.</td><td class="owner-dan">Dan</td></tr>
-                    <tr><td>Tech</td><td><strong>Website:</strong> Update the Link in Bio landing page with the latest video or post.</td><td class="owner-dan">Dan</td></tr>
+                    <tr><td>Tech</td><td><strong>Website:</strong> Update Donald’s <strong>public</strong> link-in-bio site (his own domain) with the latest video or post — not the family portal.</td><td class="owner-dan">Dan</td></tr>
                 </tbody>
             </table>
+        </div>
+
+        <div class="section">
+            <h2>Hosting Donald's Public Site — Options & Keeping Family Portal Private</h2>
+            <p><strong>Goal:</strong> Donald’s site can be findable and indexable. The family portal (Pointers99 and everything in this repo) must never be exposed to external visitors or search engines — no path from “out there” to the family content.</p>
+            <h3>Can his site still be on GitHub?</h3>
+            <p>Yes — but <strong>not in this repo</strong>. His public site should live in a <strong>separate repo</strong>, and ideally on a <strong>different GitHub account</strong> or behind a <strong>custom domain</strong>, so the family URL never appears in his public footprint.</p>
+            <h3>Decision points</h3>
+            <ul>
+                <li><strong>Same GitHub account?</strong> If Donald’s site is another repo under the same account (e.g. same username), the account’s Pages root or repo list can expose that the family repo exists. Safer: use a <strong>separate GitHub account</strong> for his public site (e.g. DonaldVoetberg/donaldvoetberg.github.io) so the family account and URL are never linked.</li>
+                <li><strong>Custom domain for Donald?</strong> If his site uses a custom domain (e.g. donaldvoetberg.com) that points to GitHub Pages (or another host), visitors and search engines only see that domain. They never see the family GitHub URL.</li>
+                <li><strong>No links from public → family.</strong> Donald’s public site must never link to Pointers99.html or any family portal URL. No “family” or “private” link that could be shared. The family site is entered only by people who already have the URL (and optional access key).</li>
+                <li><strong>Family site stays noindex.</strong> This repo’s pages already use <code>meta name="robots" content="noindex, nofollow"</code>. That keeps search engines from listing them. Do not remove that from any family page.</li>
+            </ul>
+            <h3>Hosting options (Donald’s public site)</h3>
+            <table class="plan-table">
+                <thead>
+                    <tr><th>Option</th><th>How it works</th><th>Family portal safe?</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>A. Second GitHub account + Pages</strong></td><td>New account (e.g. DonaldVoetberg). Repo <code>donaldvoetberg.github.io</code>. His site at donaldvoetberg.github.io (or add custom domain).</td><td>Yes — different account and URL; no connection to family repo.</td></tr>
+                    <tr><td><strong>B. Same account, second repo + custom domain</strong></td><td>New repo in family account, e.g. <code>donald-public</code>. GitHub Pages from that repo. Point donaldvoetberg.com (or similar) to it. His public URL = custom domain only.</td><td>Mostly — visitors see only the custom domain. Risk: someone who knows the GitHub username could browse repos and see the family repo name; don’t link to it from anywhere public.</td></tr>
+                    <tr><td><strong>C. Non-GitHub host (Vercel, Netlify, Cloudflare Pages)</strong></td><td>Donald’s site in its own repo (any account). Deploy to Vercel/Netlify/Cloudflare with custom domain. No GitHub Pages for his site.</td><td>Yes — family stays on GitHub Pages; his site on a different host and domain. No shared URL space.</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Recommendation:</strong> For strongest separation, use <strong>A</strong> (separate GitHub account for Donald) or <strong>C</strong> (his site on Vercel/Netlify/Cloudflare). Avoid hosting his public site in the same repo as the family portal.</p>
+            <h3>Option A in practice</h3>
+            <p>Many developers and creators use a <strong>separate GitHub account</strong> for their public site (e.g. <code>username.github.io</code>) while keeping personal or private work on another account. It’s a standard pattern for portfolios, link-in-bio pages, and project sites — no special “creator” product, just a second account and repo.</p>
+            <h3>Using Cursor with two GitHub accounts</h3>
+            <p>You maintain <strong>two folders</strong> (two repos): this family repo and Donald’s public repo. Each repo uses its own Git remote and credentials so you don’t “toggle” accounts in Cursor — each folder is already tied to one account.</p>
+            <ul>
+                <li><strong>Two folders:</strong> e.g. <code>GitVo565.github.io</code> (family) and <code>donaldvoetberg.github.io</code> (his site), each cloned to your machine.</li>
+                <li><strong>Cursor:</strong> Open <strong>two Cursor windows</strong> (File → New Window), open one folder in each, and switch windows when you work on the other site. Or use a <strong>multi-root workspace</strong>: one window, add both folders to the workspace (File → Add Folder to Workspace) so both show in the sidebar; click the folder you’re editing.</li>
+                <li><strong>Git identity per repo:</strong> In each repo, set the remote to the correct account. Easiest: <strong>SSH</strong>. Create two SSH keys (e.g. <code>id_ed25519_family</code>, <code>id_ed25519_donald</code>). In <code>~/.ssh/config</code> define two Hosts (e.g. <code>github-family</code>, <code>github-donald</code>), each with <code>HostName github.com</code> and <code>IdentityFile</code> pointing to the right key. In the family repo: <code>git remote set-url origin git@github-family:GitVo565/GitVo565.github.io.git</code>. In Donald’s repo: <code>git remote set-url origin git@github-donald:DonaldVoetberg/donaldvoetberg.github.io.git</code>. Then push/pull from Cursor uses the right account per folder automatically.</li>
+                <li><strong>No account switching in UI:</strong> Cursor doesn’t have a “switch GitHub account” button. The account used is determined by the repo’s remote URL and your SSH config (or stored HTTPS credentials per remote). Once set up, you just open the folder and work.</li>
+            </ul>
         </div>
 
         <div class="section">
@@ -573,7 +609,7 @@
             <h3>Pre-Order Only — No Inventory</h3>
             <p>When you hit 2K followers, do not buy inventory. Use a <strong>Drop</strong> model: open a pre-order window (e.g. 7 days) for one item (e.g. "Wisconsin to Montana" tee). Urgency + no unsold stock.</p>
             <h3>Data Ownership</h3>
-            <p>Social platforms own the followers. You need to own the list. On this family website (Link in Bio), add a simple email capture: <strong>"Join the Crew: Get updates on the move and drop alerts."</strong> An email list of 200 is worth more than 2K Instagram followers — you can reach them without the algorithm.</p>
+            <p>Social platforms own the followers. You need to own the list. On <strong>Donald’s public site</strong> (his link-in-bio hub, not the family portal), add a simple email capture: <strong>"Join the Crew: Get updates on the move and drop alerts."</strong> An email list of 200 is worth more than 2K Instagram followers — you can reach them without the algorithm.</p>
         </div>
 
         <div class="section">
