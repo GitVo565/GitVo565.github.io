@@ -59,6 +59,23 @@
             font-size: 1.1em;
         }
 
+        .ready-indicator {
+            text-align: center;
+            padding: 20px;
+            background: rgba(39, 174, 96, 0.2);
+            border: 2px solid var(--success);
+            border-radius: 8px;
+            color: var(--success);
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .ready-indicator.show {
+            display: block;
+        }
+
         .page-section {
             margin-bottom: 60px;
             page-break-inside: avoid;
@@ -116,9 +133,27 @@
                 background: white;
                 color: black;
             }
+            .export-header {
+                margin-bottom: 20px;
+                padding: 20px 0;
+                page-break-after: avoid;
+            }
+            .loading-indicator {
+                display: none !important;
+            }
+            .ready-indicator {
+                display: block !important;
+                background: #e8f5e9;
+                border: 2px solid #27ae60;
+                color: #27ae60;
+            }
             .page-section {
                 page-break-inside: avoid;
                 border-top: 1px solid #ccc;
+                margin-bottom: 30px;
+            }
+            .page-section:first-of-type {
+                page-break-before: auto;
             }
             .embedded-content {
                 background: white;
@@ -137,6 +172,10 @@
 
     <div id="loading" class="loading-indicator">
         Loading pages... Please wait.
+    </div>
+
+    <div id="ready" class="ready-indicator">
+        ✅ All content loaded! Ready to export/print to PDF.
     </div>
 
     <div id="content-container"></div>
@@ -162,7 +201,9 @@
 
         const container = document.getElementById('content-container');
         const loadingIndicator = document.getElementById('loading');
+        const readyIndicator = document.getElementById('ready');
         let loadedCount = 0;
+        let totalPages = 0;
 
         // Function to extract body content from fetched HTML
         function extractBodyContent(html) {
@@ -185,6 +226,8 @@
 
         // Load each page
         async function loadPages() {
+            totalPages = pagesToLoad.length;
+            
             for (const page of pagesToLoad) {
                 try {
                     const response = await fetch(page.url);
@@ -231,11 +274,23 @@
                 }
             }
             
-            // Hide loading indicator when done
+            // Hide loading indicator and show ready message
             loadingIndicator.style.display = 'none';
+            readyIndicator.classList.add('show');
+            
+            // Force a reflow to ensure all content is rendered
+            container.offsetHeight;
+            
+            // Wait a moment for browser to finish rendering
+            await new Promise(resolve => setTimeout(resolve, 500));
             
             // Update page title to show completion
-            document.title = document.title.replace(' · v000', '') + ' · Loaded';
+            document.title = document.title.replace(' · v000', '').replace(' · Loaded', '') + ' · Ready';
+            
+            // Scroll to top so user sees the ready message
+            window.scrollTo(0, 0);
+            
+            console.log(`✅ Export ready: ${loadedCount} pages loaded successfully`);
         }
 
         // Start loading when page is ready
