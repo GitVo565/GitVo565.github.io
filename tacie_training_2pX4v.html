@@ -77,8 +77,9 @@
             padding: 20px;
         }
         
-        /* Navigation */
-        .nav-bar { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        /* Navigation — all top links identical; Jump to Today centered on second row */
+        .nav-bar { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; align-items: center; }
+        .nav-bar-jump-row { width: 100%; text-align: center; margin-top: 10px; }
         
         .back-btn { 
             display: inline-block; background: rgba(0, 0, 0, 0.6); padding: 8px 15px; 
@@ -88,22 +89,6 @@
             backdrop-filter: blur(5px);
         }
         .back-btn:hover { background: var(--accent-gold); color: #000; border-color: var(--accent-gold); }
-        
-        .jump-btn {
-            background: var(--accent-gold);
-            color: black !important;
-            font-weight: 900;
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 10px rgba(243, 156, 18, 0.4);
-        }
-        .jump-btn:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(243, 156, 18, 0.8); }
-        
-        .strat-btn {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-            font-weight: bold;
-        }
-        .strat-btn:hover { background: var(--accent-gold); color: black; }
 
         /* --- COMPACT HEADER (The "HUD") --- */
         .main-header {
@@ -162,16 +147,6 @@
         .phase-item.active { background: rgba(52, 152, 219, 0.2); border: 1px solid var(--accent-blue); }
         .phase-date { font-weight: bold; color: #aaa; font-size: 0.85em; }
         .phase-desc { color: #eee; font-size: 0.9em; }
-        
-        /* ALERT BOX (KITCHEN OPS) */
-        .alert-box {
-            background: rgba(192, 57, 43, 0.15);
-            border: 1px solid var(--run-red);
-            padding: 15px; border-radius: 6px; margin-bottom: 30px;
-        }
-        .alert-header { color: var(--run-red); font-weight: bold; text-transform: uppercase; font-size: 0.9em; margin-bottom: 10px; display: block; }
-        .alert-list { list-style: none; padding: 0; margin: 0; font-size: 0.85em; color: #ddd; }
-        .alert-list li { margin-bottom: 8px; padding-left: 10px; border-left: 2px solid var(--accent-gold); }
         
         /* LIBRARY LINKS */
         .lib-section-title { font-size:0.8em; color:#bbb; text-transform:uppercase; margin-bottom:8px; margin-top:20px; letter-spacing: 1px; font-weight: bold;}
@@ -370,10 +345,12 @@
         <div class="subtitle">"Status: Yellow Light (Post-Viral). Seek Separation."</div>
         
         <div class="nav-bar">
-            <a href="#today-target" class="back-btn jump-btn">📍 JUMP TO TODAY</a>
-            <a href="tacie_6nQ1s.html" class="back-btn">← Tacie's Profile</a>
-            <a href="tacie_wrestling_5fH3pK.html" class="back-btn">🤼 Wrestling Hub</a>
-            <a href="supplement_intel_5kM9p.html" class="back-btn strat-btn">🧠 INTEL BRIEFING</a>
+            <a href="tacie_6nQ1s.html" class="back-btn">← Tacie's Page</a>
+            <a href="tacie_wrestling_5fH3pK.html" class="back-btn">🤼 Buck15 Wrestling</a>
+            <a href="supplement_intel_5kM9p.html" class="back-btn">🧠 Nutrition Intel</a>
+            <div class="nav-bar-jump-row">
+                <a href="#today-target" class="back-btn">📍 JUMP TO TODAY</a>
+            </div>
         </div>
     </div>
     
@@ -411,16 +388,6 @@
                             <span class="phase-date">Feb 15</span>
                             <span class="phase-desc"><strong>Conference Prep.</strong> Peak.</span>
                         </li>
-                    </ul>
-                </div>
-
-                <div class="alert-box">
-                    <span class="alert-header">🥣 STANDING ORDERS: KITCHEN OPS</span>
-                    <ul class="alert-list">
-                        <li><strong>Potassium Mandate:</strong> Must eat 1 Russet Potato OR 1.5 Bananas daily.</li>
-                        <li><strong>Blood Day Rule:</strong> No Calcium pills with Red Meat meals (Block iron). Push to 9PM.</li>
-                        <li><strong>Gut Defense:</strong> <a href="supplement_intel_5kM9p.html#white-rice" class="intel-link">White Rice</a> is the primary carb. Avoid high-fiber until gut stabilizes.</li>
-                        <li><strong>Weather Lockdown:</strong> Temp &lt; 20&deg;F = TREADMILL ONLY. Protect the airway.</li>
                     </ul>
                 </div>
 
@@ -580,7 +547,7 @@
                         <div class="nutri-footer">
                             <a href="tacie_supplements_3mX9z.html#bone-protocol" target="_blank" class="phase-badge badge-bone">BONE</a>
                             <div class="nutri-content">
-                                <span class="meal-name">Fish/Pizza</span>
+                                <span class="meal-name">Pizza</span>
                                 <div class="cook-note">✅ Dairy OK.</div>
                             </div>
                         </div>

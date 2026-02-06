@@ -136,8 +136,10 @@
         .pending { color: #aaa; font-style: italic; }
         
         /* Links in Table */
+        .details-cell { white-space: nowrap; }
+        .notes-cell { display: inline-block; min-width: 4.2em; margin-right: 8px; color: #666; font-size: 0.85em; }
         .analysis-link { 
-            color: #aaa; text-decoration: none; border-bottom: 1px dotted #666; font-size: 0.85em; transition: all 0.2s; margin-right: 10px;
+            color: #aaa; text-decoration: none; border-bottom: 1px dotted #666; font-size: 0.85em; transition: all 0.2s;
         }
         .analysis-link:hover { color: var(--text-light); border-bottom: 1px solid white; }
 
@@ -190,7 +192,7 @@
     <div class="bg-overlay"></div>
 
     <div class="nav-bar">
-        <a href="tacie_6nQ1s.html" class="back-btn">← Back to Profile</a>
+        <a href="tacie_6nQ1s.html" class="back-btn">← Tacie's Page</a>
     </div>
 
     <div class="profile-header">
@@ -202,25 +204,21 @@
     </div>
 
     <div class="uplink-section">
-        <h3 class="uplink-title">TACTICAL UPLINK</h3>
+        <h3 class="uplink-title">Study</h3>
         <div class="battle-grid">
-            <a href="tacie_training_2pX4v.html" class="action-btn" target="_blank">🏋️‍♀️ Training Directives</a>
             <a href="wrestling_notes_3jX9s.html" class="action-btn" target="_blank">📝 Coach's Notebook</a>
             <a href="tacie_wrestling_videos_7kX9q.html" class="action-btn" target="_blank">🎥 Video Study</a>
             <a href="wrestling_library_7hG4d.html" class="action-btn" target="_blank">📚 Technique Library</a>
+        </div>
+    </div>
+
+    <div class="uplink-section">
+        <h3 class="uplink-title">Apps &amp; Links</h3>
+        <div class="battle-grid">
             <a href="https://www.trackwrestling.com" target="_blank" class="action-btn">🏆 TrackWrestling</a>
             <a href="https://www.usabracketing.com/athletes/d88a4b77-3960-4e86-8fda-9b3221b6f1a2" target="_blank" class="action-btn">📊 USA Bracketing</a>
             <a href="https://www.sportsyou.com" target="_blank" class="action-btn">💬 SportsYou</a>
         </div>
-    </div>
-
-    <div class="upcoming-card">
-        <div>
-            <span class="up-date">Recent Meet: Feb 3, 2026 — Stevens Point MS Meet at PJ Jacobs Junior High</span>
-            <div class="up-desc">3-0 for the day, overall now 6-5</div>
-            <a href="events_7x9B2.html" class="up-title" target="_blank">🤼‍♀️ View schedule / next event</a>
-        </div>
-        <div style="font-size:2em;">🤼‍♀️</div>
     </div>
 
     <div class="section-header">
@@ -234,128 +232,100 @@
                 <tr>
                     <th style="width: 50px;">#</th>
                     <th>Date</th>
-                    <th>Event</th>
-                    <th>Opponent</th>
                     <th>Result</th>
                     <th>Details</th>
+                    <th>Opponent</th>
+                    <th>Event</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>11</td>
-                    <td>Feb 3, 2026</td>
-                    <td>Stevens Point MS Meet</td>
-                    <td>Jennabel Bjork (Edgar)</td>
+                    <td>Feb 03</td>
                     <td class="win">W (Fall 1:41)</td>
-                    <td><a href="https://youtu.be/N-K_34RexSY" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td class="details-cell"><span class="notes-cell">—</span><a href="https://youtu.be/N-K_34RexSY" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Jennabel Bjork (Edgar)</td>
+                    <td>Stevens Point MS Meet</td>
                 </tr>
                 <tr>
                     <td>10</td>
-                    <td>Feb 3, 2026</td>
-                    <td>Stevens Point MS Meet</td>
-                    <td>Julia Koeppl (Edgar)</td>
+                    <td>Feb 03</td>
                     <td class="win">W (MD 9-1)</td>
-                    <td><a href="https://youtu.be/ZLZouw22kFQ" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td class="details-cell"><span class="notes-cell">—</span><a href="https://youtu.be/ZLZouw22kFQ" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Julia Koeppl (Edgar)</td>
+                    <td>Stevens Point MS Meet</td>
                 </tr>
                 <tr>
                     <td>9</td>
-                    <td>Feb 3, 2026</td>
-                    <td>Stevens Point MS Meet</td>
-                    <td>Corrine Dippel (DC Everest)</td>
+                    <td>Feb 03</td>
                     <td class="win">W (Dec 8-1)</td>
-                    <td>
-                        <a href="wrestling_notes_3jX9s.html#match009" class="analysis-link">Notes</a>
-                        <a href="https://youtu.be/MM7X3l1gGyA" target="_blank" class="video-link">🎥 Watch</a>
-                    </td>
+                    <td class="details-cell"><span class="notes-cell"><a href="wrestling_notes_3jX9s.html#match009" class="analysis-link">Notes</a></span><a href="https://youtu.be/MM7X3l1gGyA" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Corrine Dippel (DC Everest)</td>
+                    <td>Stevens Point MS Meet</td>
                 </tr>
                 <tr>
                     <td>8</td>
                     <td>Jan 30</td>
-                    <td>Merrill Invite (Rd 3)</td>
-                    <td>Taylor Gurney (Antigo)</td>
                     <td class="loss">L (Fall 0:24)</td>
-                    <td>
-                        <a href="wrestling_matches/match_008_analysis_4kL9m.html" class="analysis-link">Notes</a>
-                        <a href="https://youtu.be/lqGtQeVpu9k" target="_blank" class="video-link">🎥 Watch</a>
-                    </td>
+                    <td class="details-cell"><span class="notes-cell"><a href="wrestling_matches/match_008_analysis_4kL9m.html" class="analysis-link">Notes</a></span><a href="https://youtu.be/lqGtQeVpu9k" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Taylor Gurney (Antigo)</td>
+                    <td>Merrill Invite (Rd 3)</td>
                 </tr>
                 <tr>
                     <td>7</td>
                     <td>Jan 30</td>
-                    <td>Merrill Invite (Rd 2)</td>
-                    <td>Ellie Borchardt (Athens)</td>
                     <td class="loss">L (Dec 9-7)</td>
-                    <td>
-                        <a href="wrestling_notes_3jX9s.html#match007" class="analysis-link">Notes</a>
-                        <a href="https://youtu.be/JmXiulSdvdM" target="_blank" class="video-link">🎥 Watch</a>
-                    </td>
+                    <td class="details-cell"><span class="notes-cell"><a href="wrestling_notes_3jX9s.html#match007" class="analysis-link">Notes</a></span><a href="https://youtu.be/JmXiulSdvdM" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Ellie Borchardt (Athens)</td>
+                    <td>Merrill Invite (Rd 2)</td>
                 </tr>
                 <tr>
                     <td>6</td>
                     <td>Jan 30</td>
-                    <td>Merrill Invite (Rd 1)</td>
-                    <td>Danica Jerabek (Wis. Rapids)</td>
                     <td class="win">W (Fall 0:44)</td>
-                    <td>
-                        <a href="wrestling_notes_3jX9s.html#match006" class="analysis-link">Notes</a>
-                        <a href="https://youtu.be/-fF7p9A2aZ8" target="_blank" class="video-link">🎥 Watch</a>
-                    </td>
+                    <td class="details-cell"><span class="notes-cell"><a href="wrestling_notes_3jX9s.html#match006" class="analysis-link">Notes</a></span><a href="https://youtu.be/-fF7p9A2aZ8" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Danica Jerabek (Wis. Rapids)</td>
+                    <td>Merrill Invite (Rd 1)</td>
                 </tr>
-
                 <tr>
                     <td>5</td>
                     <td>Jan 26</td>
-                    <td>Marathon Meet</td>
-                    <td>Alma Ninabuck (Marathon)</td>
                     <td class="win">W (Fall 1:48)</td>
-                    <td>
-                        <a href="wrestling_notes_3jX9s.html#match005" class="analysis-link">Notes</a>
-                        <a href="https://youtu.be/rn_Cq630JEk" target="_blank" class="video-link">🎥 Watch</a>
-                    </td>
+                    <td class="details-cell"><span class="notes-cell"><a href="wrestling_notes_3jX9s.html#match005" class="analysis-link">Notes</a></span><a href="https://youtu.be/rn_Cq630JEk" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Alma Ninabuck (Marathon)</td>
+                    <td>Marathon Meet</td>
                 </tr>
                 <tr>
                     <td>4</td>
                     <td>Jan 26</td>
-                    <td>Marathon Meet</td>
-                    <td>Dalton McGeshick (Crandon)</td>
                     <td class="loss">L (Dec 6-5)</td>
-                    <td>
-                        <a href="wrestling_notes_3jX9s.html#match004" class="analysis-link">Notes</a>
-                        <a href="https://youtu.be/laZQbUCYrK4" target="_blank" class="video-link">🎥 Watch</a>
-                    </td>
+                    <td class="details-cell"><span class="notes-cell"><a href="wrestling_notes_3jX9s.html#match004" class="analysis-link">Notes</a></span><a href="https://youtu.be/laZQbUCYrK4" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Dalton McGeshick (Crandon)</td>
+                    <td>Marathon Meet</td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>Jan 26</td>
-                    <td>Marathon Meet</td>
-                    <td>Ryan Quesinberry (Tomahawk)</td>
                     <td class="loss">L (Fall 0:31)</td>
-                    <td>
-                        <a href="wrestling_notes_3jX9s.html#match003" class="analysis-link">Notes</a>
-                        <a href="https://youtu.be/GbaUiTm5Kx8" target="_blank" class="video-link">🎥 Watch</a>
-                    </td>
+                    <td class="details-cell"><span class="notes-cell"><a href="wrestling_notes_3jX9s.html#match003" class="analysis-link">Notes</a></span><a href="https://youtu.be/GbaUiTm5Kx8" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Ryan Quesinberry (Tomahawk)</td>
+                    <td>Marathon Meet</td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Jan 17</td>
-                    <td>Battle by the River</td>
-                    <td>Serina Pattridge (Neenah)</td>
                     <td class="loss">L (0-18)</td>
-                    <td>
-                        <a href="wrestling_notes_3jX9s.html#jan17-match2" class="analysis-link">Notes</a>
-                        <a href="https://youtu.be/NZSCD3sX3Ls" target="_blank" class="video-link">🎥 Watch</a>
-                    </td>
+                    <td class="details-cell"><span class="notes-cell"><a href="wrestling_notes_3jX9s.html#jan17-match2" class="analysis-link">Notes</a></span><a href="https://youtu.be/NZSCD3sX3Ls" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Serina Pattridge (Neenah)</td>
+                    <td>Battle by the River</td>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td>Jan 17</td>
-                    <td>Battle by the River</td>
-                    <td>Taylor Gurney (Antigo)</td>
                     <td class="win">W (7-0)</td>
-                    <td>
-                        <a href="wrestling_notes_3jX9s.html#jan17-match1" class="analysis-link">Notes</a>
-                        <a href="https://youtu.be/q4lP3baxRkY" target="_blank" class="video-link">🎥 Watch</a>
-                    </td>
+                    <td class="details-cell"><span class="notes-cell"><a href="wrestling_notes_3jX9s.html#jan17-match1" class="analysis-link">Notes</a></span><a href="https://youtu.be/q4lP3baxRkY" target="_blank" class="video-link">🎥 Watch</a></td>
+                    <td>Taylor Gurney (Antigo)</td>
+                    <td>Battle by the River</td>
                 </tr>
             </tbody>
         </table>

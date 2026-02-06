@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>00W41 — ExcaliburExport · v000</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #ecf0f1;
+            --accent-gold: #f39c12;
+            --accent-blue: #3498db;
+            --accent-red: #e74c3c;
+            --divider: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+            max-width: 1400px;
+            margin: 0 auto;
+            color: var(--text-light);
+            background: var(--bg-dark);
+        }
+
+        .export-header {
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 3px solid var(--accent-gold);
+            margin-bottom: 40px;
+        }
+
+        .export-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .export-header p {
+            margin: 10px 0 0 0;
+            color: #aaa;
+            font-size: 1.1em;
+        }
+
+        .loading-indicator {
+            text-align: center;
+            padding: 20px;
+            color: var(--accent-gold);
+            font-size: 1.1em;
+        }
+
+        .page-section {
+            margin-bottom: 60px;
+            page-break-inside: avoid;
+            border-top: 2px solid var(--divider);
+            padding-top: 30px;
+        }
+
+        .page-section:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .page-section-header {
+            background: rgba(52, 152, 219, 0.15);
+            border-left: 5px solid var(--accent-blue);
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .page-section-header h2 {
+            margin: 0;
+            font-size: 1.8em;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-section-header .source-url {
+            margin-top: 5px;
+            font-size: 0.85em;
+            color: #aaa;
+            font-family: monospace;
+        }
+
+        .embedded-content {
+            background: rgba(28, 28, 28, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--divider);
+        }
+
+        .embedded-content * {
+            max-width: 100%;
+        }
+
+        /* Preserve video backgrounds as static images or remove */
+        .bg-video {
+            display: none !important;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .page-section {
+                page-break-inside: avoid;
+                border-top: 1px solid #ccc;
+            }
+            .embedded-content {
+                background: white;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="export-header">
+        <h1>Excalibur Export</h1>
+        <p>Complete Protocol Library & Training Documentation</p>
+        <p style="font-size:0.9em; color:#888; margin-top:5px;">Generated for LM data dump / PDF export</p>
+    </div>
+
+    <div id="loading" class="loading-indicator">
+        Loading pages... Please wait.
+    </div>
+
+    <div id="content-container"></div>
+
+    <script>
+        // List of all pages to include (protocol library + core docs)
+        const pagesToLoad = [
+            { url: 'tacie_training_2pX4v.html', title: "Tacie's Training Directives" },
+            { url: 'excalibur_strategy_2kL9v.html', title: 'Excalibur Strategy & Vision' },
+            { url: 'supplement_intel_5kM9p.html', title: 'Nutrition Intel' },
+            { url: 'tacie_supplements_3mX9z.html', title: 'Blood & Bone Protocol' },
+            { url: 'tacie_lifta_8zK3m.html', title: 'Lift A: Posterior Chain' },
+            { url: 'tacie_liftb_9sL4k.html', title: 'Lift B: Anterior' },
+            { url: 'tacie_liftc_7jK2n.html', title: 'Lift C: Structural' },
+            { url: 'tacie_liftd_3mP9q.html', title: 'Lift D: Power' },
+            { url: 'tacie_circuit_a_4jK9m.html', title: 'Circuit A' },
+            { url: 'tacie_circuit_b_5mL3k.html', title: 'Circuit B' },
+            { url: 'tacie_armor_9kL2p.html', title: 'The Armor: Grip & Back' },
+            { url: 'tacie_ais_4kL9m.html', title: 'AIS: Run Prep' },
+            { url: 'tacie_mobility_5nB8v.html', title: 'Mobility & Drills' },
+            { url: 'tacie_core_2jX9s.html', title: 'Core Routines: A, B, C' }
+        ];
+
+        const container = document.getElementById('content-container');
+        const loadingIndicator = document.getElementById('loading');
+        let loadedCount = 0;
+
+        // Function to extract body content from fetched HTML
+        function extractBodyContent(html) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const body = doc.body;
+            
+            // Remove scripts, video backgrounds, and navigation that we don't need in export
+            const scripts = body.querySelectorAll('script');
+            scripts.forEach(s => s.remove());
+            
+            const videos = body.querySelectorAll('.bg-video, video');
+            videos.forEach(v => v.remove());
+            
+            const navBars = body.querySelectorAll('.nav-bar, .back-btn');
+            navBars.forEach(n => n.remove());
+            
+            return body.innerHTML;
+        }
+
+        // Load each page
+        async function loadPages() {
+            for (const page of pagesToLoad) {
+                try {
+                    const response = await fetch(page.url);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${page.url}: ${response.status}`);
+                    }
+                    const html = await response.text();
+                    const content = extractBodyContent(html);
+                    
+                    // Create section for this page
+                    const section = document.createElement('div');
+                    section.className = 'page-section';
+                    
+                    section.innerHTML = `
+                        <div class="page-section-header">
+                            <h2>${page.title}</h2>
+                            <div class="source-url">Source: ${page.url}</div>
+                        </div>
+                        <div class="embedded-content">
+                            ${content}
+                        </div>
+                    `;
+                    
+                    container.appendChild(section);
+                    loadedCount++;
+                    
+                    // Update loading indicator
+                    loadingIndicator.textContent = `Loaded ${loadedCount} of ${pagesToLoad.length} pages...`;
+                    
+                } catch (error) {
+                    console.error(`Error loading ${page.url}:`, error);
+                    const errorSection = document.createElement('div');
+                    errorSection.className = 'page-section';
+                    errorSection.innerHTML = `
+                        <div class="page-section-header">
+                            <h2>${page.title} (Error)</h2>
+                            <div class="source-url">Source: ${page.url}</div>
+                        </div>
+                        <div class="embedded-content" style="color:var(--accent-red);">
+                            Failed to load: ${error.message}
+                        </div>
+                    `;
+                    container.appendChild(errorSection);
+                }
+            }
+            
+            // Hide loading indicator when done
+            loadingIndicator.style.display = 'none';
+            
+            // Update page title to show completion
+            document.title = document.title.replace(' · v000', '') + ' · Loaded';
+        }
+
+        // Start loading when page is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadPages);
+        } else {
+            loadPages();
+        }
+
+        // Back-Button Fix (Spec 3.2)
+        window.onpageshow = function(event) {
+            if (event.persisted) { window.location.reload(); }
+        };
+    </script>
+</body>
+</html>
