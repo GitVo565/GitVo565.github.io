@@ -50,7 +50,7 @@
         }
         
         /* Navigation */
-        .nav-container { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .nav-container { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; justify-content: center; align-items: center; }
         .back-btn { 
             background: #34495e; padding: 8px 15px; text-decoration: none; 
             color: #ecf0f1; border-radius: 20px; border: 1px solid #555; 
@@ -59,10 +59,19 @@
         .back-btn:hover { background: #444; }
 
         /* HEADER */
-        .header-section { text-align: center; margin-bottom: 30px; }
+        .header-section { text-align: center; margin-bottom: 20px; }
         h1 { margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #fff; font-size: 1.8em; }
         .version-tag { color: var(--accent-gold); font-size: 0.9em; font-weight: bold; }
         .update-note { font-size: 0.85em; color: #aaa; margin-top: 5px; font-style: italic; }
+
+        .hero-quote {
+            text-align: center; margin-bottom: 14px; padding: 8px 16px;
+            font-style: italic; color: var(--text-muted); font-size: 0.95em;
+            background: rgba(0,0,0,0.25); border-radius: 8px;
+            max-width: 520px; margin-left: auto; margin-right: auto;
+        }
+        .hero-quote a { color: var(--accent-gold); text-decoration: none; border-bottom: 1px dotted var(--accent-gold); }
+        .hero-quote a:hover { color: #fff; border-bottom-color: #fff; }
 
         /* --- MODE SELECTOR --- */
         .mode-selector {
@@ -73,7 +82,10 @@
         }
 
         .mode-btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
             text-decoration: none;
             padding: 20px;
             border-radius: 12px;
@@ -82,11 +94,36 @@
             border: 2px solid transparent;
             backdrop-filter: blur(10px);
         }
+        .mode-btn-icon {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .mode-btn-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
 
         .mode-blood {
             background: linear-gradient(145deg, rgba(60, 10, 10, 0.9), rgba(192, 57, 43, 0.8));
             border-color: var(--blood-red);
             color: #fff;
+            justify-content: flex-start;
+            padding: 10px 12px 10px 6px;
+            gap: 10px;
+        }
+        .mode-blood .mode-btn-icon {
+            height: 135px;
+            width: auto;
+            align-self: center;
+        }
+        .mode-blood .mode-btn-content {
+            flex: 1;
+            justify-content: center;
+            min-width: 0;
         }
         .mode-blood:hover {
             transform: translateY(-3px);
@@ -97,6 +134,19 @@
             background: linear-gradient(145deg, rgba(10, 20, 40, 0.9), rgba(41, 128, 185, 0.8));
             border-color: var(--bone-blue);
             color: #fff;
+            justify-content: flex-end;
+            padding: 10px 6px 10px 12px;
+            gap: 10px;
+        }
+        .mode-bone .mode-btn-icon {
+            height: 135px;
+            width: auto;
+            align-self: center;
+        }
+        .mode-bone .mode-btn-content {
+            flex: 1;
+            justify-content: center;
+            min-width: 0;
         }
         .mode-bone:hover {
             transform: translateY(-3px);
@@ -291,22 +341,28 @@
         <a href="pantry_restock_8kL2m.html" class="back-btn">🛒 Pantry Check</a>
     </div>
 
+    <blockquote class="hero-quote">"It ain't about the taste son, it's about the fuel." — Luis Medina (<a href="https://www.tiktok.com/@safefoodcentral/video/7593053793529367863" target="_blank" rel="noopener noreferrer">Landman</a>)</blockquote>
+
     <div class="header-section">
         <h1>Blood vs Bone Protocol</h1>
-        <div class="version-tag">VERSION 11.0 | 🟢 ACTIVE</div>
-        <div class="update-note">Safety Update: Unified Dosages & Brand Mandates.</div>
     </div>
 
     <div class="mode-selector">
         <a href="#blood-protocol" class="mode-btn mode-blood">
-            <span class="mode-icon">🩸</span>
-            <span class="mode-title">Blood Mode</span>
-            <span class="mode-desc">Steak / Iron Days</span>
+            <img src="images/redlittledemon.png" alt="" class="mode-btn-icon" aria-hidden="true">
+            <span class="mode-btn-content">
+                <span class="mode-icon">🩸</span>
+                <span class="mode-title">Blood Mode</span>
+                <span class="mode-desc">Iron Days</span>
+            </span>
         </a>
         <a href="#bone-protocol" class="mode-btn mode-bone">
-            <span class="mode-icon">🦴</span>
-            <span class="mode-title">Bone Mode</span>
-            <span class="mode-desc">Pasta / Calcium Days</span>
+            <span class="mode-btn-content">
+                <span class="mode-icon">🦴</span>
+                <span class="mode-title">Bone Mode</span>
+                <span class="mode-desc">Calcium Days</span>
+            </span>
+            <img src="images/skelly_bone.png" alt="" class="mode-btn-icon" aria-hidden="true">
         </a>
     </div>
 
