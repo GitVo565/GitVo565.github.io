@@ -1,7 +1,10 @@
 # Excalibur Export - Static Build Script (Located in scripts_235v)
-$outputFile = "../excalibur_export_static_9mL4x.html" # Outputs to root for GitHub Pages
-$dynamicFile = "../excalibur_export_9mL4x.html" # Also update dynamic version
-$rootDir = ".." # Parent directory (repo root)
+# Use script directory so paths work regardless of where you run from
+$scriptDir = $PSScriptRoot
+if (-not $scriptDir) { $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path }
+$rootDir = Join-Path $scriptDir ".."
+$outputFile = Join-Path $rootDir "excalibur_export_static_9mL4x.html"
+$dynamicFile = Join-Path $rootDir "excalibur_export_9mL4x.html"
 
 # Files to exclude from export (export files themselves, login page, etc.)
 $excludeFiles = @(
@@ -123,27 +126,29 @@ if (Test-Path $outputFile) {
 $newVersion = Increment-Version -currentVersion $currentVersion
 Write-Host "Incrementing to: $newVersion" -ForegroundColor Green
 
+# UTF-8 no BOM for all file writes (define before any use)
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+# Build title with Unicode chars so script encoding doesn't corrupt em-dash/middle-dot
+$exportTitle = "00W41 " + [char]0x2014 + " Excalibur Export " + [char]0x00B7 + " " + $newVersion
+
 # Update dynamic export file version if it exists
 if (Test-Path $dynamicFile) {
     $dynamicContent = [System.IO.File]::ReadAllText($dynamicFile, [System.Text.Encoding]::UTF8)
     if ($dynamicContent) {
-        # Update version in dynamic file title
-        $dynamicContent = $dynamicContent -replace '(title>00W41[^<]*·\s*)v\d{3}', "`$1$newVersion"
-        $dynamicContent = $dynamicContent -replace '(title>00W41[^<]*·\s*)v[a-z]{3}', "`$1$newVersion"
+        # Update version in dynamic file title (match garbled or correct Unicode)
+        $dynamicContent = $dynamicContent -replace '(title>00W41[^<]*)\s*v\d{3}', "`${1} $newVersion"
+        $dynamicContent = $dynamicContent -replace '(title>00W41[^<]*)\s*v[a-z]{3}', "`${1} $newVersion"
         [System.IO.File]::WriteAllText($dynamicFile, $dynamicContent, $utf8NoBom)
         Write-Host "Updated dynamic export version to $newVersion" -ForegroundColor Green
     }
 }
-
-# Set UTF-8 encoding for output
-$utf8NoBom = New-Object System.Text.UTF8Encoding $false
 
 $header = @"
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>00W41 — Excalibur Export · $newVersion</title>
+    <title>$exportTitle</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
