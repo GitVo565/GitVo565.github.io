@@ -18,7 +18,7 @@ function Get-PageTitle {
         return $null
     }
     
-    $content = Get-Content $filePath -Raw -ErrorAction SilentlyContinue
+    $content = [System.IO.File]::ReadAllText($filePath, [System.Text.Encoding]::UTF8)
     if ($content -match '<title>(.*?)</title>') {
         $title = $Matches[1]
         # Remove version suffix if present (e.g., " · v001")
@@ -41,7 +41,7 @@ $allHtmlFiles = Get-ChildItem -Path $rootDir -Filter "*.html" -Recurse -File | W
     $notInScripts = -not ($relativePath -like "scripts_235v/*")
     return ($notExcluded -and $notInScripts)
 } | Sort-Object {
-    $content = Get-Content $_.FullName -Raw -ErrorAction SilentlyContinue
+        $content = [System.IO.File]::ReadAllText($_.FullName, [System.Text.Encoding]::UTF8)
     if ($content -match 'title>00W(\d+)') {
         [int]$Matches[1]
     } else {
@@ -102,7 +102,7 @@ function Increment-Version {
 # Check for existing static export and extract current version
 $currentVersion = "v000"
 if (Test-Path $outputFile) {
-    $existingContent = Get-Content $outputFile -Raw -ErrorAction SilentlyContinue
+    $existingContent = [System.IO.File]::ReadAllText($outputFile, [System.Text.Encoding]::UTF8)
     # Try multiple regex patterns to catch different title formats
     if ($existingContent -match 'title>00W41[^<]*[·•]\s*v(\d{3}|[a-z]{3})') {
         $extractedVersion = $Matches[1]
@@ -125,22 +125,27 @@ Write-Host "Incrementing to: $newVersion" -ForegroundColor Green
 
 # Update dynamic export file version if it exists
 if (Test-Path $dynamicFile) {
-    $dynamicContent = Get-Content $dynamicFile -Raw -ErrorAction SilentlyContinue
+    $dynamicContent = [System.IO.File]::ReadAllText($dynamicFile, [System.Text.Encoding]::UTF8)
     if ($dynamicContent) {
         # Update version in dynamic file title
         $dynamicContent = $dynamicContent -replace '(title>00W41[^<]*·\s*)v\d{3}', "`$1$newVersion"
         $dynamicContent = $dynamicContent -replace '(title>00W41[^<]*·\s*)v[a-z]{3}', "`$1$newVersion"
-        Set-Content -Path $dynamicFile -Value $dynamicContent -Encoding UTF8 -NoNewline
+        [System.IO.File]::WriteAllText($dynamicFile, $dynamicContent, $utf8NoBom)
         Write-Host "Updated dynamic export version to $newVersion" -ForegroundColor Green
     }
 }
 
+# Set UTF-8 encoding for output
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+
 $header = @"
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>00W41 — Excalibur Export · $newVersion</title>
     <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body { font-family: sans-serif; line-height: 1.6; padding: 40px; color: #333; max-width: 900px; margin: auto; }
         .page-break { page-break-after: always; border-bottom: 2px solid #eee; margin-bottom: 50px; padding-bottom: 20px; }
@@ -154,7 +159,7 @@ $header = @"
     <p>Generated: $(Get-Date -Format "yyyy-MM-dd HH:mm")</p>
 "@
 
-$header | Out-File -FilePath $outputFile -Encoding utf8
+[System.IO.File]::WriteAllText($outputFile, $header, $utf8NoBom)
 
 $processedCount = 0
 foreach ($pageInfo in $pages) {
@@ -164,7 +169,7 @@ foreach ($pageInfo in $pages) {
     
     if (Test-Path $pagePath) {
         Write-Host "Processing: $pageName" -ForegroundColor Cyan
-        $content = Get-Content $pagePath -Raw -Encoding UTF8
+        $content = [System.IO.File]::ReadAllText($pagePath, [System.Text.Encoding]::UTF8)
         
         # Extract content between <body> tags
         if ($content -match "(?s)<body[^>]*>(.*?)</body>") {
@@ -182,7 +187,8 @@ foreach ($pageInfo in $pages) {
             $displayTitle = if ($pageTitle) { $pageTitle } else { $pageName }
             $displayPath = $pageInfo.Path -replace '^\.\./', ''
             
-            "<div class='page-break'><h2>$displayTitle</h2><p style='color:#666; font-size:0.9em; margin-bottom:20px;'>Source: $displayPath</p>$bodyOnly</div>" | Out-File -FilePath $outputFile -Append -Encoding utf8
+            $sectionContent = "<div class='page-break'><h2>$displayTitle</h2><p style='color:#666; font-size:0.9em; margin-bottom:20px;'>Source: $displayPath</p>$bodyOnly</div>"
+            [System.IO.File]::AppendAllText($outputFile, $sectionContent, $utf8NoBom)
             $processedCount++
         } else {
             Write-Host "  Warning: Could not extract body content from $pageName" -ForegroundColor Yellow
@@ -192,7 +198,7 @@ foreach ($pageInfo in $pages) {
     }
 }
 
-"</body></html>" | Out-File -FilePath $outputFile -Append -Encoding utf8
+[System.IO.File]::AppendAllText($outputFile, "</body></html>", $utf8NoBom)
 Write-Host ""
 Write-Host "Static Export Created: $outputFile" -ForegroundColor Green
 Write-Host "Version: $newVersion (was $currentVersion)" -ForegroundColor Cyan
