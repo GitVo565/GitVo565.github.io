@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
+// Run from scripts_235v/; repo root is parent directory
+const rootDir = path.resolve(__dirname, '..');
+
 // List of pages to include (same as in the dynamic version)
 const pagesToLoad = [
     { url: 'tacie_training_2pX4v.html', title: "Tacie's Training Directives" },
@@ -50,7 +53,7 @@ let errorCount = 0;
 
 for (const page of pagesToLoad) {
     try {
-        const filePath = path.join(__dirname, page.url);
+        const filePath = path.join(rootDir, page.url);
         if (!fs.existsSync(filePath)) {
             throw new Error(`File not found: ${page.url}`);
         }
@@ -260,7 +263,7 @@ ${sections.map(section => `
 </html>`;
 
 // Write the static file
-const outputPath = path.join(__dirname, 'excalibur_export_static_9mL4x.html');
+const outputPath = path.join(rootDir, 'excalibur_export_static_9mL4x.html');
 fs.writeFileSync(outputPath, staticHTML, 'utf8');
 
 console.log(`\n✅ Static export generated: ${outputPath}`);
