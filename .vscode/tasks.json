@@ -4,7 +4,10 @@
         {
             "label": "Git Pump",
             "type": "shell",
-            "command": "git add .; $status = git status --porcelain; if (-not $status) { Write-Host 'No changes to sync.'; exit 0 }; $date = Get-Date -Format 'yyyy-MM-dd HH:mm'; git commit -m \"automated update: $date\"; git push; if ($?) { [Console]::Beep(880, 300) }",
+            "command": "$date = Get-Date -Format 'yyyy-MM-dd HH:mm'; git add .; $status = git status --porcelain; if (-not $status) { Write-Host 'No changes to sync.'; exit 0 }; $msg = 'automated update: ' + $date; git commit -m $msg; git push; if ($?) { [Console]::Beep(880, 300) }",
+            "runOptions": {
+                "instanceLimit": 1
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
