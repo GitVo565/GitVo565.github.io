@@ -4,7 +4,7 @@
         {
             "label": "Git Pump",
             "type": "shell",
-            "command": "$date = Get-Date -Format 'yyyy-MM-dd HH:mm'; git add .; $status = git status --porcelain; if (-not $status) { Write-Host 'No changes to sync.'; exit 0 }; $msg = 'automated update: ' + $date; git commit -m $msg; git push; if ($?) { [Console]::Beep(880, 300) }",
+            "command": "& .\\scripts_235v\\build_export.ps1; if (-not $?) { Write-Host 'Build export failed.' -ForegroundColor Red; exit 1 }; $date = Get-Date -Format 'yyyy-MM-dd HH:mm'; git add .; $status = git status --porcelain; if (-not $status) { Write-Host 'No changes to sync.'; exit 0 }; $msg = 'automated update: ' + $date; git commit -m $msg; git push; if ($?) { [Console]::Beep(880, 300) }",
             "runOptions": {
                 "instanceLimit": 1
             },
