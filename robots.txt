@@ -1,7 +1,7 @@
 User-agent: *
 Disallow: /
-# Explicitly block sensitive project context (do not index even if Disallow rules change)
-Disallow: /context_7jK2n.md
+# Explicitly block sensitive project rules (do not index even if Disallow rules change)
+Disallow: /.cursorrules
 Disallow: /context*.md
 
 User-agent: GPTBot
