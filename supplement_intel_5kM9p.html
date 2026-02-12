@@ -28,12 +28,91 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             padding: 20px; 
             line-height: 1.6; 
-            max-width: 900px; 
-            margin: 0 auto; 
+            margin: 0;
             background: var(--bg-dark); 
             color: var(--text-light); 
             scroll-behavior: smooth;
         }
+
+        /* --- PAGE LAYOUT: SIDEBAR + MAIN --- */
+        .page-wrapper {
+            display: flex;
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+        .sidebar-index {
+            width: 240px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid #444;
+            border-radius: 12px;
+            padding: 12px;
+            max-height: calc(100vh - 40px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(8px);
+        }
+        .sidebar-index h3 {
+            margin: 0 0 10px 0;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            padding-bottom: 8px;
+            border-bottom: 1px solid #444;
+        }
+        .index-search {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background: rgba(0,0,0,0.4);
+            color: var(--text-light);
+            font-size: 0.85em;
+        }
+        .index-search::placeholder { color: #666; }
+        .index-search:focus { outline: none; border-color: var(--science-blue); }
+        .index-list {
+            overflow-y: auto;
+            flex: 1;
+            min-height: 0;
+        }
+        .index-list a {
+            display: block;
+            padding: 6px 8px;
+            color: #bbb;
+            text-decoration: none;
+            font-size: 0.8em;
+            border-radius: 4px;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+        .index-list a:hover { background: var(--science-blue); color: white; }
+        .index-list a.idx-hidden { display: none; }
+        .main-content { flex: 1; min-width: 0; max-width: 900px; }
+
+        /* --- COPY LINK BTN --- */
+        .copy-link-btn {
+            background: rgba(52, 73, 94, 0.6);
+            border: 1px solid #555;
+            color: #aaa;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75em;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .copy-link-btn:hover { background: var(--accent-gold); color: #000; border-color: var(--accent-gold); }
+        .copy-link-btn.copied { background: var(--safe-green); color: white; border-color: var(--safe-green); }
 
         /* --- VIDEO BACKGROUND --- */
         .bg-video {
@@ -109,7 +188,7 @@
         }
         .item-card:hover { border-color: #666; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .item-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; flex-wrap: wrap; }
         .item-name { font-size: 1.4em; font-weight: bold; color: #fff; }
         .item-icon { font-size: 1.5em; }
 
@@ -167,6 +246,10 @@
         .footer { text-align: center; margin-top: 50px; color: #666; font-size: 0.8em; border-top: 1px solid #333; padding-top: 20px; }
 
         /* Responsive */
+        @media (max-width: 1000px) {
+            .page-wrapper { flex-direction: column; }
+            .sidebar-index { width: 100%; max-height: 280px; position: relative; top: 0; }
+        }
         @media (max-width: 600px) {
             .item-header { flex-direction: column; }
             h1 { font-size: 1.5em; }
@@ -186,6 +269,14 @@
         <a href="donald_supplements_4kL2n.html" class="back-btn">Donald Supplement Plan</a>
         <a href="pantry_restock_8kL2m.html" class="back-btn">Pantry Check</a>
     </div>
+
+    <div class="page-wrapper">
+        <aside class="sidebar-index">
+            <h3>📋 All Entries</h3>
+            <input type="text" class="index-search" placeholder="Search entries..." aria-label="Search entries">
+            <div class="index-list" id="indexList"></div>
+        </aside>
+        <main class="main-content">
 
     <div class="main-header">
         <h1>The "Why" Intelligence Briefing</h1>
@@ -283,6 +374,29 @@
                 <span class="pro-tip-text"><strong>Consistency is King.</strong> Spiriva takes 3-4 days to build up. Missing a dose creates a gap 24hrs later.</span>
             </div>
             <div class="protocol-line">Protocol: 2 Puffs + 1 Tablet at Bedtime</div>
+        </div>
+
+        <div id="montelukast" class="item-card rx-card">
+            <div class="item-header">
+                <span class="item-name">Montelukast (Singulair) — 10 mg</span>
+                <span class="item-icon">🌙</span>
+            </div>
+            <span class="job-tag">The Job: "The Chemical Blockade"</span>
+            <div class="job-desc">Unlike antihistamines (which stop itching) or steroids (which stop swelling), this medicine stops the "Squeeze." It blocks the specific chemicals that cause your airway muscles to tighten up during exercise.</div>
+            
+            <div class="science-box">
+                <span class="science-label">🔬 The Science</span>
+                <span class="science-text"><strong>Leukotriene Inhibitor:</strong> Your body releases chemicals called Leukotrienes when you run hard or breathe allergens. These chemicals signal your lungs to clamp shut (bronchoconstriction). Montelukast puts a "cap" on the receptors so that signal never lands. <strong>EIB Defense:</strong> It is one of the few drugs specifically proven to blunt Exercise-Induced Bronchoconstriction (EIB) by up to 50% if active in the system.</span>
+            </div>
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🚀 Max Impact: The "Food Buffer"</span>
+                <span class="pro-tip-text">While it absorbs fine on an empty stomach, the 10mg dose can sometimes cause mild nausea or stomach ache. Taking it with dinner or a snack buffers the gut.</span>
+            </div>
+            <div class="protocol-line">Protocol: Take 1 Tablet (10mg) in the evening WITH FOOD.</div>
+            <div class="science-box" style="border-left-color: var(--danger-red);">
+                <span class="science-label">⚠️ Safety Watch (The Mood Monitor)</span>
+                <span class="science-text">Parent Note: In rare cases, this drug can cause agitation or vivid dreams. If patient seems unusually anxious or has nightmares, report it to the doctor immediately.</span>
+            </div>
         </div>
     </div>
 
@@ -401,12 +515,48 @@
             <div class="protocol-line">Protocol: Dose—1.5 per day (Medical Mandate). Timing—Breakfast (sliced in Cream of Wheat), Lunch, or 5:00 PM Bridge.</div>
         </div>
 
+        <div id="turbo-drink" class="item-card">
+            <div class="item-header">
+                <span class="item-name">Turbo Drink</span>
+                <span class="item-icon">🥤</span>
+            </div>
+            <span class="job-tag">Code Name: "The Nitric/Lactate Stack"</span>
+            <div class="job-desc">Delivers peak Nitric Oxide (vasodilation) and Sulforaphane (lactate buffering) for hard effort. Combines <a href="#beet-root" class="intel-link">Beet Root Juice</a>, <a href="#broccoli-sprouts" class="intel-link">Broccoli Sprouts</a>, and Broccoli Powder.</div>
+            
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">⏱️ Deployment</span>
+                <span class="pro-tip-text"><strong>Time:</strong> Lunch (11:30 AM) — Strict 3-hour pre-flight window for 3:30 PM practice. <strong>Trigger:</strong> Hard effort days only. Skip on easy/recovery days—blunts necessary training adaptation.</span>
+            </div>
+
+            <div class="science-box" style="border-left-color: #e74c3c;">
+                <span class="science-label">⚠️ The "Ticking Clock" Constraint</span>
+                <span class="science-text">You <strong>cannot</strong> pre-mix at 7:00 AM. Once Broccoli Powder (Glucoraphanin) and Fresh Sprouts (Myrosinase) touch Beet Juice (liquid), the reaction begins. Sulforaphane degrades in liquid—mixed at 7 AM, inactive by 11:30 AM [Source 156]. The "Sulfur Bomb" flavor intensifies over time [Source 155].</span>
+            </div>
+
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🎒 Binary Kit (Two Separate Containers)</span>
+                <span class="pro-tip-text"><strong>Payload (Liquid):</strong> 4 oz Beet Root Juice (Lakewood Organic) in shaker bottle/jar. <strong>Catalyst (Dry):</strong> 1.25 scoops KOYAH Broccoli Sprout Powder (~4.25g) [Source 711] + small handful fresh sprouts (~30g) in Tupperware/Ziploc. <em>Keep dry until mix.</em></span>
+            </div>
+
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">⚡ 11:30 AM Procedure</span>
+                <span class="pro-tip-text">1. Dump Dry Catalyst into Liquid Payload. 2. Shake 10 sec. 3. Wait 2–3 min (rehydration + enzyme activation) [Source 715]. 4. <strong>Drink &amp; CHEW</strong> the fresh sprouts—mechanical chewing releases myrosinase; swallowing whole wastes the enzymes [Source 157].</span>
+            </div>
+
+            <div class="pro-tip-box">
+                <span class="pro-tip-label">🛑 Tactical Watchouts</span>
+                <span class="pro-tip-text"><strong>Mouthwash Ban:</strong> No mouthwash, gum, or mints 2 hrs after—tongue bacteria convert nitrates to NO [Source 145, 168]. <strong>Temperature:</strong> Room temp or cool; heat denatures enzymes [Source 714]. <strong>Gut:</strong> If gas/bloating, reduce fresh sprouts, keep powder [Source 183].</span>
+            </div>
+
+            <div class="protocol-line">Protocol: Hard effort only. Binary deployment—mix and ingest immediately. No pre-mix.</div>
+        </div>
+
         <div id="beet-root" class="item-card">
             <div class="item-header">
                 <span class="item-name">Beet Root Juice</span>
                 <span class="item-icon">🍷</span>
             </div>
-            <span class="job-tag">The Job: "The Turbo Boost"</span>
+            <span class="job-tag">The Job: "The Turbo Boost" (component of <a href="#turbo-drink" class="intel-link">Turbo Drink</a>)</span>
             <div class="job-desc">Increases Nitric Oxide, opening blood vessels to deliver oxygen.</div>
             
             <div class="science-box">
@@ -417,6 +567,7 @@
                 <span class="pro-tip-label">🚀 Max Impact</span>
                 <span class="pro-tip-text"><strong>LUNCH ONLY (11:30 AM).</strong> Peaks NO levels for 3:30 PM practice. <strong>NO Dinner</strong> (Gut risk). NO Mouthwash.</span>
             </div>
+            <div class="protocol-line">Turbo Drink: Used as the liquid payload in <a href="#turbo-drink" class="intel-link">Turbo Drink</a>. Pack separately in Binary Kit; add dry catalyst at consumption.</div>
         </div>
 
         <div id="bell-peppers" class="item-card">
@@ -442,7 +593,7 @@
                 <span class="item-name">Broccoli Sprouts (The Lactate Clearer)</span>
                 <span class="item-icon">🥦</span>
             </div>
-            <span class="job-tag">The Job: "The Metabolic Buffer"</span>
+            <span class="job-tag">The Job: "The Metabolic Buffer" (component of <a href="#turbo-drink" class="intel-link">Turbo Drink</a>)</span>
             <div class="job-desc">Broccoli sprouts are the most potent natural source of Sulforaphane. Unlike standard antioxidants (Vitamin C/E) which scavenge free radicals directly, Sulforaphane flips a genetic switch (Nrf2) that upregulates the body's own antioxidant defense system [Source 845, 862]. This allows Tacie to push harder during high-intensity sessions with reduced lactate accumulation [Source 540].</div>
             <div class="science-box">
                 <span class="science-label">🔬 The Science</span>
@@ -457,6 +608,7 @@
                 <span class="pro-tip-text"><strong>NOT for Easy Days:</strong> Do not use on Zone 1/Recovery days. Some oxidative stress is required to signal training adaptation. Using potent antioxidants on easy days may blunt the training effect [Source 544, 545]. <strong>Gut Tolerance:</strong> Like all cruciferous vegetables, sprouts can cause gas. Test tolerance on a non-competition day first [Source 149].</span>
             </div>
             <div class="protocol-line">Protocol: Trigger—High-Intensity Wrestling (Wed) or Double Threshold (Mon). Form—Fresh Sprouts (chewed thoroughly) OR Powder + Fresh Sprout garnish (The Synergy Hack). Status—✅ Green Light (Hard Days Only). ❌ Red Light (Recovery Days/Zone 1).</div>
+            <div class="protocol-line">Turbo Drink: Used as the dry catalyst in <a href="#turbo-drink" class="intel-link">Turbo Drink</a>. Pack separately in Binary Kit; CHEW fresh sprouts when consuming. Do not pre-mix.</div>
         </div>
 
         <div id="chocolate-milk" class="item-card">
@@ -1072,6 +1224,9 @@
         </div>
     </div>
 
+        </main>
+    </div>
+
     <div class="footer">
         <span id="lastUpdated">Loading...</span>
     </div>
@@ -1079,6 +1234,61 @@
     <script>
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+        // --- SIDEBAR INDEX + SEARCH ---
+        (function() {
+            var list = document.getElementById("indexList");
+            var search = document.querySelector(".index-search");
+            var cards = document.querySelectorAll(".item-card[id]");
+            var items = [];
+
+            var rows = [];
+            cards.forEach(function(card) {
+                var id = card.id;
+                var nameEl = card.querySelector(".item-name");
+                var name = nameEl ? nameEl.textContent.trim() : id;
+                rows.push({ id: id, name: name, card: card });
+            });
+            rows.sort(function(a, b) { return a.name.localeCompare(b.name, undefined, { sensitivity: "base" }); });
+
+            rows.forEach(function(row) {
+                var id = row.id, name = row.name, card = row.card;
+                var a = document.createElement("a");
+                a.href = "#" + id;
+                a.textContent = name;
+                a.setAttribute("data-search", (name + " " + id).toLowerCase());
+                list.appendChild(a);
+                items.push(a);
+
+                // Add copy link button to each card header
+                var header = row.card.querySelector(".item-header");
+                if (header) {
+                    var btn = document.createElement("button");
+                    btn.className = "copy-link-btn";
+                    btn.textContent = "Copy link";
+                    btn.title = "Copy link to this card";
+                    btn.setAttribute("data-card-id", id);
+                    btn.onclick = function() {
+                        var url = window.location.origin + window.location.pathname + "#" + id;
+                        navigator.clipboard.writeText(url).then(function() {
+                            btn.textContent = "Copied!";
+                            btn.classList.add("copied");
+                            setTimeout(function() { btn.textContent = "Copy link"; btn.classList.remove("copied"); }, 2000);
+                        });
+                    };
+                    header.appendChild(btn);
+                }
+            });
+
+            if (search) {
+                search.addEventListener("input", function() {
+                    var q = this.value.toLowerCase().trim();
+                    items.forEach(function(a) {
+                        a.classList.toggle("idx-hidden", q && a.getAttribute("data-search").indexOf(q) === -1);
+                    });
+                });
+            }
+        })();
     </script>
     <!-- Updated 2026-02-01 -->
 
