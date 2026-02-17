@@ -213,6 +213,52 @@
         #specials .pos-title { color: var(--accent-gold); text-shadow: 0 0 10px rgba(243, 156, 18, 0.3); }
         #specials .vid-card { border-color: var(--accent-gold); }
 
+        /* Search */
+        .search-wrap {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 16px 12px 40px;
+            font-size: 1em;
+            border: 2px solid #444;
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text-light);
+            transition: border-color 0.2s;
+        }
+        .search-input::placeholder { color: #666; }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+        .search-wrap::before {
+            content: '🔍';
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1em;
+            pointer-events: none;
+        }
+        .search-no-results {
+            display: none;
+            padding: 30px;
+            text-align: center;
+            color: #888;
+            font-size: 1.1em;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 2px dashed #444;
+        }
+        .search-no-results.visible { display: block; }
+        .vid-card.search-hidden { display: none !important; }
+        .topic-group.search-hidden { display: none !important; }
+        .position-section.search-hidden { display: none !important; }
+        .ref-item.search-hidden { display: none !important; }
+
         /* Footer */
         .footer-info { margin-top: 60px; padding-top: 20px; border-top: 1px solid #333; text-align: right; font-size: 0.8em; color: #666; }
 
@@ -238,7 +284,12 @@
     <div class="header-section">
         <h1>Buck15 Technique Library</h1>
         <div class="subtitle">Drills & Tutorials for the 2026 Season</div>
+        <div class="search-wrap">
+            <input type="text" id="library-search" class="search-input" placeholder="Search techniques (e.g. cradle, sprawl, sit out)..." autocomplete="off">
+        </div>
     </div>
+
+    <div id="search-no-results" class="search-no-results">No techniques match your search. Try different keywords.</div>
 
     <div class="app-container">
         
@@ -1040,10 +1091,97 @@
         }
 
         // Run on load
-        document.addEventListener("DOMContentLoaded", checkHash);
+        document.addEventListener("DOMContentLoaded", function() {
+            checkHash();
+            initSearch();
+        });
         
         // Run on hash change (if user clicks notes links while already on this page)
         window.addEventListener('hashchange', checkHash);
+
+        // SEARCH
+        function initSearch() {
+            var input = document.getElementById('library-search');
+            var noResults = document.getElementById('search-no-results');
+            if (!input || !noResults) return;
+
+            function getSearchText(el) {
+                var t = '';
+                var title = el.querySelector('.vid-title');
+                var note = el.querySelector('.coach-note');
+                if (title) t += title.textContent + ' ';
+                if (note) t += note.textContent + ' ';
+                return t.toLowerCase();
+            }
+
+            function getRefText(el) {
+                return el.textContent.toLowerCase();
+            }
+
+            function runSearch() {
+                var q = (input.value || '').trim().toLowerCase();
+                if (q.length < 2) {
+                    document.querySelectorAll('.vid-card, .ref-item').forEach(function(el) {
+                        el.classList.remove('search-hidden');
+                    });
+                    document.querySelectorAll('.topic-group, .position-section').forEach(function(el) {
+                        el.classList.remove('search-hidden');
+                    });
+                    noResults.classList.remove('visible');
+                    return;
+                }
+
+                var anyMatch = false;
+
+                document.querySelectorAll('.vid-card').forEach(function(card) {
+                    var text = getSearchText(card);
+                    var match = text.indexOf(q) !== -1;
+                    if (match) anyMatch = true;
+                    card.classList.toggle('search-hidden', !match);
+                });
+
+                document.querySelectorAll('.ref-item').forEach(function(item) {
+                    var text = getRefText(item);
+                    var match = text.indexOf(q) !== -1;
+                    if (match) anyMatch = true;
+                    item.classList.toggle('search-hidden', !match);
+                });
+
+                document.querySelectorAll('.topic-group').forEach(function(grp) {
+                    var cards = grp.querySelectorAll('.vid-card');
+                    var visible = Array.from(cards).some(function(c) { return !c.classList.contains('search-hidden'); });
+                    grp.classList.toggle('search-hidden', !visible);
+                });
+
+                document.querySelectorAll('.position-section').forEach(function(sec) {
+                    var show = false;
+                    if (sec.id === 'reference-list') {
+                        var refVisible = Array.from(sec.querySelectorAll('.ref-item')).some(function(r) {
+                            return !r.classList.contains('search-hidden');
+                        });
+                        show = refVisible;
+                        if (refVisible) anyMatch = true;
+                    } else {
+                        var topicVisible = Array.from(sec.querySelectorAll('.topic-group')).some(function(t) {
+                            return !t.classList.contains('search-hidden');
+                        });
+                        show = topicVisible;
+                    }
+                    sec.classList.toggle('search-hidden', !show);
+                });
+
+                noResults.classList.toggle('visible', !anyMatch);
+            }
+
+            input.addEventListener('input', runSearch);
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    input.value = '';
+                    runSearch();
+                    input.blur();
+                }
+            });
+        }
     </script>
 
 </body>
