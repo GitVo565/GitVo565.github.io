@@ -265,7 +265,12 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .app-container { grid-template-columns: 1fr; }
-            .sticky-index { position: relative; top: 0; max-height: none; margin-bottom: 20px; }
+            .sticky-index { 
+                position: relative; top: 0; max-height: none; 
+                margin-bottom: 20px; margin-top: 0;
+                order: 2; /* Index below content on mobile */
+            }
+            .library-content { order: 1; } /* Tiles first on mobile */
         }
     </style>
 </head>
