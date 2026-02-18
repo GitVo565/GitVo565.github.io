@@ -9,16 +9,26 @@
     <meta http-equiv="Expires" content="0">
     
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; background: #f8f9fa; color: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; color: #333; position: relative; }
+        
+        /* Hero Background */
+        .hero-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center top; z-index: -2;
+        }
+        .hero-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.55); z-index: -1;
+        }
         
         /* Navigation */
-        .back-btn { display: inline-block; background: #fff; padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid #ddd; font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; }
-        .back-btn:hover { background: #eee; }
+        .back-btn { display: inline-block; background: rgba(255,255,255,0.95); padding: 8px 15px; text-decoration: none; color: #333; border-radius: 20px; border: 1px solid rgba(255,255,255,0.5); font-size: 0.9em; margin-bottom: 20px; transition: all 0.2s; backdrop-filter: blur(4px); }
+        .back-btn:hover { background: #fff; }
 
         /* Banner & Headers */
         .header-section { text-align: center; margin-bottom: 30px; }
-        h1 { margin: 10px 0 5px 0; color: #10315c; } /* Butler Navy */
-        .subtitle { color: #666; font-weight: 500; font-size: 1.1em; }
+        h1 { margin: 10px 0 5px 0; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+        .subtitle { color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1em; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
 
         /* Photo Card */
         .photo-card { 
@@ -67,6 +77,7 @@
         
         /* Brand Colors for Buttons */
         .btn-grad { border-left: 6px solid #d9534f; }
+        .btn-facebook { border-left: 6px solid #1877f2; }
         .btn-linkedin { border-left: 6px solid #0077b5; }
         .btn-insta { border-left: 6px solid #E1306C; }
         .btn-sports { border-left: 6px solid #28a745; }
@@ -82,6 +93,9 @@
     </style>
 </head>
 <body>
+
+    <img src="images/brian_graduation_hero.png" alt="" class="hero-bg">
+    <div class="hero-overlay"></div>
 
     <a href="Pointers99.html" class="back-btn">← Back to Hub</a>
     
@@ -165,7 +179,7 @@
 
                 <p><strong>Loves:</strong> Spreadsheets, Reading, Running, The Packers.</p>
                 <p><strong>Music:</strong> Unapologetically listening to Nickelback.</p>
-                <p><strong>Fun Fact:</strong> Founder of the Butler Wrestling Club.</p>
+                <p><strong>Fun Fact:</strong> Founder & President of the Butler Wrestling Club — <a href="https://thebutlercollegian.com/2026/02/fielding-her-ground/" target="_blank" class="timeline-link">featured in The Butler Collegian</a>.</p>
                 
                 <div class="tag-container" style="margin-top: 15px;">
                     <span class="tag">Memes</span>
@@ -180,6 +194,10 @@
                 
                 <a href="https://www.linkedin.com/in/brian-voetberg" target="_blank" class="link-btn btn-linkedin">
                     👔 LinkedIn Profile
+                </a>
+
+                <a href="https://www.facebook.com/brian.voetberg" target="_blank" class="link-btn btn-facebook">
+                    📘 Facebook
                 </a>
 
                 <a href="https://www.instagram.com/brianvoetberg/?hl=en" target="_blank" class="link-btn btn-insta">
