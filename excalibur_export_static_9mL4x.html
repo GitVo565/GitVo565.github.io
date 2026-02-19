@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>00W41 — Excalibur Export · v003</title>
+    <title>00W41 — Excalibur Export · v004</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1>Excalibur Protocol Library - Static Export</h1>
-    <p>Generated: 2026-02-19 12:35</p><div class='page-break'><h2>00W2 — Voetberg Family Hub</h2><p style='color:#666; font-size:0.9em; margin-bottom:20px;'>Source: Pointers99.html</p>
+    <p>Generated: 2026-02-19 12:55</p><div class='page-break'><h2>00W2 — Voetberg Family Hub</h2><p style='color:#666; font-size:0.9em; margin-bottom:20px;'>Source: Pointers99.html</p>
 
     
     
@@ -43,6 +43,33 @@
                     <div>
                         <div class="action-label">Photo Albums</div>
                         <div class="action-sub">Scrapbook & Google Photos</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="glass-panel">
+            <span class="section-title">Featured Links</span>
+            <div class="action-grid">
+                <a href="excalibur_podcast_4kL2p.html" class="action-btn">
+                    <span class="action-icon">🎙️</span>
+                    <div>
+                        <div class="action-label">Excalibur Podcast</div>
+                        <div class="action-sub">Listen to the Protocol</div>
+                    </div>
+                </a>
+                <a href="https://www.donaldvoetberg.com" class="action-btn" target="_blank" rel="noopener noreferrer">
+                    <span class="action-icon">🌐</span>
+                    <div>
+                        <div class="action-label">Donald's Site</div>
+                        <div class="action-sub">donaldvoetberg.com</div>
+                    </div>
+                </a>
+                <a href="tacie_wrestling_5fH3pK.html" class="action-btn">
+                    <span class="action-icon">🤼‍♀️</span>
+                    <div>
+                        <div class="action-label">Wrestling Hub</div>
+                        <div class="action-sub">Buck15 Match Log & Videos</div>
                     </div>
                 </a>
             </div>
@@ -77,13 +104,6 @@
                     <div>
                         <div class="action-label">Amazon Pharmacy</div>
                         <div class="action-sub">Prescriptions & refills</div>
-                    </div>
-                </a>
-                <a href="excalibur_podcast_4kL2p.html" class="action-btn">
-                    <span class="action-icon">🎙️</span>
-                    <div>
-                        <div class="action-label">Excalibur Podcast</div>
-                        <div class="action-sub">Listen to the Protocol for Hybrid Athletes</div>
                     </div>
                 </a>
                 <a href="excalibur_export_static_9mL4x.html" class="action-btn">
@@ -9782,22 +9802,31 @@
     
     
     
+    
     <div class="header-section">
         <h1>Excalibur Podcast</h1>
         <div class="subtitle">Listen to the Protocol</div>
     </div>
 
     <div class="podcast-card">
-        <div class="episode-title">The Excalibur Protocol for Hybrid Athletes</div>
+        <div class="episode-title">Dan Voetberg's Excalibur Protocol for Hybrid Athletes</div>
         <div class="episode-desc">An audio walkthrough of the Excalibur Protocol—engineered for hybrid athletes balancing combat sports and endurance.</div>
-        <audio controls preload="metadata">
+        <audio id="podcastAudio" preload="metadata">
             
-            Your browser does not support the audio element. <a href="media/excalibur_podcast.m4a" download>Download the file</a> instead.
         </audio>
+        <div class="custom-player">
+            <button id="playBtn" type="button" aria-label="Play">▶</button>
+            <span class="time"><span id="currentTime">0:00</span> / <span id="duration">0:00</span></span>
+            <div class="progress-wrap" id="progressWrap">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        <p style="margin-top:8px;font-size:0.85em;color:#888;"><a href="media/excalibur_podcast.m4a" download style="color:var(--accent-gold);">Download</a> if player doesn't load.</p>
     </div>
 
     <div class="footer-info"><span id="lastUpdated"></span></div>
 
+    
     
 
 </div></body></html>

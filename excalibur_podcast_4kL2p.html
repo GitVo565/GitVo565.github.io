@@ -51,12 +51,49 @@
         .episode-title { font-size: 1.2em; font-weight: bold; color: var(--accent-gold); margin-bottom: 8px; }
         .episode-desc { color: #bbb; font-size: 0.95em; margin-bottom: 25px; line-height: 1.5; }
 
-        audio {
-            width: 100%;
-            height: 54px;
+        .custom-player {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             margin-top: 10px;
+            padding: 12px 16px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            border: 1px solid #333;
         }
-        audio::-webkit-media-controls-panel { background: #1a1a1a; }
+        .custom-player button {
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: #1a1a1a;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .custom-player button:hover { background: #e67e22; }
+        .custom-player button:active { transform: scale(0.96); }
+        .custom-player .time { color: #bbb; font-size: 0.9em; min-width: 90px; }
+        .custom-player .progress-wrap {
+            flex: 1;
+            height: 6px;
+            background: #444;
+            border-radius: 3px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .custom-player .progress-fill {
+            height: 100%;
+            background: var(--accent-gold);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s;
+        }
 
         .footer-info { margin-top: 40px; padding-top: 15px; border-top: 1px solid #333; text-align: right; font-size: 0.8em; color: #666; }
     </style>
@@ -65,6 +102,7 @@
 
     <a href="Pointers99.html" class="back-btn">← Family Hub</a>
     <a href="excalibur_strategy_2kL9v.html" class="back-btn">⚔️ Excalibur Strategy</a>
+    <a href="dan_3mP9L.html" class="back-btn">← Dan's Page</a>
     
     <div class="header-section">
         <h1>Excalibur Podcast</h1>
@@ -72,12 +110,19 @@
     </div>
 
     <div class="podcast-card">
-        <div class="episode-title">The Excalibur Protocol for Hybrid Athletes</div>
+        <div class="episode-title">Dan Voetberg's Excalibur Protocol for Hybrid Athletes</div>
         <div class="episode-desc">An audio walkthrough of the Excalibur Protocol—engineered for hybrid athletes balancing combat sports and endurance.</div>
-        <audio controls preload="metadata">
+        <audio id="podcastAudio" preload="metadata">
             <source src="media/excalibur_podcast.m4a" type="audio/mp4">
-            Your browser does not support the audio element. <a href="media/excalibur_podcast.m4a" download>Download the file</a> instead.
         </audio>
+        <div class="custom-player">
+            <button id="playBtn" type="button" aria-label="Play">▶</button>
+            <span class="time"><span id="currentTime">0:00</span> / <span id="duration">0:00</span></span>
+            <div class="progress-wrap" id="progressWrap">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        <p style="margin-top:8px;font-size:0.85em;color:#888;"><a href="media/excalibur_podcast.m4a" download style="color:var(--accent-gold);">Download</a> if player doesn't load.</p>
     </div>
 
     <div class="footer-info"><span id="lastUpdated"></span></div>
@@ -85,6 +130,43 @@
     <script>
         var date = new Date(document.lastModified);
         document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
+    <script>
+        (function() {
+            var audio = document.getElementById("podcastAudio");
+            var playBtn = document.getElementById("playBtn");
+            var currentTimeEl = document.getElementById("currentTime");
+            var durationEl = document.getElementById("duration");
+            var progressWrap = document.getElementById("progressWrap");
+            var progressFill = document.getElementById("progressFill");
+
+            function fmt(t) {
+                var m = Math.floor(t / 60), s = Math.floor(t % 60);
+                return m + ":" + (s < 10 ? "0" : "") + s;
+            }
+            function updateUI() {
+                var ct = audio.currentTime, d = audio.duration;
+                currentTimeEl.textContent = fmt(ct);
+                if (d && !isNaN(d)) {
+                    durationEl.textContent = fmt(d);
+                    progressFill.style.width = (100 * ct / d) + "%";
+                }
+            }
+            playBtn.addEventListener("click", function() {
+                if (audio.paused) { audio.play(); playBtn.textContent = "⏸"; }
+                else { audio.pause(); playBtn.textContent = "▶"; }
+            });
+            audio.addEventListener("play", function() { playBtn.textContent = "⏸"; });
+            audio.addEventListener("pause", function() { playBtn.textContent = "▶"; });
+            audio.addEventListener("timeupdate", updateUI);
+            audio.addEventListener("loadedmetadata", function() { durationEl.textContent = fmt(audio.duration); });
+            progressWrap.addEventListener("click", function(e) {
+                if (!audio.duration || isNaN(audio.duration)) return;
+                var rect = progressWrap.getBoundingClientRect();
+                var pct = (e.clientX - rect.left) / rect.width;
+                audio.currentTime = pct * audio.duration;
+            });
+        })();
     </script>
 
 </body>
