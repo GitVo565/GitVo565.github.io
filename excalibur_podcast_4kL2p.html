@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>00W42 — Excalibur Podcast</title>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        :root {
+            --bg-dark: #0f0f0f;
+            --card-bg: rgba(26, 26, 26, 0.9);
+            --text-light: #ecf0f1;
+            --accent-gold: #f39c12;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            max-width: 700px; 
+            margin: 0 auto; 
+            color: var(--text-light); 
+            background: var(--bg-dark);
+        }
+
+        .back-btn { 
+            display: inline-block; background: var(--card-bg); padding: 8px 15px; 
+            text-decoration: none; color: var(--text-light); border-radius: 20px; 
+            border: 1px solid #444; font-size: 0.9em; margin-bottom: 25px; 
+            transition: all 0.2s; 
+        }
+        .back-btn:hover { background: #444; border-color: var(--accent-gold); }
+
+        .header-section { text-align: center; margin-bottom: 35px; border-bottom: 3px solid var(--accent-gold); padding-bottom: 20px; }
+        h1 { margin: 0; font-size: 2em; color: white; text-transform: uppercase; letter-spacing: 2px; }
+        .subtitle { color: var(--accent-gold); font-weight: bold; margin-top: 8px; font-size: 1em; }
+
+        .podcast-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #333;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        .episode-title { font-size: 1.2em; font-weight: bold; color: var(--accent-gold); margin-bottom: 8px; }
+        .episode-desc { color: #bbb; font-size: 0.95em; margin-bottom: 25px; line-height: 1.5; }
+
+        audio {
+            width: 100%;
+            height: 54px;
+            margin-top: 10px;
+        }
+        audio::-webkit-media-controls-panel { background: #1a1a1a; }
+
+        .footer-info { margin-top: 40px; padding-top: 15px; border-top: 1px solid #333; text-align: right; font-size: 0.8em; color: #666; }
+    </style>
+</head>
+<body>
+
+    <a href="Pointers99.html" class="back-btn">← Family Hub</a>
+    <a href="excalibur_strategy_2kL9v.html" class="back-btn">⚔️ Excalibur Strategy</a>
+    
+    <div class="header-section">
+        <h1>Excalibur Podcast</h1>
+        <div class="subtitle">Listen to the Protocol</div>
+    </div>
+
+    <div class="podcast-card">
+        <div class="episode-title">The Excalibur Protocol for Hybrid Athletes</div>
+        <div class="episode-desc">An audio walkthrough of the Excalibur Protocol—engineered for hybrid athletes balancing combat sports and endurance.</div>
+        <audio controls preload="metadata">
+            <source src="media/excalibur_podcast.m4a" type="audio/mp4">
+            Your browser does not support the audio element. <a href="media/excalibur_podcast.m4a" download>Download the file</a> instead.
+        </audio>
+    </div>
+
+    <div class="footer-info"><span id="lastUpdated"></span></div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
+
+</body>
+</html>
