@@ -1,0 +1,11 @@
+NAME
+Opus Trauma Heights and Rear Surrounds
+DEVICENAME
+Unnamed
+BREAKPOINTS
+10 0.0
+20000 0.0
+LOWLIMITHZ
+10
+HIGHLIMITHZ
+24000
