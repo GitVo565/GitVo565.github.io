@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donald — 2026 Track & Field Season</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow">
+    <meta name="gptbot" content="noindex, nofollow">
+    <meta name="CCBot" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <style>
+        :root {
+            --msub-blue: #00305e;
+            --msub-yellow: #ffc72c;
+            --text-main: #ffffff;
+            --text-muted: #dbeafe;
+            --glass-bg: rgba(0, 48, 94, 0.65);
+            --glass-border: rgba(255, 199, 44, 0.3);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+            --blur-strength: 15px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            background-color: #001a33;
+            overflow-x: hidden;
+        }
+
+        .bg-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: -1;
+        }
+
+        .nav-bar {
+            position: absolute;
+            top: 20px; left: 20px;
+            z-index: 10;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(5px);
+            padding: 8px 18px;
+            text-decoration: none;
+            color: var(--msub-yellow);
+            border-radius: 20px;
+            font-weight: bold;
+            border: 1px solid var(--msub-yellow);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.2s;
+            margin-right: 8px;
+        }
+        .back-btn:hover { background: var(--msub-yellow); color: var(--msub-blue); }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            padding-top: 80px;
+        }
+
+        .hero-card {
+            background: rgba(0, 48, 94, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: var(--glass-shadow);
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        .hero-content h1 {
+            margin: 0;
+            font-size: 2em;
+            color: var(--msub-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+        .hero-content p {
+            color: #fff;
+            font-size: 1.1em;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--blur-strength));
+            -webkit-backdrop-filter: blur(var(--blur-strength));
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--glass-shadow);
+            color: var(--text-main);
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-3px); background: rgba(0, 48, 94, 0.85); }
+
+        .card h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--msub-yellow);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            color: var(--msub-yellow);
+            font-size: 1.3em;
+        }
+        .icon { margin-right: 12px; font-size: 1.1em; }
+
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 8px; color: #e2e8f0; }
+        li strong { color: #fff; }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 14px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.95em;
+            transition: all 0.2s;
+        }
+        .link-btn:hover {
+            transform: translateX(3px);
+            background: var(--msub-yellow);
+            color: var(--msub-blue);
+            border-color: var(--msub-yellow);
+        }
+        .link-btn.primary { border-left: 5px solid var(--msub-yellow); }
+
+        .timeline-date { font-weight: 800; color: var(--msub-yellow); font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; }
+        .timeline-event { margin-bottom: 12px; border-left: 3px solid rgba(255,255,255,0.3); padding-left: 12px; }
+        .timeline-title { font-weight: bold; color: #fff; display: block; margin-bottom: 2px; }
+        .timeline-note { font-size: 0.9em; color: var(--text-muted); }
+
+        .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 700px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+        .code-box {
+            background: rgba(0,0,0,0.4);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1em;
+            color: var(--msub-yellow);
+            margin: 8px 0;
+            border: 1px solid rgba(255,199,44,0.3);
+        }
+
+        .footer-note {
+            max-width: 1000px;
+            margin: 20px auto 0;
+            padding: 16px 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            font-size: 0.8em;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="bg-video" preload="auto">
+        <source src="images/donald_jr_runs_indoor_spash.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+
+    <div class="nav-bar">
+        <a href="Pointers99.html" class="back-btn">← Hub</a>
+        <a href="donald_2yR5j.html" class="back-btn">Donald</a>
+    </div>
+
+    <div class="container">
+
+        <div class="hero-card">
+            <div class="hero-content">
+                <h1>2026 Track & Field</h1>
+                <p>SPASH Boys · Consolidated season info & links</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><span class="icon">📅</span>Official Links</h3>
+            <a href="https://docs.google.com/spreadsheets/d/110sEPzbOU5QFL_jzn3go2dBfcYw7NUVG7FL4tu3hx2k/edit?gid=1243345004#gid=1243345004" class="link-btn primary" target="_blank" rel="noopener noreferrer">
+                📊 2026 Track & Field Schedule (Google Sheet)
+            </a>
+            <a href="https://docs.google.com/document/d/17qWDwEV9h4fdIitbyi248oTjPcRKIDsiUCAkCzrnt6k/edit?tab=t.0" class="link-btn primary" target="_blank" rel="noopener noreferrer">
+                📄 Pre-Season / Welcome Letter (Google Doc)
+            </a>
+        </div>
+
+        <div class="grid">
+            <div>
+                <div class="card">
+                    <h3><span class="icon">📱</span>Team Comms & Signup</h3>
+                    <p><strong>SportsYou</strong> — Download the app, join with code:</p>
+                    <div class="code-box">824UTQ9R</div>
+                    <p style="margin-top:12px;"><strong>Signup:</strong> If you were out last year you're already signed up. If not, reach out to Coach E to get signed up.</p>
+                    <p><strong>Forms</strong> (Skyward Family Access) — must be done before the season:</p>
+                    <ul>
+                        <li>Physical / alternate year form</li>
+                        <li>Emergency form</li>
+                        <li>Athletic code</li>
+                    </ul>
+                    <p style="font-size:0.9em; color:var(--msub-yellow);">You cannot practice without these.</p>
+                    <p><strong>Grades:</strong> Quarter grades affect eligibility. Keep grades in order so you don't miss practice or meets.</p>
+                </div>
+
+                <div class="card">
+                    <h3><span class="icon">💰</span>SnapRaise 2026</h3>
+                    <p>SPASH Boys Track & Field fundraiser — online via email, text, social. No door-to-door.</p>
+                    <p><strong>Join code:</strong></p>
+                    <div class="code-box">801-481-421</div>
+                    <p>Browser link: <a href="http://raise.snap.app/join_code/801481421" target="_blank" rel="noopener noreferrer" style="color:var(--msub-yellow);">raise.snap.app/join_code/801481421</a></p>
+                    <p style="font-size:0.9em; color:var(--text-muted);">Invite 20+ email addresses and 20+ phone numbers (family, friends, neighbors, etc.).</p>
+                </div>
+
+                <div class="card">
+                    <h3><span class="icon">👥</span>Coach & Staff</h3>
+                    <p><strong>Head Coach:</strong> Ryan Eigenberger (Coach E)<br>
+                    <a href="mailto:reigenbe@pointschools.net" style="color:var(--msub-yellow);">reigenbe@pointschools.net</a> · SportsYou</p>
+                    <p style="margin-top:10px;"><strong>Event coaches (SportsYou):</strong><br>
+                    Throwers: Coach Feltz · Distance: Coach Leahy · Sprint/Jumps: Coach Eigenberger</p>
+                    <p style="font-size:0.9em; color:var(--text-muted); margin-top:8px;">Staff: Pat Leahy, Mike Feltz, Harrison Smith, Jason Smith, Lance Lewis, Jason Bull, Sheldon Harn, Rachel Gottlieb, Corey Scott, Zach Helget, Brayden Bernhagen, Alex Holmes.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <h3><span class="icon">🏃</span>Key Dates 2026</h3>
+                    <p class="timeline-note">Practice times: typically 3:15–5:15 (spring break 10–noon). Release times on sheet.</p>
+
+                    <div class="timeline-event">
+                        <span class="timeline-date">Mar 17 (Tue)</span>
+                        <span class="timeline-title">UW-Oshkosh Invitational</span>
+                        <span class="timeline-note">5:00 PM, bus 2:15 from SPASH</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">Mar 21 (Sat)</span>
+                        <span class="timeline-title">Point Invitational (UWSP)</span>
+                        <span class="timeline-note">10:00 AM, at UWSP 8:30 AM</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">Mar 24 (Tue)</span>
+                        <span class="timeline-title">Intrasquad @ SPASH</span>
+                        <span class="timeline-note">3:30 PM, at SPASH by 3:15</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">Mar 28 (Sat)</span>
+                        <span class="timeline-title">Ripon College Showcase</span>
+                        <span class="timeline-note">10:00 AM, bus 7:15 AM</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">Apr 2 (Thu)</span>
+                        <span class="timeline-title">Hardwood Classic @ SPASH</span>
+                        <span class="timeline-note">3:45 PM, at SPASH by 3:15</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">Apr 4 (Sat)</span>
+                        <span class="timeline-title">UWSP Distance Carnival</span>
+                        <span class="timeline-note">5:00 PM, at UWSP 4:00 PM</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">Apr 7 (Tue)</span>
+                        <span class="timeline-title">UWSP Meet</span>
+                        <span class="timeline-note">3:30 PM · Release: 2:10 SPASH, UWSP by 2:30</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">Apr 14 / 16</span>
+                        <span class="timeline-title">WVC Indoor Conference (UWSP)</span>
+                        <span class="timeline-note">Release 1:55 (14th); 2:10 SPASH, UWSP 2:30 (16th)</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">Apr 21 (Tue)</span>
+                        <span class="timeline-title">DCE/WR Triangular</span>
+                        <span class="timeline-note">3:45 PM @ Goerke</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">May 1 (Fri)</span>
+                        <span class="timeline-title">Neenah Invite / DCE Invite</span>
+                        <span class="timeline-note">3:45 / 3:30 PM · see sheet for release</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">May 5 (Tue)</span>
+                        <span class="timeline-title">WVC Relays</span>
+                        <span class="timeline-note">3:45 PM @ Goerke</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">May 8 (Fri)</span>
+                        <span class="timeline-title">Madison Memorial</span>
+                        <span class="timeline-note">4:00 PM</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">May 11 (Mon)</span>
+                        <span class="timeline-title">Rosholt Triangular</span>
+                        <span class="timeline-note">4:15 PM</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">May 14 (Thu)</span>
+                        <span class="timeline-title">JV Conference</span>
+                        <span class="timeline-note">3:45 PM @ Wausau East</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">May 18 (Mon)</span>
+                        <span class="timeline-title">Conference</span>
+                        <span class="timeline-note">3:30 PM @ Wausau East</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">May 26 (Tue)</span>
+                        <span class="timeline-title">WIAA Regionals</span>
+                        <span class="timeline-note">@ DCE</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">May 29 (Fri)</span>
+                        <span class="timeline-title">WIAA Sectionals</span>
+                        <span class="timeline-note">@ DCE</span>
+                    </div>
+                    <div class="timeline-event">
+                        <span class="timeline-date">Jun 5–6 (Fri–Sat)</span>
+                        <span class="timeline-title">State</span>
+                        <span class="timeline-note">State travel 6/4</span>
+                    </div>
+
+                    <p style="margin-top:14px; font-size:0.9em;"><a href="https://docs.google.com/spreadsheets/d/110sEPzbOU5QFL_jzn3go2dBfcYw7NUVG7FL4tu3hx2k/edit?gid=1243345004#gid=1243345004" target="_blank" rel="noopener noreferrer" style="color:var(--msub-yellow);">Full schedule (Google Sheet) →</a></p>
+                </div>
+
+                <div class="card">
+                    <h3><span class="icon">📌</span>Program Notes</h3>
+                    <ul>
+                        <li>Practice times are min/max; updates communicated in season. Practice attendance is mandatory to participate in meets.</li>
+                        <li>If you must miss practice, contact your event coach on SportsYou.</li>
+                        <li>Track &amp; Field: many individuals contribute; 40+ athletes often at varsity meets. Events for everyone.</li>
+                        <li>Program standard: 14 consecutive WVC and WIAA Regional titles; aim to continue and build Sectional streak.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note" id="lastUpdated"></div>
+
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("lastUpdated").innerText = "Last Updated: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    </script>
+</body>
+</html>

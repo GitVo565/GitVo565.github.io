@@ -1,0 +1,36 @@
+---
+description: Excalibur training day log — list AIS/Activation before Run when both are present
+globs: **/tacie_training*.html
+alwaysApply: false
+---
+
+<!-- Internal links use obscure IDs per context_7jK2n.md. Deep Link: consumables in logs link to supplement_intel_5kM9p.html anchors (e.g. #potato, #beef-stick). -->
+
+# Excalibur Training Day Log — Activity Order
+
+When editing Tacie's Training Directives (day cards with AM/PM activities):
+
+**Always list AIS (Activation) before the Run** when both appear on the same day.
+
+- **AIS** = Active Isolated Stretching routines (e.g. "AIS Routine 1: The Rope", "AIS Routine 2: The Matrix", or links to `tacie_ais_4kL9m.html`, `tacie_mobility_5nB8v.html`).
+- **Run** = Any run prescription (e.g. "3 Miles Zone 2", "4 Miles Fartlek/Threshold").
+
+Correct order in the day card: **Activation / AIS first**, then **Run**, then any Chassis/Circuit or other work.
+
+### Example (correct)
+
+```html
+<div class="activity">Activation: <a href="tacie_ais_4kL9m.html" ...>AIS Routine 1: The Rope</a>.</div>
+<div class="activity"><strong>Run:</strong> 3 Miles (Zone 2).</div>
+```
+
+### Example (wrong — Run before AIS)
+
+```html
+<div class="activity"><strong>Run:</strong> 3 Miles (Zone 2).</div>
+<div class="activity">Activation: <a href="tacie_ais_4kL9m.html" ...>AIS Routine 1: The Rope</a>.</div>
+```
+
+If the day has only a run (no AIS), no change. If the day has AIS + run, ensure AIS appears first in the markup.
+
+**Deep Link:** Consumable items in the Daily Log (e.g. Turbo Drink, Gatorade, banana) should link to their definition in the Intel Briefing: `supplement_intel_5kM9p.html#anchor` (e.g. `#turbo-drink`, `#potato`, `#beef-stick`). Use a distinct link style (e.g. dotted underline or icon) to indicate “opens Knowledge Base.”

@@ -3,6 +3,9 @@ Disallow: /
 # Explicitly block sensitive project rules (do not index even if Disallow rules change)
 Disallow: /.cursorrules
 Disallow: /context*.md
+# Block event/family text extracts (plain text has no meta tags)
+Disallow: /voetberg_events_extract.txt
+Disallow: /*extract*.txt
 
 User-agent: GPTBot
 Disallow: /

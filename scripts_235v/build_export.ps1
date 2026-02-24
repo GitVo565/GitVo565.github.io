@@ -149,7 +149,11 @@ $header = @"
 <head>
     <meta charset="UTF-8">
     <title>$exportTitle</title>
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow">
+    <meta name="gptbot" content="noindex, nofollow">
+    <meta name="CCBot" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body { font-family: sans-serif; line-height: 1.6; padding: 40px; color: #333; max-width: 900px; margin: auto; }

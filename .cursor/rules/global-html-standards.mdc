@@ -1,0 +1,58 @@
+---
+description: Mandatory HTML standards — cache control, full bot block, assets in /images/, back-button fix
+globs: **/*.html
+alwaysApply: false
+---
+
+# Global HTML Standards (Voetberg Family Portal)
+
+When creating or editing HTML pages in this repo, enforce the following. Full context: `context_7jK2n.md`.
+
+## 1. Cache control (mandatory)
+
+Every HTML page must include in `<head>` so mobile browsers drop cache and load fresh assets:
+
+```html
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+```
+
+## 2. Search and bot protection (mandatory)
+
+Every HTML page must include the **full bot block** in `<head>`. Do not use a shortened set (e.g. robots only). This keeps family content out of search results and AI training:
+
+```html
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="google-extended" content="noindex, nofollow">
+<meta name="gptbot" content="noindex, nofollow">
+<meta name="CCBot" content="noindex, nofollow">
+```
+
+## 3. Assets
+
+- All images and video **must** reside under `/images/` (or the project’s asset directory). Do not place assets in repo root.
+- Reference with paths relative to repo root (e.g. `images/don_moose_rider II.mp4`).
+
+## 4. Back-button fix (dynamic pages)
+
+For **dynamic** pages (Training, Orders, Pantry, Supplements) place before `</body>`:
+
+```html
+<script>
+window.onpageshow = function(event) {
+  if (event.persisted) { window.location.reload(); }
+};
+</script>
+```
+
+## 5. Video backgrounds
+
+- Use `object-fit: cover` (or `contain` for portrait).
+- Attributes: `muted` `loop` `playsinline`.
+- Include a dark CSS overlay (e.g. `rgba(0,0,0,0.3)`–`0.7`) for text readability.
+
+## 6. Footer “Last updated”
+
+Where applicable, include a footer script that displays document last-modified (e.g. `lastUpdated` element + `document.lastModified`).

@@ -1,0 +1,34 @@
+---
+description: Internal HTML filenames — security by obscurity; use opaque randomId, no years or guessable topic names
+globs: **/*.html
+alwaysApply: false
+---
+
+# Internal HTML Naming (Security by Obscurity)
+
+When creating or renaming **family/internal** HTML pages in this repo, follow the project standard so URLs are not guessable.
+
+## Pattern
+
+- **Format:** `name_descriptor_randomId.html`
+  - `name`: person or domain (e.g. `donald`, `tacie`, `wrestling`, `excalibur`)
+  - `descriptor`: short generic label (e.g. `track`, `supplements`, `training`, `venture`)
+  - `randomId`: **5–6 mixed alphanumeric characters** (e.g. `3vN7q`, `2yR5j`, `2pX4v`). No semantic meaning.
+
+## Do NOT
+
+- Put the year in the filename (e.g. `track_2026.html`, `training_2025.html`).
+- Use fully descriptive topic names that make the page obvious (e.g. `donald_track_season_schedule.html`).
+
+## Do
+
+- Keep **link text / card labels** human-readable (e.g. "Track 2026", "Donald Supplement Plan"). Only the filename is obscured.
+
+## Examples
+
+- ✅ `donald_track_3vN7q.html` — Track season page
+- ✅ `tacie_training_2pX4v.html` — Training directives
+- ❌ `donald_track_2026.html`
+- ❌ `tacie_2025_training.html`
+
+Full standards and file registry: see `context_7jK2n.md` in repo root. Global HTML (cache, privacy, assets): see `global-html-standards.mdc`.
