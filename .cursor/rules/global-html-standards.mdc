@@ -56,3 +56,11 @@ window.onpageshow = function(event) {
 ## 6. Footer “Last updated”
 
 Where applicable, include a footer script that displays document last-modified (e.g. `lastUpdated` element + `document.lastModified`).
+
+## 7. Event tiles — updated timestamp
+
+Event cards/tiles must show when details were last modified. Place a **small grey date/time** in the **lower right** of each tile:
+
+- **CSS:** `.event-updated { font-size: 0.75em; color: #666; text-align: right; margin: 8px 0 0 0; display: block; }`
+- **HTML:** `<p class="event-updated"></p>` as the last child of each event card's `.card-body`.
+- **Script:** Populate via `document.lastModified` with prefix "Last Update: "; extend the footer "Last Updated" script to also set `textContent` on all `.event-updated` elements.

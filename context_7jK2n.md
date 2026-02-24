@@ -91,6 +91,14 @@ window.onpageshow = function(event) {
 
 For pages with “Add to Calendar” links (e.g. Events): event description body must include a backlink (“CHECK UPDATES: https://gitvo565.github.io/[filename].html”), full details (alerts, logistics, links, teams), and use `%0A` for newlines and URL-encode special characters. Keep under ~1000 chars for compatibility. See Master Protocol §4.4 for full formatting and provider-specific params.
 
+### 4.6 Event tiles — updated timestamp
+
+Event cards/tiles must show when details were last modified. Place a **small grey date/time** in the **lower right** of each tile.
+
+- **CSS:** `.event-updated { font-size: 0.75em; color: #666; text-align: right; margin: 8px 0 0 0; display: block; }`
+- **HTML:** `<p class="event-updated"></p>` as the last child of each event card's `.card-body`.
+- **Script:** Populate via `document.lastModified` with prefix "Last Update: " (e.g. `"Last Update: " + date.toLocaleDateString() + " " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})`). Use the same script that sets footer "Last Updated" to also populate all `.event-updated` elements.
+
 ---
 
 ## 5. Styling consistency
@@ -119,6 +127,7 @@ For pages with “Add to Calendar” links (e.g. Events): event description body
 - [ ] **Deep links:** New consumable items in Daily Log have corresponding anchor in Intel Briefing and link to it.
 - [ ] **Footer:** “Last Updated” script present where applicable.
 - [ ] **Calendar:** Event pages with add-to-calendar have formatted bodies with backlink and full details.
+- [ ] **Event tiles:** Each event card shows small grey date/time (lower right) via `.event-updated` + `document.lastModified`.
 
 ---
 
