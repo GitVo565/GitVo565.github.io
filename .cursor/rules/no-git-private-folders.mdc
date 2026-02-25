@@ -1,0 +1,22 @@
+---
+description: Never commit or push Venture/ or WorkingArea/ — these folders are private and must stay local
+alwaysApply: true
+---
+
+# Private Folders — Never Push to Git
+
+Never suggest, stage, or commit any files from these folders. They are intentionally excluded from version control.
+
+## Protected Folders
+
+| Folder | Purpose |
+|--------|---------|
+| **Venture/** | Private planning docs; master operations manual |
+| **WorkingArea/** | Scratch space for MD files, drafts, and working notes |
+
+## Rules
+
+1. **Do not** add these paths to `git add` or include them in commit suggestions
+2. **Do not** remove or modify `.gitignore` entries for `Venture/` or `WorkingArea/`
+3. If asked to stage or commit "all" files, explicitly exclude these folders
+4. If the user is editing files in these folders, treat them as private — never push to Git

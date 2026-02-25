@@ -1,2 +1,10 @@
 # Sensitive project context — do not push to a public repo; keep local only
 .cursorrules
+
+# Venture — PRIVATE. Never push to Git. Planning docs stay local only.
+Venture/
+/Venture/
+
+# WorkingArea — PRIVATE. Scratch space for MD files and drafts. Never push to Git.
+WorkingArea/
+/WorkingArea/
