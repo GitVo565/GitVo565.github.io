@@ -36,7 +36,7 @@ Reference for AI and maintainers. Aligned with **Voetberg Family Portal Master P
 - **Core:** `orders_9sL2k.html`, `events_7x9B2.html`, `excalibur_strategy_2kL9v.html`, `pantry_restock_8kL2m.html`.
 - **Excalibur / Tacie:** `tacie_training_2pX4v.html` (Daily Log), `supplement_intel_5kM9p.html` (Intel Briefing), `tacie_supplements_3mX9z.html`, wrestling hub/videos/library/notebook — all use obscure IDs. Protocol sub-pages: circuits (e.g. `tacie_circuit_a_4jK9m.html`), lifts (e.g. `tacie_liftc_7jK2n.html`), support (e.g. `tacie_ais_4kL9m.html`, `tacie_mobility_5nB8v.html`).
 - **Profiles:** `dan_3mP9L.html`, `donald_2yR5j.html`, `tonya_9vK2x.html`, `brian_H4z8W.html`, `tacie_6nQ1s.html`, `wallace_8xL4p.html`.
-- **Lifestyle / other:** `albert_st_cinema_9kL2z.html`, `fun_4aW8x.html`, `history_8kL9m.html`, `private_credit_8kL2m.html` (investor guide), etc.
+- **Lifestyle / other:** `albert_st_cinema_9kL2z.html`, `fun_4aW8x.html`, `history_8kL9m.html`, `private_credit_8kL2m.html` (investor guide), `special_flyers_7kL2m.html` (Dan's fund), etc.
 
 ---
 
