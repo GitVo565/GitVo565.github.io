@@ -11,7 +11,7 @@ Never suggest, stage, or commit any files from these folders. They are intention
 
 | Folder | Purpose |
 |--------|---------|
-| **Venture/** | Private planning docs; master operations manual |
+| **Venture/** | Private planning docs; master operations manual; **Venture/scripts/** = Sunday Journal & welcome-email Apps Script source (never push — private/security context) |
 | **WorkingArea/** | Scratch space for MD files, drafts, and working notes |
 
 ## Rules

@@ -1,0 +1,30 @@
+---
+description: When converting a Sunday Journal draft to Sheet-ready A1/A2, follow the Venture format guide
+globs: ["**/Sunday_Journal*.md", "**/Draft*", "**/Code.gs"]
+---
+
+# Sunday Journal — Draft to A1/A2 Conversion
+
+When the user asks you to **convert**, **stylize**, or **format** a Sunday Journal draft for the Google Sheet (or to produce **A1** and **A2** for the Draft tab), do the following:
+
+## 1. Use the format guide
+
+Read and apply **Venture/Sunday_Journal_Format_Guide.md** (in this repo). It defines:
+
+- What the script adds (greeting "Hey [Name],", signature, unsubscribe) — **do not duplicate** in A2.
+- **A1:** One subject line; no greeting; optional emoji; ~60 chars or less.
+- **A2:** Body HTML only — starts with the **first paragraph** (no "Hi Crew!"); ends with the last paragraph or CTA (no signature/unsubscribe).
+- Paragraphs: `<p>...</p>`; bold: `<strong>`; links: `<a href='...' style='color:#007bff;'>text</a>`; line breaks: `<br>`.
+- Emojis: 🏃 ☕ 🏔 are converted by the script; prefer these or plain text.
+- No script/iframe; trusted content only.
+
+## 2. Output format
+
+Deliver two clearly labeled blocks so the user can paste into the Sheet:
+
+- **A1 (subject):** Plain text, one line.
+- **A2 (body HTML):** HTML only, starting with the first paragraph of the letter and ending before any "Have a great week" / signature / unsubscribe.
+
+## 3. Sequencing
+
+If the user provides raw draft text: (1) apply the guide to produce A1 and A2; (2) remind them to paste A1 into Draft!A1 and A2 into Draft!A2, then Test Send before Send.

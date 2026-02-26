@@ -1,0 +1,22 @@
+---
+description: Order of operations when publishing a new Sunday Journal entry — site first, then email
+globs: ["**/vault*.html", "**/archive*.html", "**/*journal*", "**/donald*.html"]
+---
+
+# New Sunday Journal Entry — Checklist
+
+When adding a new Sunday Journal installment, follow this order so the site is current before the email goes out.
+
+## Order of operations
+
+1. **Create the entry file** — Add or update the HTML for the new journal entry on the site (e.g. archive or entry-specific page).
+2. **Update the vault index** — Update `vault-7f3e9a1b.html` (Crew Vault) so it lists the new entry and links to it. The email’s plain-text fallback links to the vault; subscribers must see the new content there.
+3. **Then send the Sunday Journal** — Run the Apps Script (Test Send → Send). The email body contains the full journal text; the vault link is for plain-text clients only. Do not send before steps 1 and 2 are live.
+
+## Why this order
+
+If you send the email first and update the vault later, a subscriber who clicks “Read the entry in the vault” may see last week’s content. Updating the vault and entry **before** (or at the same time as) sending avoids that.
+
+## Sheet-side prep (manual)
+
+Before sending, ensure: Form_Responses has **Status** in F1; the **Draft** tab exists with A1 = subject, A2 = body paragraphs only. See **Venture/000-VENTURE_NOTES.md** → “Sunday Journal — Deployment Checklist.”
