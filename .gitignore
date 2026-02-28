@@ -1,6 +1,9 @@
 # Sensitive project context — do not push to a public repo; keep local only
 .cursorrules
 
+# Ops_Hub workflow — local reference only; do not push to GitHub
+How_to_send_documents_to_Ops_Hub.md
+
 # Venture — PRIVATE. Never push to Git. Planning docs stay local only.
 Venture/
 /Venture/

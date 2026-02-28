@@ -1,12 +1,12 @@
 [
   {
+    "key": "ctrl+alt+p",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Git Pump"
+  },
+  {
     "key": "alt+p",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        { "command": "workbench.action.tasks.terminate", "args": "terminateAll" },
-        { "command": "workbench.action.tasks.runTask", "args": "Git Pump" }
-      ]
-    }
+    "command": "workbench.action.tasks.runTask",
+    "args": "Git Pump"
   }
 ]
